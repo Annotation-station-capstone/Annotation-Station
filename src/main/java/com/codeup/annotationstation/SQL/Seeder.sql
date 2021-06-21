@@ -1,6 +1,6 @@
 USE annotation_db;
 
-truncate users;
+-- truncate users;
 insert into users (first_name, last_name, is_admin, username, user_image, email, password)
 values('nathan','adcock',true,'NA', null, 'nathan@codeup.com', 'codeup');
 insert into users (first_name, last_name, is_admin, username, user_image, email, password)
