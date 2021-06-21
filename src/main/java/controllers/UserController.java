@@ -22,7 +22,7 @@ public class UserController {
     //save user
     @PostMapping("sign-up")
     public String saveUser(@ModelAttribute User user){
-        // still need hash strings got passwords
+        // still need hash strings got passwords.
         //user.setPassword(hash) for security.
         users.save(user);
         return "redirect:/";
