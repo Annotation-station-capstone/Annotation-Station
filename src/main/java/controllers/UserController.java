@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
         //allow user to get to sign up form
         @GetMapping("/sign-up")
         public String signUpForm(Model model){
-            model.addAttribute("user", new com.codeup.annotationstation.Models.User());
+            model.addAttribute("user", new User());
             return "users/sign-up";
         }
 
         //save user
-        @PostMapping("sign-up")
-        public String saveUser(@ModelAttribute com.codeup.annotationstation.Models.User user){
+        @PostMapping("/sign-up")
+        public String saveUser(@ModelAttribute User user){
             // still need hash strings got passwords.
             //user.setPassword(hash) for security.
             users.save(user);
