@@ -1,5 +1,5 @@
-package com.codeup.annotationstation.Models;
-
+package models;
+import com.codeup.annotationstation.Models.User;
 import javax.persistence.*;
 
 @Entity
