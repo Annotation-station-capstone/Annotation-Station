@@ -1,4 +1,4 @@
-package models;
+package com.codeup.annotationstation.Models;
 import com.codeup.annotationstation.Models.User;
 import javax.persistence.*;
 
@@ -44,6 +44,14 @@ public class Collection {
         this.description = description;
         this.image = image;
     }
+    //add collection constructor
+    public Collection(String title, String description, boolean isPrivate, String image) {
+        this.title= title;
+        this.description=description;
+        this.is_private=isPrivate;
+        this.image=image;
+    }
+
     //getters and setters
 
     public long getId() {

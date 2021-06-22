@@ -1,7 +1,5 @@
 package com.codeup.annotationstation.Models;
 
-import models.Collection;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +12,7 @@ public class Section {
     @Column(nullable = false, length = 255)
     private String title;
 
-    @OneToMany
+    @ManyToOne
     private Collection collection_id;
 
     public Section() {
