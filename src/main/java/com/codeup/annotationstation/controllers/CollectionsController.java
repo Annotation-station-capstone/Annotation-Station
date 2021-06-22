@@ -1,9 +1,8 @@
-package controllers;
+package com.codeup.annotationstation.controllers;
 
-import com.codeup.annotationstation.Models.User;
-import daos.CollectionsRepository;
-import daos.UsersRepository;
-import models.Collection;
+import com.codeup.annotationstation.daos.CollectionsRepository;
+import com.codeup.annotationstation.daos.UsersRepository;
+import com.codeup.annotationstation.Models.Collection;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

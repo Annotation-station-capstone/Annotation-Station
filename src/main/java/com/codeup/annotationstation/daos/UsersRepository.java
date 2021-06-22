@@ -1,4 +1,4 @@
-package daos;
+package com.codeup.annotationstation.daos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

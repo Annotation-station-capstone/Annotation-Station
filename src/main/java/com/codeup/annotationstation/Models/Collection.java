@@ -1,4 +1,4 @@
-package models;
+package com.codeup.annotationstation.Models;
 import com.codeup.annotationstation.Models.User;
 import javax.persistence.*;
 
