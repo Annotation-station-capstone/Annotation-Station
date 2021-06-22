@@ -1,31 +1,39 @@
 package com.codeup.annotationstation.Models;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Table(name="tags")
 public class Tag {
-//tags table
+    //tags table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false,length = 255)
+    @Column(nullable = false, length = 255)
     private String tag;
+
+    @ManyToMany(mappedBy = "tags")
+    private List<Note> notes;
+
 //constructors
+
     public Tag() {
     }
 
-    public Tag(String tag) {
+    public Tag(String tag, List<Note> notes) {
         this.tag = tag;
+        this.notes = notes;
     }
 
-    public Tag(long id, String tag) {
+    public Tag(long id, String tag, List<Note> notes) {
         this.id = id;
         this.tag = tag;
+        this.notes = notes;
     }
 
-    //getters and setters
     public long getId() {
         return id;
     }
@@ -40,5 +48,13 @@ public class Tag {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
     }
 }

@@ -12,22 +12,23 @@ public class Video {
     @Column(nullable = false, length = 255)
     private String video_url;
 
-    @OneToMany
-    private Section section_id;
+    @ManyToOne
+    @JoinColumn(name= "section_id")
+    private Section section;
 
     //constructors
     public Video() {
     }
 
-    public Video(String video_url, Section section_id) {
+    public Video(String video_url, Section section) {
         this.video_url = video_url;
-        this.section_id = section_id;
+        this.section = section;
     }
 
-    public Video(long id, String video_url, Section section_id) {
+    public Video(long id, String video_url, Section section) {
         this.id = id;
         this.video_url = video_url;
-        this.section_id = section_id;
+        this.section = section;
     }
 
     //getters and setters
@@ -48,11 +49,11 @@ public class Video {
         this.video_url = video_url;
     }
 
-    public Section getSection_id() {
-        return section_id;
+    public Section getSection() {
+        return section;
     }
 
-    public void setSection_id(Section section_id) {
-        this.section_id = section_id;
+    public void setSection(Section section) {
+        this.section = section;
     }
 }

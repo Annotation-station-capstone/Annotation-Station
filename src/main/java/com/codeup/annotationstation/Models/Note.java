@@ -1,6 +1,8 @@
 package com.codeup.annotationstation.Models;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Table(name="notes")
@@ -12,26 +14,37 @@ public class Note {
     @Column(nullable = false, length = 255)
     private String note;
 
-    @OneToMany
-    private Video video_id;
+    @ManyToOne
+    @JoinColumn(name = "video_id")
+    private Video video;
 
     @Column(nullable = false, length = 255)
     private String time_stamp;
+
+    //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "notes_tags",
+            joinColumns = { @JoinColumn(name = "note_id") },
+            inverseJoinColumns = { @JoinColumn(name = "tag_id") }
+    )
+    private List<Tag> tags;
+
 
     //constructors
     public Note() {
     }
 
-    public Note(String note, Video video_id, String time_stamp) {
+    public Note(String note, Video video, String time_stamp) {
         this.note = note;
-        this.video_id = video_id;
+        this.video = video;
         this.time_stamp = time_stamp;
     }
 
-    public Note(long id, String note, Video video_id, String time_stamp) {
+    public Note(long id, String note, Video video, String time_stamp) {
         this.id = id;
         this.note = note;
-        this.video_id = video_id;
+        this.video = video;
         this.time_stamp = time_stamp;
     }
     //getters and setters
@@ -52,12 +65,12 @@ public class Note {
         this.note = note;
     }
 
-    public Video getVideo_id() {
-        return video_id;
+    public Video getVideo() {
+        return video;
     }
 
-    public void setVideo_id(Video video_id) {
-        this.video_id = video_id;
+    public void setVideo(Video video) {
+        this.video = video;
     }
 
     public String getTime_stamp() {

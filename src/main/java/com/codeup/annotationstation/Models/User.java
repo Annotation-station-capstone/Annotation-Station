@@ -1,11 +1,12 @@
 package com.codeup.annotationstation.Models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
 public class User {
-//user table
+    //user table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -31,7 +32,11 @@ public class User {
     @Column(nullable = false, length = 255)
     private String password;
 
-//constructor
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
+
+    //constructor
     public User() {
     }
 
