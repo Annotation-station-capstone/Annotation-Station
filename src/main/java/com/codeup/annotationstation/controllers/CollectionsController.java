@@ -31,6 +31,7 @@ public class CollectionsController {
         model.addAttribute("singleCollection", collectionsDao.getById(id));
         return "collections/show";
     }
+
 //get a collection to edit
     @GetMapping("/collections/edit/{id}")
     public String editCollection(@PathVariable long id, Model model){
@@ -45,7 +46,7 @@ public class CollectionsController {
         //save changes made to collection
         collection.setUser(usersDao.getById(id));//update collection at the id of ?
         collectionsDao.save(collection);
-        return "/collections/index";
+        return "redirect:/collections/{id}";
     }
 //get information about collections from form to add
     @GetMapping(value= "/collection/add")
