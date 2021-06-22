@@ -21,7 +21,7 @@ public class SectionController {
         this.usersDao= usersDao;
     }
 
-    @GetMapping("collections/section/{id}")
+    @GetMapping("/section/{id}")
     public String insertSection(@PathVariable long id, String description, Collection collection_id){
 
     }
