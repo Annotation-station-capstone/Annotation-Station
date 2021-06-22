@@ -1,5 +1,7 @@
 package com.codeup.annotationstation.Models;
 
+import models.Collection;
+
 import javax.persistence.*;
 
 @Entity

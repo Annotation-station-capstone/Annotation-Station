@@ -1,5 +1,5 @@
-package com.codeup.annotationstation.Models;
-
+package models;
+import com.codeup.annotationstation.Models.User;
 import javax.persistence.*;
 
 @Entity
@@ -8,9 +8,6 @@ public class Collection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @OneToMany
-    private User user_id;
 
     @Column(nullable = false, length = 255)
     private String title;
@@ -24,22 +21,24 @@ public class Collection {
     @Column(nullable = false, length = 255)
     private String image;
 
+    @OneToOne
+    private User user;
 
     //constructors
     public Collection() {
     }
     //insert
-    public Collection(User user_id, String title, Boolean is_private, String description, String image) {
-        this.user_id = user_id;
+    public Collection(User user, String title, Boolean is_private, String description, String image) {
+        this.user = user;
         this.title = title;
         this.is_private = is_private;
         this.description = description;
         this.image = image;
     }
     //update
-    public Collection(long id, User user_id, String title, Boolean is_private, String description, String image) {
+    public Collection(long id, User user, String title, Boolean is_private, String description, String image) {
         this.id = id;
-        this.user_id = user_id;
+        this.user = user;
         this.title = title;
         this.is_private = is_private;
         this.description = description;
@@ -55,12 +54,12 @@ public class Collection {
         this.id = id;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
