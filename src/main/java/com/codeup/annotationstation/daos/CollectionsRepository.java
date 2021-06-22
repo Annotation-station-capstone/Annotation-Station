@@ -1,6 +1,6 @@
-package daos;
+package com.codeup.annotationstation.daos;
 
-import models.Collection;
+import com.codeup.annotationstation.Models.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CollectionsRepository extends JpaRepository<Collection, Long> {
