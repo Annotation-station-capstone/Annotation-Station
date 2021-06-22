@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.Models;
 import com.codeup.annotationstation.Models.User;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="collections")
@@ -23,6 +24,10 @@ public class Collection {
 
     @OneToOne
     private User user;
+
+    @OneToMany(mappedBy = "collection")
+    private List<Comment> comments;
+
 
     //constructors
     public Collection() {

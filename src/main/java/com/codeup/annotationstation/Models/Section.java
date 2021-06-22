@@ -13,20 +13,21 @@ public class Section {
     private String title;
 
     @ManyToOne
-    private Collection collection_id;
+    @JoinColumn(name = "collection_id")
+    private Collection collection;
 
     public Section() {
     }
 
-    public Section(String title, Collection collection_id) {
+    public Section(String title, Collection collection) {
         this.title = title;
-        this.collection_id = collection_id;
+        this.collection = collection;
     }
 
-    public Section(long id, String title, Collection collection_id) {
+    public Section(long id, String title, Collection collection) {
         this.id = id;
         this.title = title;
-        this.collection_id = collection_id;
+        this.collection = collection;
     }
 
     public long getId() {
@@ -45,11 +46,11 @@ public class Section {
         this.title = title;
     }
 
-    public Collection getCollection_id() {
-        return collection_id;
+    public Collection getCollection() {
+        return collection;
     }
 
-    public void setCollection_id(Collection collection_id) {
-        this.collection_id = collection_id;
+    public void setCollection(Collection collection) {
+        this.collection = collection;
     }
 }
