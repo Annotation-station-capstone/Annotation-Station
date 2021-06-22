@@ -12,7 +12,7 @@ public class Section {
     @Column(nullable = false, length = 255)
     private String title;
 
-    @OneToMany
+    @ManyToOne
     private Collection collection_id;
 
     public Section() {
