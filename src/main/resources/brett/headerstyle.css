@@ -1,0 +1,40 @@
+.flex-top-nav{
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+
+
+.flex-nav-list{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    padding: .5em 2em;
+    margin: 0;
+    background-color: #50a2a7;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+li {
+    padding: .5em 2em;
+
+
+}
+
+.flex-nav-list li:nth-child(2){
+    margin-right: auto;
+}
+
+
+a{
+    color:white;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
