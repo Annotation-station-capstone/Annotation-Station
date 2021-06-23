@@ -45,8 +45,8 @@ public class Section {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public Collection getCollection() {
+//talk to instructor about this change, is it necessary?
+    public Collection getCollection(Collection byId) {
         return collection;
     }
 
