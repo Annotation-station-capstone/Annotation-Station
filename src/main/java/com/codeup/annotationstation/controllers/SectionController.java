@@ -1,11 +1,7 @@
 package com.codeup.annotationstation.controllers;
 
-import com.codeup.annotationstation.Models.Collection;
-import com.codeup.annotationstation.Models.Section;
-import com.codeup.annotationstation.Models.User;
-import com.codeup.annotationstation.daos.CollectionsRepository;
-import com.codeup.annotationstation.daos.SectionRepository;
-import com.codeup.annotationstation.daos.UsersRepository;
+import com.codeup.annotationstation.Models.*;
+import com.codeup.annotationstation.daos.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +12,15 @@ public class SectionController {
     private CollectionsRepository collectionsDao;
     private UsersRepository usersDao;
     private SectionRepository sectionDao;
+    private VideoRepository videoDao;
+    private NotesRepository notesDao;
 
-    public SectionController(CollectionsRepository collectionsDao, UsersRepository usersDao,SectionRepository sectionDao ){
+    public SectionController(CollectionsRepository collectionsDao, UsersRepository usersDao,SectionRepository sectionDao, VideoRepository videoDao, NotesRepository notesDao ){
         this.collectionsDao=collectionsDao;
         this.sectionDao=sectionDao;
         this.usersDao= usersDao;
+        this.videoDao= videoDao;
+        this.notesDao=notesDao;
     }
 
 //read
@@ -65,11 +65,12 @@ public class SectionController {
 
     }
 //get instructors to make sure i did this in the best way
-    @PostMapping("/collection/section/{id}/delete")
+    @GetMapping("/collection/section/{id}/delete")
     public String deleteSection( @PathVariable long id){
+        //To use PostMapping use form where action is /collection/section/{id}/delete and make method a post
         //find section to delete
         sectionDao.deleteById(id);
-        return "redirect:/collection/section";
+        return "redirect:/collection";
     }
 
 }
