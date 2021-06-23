@@ -24,7 +24,6 @@ public class SectionController {
     }
 
 //read
-
     @GetMapping("/collections/section")
     public String showCollectionsWithSectionsPage(Model model){
         model.addAttribute("section", sectionDao.findAll());
@@ -66,10 +65,8 @@ public class SectionController {
 
     }
 //get instructors to make sure i did this in the best way
-    @PostMapping("/collection/{collection_id}/section{id}/delete")
-    public String deleteSection(@PathVariable long collection_id, @PathVariable long id){
-        //find collection to delete section from
-        collectionsDao.getById(collection_id);
+    @PostMapping("/collection/section/{id}/delete")
+    public String deleteSection( @PathVariable long id){
         //find section to delete
         sectionDao.deleteById(id);
         return "redirect:/collection/section";
