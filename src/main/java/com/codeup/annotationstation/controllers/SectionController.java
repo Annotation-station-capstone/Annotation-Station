@@ -30,13 +30,13 @@ public class SectionController {
         return "redirect:/collections/index";
     }
 
-    @PostMapping("/collection/section/{id}")
+    @PostMapping("/section/{id}")
     public String showOneSection(@PathVariable long id, Model model){
         model.addAttribute("singleSection", sectionDao.getById(id));
         return "redirect:/collection/section/{id}";
     }
     //get section to edit
-    @GetMapping("/collection/section/edit/{id}")
+    @GetMapping("/section/edit/{id}")
     public String editSecion(@PathVariable long id, Model model){
         //find section to edit
         Section sectionToEdit = sectionDao.getById(id);
@@ -45,18 +45,16 @@ public class SectionController {
     }
     //save changes to section
     @PostMapping("/collection/{collection_id}/section/edit/{id}")
-    public String saveEditedSection(@PathVariable long id, @PathVariable long collection_id, @ModelAttribute Section section, @ModelAttribute Collection collection){
-        //find user to save section to users collection
-        collection.setUser(usersDao.getById(id));
-        //save section to a collection
-        section.getCollection(collectionsDao.getById(collection_id));
+    public String saveEditedSection(@PathVariable long id, @ModelAttribute Section section){
+        //find user to save section to users
+        sectionDao.getById(id);
         //save section
         sectionDao.save(section);
         return "redirect:/collection/{collection_id}/section/{id}";
     }
 
     //get info about section for to add to collection
-    @GetMapping("/collection/section/add")
+    @GetMapping("/section/add")
     public String addSection(@RequestParam(name = "addSection") String title,@RequestParam Collection collection){
       //create a new instance of a section to add to a collection
         Section section = new Section(title, collection);
@@ -65,7 +63,7 @@ public class SectionController {
 
     }
 //get instructors to make sure i did this in the best way
-    @GetMapping("/collection/section/{id}/delete")
+    @GetMapping("/section/{id}/delete")
     public String deleteSection( @PathVariable long id){
         //To use PostMapping use form where action is /collection/section/{id}/delete and make method a post
         //find section to delete
