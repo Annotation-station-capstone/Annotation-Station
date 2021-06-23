@@ -283,7 +283,7 @@ $(document).ready(function () {
     }
 
 // Insert new record with POST request
-    function insertNewEmployee() {
+    function insertNewCollection() {
 
         var name = document.getElementById('txt_name').value;
         var salary = document.getElementById('txt_salary').value;
