@@ -17,10 +17,18 @@ public class Section {
     @JoinColumn(name = "collection_id")
     private Collection collection;
 
-    @OneToMany(cascade= CascadeType.ALL, mappedBy = "section")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "section")
     private List<Video> video;
 
     public Section() {
+    }
+
+    public List<Video> getVideo() {
+        return video;
+    }
+
+    public void setVideo(List<Video> video) {
+        this.video = video;
     }
 
     public Section(String title, Collection collection) {
