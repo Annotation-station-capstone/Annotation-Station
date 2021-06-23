@@ -81,8 +81,8 @@ $(document).ready(function () {
 
     const main = async () => {
         const
-            defaultId =  getYoutubeVideoID($('#userInputtedUrl').val()), /* Queen – Bohemian Rhapsody */
-            json =  YouTubeCaptionUtil
+            defaultId = getYoutubeVideoID($('#userInputtedUrl').val()), /* Queen – Bohemian Rhapsody */
+            json = YouTubeCaptionUtil
                 .fetchCaptions(YouTubeCaptionUtil.videoId() || defaultId),
             csv = CsvUtil.fromJson(json);
         document.getElementById("captions").innerHTML = csv;
@@ -168,15 +168,17 @@ $(document).ready(function () {
             console.log(event.data);
         }
     }
+
 //this is where I will need to put the code to control the captions
 //Trying to make sure that this is going to work
 
     function showValues() {
-        var str = $( "form" ).serialize();
-        $( "#results" ).text( str );
+        var str = $("form").serialize();
+        $("#results").text(str);
     }
-    $( "input[type='checkbox'], input[type='radio']" ).on( "click", showValues );
-    $( "select" ).on( "change", showValues );
+
+    $("input[type='checkbox'], input[type='radio']").on("click", showValues);
+    $("select").on("change", showValues);
     showValues();
 
     // function getCollection(val){
@@ -205,22 +207,115 @@ $(document).ready(function () {
     // }
 
 
-
     $.ajax({
         url: '../php/ajaxfile.php?request=1',
         type: 'get',
-        success: function(response){
+        success: function (response) {
 
         }
     });
 
     $.ajax({
-        url:'../php/ajaxfile.php',
+        url: '../php/ajaxfile.php',
         type: 'post',
-        data: {user_id : $("#user_id").val(), title : $("#collections").val(), is_private : 1, description : "Enter your Collection Description here", image : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"},
-        success: function(response){
+        data: {
+            user_id: $("#user_id").val(),
+            title: $("#collections").val(),
+            is_private: 1,
+            description: "Enter your Collection Description here",
+            image: "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
+        },
+        success: function (response) {
 
         }
     });
 
+    loadCollection();
+
+// Load records with GET request
+    function loadCollection() {
+        var xhttp = new XMLHttpRequest();
+
+        // Set GET method and ajax file path with parameter
+        xhttp.open("GET", "ajaxfile.php?request=1", true);
+
+        // Content-type
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        // call on request changes state
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+
+                // Parse this.responseText to JSON object
+                var response = JSON.parse(this.responseText);
+
+                // Select <table id='empTable'> <tbody>
+                var empTable =
+                    document.getElementById("empTable").getElementsByTagName("tbody")[0];
+
+                // Empty the table <tbody>
+                empTable.innerHTML = "";
+
+                // Loop on response object
+                for (var key in response) {
+                    if (response.hasOwnProperty(key)) {
+                        var val = response[key];
+
+                        // insert new row
+                        var NewRow = empTable.insertRow(0);
+                        var userId_cell = NewRow.insertCell(0);
+                        var title_cell = NewRow.insertCell(1);
+                        var description_cell = NewRow.insertCell(2);
+                        var image_cell = NewRow.insertCell(3);
+
+                        userId_cell.innerHTML = val['emp_name'];
+                        title_cell.innerHTML = val['salary'];
+                        description_cell.innerHTML = val['description'];
+                        image_cell.innerHTML = val['image'];
+                    }
+                }
+
+            }
+        };
+
+        // Send request
+        xhttp.send();
+    }
+
+// Insert new record with POST request
+    function insertNewEmployee() {
+
+        var name = document.getElementById('txt_name').value;
+        var salary = document.getElementById('txt_salary').value;
+        var email = document.getElementById('txt_email').value;
+
+        if (name !== '' && salary !== '' && email !== '') {
+
+            var data = {name: name, salary: salary, email: email};
+            var xhttp = new XMLHttpRequest();
+            // Set POST method and ajax file path
+            xhttp.open("POST", "../php/ajaxfile.php", true);
+
+            // call on request changes state
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    var response = this.responseText;
+                    if (response == 1) {
+                        alert("Insert successfully.");
+
+                        loadCollection();
+                    }
+                }
+            };
+
+            // Content-type
+            xhttp.setRequestHeader("Content-Type", "application/json");
+
+            // Send request with data
+            xhttp.send(JSON.stringify(data));
+
+        }
+    }
 });
+

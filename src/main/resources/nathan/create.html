@@ -51,11 +51,12 @@
                         aria-expanded="false">Your Collections
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item"  href="#">Collection 1</a></li>
+                    <li><a class="dropdown-item" href="#">Collection 1</a></li>
                     <li><a class="dropdown-item" href="#">Collection 2</a></li>
                     <li><a class="dropdown-item" href="#">Collection 3</a></li>
                 </ul>
-                <input type="text" class="form-control" id="collection" placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button">
+                <input type="text" class="form-control" id="collection" placeholder="Enter a new Collection Title here"
+                       aria-label="Text input with dropdown button">
             </div>
         </div>
         <div class="col-md">
@@ -63,12 +64,13 @@
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">Your Sections
                 </button>
-                <ul class="dropdown-menu" >
+                <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Section 1</a></li>
                     <li><a class="dropdown-item" href="#">Section 2</a></li>
                     <li><a class="dropdown-item" href="#">Section 3</a></li>
                 </ul>
-                <input type="text" class="form-control" id="section" placeholder="Enter a new Section Title here" aria-label="Text input with dropdown button">
+                <input type="text" class="form-control" id="section" placeholder="Enter a new Section Title here"
+                       aria-label="Text input with dropdown button">
             </div>
         </div>
         <div class="col-md">
@@ -101,17 +103,19 @@
     <div class="row g-2">
         <div class="col-md">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="YouTubeId: This field will be hidden" aria-label="Text input with dropdown button">
+                <input type="text" class="form-control" placeholder="YouTubeId: This field will be hidden"
+                       aria-label="Text input with dropdown button">
             </div>
         </div>
         <div class="col-md">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="User_Id: This field will be hidden" aria-label="Text input with dropdown button">
+                <input type="text" class="form-control" placeholder="User_Id: This field will be hidden"
+                       aria-label="Text input with dropdown button">
             </div>
         </div>
         <div class="col-md">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Tags" aria-label="Text input with dropdown button">
+                <input type="text" class="form-control" placeholder="" aria-label="Text input with dropdown button">
             </div>
         </div>
         <div class="col-md">
@@ -122,18 +126,24 @@
         <div id="counter" class="counter"></div>
     </div>
 </form>
-<table id='empTable' style="border: 1px">
-    <thead>
-    <tr>
-        <th>user_id</th>
-        <th>title</th>
-        <th>is_private</th>
-        <th>Description</th>
-        <th>Image</th>
-    </tr>
-    </thead>
-    <tbody></tbody>
-</table>
+<div class="row g-2">
+    <div class="col-md"></div>
+    <div class="col-md">
+    <table id='empTable' style="border: 1px">
+        <thead>
+        <tr>
+            <th>user_id</th>
+            <th>title</th>
+            <th>is_private</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    </div>
+    <div class="col-md"></div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
