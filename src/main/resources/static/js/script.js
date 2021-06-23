@@ -169,6 +169,14 @@ $(document).ready(function () {
         }
     }
 
+    // const options = {
+//         onUploadDone:
+//         function (res){
+//             $("#user_id").val(res.filesUploaded[0].url);
+//             res.filesUploaded
+//         }
+// }
+
 //this is where I will need to put the code to control the captions
 //Trying to make sure that this is going to work
 

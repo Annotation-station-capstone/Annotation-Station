@@ -20,7 +20,7 @@
     Want to enter more information on subsequent re-watches? Any entry made after the first viewing will be logged
     in the original list and ordered to fit chronologically with the videos time. When you are finished save the
     information for later use or send it to a friend. Enjoy!</p>
-<form class="form" id="inputURL" name="inputURL">
+<form class="form" id="inputURL" name="inputURL" action="#" th:action="@{/register}" method="post" th:object="${user}">
     <label class="formLabel" for="userInputtedUrl">ENTER YOUR URL HERE</label>
     <input id="userInputtedUrl" name="userInputtedUrl" type="text" placeholder="URL">
     <button class="btn-submit" id="userURLSubmit">SUBMIT</button>
@@ -29,20 +29,18 @@
 <iframe id="videoPlayer" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
 
-<form class="form" id="notesForm">
+<form class="form" id="notesForm" action="#" th:action="@{/register}" method="post" th:object="${user}">
 
-    <label class="formLabel" for="userField">TYPE A LINE OF NOTES AND PRESS ENTER</label>
     <!--    <div class="captions-background">-->
     <!--        <div id="captions" class="captions"></div>-->
     <!--    </div>-->
     <div class="progress-background">
         <div id="progress-bar" class="progress-bar"></div>
-    </div>
-    <textarea class="textField" id="userField" type="text" name="notes" rows="20"
-              placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK"></textarea>
-    <button class="btn-submit" id="userSession" type="submit">SUBMIT</button>
     <div class="row g-2">
-
+        <div class="input-group mb-3">
+            <input class="form-control" id="userField"  name="notes" type="text" placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" id="userSession" type="button" id="button-addon2">Button</button>
+        </div>
     </div>
     <div class="row g-2">
         <div class="col-md">
@@ -109,7 +107,7 @@
         </div>
         <div class="col-md">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="user_id" placeholder="User_Id: This field will be hidden"
+                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="User_Id: This field will be hidden"
                        aria-label="Text input with dropdown button">
             </div>
         </div>
