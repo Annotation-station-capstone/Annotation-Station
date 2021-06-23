@@ -171,4 +171,29 @@ $(document).ready(function () {
 //this is where I will need to put the code to control the captions
 //Trying to make sure that this is going to work
 
+    function getCollection(val){
+        $.ajax({
+            url: '',
+            type: 'post',
+            data: {user_id : $("#user_id").val(), title : $("#collections").val(), is_private : 1, description : "Enter your Collection Description here", image : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"},
+            success: function(data){
+                console.log(data.id);
+
+            }
+
+        });
+    }
+    function getSection(val){
+        $.ajax({
+            url: '',
+            type: 'post',
+            data: {user_id : $("#user_id").val(), title : $("#collections").val(), is_private : 1, description : "Enter your Collection Description here", image : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"},
+            success: function(data){
+                console.log(data.id);
+
+            }
+
+        });
+    }
+
 });
