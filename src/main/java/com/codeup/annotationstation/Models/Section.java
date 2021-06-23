@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.Models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="sections")
@@ -15,6 +16,9 @@ public class Section {
     @ManyToOne
     @JoinColumn(name = "collection_id")
     private Collection collection;
+
+    @OneToMany(cascade= CascadeType.ALL, mappedBy = "section")
+    private List<Video> video;
 
     public Section() {
     }
