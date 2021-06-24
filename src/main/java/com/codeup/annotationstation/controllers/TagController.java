@@ -28,7 +28,7 @@ public class TagController {
     public String saveTag(@PathVariable long id,@ModelAttribute Tag tag){
         tagDao.getById(id);
         tagDao.save(tag);
-        return "redirect:/collection";
+        return "redirect:/collection+";
     }
 //delete
 @GetMapping("/tag/{id}/delete")
