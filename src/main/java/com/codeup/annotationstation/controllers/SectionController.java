@@ -30,6 +30,7 @@ public class SectionController {
         return "redirect:/collections/index";
     }
 
+
     @PostMapping("/section/{id}")
     public String showOneSection(@PathVariable long id, Model model){
         model.addAttribute("singleSection", sectionDao.getById(id));

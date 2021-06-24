@@ -40,8 +40,8 @@ $(document).ready(function () {
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
         $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1`);
+        $("#ytId").attr("value", `${youtubeId}`);
     });
-
 
     function onPlayerReady(event) {
         event.target.playVideo();
@@ -132,42 +132,42 @@ $(document).ready(function () {
         };
     }
 
-    YouTubeCaptionUtil.defaultOptions = {
-        baseUrl: 'https://video.google.com/timedtext',
-        languageId: 'en'
-    };
-
-    class CsvUtil {
-        static fromJson(json, options) {
-            const
-                opts = {...CsvUtil.defaultOptions, ...options},
-                keys = Object.keys(json[0]).filter(key =>
-                    opts.ignoreKeys.indexOf(key) === -1),
-                lines = [];
-            if (opts.includeHeader) lines.push(keys.join(opts.delimiter));
-            return lines.concat(json
-                .map(entry => keys.map(key => entry[key]).join(opts.delimiter)))
-                .join('\n');
-        }
-    }
-
-    CsvUtil.defaultOptions = {
-        includeHeader: false,
-        ignoreKeys: ['dur'],
-        delimiter: '\t'
-    };
-
-    main();
-
-    // 5. The API calls this function when the player's state changes (works)
-    function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.ENDED) {
-            console.log("END!");
-            clearTimeout(timeout_setter);
-        } else {
-            console.log(event.data);
-        }
-    }
+    // YouTubeCaptionUtil.defaultOptions = {
+    //     baseUrl: 'https://video.google.com/timedtext',
+    //     languageId: 'en'
+    // };
+    //
+    // class CsvUtil {
+    //     static fromJson(json, options) {
+    //         const
+    //             opts = {...CsvUtil.defaultOptions, ...options},
+    //             keys = Object.keys(json[0]).filter(key =>
+    //                 opts.ignoreKeys.indexOf(key) === -1),
+    //             lines = [];
+    //         if (opts.includeHeader) lines.push(keys.join(opts.delimiter));
+    //         return lines.concat(json
+    //             .map(entry => keys.map(key => entry[key]).join(opts.delimiter)))
+    //             .join('\n');
+    //     }
+    // }
+    //
+    // CsvUtil.defaultOptions = {
+    //     includeHeader: false,
+    //     ignoreKeys: ['dur'],
+    //     delimiter: '\t'
+    // };
+    //
+    // main();
+    //
+    // // 5. The API calls this function when the player's state changes (works)
+    // function onPlayerStateChange(event) {
+    //     if (event.data === YT.PlayerState.ENDED) {
+    //         console.log("END!");
+    //         clearTimeout(timeout_setter);
+    //     } else {
+    //         console.log(event.data);
+    //     }
+    // }
 
     // const options = {
 //         onUploadDone:
@@ -180,14 +180,14 @@ $(document).ready(function () {
 //this is where I will need to put the code to control the captions
 //Trying to make sure that this is going to work
 
-    function showValues() {
-        var str = $("form").serialize();
-        $("#results").text(str);
-    }
-
-    $("input[type='checkbox'], input[type='radio']").on("click", showValues);
-    $("select").on("change", showValues);
-    showValues();
+    // function showValues() {
+    //     var str = $("form").serialize();
+    //     $("#results").text(str);
+    // }
+    //
+    // $("input[type='checkbox'], input[type='radio']").on("click", showValues);
+    // $("select").on("change", showValues);
+    // showValues();
 
     // function getCollection(val){
     //     $.ajax({
@@ -215,31 +215,34 @@ $(document).ready(function () {
     // }
 
 
-    $.ajax({
-        url: '../php/ajaxfile.php?request=1',
-        type: 'get',
-        success: function (response) {
-
-        }
-    });
+    // $.ajax({
+    //     url: '../php/ajaxfile.php?request=1',
+    //     type: 'get',
+    //     success: function (response) {
+    //
+    //     }
+    // });
 
 
     $("#createFormSubmit").click(function (e) {
         e.preventDefault()
         $.ajax({
-            url: '../php/ajaxfile.php',
-            type: 'post',
-            data: {
-                user_id: $("#user_id").val(),
-                title: $("#collections").val(),
+            url: '/collections/create',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                user: {id: "1"},
+                title: $("#collection").val(),
                 is_private: 1,
                 description: "Enter your Collection Description here",
-                image: "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
-            },
-            success: function (response) {
-                console.log(data.id);
-            }
+                image: "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"})
+            // success: function (response) {
+            //     console.log(data.id);
+            // }
         });
+
+
+
     });
 
     // loadCollection();
