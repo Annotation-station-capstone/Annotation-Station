@@ -9,18 +9,14 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SectionController {
     //adding fields for injected repository
-    private CollectionsRepository collectionsDao;
-    private UsersRepository usersDao;
-    private SectionRepository sectionDao;
-    private VideoRepository videoDao;
-    private NotesRepository notesDao;
 
-    public SectionController(CollectionsRepository collectionsDao, UsersRepository usersDao,SectionRepository sectionDao, VideoRepository videoDao, NotesRepository notesDao ){
-        this.collectionsDao=collectionsDao;
+    private SectionRepository sectionDao;
+
+
+    public SectionController(SectionRepository sectionDao ){
+
         this.sectionDao=sectionDao;
-        this.usersDao= usersDao;
-        this.videoDao= videoDao;
-        this.notesDao=notesDao;
+
     }
 
 //read
@@ -35,22 +31,24 @@ public class SectionController {
         model.addAttribute("singleSection", sectionDao.getById(id));
         return "redirect:/collection/section/{id}";
     }
+    //Update
     //get section to edit
     @GetMapping("/section/edit/{id}")
     public String editSecion(@PathVariable long id, Model model){
         //find section to edit
         Section sectionToEdit = sectionDao.getById(id);
         model.addAttribute("editSection", sectionToEdit);
-        return "redirect:/collection/section/edit/{id}";
+        return "redirect:/section/{id}";
     }
+
     //save changes to section
-    @PostMapping("/collection/{collection_id}/section/edit/{id}")
+    @PostMapping("/section/edit/{id}")
     public String saveEditedSection(@PathVariable long id, @ModelAttribute Section section){
         //find user to save section to users
         sectionDao.getById(id);
         //save section
         sectionDao.save(section);
-        return "redirect:/collection/{collection_id}/section/{id}";
+        return "redirect:/section/{id}";
     }
 
     //get info about section for to add to collection
@@ -62,10 +60,11 @@ public class SectionController {
         return "redirect:/collection/section";
 
     }
-//get instructors to make sure i did this in the best way
+    //delete
     @GetMapping("/section/{id}/delete")
     public String deleteSection( @PathVariable long id){
         //To use PostMapping use form where action is /collection/section/{id}/delete and make method a post
+
         //find section to delete
         sectionDao.deleteById(id);
         return "redirect:/collection";
