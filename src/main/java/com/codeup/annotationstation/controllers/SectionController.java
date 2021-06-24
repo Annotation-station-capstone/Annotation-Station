@@ -20,7 +20,7 @@ public class SectionController {
     }
 
 //read
-    @GetMapping("/collections/section")
+    @GetMapping("/section")
     public String showCollectionsWithSectionsPage(Model model){
         model.addAttribute("section", sectionDao.findAll());
         return "redirect:/collections/index";

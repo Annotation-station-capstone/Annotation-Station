@@ -47,6 +47,11 @@ public class Note {
         this.video = video;
         this.time_stamp = time_stamp;
     }
+
+    public Note(Video video, String time_stamp) {
+        this.video=video;
+        this.time_stamp=time_stamp;
+    }
     //getters and setters
 
     public List<Tag> getTags() {
