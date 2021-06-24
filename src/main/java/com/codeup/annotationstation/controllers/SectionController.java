@@ -19,6 +19,10 @@ public class SectionController {
 
     }
 
+    @GetMapping("/section/{id}")
+    public String insertSection(@PathVariable long id, String description, Collection collection_id){
+        return "";}
+
 //read
     @GetMapping("/section")
     public String showCollectionsWithSectionsPage(Model model){
