@@ -11,6 +11,6 @@ public class CommentController {
         this.commentDao = commentDao;
     }
 
-    @GetMaping("/comment")
-    public String
+//    @GetMaping("/comment")
+//    public String
 }
