@@ -14,7 +14,7 @@ public class Note {
     @Column(nullable = false, length = 255)
     private String note;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "video_id")
     private Video video;
 
@@ -47,7 +47,20 @@ public class Note {
         this.video = video;
         this.time_stamp = time_stamp;
     }
+
+    public Note(Video video, String time_stamp) {
+        this.video=video;
+        this.time_stamp=time_stamp;
+    }
     //getters and setters
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 
     public long getId() {
         return id;

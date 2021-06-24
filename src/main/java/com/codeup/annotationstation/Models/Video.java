@@ -1,6 +1,9 @@
 package com.codeup.annotationstation.Models;
 
+import org.hibernate.engine.internal.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="videos")
@@ -12,9 +15,12 @@ public class Video {
     @Column(nullable = false, length = 255)
     private String video_url;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "section_id")
     private Section section;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "video")
+    private List<Note> notes;
 
     //constructors
     public Video() {
@@ -32,6 +38,14 @@ public class Video {
     }
 
     //getters and setters
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
 
     public long getId() {
         return id;
