@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.Models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="sections")
@@ -16,7 +17,18 @@ public class Section {
     @JoinColumn(name = "collection_id")
     private Collection collection;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "section")
+    private List<Video> video;
+
     public Section() {
+    }
+
+    public List<Video> getVideo() {
+        return video;
+    }
+
+    public void setVideo(List<Video> video) {
+        this.video = video;
     }
 
     public Section(String title, Collection collection) {
@@ -45,8 +57,8 @@ public class Section {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public Collection getCollection() {
+//talk to instructor about this change, is it necessary?
+    public Collection getCollection(Collection byId) {
         return collection;
     }
 
