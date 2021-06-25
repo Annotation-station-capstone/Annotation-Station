@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.Models.Collection;
+import com.codeup.annotationstation.Models.IncomingRequest;
 import com.codeup.annotationstation.Models.Note;
 import com.codeup.annotationstation.Models.Section;
 import com.codeup.annotationstation.service.CreateService;
@@ -18,37 +19,12 @@ public class CreateController {
 
     @RequestMapping(value = "/collections/create", method = POST)
     @ResponseBody
-    public void add(@RequestBody Collection collection) {
+    public void add(@RequestBody IncomingRequest incomingRequest) {
 
-        createService.addCollection(collection);
-
-    }
-
-    @ResponseBody
-    public void add(@RequestBody Section section) {
-
-        createService.addSection(section);
-
-    }
-
-    @ResponseBody
-    public void add(@RequestBody Note note) {
-
-        createService.addNote(note);
+        createService.addCollection(incomingRequest.getCollection(),incomingRequest.getSection(), incomingRequest.getNote());
 
     }
 
 
-
-
-//    set to void
-
-/**
- * userId
- * title
- * private
- * description
- * imageUrl
- */
 
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
-    Note findByTitle(String title);
-
-    Note findFirstByTitle(String title);
+//    Note findByTitle(String title);
+//
+//    Note findFirstByTitle(String title);
 }

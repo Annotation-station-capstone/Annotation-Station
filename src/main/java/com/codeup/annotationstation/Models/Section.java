@@ -20,6 +20,9 @@ public class Section {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "section")
     private List<Video> video;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "note")
+    private List<Note> notes;
+
     public Section() {
     }
 
