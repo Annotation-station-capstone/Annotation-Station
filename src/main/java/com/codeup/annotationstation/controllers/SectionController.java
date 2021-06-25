@@ -52,6 +52,24 @@ public class SectionController {
         return "redirect:/section/{id}";
     }
 
+    //get info about section for to add to collection
+    @GetMapping("/section/add")
+    public String addSection(@RequestParam(name = "addSection") String title,@RequestParam Collection collection){
+        //create a new instance of a section to add to a collection
+        Section section = new Section(title, collection);
+        sectionDao.save(section);
+        return "redirect:/collection/section";
+
+    }
+    //delete
+    @GetMapping("/section/{id}/delete")
+    public String deleteSection( @PathVariable long id){
+        //To use PostMapping use form where action is /collection/section/{id}/delete and make method a post
+
+        //find section to delete
+        sectionDao.deleteById(id);
+        return "redirect:/collection";
+    }
 
 
 }
