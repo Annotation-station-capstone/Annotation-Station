@@ -230,18 +230,35 @@ $(document).ready(function () {
             url: '/collections/create',
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                user: {id: "1"},
-                title: $("#collection").val(),
-                is_private: 1,
-                description: "Enter your Collection Description here",
-                image: "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"})
+            data: JSON.stringify(
+        {"collection": {
+            "user": {"id": "1"},
+            "title" : $("#collection").val(),
+                "is_private" : "true",
+                "description" : "Enter your Collection Description here",
+                "image" : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
+        },
+            "section":{
+            "title" : $("#section").val()
+        },
+            "note":
+            {
+                "note" : $("#note").val(),
+                "video": {"video_url" : "URL"}
+            }
+        }
+            )
             // success: function (response) {
             //     console.log(data.id);
             // }
         });
 
-
+        // {
+        //     user: {id: "1"},
+        //     title: $("#collection").val(),
+        //         is_private: 1,
+        //     description: "Enter your Collection Description here",
+        //     image: "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"}
 
     });
 

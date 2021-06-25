@@ -18,7 +18,11 @@ public class Note {
     @JoinColumn(name = "video_id")
     private Video video;
 
-    @Column(nullable = false, length = 255)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "section_id")
+    private Section sections;
+
+    @Column(nullable = true, length = 255)
     private String time_stamp;
 
     //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
@@ -41,11 +45,13 @@ public class Note {
         this.time_stamp = time_stamp;
     }
 
-    public Note(long id, String note, Video video, String time_stamp) {
+    public Note(long id, String note, Video video, Section sections, String time_stamp, List<Tag> tags) {
         this.id = id;
         this.note = note;
         this.video = video;
+        this.sections = sections;
         this.time_stamp = time_stamp;
+        this.tags = tags;
     }
 
     public Note(Video video, String time_stamp) {
@@ -93,4 +99,8 @@ public class Note {
     public void setTime_stamp(String time_stamp) {
         this.time_stamp = time_stamp;
     }
+
+    public Section getSections() { return sections; }
+
+    public void setSections(Section sections) { this.sections = sections; }
 }

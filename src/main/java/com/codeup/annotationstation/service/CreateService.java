@@ -15,27 +15,21 @@ public class CreateService {
     @Autowired
     CollectionsRepository collectionsRepository;
 
-    public void addCollection(Collection collection) {
-
-        collectionsRepository.save(collection);
-
-    }
-
     @Autowired
     SectionRepository sectionRepository;
-
-    public void addSection(Section section) {
-
-        sectionRepository.save(section);
-
-    }
 
     @Autowired
     NoteRepository noteRepository;
 
-    public void addNote(Note note) {
+    public void addCollection(Collection collection,Section section,Note note) {
 
-        noteRepository.save(note);
+        Collection collection1 = collectionsRepository.save(collection);
+        section.setCollection(collection1);
+        Section section1 = sectionRepository.save(section);
+        note.setSections(section1);
+        note.getVideo().setSection(section1);
+        Note note1 = noteRepository.save(note);
 
     }
+
 }
