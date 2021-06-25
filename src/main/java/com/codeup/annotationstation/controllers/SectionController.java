@@ -59,7 +59,7 @@ public class SectionController {
     //get info about section for to add to collection
     @GetMapping("/section/add")
     public String addSection(@RequestParam(name = "addSection") String title,@RequestParam Collection collection){
-      //create a new instance of a section to add to a collection
+        //create a new instance of a section to add to a collection
         Section section = new Section(title, collection);
         sectionDao.save(section);
         return "redirect:/collection/section";
@@ -74,5 +74,6 @@ public class SectionController {
         sectionDao.deleteById(id);
         return "redirect:/collection";
     }
+
 
 }
