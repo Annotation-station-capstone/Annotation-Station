@@ -165,7 +165,7 @@ $(document).ready(function () {
 
     //#time_stamp, #ytId, #user_id
 
-
+    //change field class/ look of fields to guide users to fill in required info
     $("#note, #section, #collection").on('change', function() {
 
         if ($(this).val() === "") {
@@ -185,7 +185,9 @@ $(document).ready(function () {
     //     document.getElementById("demo").innerHTML = "You wrote: " + x;
     // }
 
-    $('#note, #section, #collection').bind('keyup', function() {
+
+    //disable submit until all user inputs are entered
+    $('#note, #section, #collection, #ytId').bind('change', function() {
         if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
     });
 
@@ -196,6 +198,25 @@ $(document).ready(function () {
         });
         return filled;
     }
+
+    //drop down menus create and show
+    $('#collection_btn').click(function () {
+
+        var url = "/collections";
+
+        $.getJSON(url, function (data) {
+            $.each(data, function (index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.ID + '">' + value.Name + '</a></li>');
+            });
+        });
+    });
+
+    // SHOW SELECTED VALUE.
+    $('#collection').change(function () {
+        $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
+    });
+
 
     $("#createFormSubmit").click(function (e) {
         $("#createFormSubmit").attr("disabled", true);
@@ -218,8 +239,8 @@ $(document).ready(function () {
             "note":
             {
                 "note" : $("#note").val(),
-                "video": {"video_url" : "URL"}
-                // "time_stamp": $("#time_stamp").val()
+                "video": {"video_url" : $("#ytId").val()},
+                "time_stamp": $("#time_stamp").val().toString()
             }
         }), success : $("#note").val(''),
         });
