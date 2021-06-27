@@ -165,6 +165,26 @@ $(document).ready(function () {
 
     //#time_stamp, #ytId, #user_id
 
+
+    $("#note, #section, #collection").on('change', function() {
+
+        if ($(this).val() === "") {
+            $(this).addClass("notFilled").removeClass("textField");
+        } else {
+            $(this).removeClass("notFilled").addClass("textField");
+        }
+    });
+
+    // function onChange() {
+    //     var x = document.getElementById("note").value;
+    //     document.getElementById("demo").innerHTML = "You selected: " + x;
+    // }
+    //
+    // function onInput() {
+    //     var x = document.getElementById("section").value;
+    //     document.getElementById("demo").innerHTML = "You wrote: " + x;
+    // }
+
     $('#note, #section, #collection').bind('keyup', function() {
         if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
     });

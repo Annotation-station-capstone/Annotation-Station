@@ -153,17 +153,22 @@ body {
 /*    opacity: 1;*/
 /*}*/
 
-#note:empty{
-    background-color: #ef5959 !important;
+.notFilled{
+    background-color: rgba(111, 53, 62, 0.91);
 }
 
-.section:empty{
-    background-color: #ef5959 !important;
+.notFilled::placeholder {
+    color: #eeccc3;
+    opacity: .8;
 }
 
-#collection:empty{
-    background-color: #ef5959 !important;
-}
+/*#section:empty{*/
+/*    filter: sepia(1);*/
+/*}*/
+
+/*#collection:empty{*/
+/*    filter: sepia(1);*/
+/*}*/
 
 .counter{
     font-weight: bold;
@@ -192,9 +197,6 @@ body {
     display: flex;
     align-self: center;
     width: 100%;
-    height: 10em;
-    margin: 5px 20px 5px 20px;
-    padding: 20px;
     background: lightgrey;
     font-weight: bold;
     font-size: large;
