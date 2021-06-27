@@ -47,10 +47,10 @@
         <div class="row g-2">
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="collection_btn" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Your Collections
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" id="collection_drop">
                         <li><a class="dropdown-item" href="#">Collection 1</a></li>
                         <li><a class="dropdown-item" href="#">Collection 2</a></li>
                         <li><a class="dropdown-item" href="#">Collection 3</a></li>
@@ -60,10 +60,10 @@
             </div>
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="section_btn" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Your Sections
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" id="section_drop">
                         <li><a class="dropdown-item" href="#">Section 1</a></li>
                         <li><a class="dropdown-item" href="#">Section 2</a></li>
                         <li><a class="dropdown-item" href="#">Section 3</a></li>
@@ -75,10 +75,10 @@
             </div>
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Tag Options
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" id="tag_drop">
                         <li><a class="dropdown-item" href="#">Important</a></li>
                         <li><a class="dropdown-item" href="#">Fundamental</a></li>
                         <li><a class="dropdown-item" href="#">Definition</a></li>
@@ -104,7 +104,7 @@
         <div class="row g-2">
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="YouTubeId: This field will be hidden" id="ytId"
+                    <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden" id="ytId"
                            aria-label="Text input with dropdown button">
                 </div>
             </div>
