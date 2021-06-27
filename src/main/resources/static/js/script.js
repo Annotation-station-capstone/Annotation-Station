@@ -50,7 +50,6 @@ $(document).ready(function () {
         // loadClient.ready(execute());
         generateProgressBar();
         buildCurrentTimeDisplay();
-
     }
 
     //for the durations bar (currently functioning and being called)
@@ -73,11 +72,11 @@ $(document).ready(function () {
         var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
         var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
         var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
-        var time = mins + ":" + ((secs < 10) ? "0" + secs : secs);
+        var time = mins + "m" + ((secs < 10) ? "0" + secs : secs)+ "s";
         return time;
     }
 
-    //Runs the fetched Json Captions and converts them to CSV
+    // Runs the fetched Json Captions and converts them to CSV
 
     const main = async () => {
         const
@@ -87,10 +86,10 @@ $(document).ready(function () {
             csv = CsvUtil.fromJson(json);
         document.getElementById("captions").innerHTML = csv;
         console.log(csv);
-        //    Todo right here
+
     };
 
-    //fetch Json caption data
+    // fetch Json caption data
     class YouTubeCaptionUtil {
         static async fetchCaptions(videoId, options) {
             const
@@ -132,99 +131,54 @@ $(document).ready(function () {
         };
     }
 
-    // YouTubeCaptionUtil.defaultOptions = {
-    //     baseUrl: 'https://video.google.com/timedtext',
-    //     languageId: 'en'
-    // };
-    //
-    // class CsvUtil {
-    //     static fromJson(json, options) {
-    //         const
-    //             opts = {...CsvUtil.defaultOptions, ...options},
-    //             keys = Object.keys(json[0]).filter(key =>
-    //                 opts.ignoreKeys.indexOf(key) === -1),
-    //             lines = [];
-    //         if (opts.includeHeader) lines.push(keys.join(opts.delimiter));
-    //         return lines.concat(json
-    //             .map(entry => keys.map(key => entry[key]).join(opts.delimiter)))
-    //             .join('\n');
-    //     }
-    // }
-    //
-    // CsvUtil.defaultOptions = {
-    //     includeHeader: false,
-    //     ignoreKeys: ['dur'],
-    //     delimiter: '\t'
-    // };
-    //
-    // main();
-    //
-    // // 5. The API calls this function when the player's state changes (works)
-    // function onPlayerStateChange(event) {
-    //     if (event.data === YT.PlayerState.ENDED) {
-    //         console.log("END!");
-    //         clearTimeout(timeout_setter);
+    YouTubeCaptionUtil.defaultOptions = {
+        baseUrl: 'https://video.google.com/timedtext',
+        languageId: 'en'
+    };
+
+
+    // 5. The API calls this function when the player's state changes (works)
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+            console.log("END!");
+            clearTimeout(timeout_setter);
+        } else {
+            console.log(event.data);
+        }
+    }
+
+    const options = {
+        onUploadDone:
+        function (res){
+            $("#user_id").val(res.filesUploaded[0].url);
+            res.filesUploaded
+        }
+}
+
+    // $('#note input[type="text"]').blur(function(e) {
+    //     if(!$(this).val()){
+    //         $(this).addClass("error");
     //     } else {
-    //         console.log(event.data);
-    //     }
-    // }
-
-    // const options = {
-//         onUploadDone:
-//         function (res){
-//             $("#user_id").val(res.filesUploaded[0].url);
-//             res.filesUploaded
-//         }
-// }
-
-//this is where I will need to put the code to control the captions
-//Trying to make sure that this is going to work
-
-    // function showValues() {
-    //     var str = $("form").serialize();
-    //     $("#results").text(str);
-    // }
-    //
-    // $("input[type='checkbox'], input[type='radio']").on("click", showValues);
-    // $("select").on("change", showValues);
-    // showValues();
-
-    // function getCollection(val){
-    //     $.ajax({
-    //         url: '',
-    //         type: 'post',
-    //         data: {user_id : $("#user_id").val(), title : $("#collections").val(), is_private : 1, description : "Enter your Collection Description here", image : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"},
-    //         success: function(data){
-    //             console.log(data.id);
-    //
-    //         }
-    //
-    //     });
-    // }
-    // function getSection(val){
-    //     $.ajax({
-    //         url: '',
-    //         type: 'post',
-    //         data: {user_id : $("#user_id").val(), title : $("#collections").val(), is_private : 1, description : "Enter your Collection Description here", image : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"},
-    //         success: function(data){
-    //             console.log(data.id);
-    //
-    //         }
-    //
-    //     });
-    // }
-
-
-    // $.ajax({
-    //     url: '../php/ajaxfile.php?request=1',
-    //     type: 'get',
-    //     success: function (response) {
-    //
+    //         $(this).removeClass("error");
     //     }
     // });
 
+    //#time_stamp, #ytId, #user_id
+
+    $('#note, #section, #collection').bind('keyup', function() {
+        if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
+    });
+
+    function allFilled() {
+        let filled = true;
+        $('form .needed').each(function() {
+            if($(this).val() === '') filled = false;
+        });
+        return filled;
+    }
 
     $("#createFormSubmit").click(function (e) {
+        $("#createFormSubmit").attr("disabled", true);
         e.preventDefault()
         $.ajax({
             url: '/collections/create',
@@ -245,21 +199,10 @@ $(document).ready(function () {
             {
                 "note" : $("#note").val(),
                 "video": {"video_url" : "URL"}
+                // "time_stamp": $("#time_stamp").val()
             }
-        }
-            )
-            // success: function (response) {
-            //     console.log(data.id);
-            // }
+        }), success : $("#note").val(''),
         });
-
-        // {
-        //     user: {id: "1"},
-        //     title: $("#collection").val(),
-        //         is_private: 1,
-        //     description: "Enter your Collection Description here",
-        //     image: "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"}
-
     });
 
     // loadCollection();
