@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
@@ -24,7 +24,7 @@
             <div>Sign In</div>
         </button>
         <div class="dropdown-menu mx-auto" style="width: 320px">
-            <form class="px-4 py-3">
+            <form class="px-4 py-3" th:action="@{/login}">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <input type="email" id="user_email" class="form-control"/>

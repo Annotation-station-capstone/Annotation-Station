@@ -1,4 +1,4 @@
-package com.codeup.annotationstation.SecurityConfiguration;
+package com.codeup.annotationstation;
 
 import com.codeup.annotationstation.service.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
-    private UserDetailsLoader usersLoader;
+    private  UserDetailsLoader usersLoader;
+    private PasswordEncoder passwordEncoder;
 
     public SecurityConfiguration(UserDetailsLoader usersLoader) {
         this.usersLoader = usersLoader;
@@ -49,7 +50,7 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/colllection/create", // only authenticated users can create ads
+                        "/collection/create", // only authenticated users can create ads
                         "/collection/{id}/edit" // only authenticated users can edit ads
                 )
                 .authenticated()
