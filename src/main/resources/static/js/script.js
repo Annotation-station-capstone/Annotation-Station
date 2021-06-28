@@ -184,10 +184,10 @@ $(document).ready(function () {
     //     var x = document.getElementById("section").value;
     //     document.getElementById("demo").innerHTML = "You wrote: " + x;
     // }
-
+    //, #ytId
 
     //disable submit until all user inputs are entered
-    $('#note, #section, #collection, #ytId').bind('change', function() {
+    $('#note, #section, #collection').bind('change', function() {
         if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
     });
 
@@ -214,23 +214,23 @@ $(document).ready(function () {
 
     // $('#id_trial').click(function() {
 
-        // $.ajax({
-        //     type: "GET",
-        //     url:"/collections",
-        //     dataType: "json",
-        //     success: function (data) {
-        //         $.each(data.aaData,function(i,data)
-        //         {
-        //             var div_data='<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>';
-        //             $(div_data).appendTo('#collection_drop');
-        //         });
-        //     }
-        // });
+        $.ajax({
+            type: "GET",
+            url:"/collections",
+            dataType: "json",
+            success: function (data) {
+                $.each(data.aaData,function(i,data)
+                {
+                    var div_data='<li><a class="dropdown-item" value="' + collection.id + '">' + collection.title + '</a></li>';
+                    $(div_data).appendTo('#collection_drop');
+                });
+            }
+        });
 
     // SHOW SELECTED VALUE.
-    // $('#collection').change(function () {
-    //     $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
-    // });
+    $('#collection').change(function () {
+        $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
+    });
 
 
     $("#createFormSubmit").click(function (e) {
@@ -255,7 +255,7 @@ $(document).ready(function () {
             {
                 "note" : $("#note").val(),
                 "video": {"video_url" : $("#ytId").val()},
-                "time_stamp": $("#time_stamp").val().toString()
+                // "time_stamp": $("#time_stamp").val().toString()
             }
         }), success : $("#note").val(''),
         });

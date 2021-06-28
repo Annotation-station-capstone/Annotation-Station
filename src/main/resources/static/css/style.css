@@ -341,14 +341,14 @@ body {
     height: 100%;
     width: 100%;
     background: #272727;
-    border-left: 3px solid rgba(0, 255, 0, 0.75);
+    border-left: 3px solid rgb(183, 110, 25);
     animation: typing 20s steps(32) 4s, animated-cursor-left 600ms steps(60) infinite;
     /*animation-delay: typing 4.1s;*/
     /*animation-iteration-count: 1;*/
     /*animation-play-state: paused;*/
 }
 @keyframes animated-cursor-left{
-    from{border-left-color: rgba(0,255,0,.75);}
+    from{border-left-color: rgb(183, 110, 25);}
     to{border-left-color: transparent;}
 }
 @keyframes typing {
