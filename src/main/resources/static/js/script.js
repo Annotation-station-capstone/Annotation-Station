@@ -200,37 +200,37 @@ $(document).ready(function () {
     }
 
     //drop down menus create and show
-    $('#collection_btn').click(function () {
+    // $('#collection_btn').click(function () {
+    //
+    //     var url = "/collections";
+    //
+    //     $.getJSON(url, function (data) {
+    //         $.each(data, function (index, value) {
+    //             // APPEND OR INSERT DATA TO SELECT ELEMENT.
+    //             $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
+    //         });
+    //     });
+    // });
 
-        var url = "/collections";
-
-        $.getJSON(url, function (data) {
-            $.each(data, function (index, value) {
-                // APPEND OR INSERT DATA TO SELECT ELEMENT.
-                $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
-            });
-        });
-    });
-
-    // $('#id_trial').click(function() {
-
-        $.ajax({
-            type: "GET",
-            url:"/collections",
-            dataType: "json",
-            success: function (data) {
-                $.each(data.aaData,function(i,data)
-                {
-                    var div_data='<li><a class="dropdown-item" value="' + collection.id + '">' + collection.title + '</a></li>';
-                    $(div_data).appendTo('#collection_drop');
-                });
-            }
-        });
-
-    // SHOW SELECTED VALUE.
-    $('#collection').change(function () {
-        $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
-    });
+    // // $('#id_trial').click(function() {
+    //
+    //     $.ajax({
+    //         type: "GET",
+    //         url:"/collections",
+    //         dataType: "json",
+    //         success: function (data) {
+    //             $.each(data.aaData,function(i,data)
+    //             {
+    //                 var div_data='<li><a class="dropdown-item" value="' + collection.id + '">' + collection.title + '</a></li>';
+    //                 $(div_data).appendTo('#collection_drop');
+    //             });
+    //         }
+    //     });
+    //
+    // // SHOW SELECTED VALUE.
+    // $('#collection').change(function () {
+    //     $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
+    // });
 
 
     $("#createFormSubmit").click(function (e) {

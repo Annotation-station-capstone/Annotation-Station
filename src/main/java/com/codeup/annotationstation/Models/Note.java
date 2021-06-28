@@ -22,7 +22,7 @@ public class Note {
     @JoinColumn(name = "section_id")
     private Section sections;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = true, length = 255)
     private String time_stamp;
 
     //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
