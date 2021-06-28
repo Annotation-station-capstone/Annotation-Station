@@ -61,6 +61,9 @@ public class User {
         this.password = password;
     }
 
+    public User(User user) {
+    }
+
     //getters and setters
     public long getId() {
         return id;
