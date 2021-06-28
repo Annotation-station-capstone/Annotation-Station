@@ -1,0 +1,53 @@
+@media screen and (min-width:320px) {
+
+    h1, h2, h4 {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .card {
+        margin: .5em;
+        border-radius: 5px;
+        background: white;
+        width: 260px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid crimson;
+    }
+
+    img {
+        width: 260px;
+        height: 200px;
+        border-radius: 5px;
+    }
+
+    .text-section {
+        position: relative;
+        bottom: 1.5em;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .text {
+        margin: 22.6px;
+    }
+
+    header, main {
+        width: 80%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 1em;
+        background: lightgray;
+    }
+
+    main {
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: flex-start;
+    }
+}
