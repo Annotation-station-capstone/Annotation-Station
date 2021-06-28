@@ -200,17 +200,17 @@ $(document).ready(function () {
     }
 
     //drop down menus create and show
-    // $('#collection_btn').click(function () {
-    //
-    //     var url = "/collections";
-    //
-    //     $.getJSON(url, function (data) {
-    //         $.each(data, function (index, value) {
-    //             // APPEND OR INSERT DATA TO SELECT ELEMENT.
-    //             $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
-    //         });
-    //     });
-    // });
+    $(document).ready(function () {
+
+        var url = "/collections";
+
+        $.getJSON(url, function (data) {
+            $.each(data, function (index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
+            });
+        });
+    });
 
     // // $('#id_trial').click(function() {
     //
@@ -255,7 +255,7 @@ $(document).ready(function () {
             {
                 "note" : $("#note").val(),
                 "video": {"video_url" : $("#ytId").val()},
-                // "time_stamp": $("#time_stamp").val().toString()
+                "time_stamp": $("#counter").html()
             }
         }), success : $("#note").val(''),
         });
