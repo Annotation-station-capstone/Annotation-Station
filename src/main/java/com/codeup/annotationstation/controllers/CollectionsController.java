@@ -17,12 +17,20 @@ public class CollectionsController {
         this.usersDao = usersDao;
         this.collectionsDao = collectionsDao;
     }
-
+//@GetMapping("/index")
+//public String showIndex(){
+//        return "index";
+//}
+    @GetMapping(value = "/index")
+    public String indexPage(Model model) {
+        model.addAttribute("collection", collectionsDao.findAll());
+        return "collection/index";
+    }
 
     //show all collections
     @GetMapping("/collections")
     public String showCollectionsPage(Model model){
-        model.addAttribute("collection", collectionsDao.findAll());
+        model.addAttribute("collections", collectionsDao.findAll());
         return "collectionPage";
     }
 //show one collection
@@ -58,7 +66,7 @@ public class CollectionsController {
     //get form to create new collection
     @GetMapping(value="/collection/create")
     public String getCreateCollection(Model model){
-        model.addAttribute("collection", new Collection());
+        model.addAttribute("addcollection", new Collection());
         return "/create";
     }
 //save created collection
