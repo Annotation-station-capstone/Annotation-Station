@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark row-cols-auto" th:fragment="navbar">
+  <div class="dropdown col-2 pl-5">
+    <button class="btn btn-primary dropdown-toggle signin-btn" type="button" data-mdb-toggle="dropdown"
+            aria-expanded="false">
+      <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
+      <div>Sign In</div>
+    </button>
+    <div class="dropdown-menu mx-auto" style="width: 320px">
+      <form class="px-4 py-3" th:action="@{/login}">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="user_email" class="form-control"/>
+          <label class="form-label" for="user_email">Email address</label>
+        </div>
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="user_password" class="form-control"/>
+          <label class="form-label" for="user_password">Password</label>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+      <div class="dropdown-divider"></div>
+      <button
+              type="button"
+              class="btn btn-primary"
+              data-mdb-toggle="modal"
+      >
+        Launch demo modal
+      </button>
+    </div>
+  </div>
+  <!-- Create Button -->
+  <div class="col-2">
+    <button class="btn btn-primary create-btn" type="button">
+      <div><i class="fas fa-plus" style="font-size: xx-large"></i></div>
+      <div>Create</div>
+    </button>
+  </div>
+  <div class="col-5 wrapper">
+    <p class="annotation">Annotation</p>
+    <ul class="dynamic-txts">
+      <li><span>Creation</span></li>
+      <li><span>Organization</span></li>
+      <li><span>Circulation</span></li>
+      <li><span>Station</span></li>
+    </ul>
+    <span class="station-word">Station</span>
+  </div>
+  <!--    <div class="col-1"></div>-->
+  <div class="col-3">
+    <div class="input-group pl-5">
+      <div class="form-outline">
+        <input id="search-input" type="search" class="form-control search-frame"/>
+        <label class="form-label" for="search-input">Search</label>
+      </div>
+      <button id="search-button" type="button" class="btn btn-primary search-btn">
+        <i class="fas fa-search search-icon"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+</html>
