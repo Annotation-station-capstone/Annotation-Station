@@ -9,8 +9,12 @@ import com.codeup.annotationstation.daos.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CreateService {
+
+    private CollectionsRepository collectionsDao;
 
     @Autowired
     CollectionsRepository collectionsRepository;
@@ -21,7 +25,7 @@ public class CreateService {
     @Autowired
     NoteRepository noteRepository;
 
-    public void addCollection(Collection collection,Section section,Note note) {
+    public void addCollection(Collection collection,Section section,Note note)  {
 
         Collection collection1 = collectionsRepository.save(collection);
         section.setCollection(collection1);
@@ -32,4 +36,7 @@ public class CreateService {
 
     }
 
+    public List<Collection> getCollection(Collection collection) {
+        return collectionsRepository.findAll();
+    }
 }

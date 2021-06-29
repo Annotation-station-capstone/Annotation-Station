@@ -24,7 +24,11 @@ public class CreateController {
         createService.addCollection(incomingRequest.getCollection(),incomingRequest.getSection(), incomingRequest.getNote());
 
     }
+    public void get(@RequestBody IncomingRequest incomingRequest) {
 
+        createService.getCollection(incomingRequest.getCollection());
+
+    }
 
 
 }
