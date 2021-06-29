@@ -165,7 +165,8 @@ $(document).ready(function () {
 
     //#time_stamp, #ytId, #user_id
 
-    //change field class/ look of fields to guide users to fill in required info
+    //TODO change field class/ look of fields to guide users to fill in required info
+
     $("#note, #section, #collection").on('change', function() {
 
         if ($(this).val() === "") {
@@ -186,8 +187,9 @@ $(document).ready(function () {
     // }
     //
 
-    //disable submit until all user inputs are entered
-    $('#note, #section, #collection').bind('change', function() {
+    //TODO disable submit until all user inputs are entered
+
+    $('#note, #section, #collection, #ytId').bind('change', function() {
         if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
     });
 
@@ -199,11 +201,7 @@ $(document).ready(function () {
         return filled;
     }
 
-    //playback disabled when notes field is not empty
 
-    $('#note').bind('change', function() {
-        if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
-    });
 
     //TODO drop down menus create and show
 

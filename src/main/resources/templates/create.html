@@ -38,9 +38,38 @@
     <div class="progress-background">
         <div id="progress-bar" class="progress-bar"></div>
         <div class="row g-2">
+            <div class="col-7">
             <div class="input-group mb-3">
                 <input class="form-control needed notFilled" id="note" name="notes" type="text" placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK" aria-label="Recipient's username" aria-describedby="button-addon2" >
                 <button class="btn btn-outline-secondary" id="createFormSubmit" type="submit" disabled>CreateFormSubmit</button>
+            </div>
+            </div>
+            <div class="col-3">
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Tag Options
+                    </button>
+                    <ul class="dropdown-menu" id="tag_drop">
+                        <li><a class="dropdown-item" href="#">Important</a></li>
+                        <li><a class="dropdown-item" href="#">Fundamental</a></li>
+                        <li><a class="dropdown-item" href="#">Definition</a></li>
+                        <li><a class="dropdown-item" href="#">Dont_do_this</a></li>
+                        <li><a class="dropdown-item" href="#">Step_by_Step</a></li>
+                        <li><a class="dropdown-item" href="#">Watch_again</a></li>
+                    </ul>
+                    <input type="text" class="form-control" placeholder="Tags"
+                           aria-label="Text input with dropdown button">
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-1"></div>
+                    <div class="form-check form-switch col-2 ">
+                        <label class="form-check-label" for="autoPause"></label>
+                        <input class="form-check-input" type="checkbox" id="autoPause">
+                    </div>
+                    <h6 class="col-9">Auto Pause: Playback will stop when you type</h6>
+                </div>
             </div>
         </div>
         <div class="row g-2">
@@ -72,38 +101,14 @@
 
                 </div>
             </div>
-            <div class="col-md">
-                <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Tag Options
-                    </button>
-                    <ul class="dropdown-menu" id="tag_drop">
-                        <li><a class="dropdown-item" href="#">Important</a></li>
-                        <li><a class="dropdown-item" href="#">Fundamental</a></li>
-                        <li><a class="dropdown-item" href="#">Definition</a></li>
-                        <li><a class="dropdown-item" href="#">Dont_do_this</a></li>
-                        <li><a class="dropdown-item" href="#">Step_by_Step</a></li>
-                        <li><a class="dropdown-item" href="#">Watch_again</a></li>
-                    </ul>
-                    <input type="text" class="form-control" placeholder="Tags"
-                           aria-label="Text input with dropdown button">
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-1"></div>
-                    <div class="form-check form-switch col-2 ">
-                        <label class="form-check-label" for="autoPause"></label>
-                        <input class="form-check-input" type="checkbox" id="autoPause">
-                    </div>
-                    <h6 class="col-9">Auto Pause: Playback will stop when you type</h6>
-                </div>
-            </div>
         </div>
         <div class="row g-2">
+
+        </div>
+        <div class="row g-2" style="display:none">
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="YouTubeId: This field will be hidden" id="ytId"
+                    <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden" id="ytId"
                            aria-label="Text input with dropdown button" >
                 </div>
             </div>
