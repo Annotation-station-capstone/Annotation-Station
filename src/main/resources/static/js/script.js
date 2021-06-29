@@ -184,7 +184,7 @@ $(document).ready(function () {
     //     var x = document.getElementById("section").value;
     //     document.getElementById("demo").innerHTML = "You wrote: " + x;
     // }
-    //, #ytId
+    //
 
     //disable submit until all user inputs are entered
     $('#note, #section, #collection').bind('change', function() {
@@ -193,24 +193,29 @@ $(document).ready(function () {
 
     function allFilled() {
         let filled = true;
-        $('form .needed').each(function() {
+        $('.needed').each(function() {
             if($(this).val() === '') filled = false;
         });
         return filled;
     }
 
-    //drop down menus create and show
-    // $('#collection_btn').click(function () {
-    //
-    //     var url = "/collections";
-    //
-    //     $.getJSON(url, function (data) {
-    //         $.each(data, function (index, value) {
-    //             // APPEND OR INSERT DATA TO SELECT ELEMENT.
-    //             $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
-    //         });
-    //     });
-    // });
+    //playback disabled when notes field is not empty
+
+    $('#note').bind('change', function() {
+        if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
+    });
+
+    //TODO drop down menus create and show
+
+    $(document).ready(function () {
+        var url = "/collections";
+        $.getJSON(url, function (data) {
+            $.each(data, function (index, value) {
+                // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
+            });
+        });
+    });
 
     // // $('#id_trial').click(function() {
     //
@@ -255,7 +260,7 @@ $(document).ready(function () {
             {
                 "note" : $("#note").val(),
                 "video": {"video_url" : $("#ytId").val()},
-                // "time_stamp": $("#time_stamp").val().toString()
+                "time_stamp": $("#counter").html()
             }
         }), success : $("#note").val(''),
         });

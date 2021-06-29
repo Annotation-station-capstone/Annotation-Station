@@ -9,6 +9,7 @@ public class IncomingRequest {
     private Section section;
     private Note note;
 
+
     public Collection getCollection() {
         return collection;
     }
