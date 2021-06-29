@@ -10,4 +10,6 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
     Collection findByTitle(String title);
 
     Collection findFirstByTitle(String title);
+
+    Collection findAllCollections(String title);
 }
