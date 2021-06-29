@@ -36,7 +36,13 @@ public class CreateService {
 
     }
 
-    public List<Collection> getCollection(Collection collection) {
-        return collectionsRepository.findAll();
+    public void getCollection(Collection collection) {
     }
+
+//    public void getCollection(Collection collection) {
+//    }
+
+//    public List<Collection> getCollection(Collection collection) {
+//        return collectionsRepository.findAll();
+//    }
 }
