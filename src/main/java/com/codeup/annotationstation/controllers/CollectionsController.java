@@ -23,7 +23,7 @@ public class CollectionsController {
     @GetMapping("/collections")
     public String showCollectionsPage(Model model){
         model.addAttribute("collection", collectionsDao.findAll());
-        return "collections/index";
+        return "collectionPage";
     }
 //show one collection
     @GetMapping("/collections/{id}")
@@ -37,7 +37,6 @@ public class CollectionsController {
     public String editCollection(@PathVariable long id, Model model){
         //find collection to edit
         Collection collectionToEdit = collectionsDao.getById(id);
-        model.addAttribute("editCollection", collectionToEdit);
         return "collection/edit";
     }
 //save a edited collection
@@ -60,7 +59,7 @@ public class CollectionsController {
     @GetMapping(value="/collection/create")
     public String getCreateCollection(Model model){
         model.addAttribute("collection", new Collection());
-        return "collection/create";
+        return "/create";
     }
 //save created collection
     @PostMapping(value="collection/create")
