@@ -25,18 +25,18 @@ public class CreateController {
         createService.addCollection(incomingRequest.getCollection(),incomingRequest.getSection(), incomingRequest.getNote());
 
     }
-<<<<<<< HEAD
+
 @GetMapping("/create")
     public String getCreatePage(){
         return "/create";
 }
-=======
+
     public void get(@RequestBody IncomingRequest incomingRequest) {
 
         createService.getCollection(incomingRequest.getCollection());
 
     }
->>>>>>> e7b52c85267d0444990fa87bc5791583fabdd604
+
 
 
 }
