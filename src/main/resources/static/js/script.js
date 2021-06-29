@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    console.log('im connected')
     console.info(`loadVideo called`);
 
     (function loadYoutubeIFrameApiScript() {
@@ -265,6 +265,34 @@ $(document).ready(function () {
         }), success : $("#note").val(''),
         });
     });
+
+    //pause on keydown and play on submit
+
+    // get video element id
+    var vidClip = document.getElementById("videoPlayer");
+    console.log(vidClip);
+// play video event
+    function playVid() {
+        // vidClip.play();
+        vidClip.contentWindow.postMessage(JSON.stringify({event:"command", func:"playVideo"}),"*")
+    }
+// pause video event
+    function pauseVid() {
+        // vidClip.pause();
+        vidClip.contentWindow.postMessage(JSON.stringify({event:"command", func:"pauseVideo"}),"*")
+    }
+
+    $('#createFormSubmit').click(function(){
+       playVid();
+
+        console.log("im clicked");
+    })
+
+    $('#note').keypress(function(){
+       pauseVid();
+        console.log("key pressed");
+    })
+
 
 });
 
