@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <title>Annotation Station</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
             <div>Sign In</div>
         </button>
         <div class="dropdown-menu mx-auto" style="width: 320px">
-            <form class="px-4 py-3" th:action="@{/login}">
+            <form class="px-4 py-3">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <input type="email" id="user_email" class="form-control"/>
@@ -43,18 +43,13 @@
                     type="button"
                     class="btn btn-primary"
                     data-mdb-toggle="modal"
+                    data-mdb-target="#registerModal"
             >
                 Launch demo modal
             </button>
         </div>
     </div>
-    <!-- Create Button -->
-    <div class="col-2">
-        <button class="btn btn-primary create-btn" type="button">
-        <div><i class="fas fa-plus" style="font-size: xx-large"></i></div>
-        <div>Create</div>
-        </button>
-    </div>
+    <div class="col-2"></div>
     <div class="col-5 wrapper">
         <p class="annotation">Annotation</p>
         <ul class="dynamic-txts">
@@ -78,67 +73,6 @@
         </div>
     </div>
 </nav>
-<!--Nav ends Here-->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-                    <a href="#!">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">Read</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-                    <a href="#!">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">Read</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-                    <a href="#!">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#!" class="btn btn-primary">Read</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
 <div
         class="modal fade"
         id="registerModal"
@@ -149,7 +83,6 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-
                 <h5 class="modal-title" id="registrationModalLabel" style="text-align: center">Register</h5>
                 <button
                         type="button"
@@ -158,7 +91,6 @@
                         aria-label="Close"
                 ></button>
             </div>
-
             <div class="modal-body"><form action="/sign-up">
                 <div class="form-group">
                     <label for="user_firstName">First Name</label>
@@ -190,14 +122,11 @@
                     <label class="form-check-label" for="newsLetterCheck">Check if you would like to join our newsletter!</label>
                 </div>
             </form></div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
                     Close
                 </button>
-
                 <button type="button" class="btn btn-primary">Confirm</button>
-
             </div>
         </div>
     </div>

@@ -61,6 +61,22 @@ public class User {
         this.password = password;
     }
 
+
+
+
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        first_name= copy.first_name;
+        last_name=copy.last_name;
+        is_admin=copy.is_admin;
+        user_image=copy.user_image;
+        comments=copy.comments;
+
+    }
+
     //getters and setters
     public long getId() {
         return id;
