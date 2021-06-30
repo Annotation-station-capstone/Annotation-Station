@@ -5,11 +5,16 @@ import com.codeup.annotationstation.Models.IncomingRequest;
 import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+
+
+@Controller
 public class CreateController {
 
     @Autowired
@@ -18,12 +23,12 @@ public class CreateController {
     @Autowired
     private CollectionsService collectionsService;
 
-    @PostMapping(value = "/collections/create")
+    @RequestMapping(value = "/collections/create", method = POST)
+    @ResponseBody
     public void add(@RequestBody IncomingRequest incomingRequest) {
-
         createService.addCollection(incomingRequest.getCollection(),incomingRequest.getSection(), incomingRequest.getNote());
-
     }
+
 
 @GetMapping("/create")
     public String getCreatePage(){
