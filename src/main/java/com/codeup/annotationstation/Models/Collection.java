@@ -28,26 +28,29 @@ public class Collection {
     @OneToMany(mappedBy = "collection")
     private List<Comment> comments;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "collection")
+    private List<Section> sections;
+
+
 
     //constructors
     public Collection() {
     }
     //insert
-    public Collection(User user, String title, Boolean is_private, String description, String image) {
-        this.user = user;
+    public Collection( String title, Boolean is_private, String description, String image) {
         this.title = title;
         this.is_private = is_private;
         this.description = description;
         this.image = image;
     }
     //update
-    public Collection(long id, User user, String title, Boolean is_private, String description, String image) {
+    public Collection(long id, String title, Boolean is_private, String description, String image, List<Section> sections) {
         this.id = id;
-        this.user = user;
         this.title = title;
         this.is_private = is_private;
         this.description = description;
         this.image = image;
+        this.sections = sections;
     }
     //add collection constructor
     public Collection(String title, String description, boolean isPrivate, String image) {
@@ -105,5 +108,21 @@ public class Collection {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Section> getSections() {
+        return sections;
+    }
+
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 @Table(name="sections")
 public class Section {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -68,4 +69,16 @@ public class Section {
     public void setCollection(Collection collection) {
         this.collection = collection;
     }
+    public Collection getCollection() {
+        return collection;
+    }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
 }
