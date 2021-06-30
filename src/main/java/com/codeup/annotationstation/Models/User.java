@@ -50,6 +50,8 @@ public class User {
         this.password = password;
     }
 
+
+
     public User(long id, Boolean is_admin, String first_name, String last_name, String username, String user_image, String email, String password) {
         this.id = id;
         this.is_admin = is_admin;
@@ -140,6 +142,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
 }
