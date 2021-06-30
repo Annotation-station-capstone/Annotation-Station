@@ -166,6 +166,13 @@ $(document).ready(function () {
     //#time_stamp, #ytId, #user_id
 
     //TODO change field class/ look of fields to guide users to fill in required info
+    $("#userInputtedUrl").on('change', function() {
+        if ($(this).val() === "") {
+            $(this).addClass("notFilled").removeClass("textField");
+        } else {
+            $(this).removeClass("notFilled").addClass("textField");
+        }
+    });
 
     $("#note, #section, #collection").on('change', function() {
 
