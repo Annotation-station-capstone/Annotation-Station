@@ -81,7 +81,7 @@
     <h3>ENJOY THOUGHTFULLY ASSEMBLED COLLECTIONS OF NOTES</h3>
 
 </div>
-<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;" >
     <h3>COLLECTIONS CURATED BY OUR ANNOTATION TEAM</h3>
 </div>
 <div class="container">
@@ -97,106 +97,76 @@
                 <div class="card-body" >
                     <h5 class="card-title" th:text="${Collection.title}"></h5>
                     <p class="card-text" th:text="${Collection.description}">
+                        <button >
                     <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
+                        </button>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
-                    <a href="#">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">View Collection</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
-                    <a href="#">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">View Collection</a>
-                </div>
-            </div>
-        </div>
+<!--        <div class="col-lg-4 col-md-12 mb-4">-->
+<!--            <div class="card">-->
+<!--                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>-->
+<!--                    <a href="#">-->
+<!--                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Post title</h5>-->
+<!--                    <p class="card-text">-->
+<!--                        Some quick example text to build on the card title and make up the bulk of the-->
+<!--                        card's content.-->
+<!--                    </p>-->
+<!--                    <a href="#" class="btn btn-primary">View Collection</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 col-md-12 mb-4">-->
+<!--            <div class="card">-->
+<!--                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>-->
+<!--                    <a href="#">-->
+<!--                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Post title</h5>-->
+<!--                    <p class="card-text">-->
+<!--                        Some quick example text to build on the card title and make up the bulk of the-->
+<!--                        card's content.-->
+<!--                    </p>-->
+<!--                    <a href="#" class="btn btn-primary">View Collection</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
-<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+<!--if-->
+<div th:if="${similarTitle == null}" class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
 
-    <h3>COLLECTIONS BY USERS LIKE YOU!</h3>
+    <h3>WE WILL SUGGEST COLLECTIONS LIKE YOURS WHEN THEY BECOME AVAILABLE !</h3>
 
+</div>
+<!--else-->
+<div th:unless="${similarTitle != null}" class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+<h3>COLLECTIONS BY USERS LIKE YOU !</h3>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
+        <div class="col-lg-4 col-md-12 mb-4" th:each="SimilarTitle: ${similarTitle}">
+            <div class="card" >
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
                     <a href="#">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">View Collection</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
-                    <a href="#">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">View Collection</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
-                    <a href="#">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">View Collection</a>
+                <div class="card-body" >
+                    <h5 class="card-title" th:text="${SimilarTitle.title}"></h5>
+                    <p class="card-text" th:text="${SimilarTitle.description}">
+                        <button >
+                            <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
+                        </button>
                 </div>
             </div>
         </div>

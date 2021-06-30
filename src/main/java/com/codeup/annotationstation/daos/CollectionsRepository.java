@@ -4,6 +4,8 @@ import com.codeup.annotationstation.Models.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
@@ -11,6 +13,8 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
     Collection findFirstByTitle(String title);
     Collection findAllByTitle(String title);
+
+    List<Collection> findByTitleLike(String title);
 
 //    Collection findAllCollections(String title);
 }
