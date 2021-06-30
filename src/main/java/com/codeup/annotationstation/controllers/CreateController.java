@@ -2,24 +2,23 @@ package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.Models.Collection;
 import com.codeup.annotationstation.Models.IncomingRequest;
-import com.codeup.annotationstation.Models.Note;
-import com.codeup.annotationstation.Models.Section;
+import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import java.util.List;
 
-@Controller
+@RestController
 public class CreateController {
 
     @Autowired
     CreateService createService;
 
-    @RequestMapping(value = "/collections/create", method = POST)
-    @ResponseBody
+    @Autowired
+    private CollectionsService collectionsService;
+
+    @PostMapping(value = "/collections/create")
     public void add(@RequestBody IncomingRequest incomingRequest) {
 
         createService.addCollection(incomingRequest.getCollection(),incomingRequest.getSection(), incomingRequest.getNote());
@@ -35,6 +34,12 @@ public class CreateController {
 
         createService.getCollection(incomingRequest.getCollection());
 
+    }
+
+    //fetch data from collections table and sends to create page
+    @GetMapping("/collections/userid/{userId}")
+    public List<Collection> getCollectionsForUser(@PathVariable("userId") long userId){
+        return collectionsService.getCollection(userId);
     }
 
 

@@ -208,19 +208,19 @@ $(document).ready(function () {
         return filled;
     }
 
-
+    //$(#"user_id").val()
 
     //TODO drop down menus create and show
 
-    $(document).ready(function () {
-        var url = "/collections";
-        $.getJSON(url, function (data) {
-            $.each(data, function (index, value) {
-                // APPEND OR INSERT DATA TO SELECT ELEMENT.
-                $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
-            });
-        });
-    });
+    // $(document).ready(function () {
+    //     var url = "/collections/userid/1";
+    //     $.getJSON(url, function (data) {
+    //         $.each(data, function (index, value) {
+    //             // APPEND OR INSERT DATA TO SELECT ELEMENT.
+    //             $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
+    //         });
+    //     });
+    // });
 
     // // $('#id_trial').click(function() {
     //
