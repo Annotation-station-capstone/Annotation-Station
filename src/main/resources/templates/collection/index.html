@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="partials/head :: headStylesheets">
     <meta charset="UTF-8">
     <title>Index</title>
 <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 </head>
-<header th:include="partials/headerOption2 :: styleSheets"></header>
 <!--<header th:include="partials/footer :: bootStrapFooter_stylingsheet"></header>-->
 <body>
 <!--nav partial-->
-<nav th:include="partials/navbar :: navbar"></nav>
+<nav th:include="partials/header :: navbar"></nav>
 <!--modal-->
 <div
         class="modal fade"
