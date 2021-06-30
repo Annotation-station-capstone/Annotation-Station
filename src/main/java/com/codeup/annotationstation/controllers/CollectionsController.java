@@ -21,9 +21,10 @@ public class CollectionsController {
 //public String showIndex(){
 //        return "index";
 //}
-    @GetMapping(value = "/index")
-    public String indexPage(Model model) {
+    @GetMapping(value = "/")
+    public String indexPage(Model model, Collection collection) {
         model.addAttribute("collection", collectionsDao.findAll());
+        model.addAttribute("similarTitle", collectionsDao.findByTitleLike("%"+ collection.getTitle() +"%"));
         return "collection/index";
     }
 
