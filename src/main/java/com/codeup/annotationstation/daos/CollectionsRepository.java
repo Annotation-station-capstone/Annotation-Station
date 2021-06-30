@@ -17,7 +17,7 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
     List<Collection> findByTitleLike(String title);
     List<Collection> findCollectionByTitleLike(String title);
     
-
+    List<Collection> findFirst10ByTitleOrderByTitleDesc(String title);
 
 //    Collection findAllCollections(String title);
 }

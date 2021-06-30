@@ -24,7 +24,7 @@ public class CollectionsController {
     @GetMapping(value = "/")
     public String indexPage(Model model, Collection collection) {
         model.addAttribute("collection", collectionsDao.findAll());
-        model.addAttribute("similarTitle", collectionsDao.findByTitleLike("%Art%"));
+//        model.addAttribute("similarTitle", collectionsDao.findFirst10ByTitleOrderByTitleDesc(collection.getTitle()));
 
         return "collection/index";
     }

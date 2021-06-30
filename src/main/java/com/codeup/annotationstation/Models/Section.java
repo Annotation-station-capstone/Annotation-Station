@@ -19,7 +19,7 @@ public class Section {
     private Collection collection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "section")
-    private List<Video> video;
+    private List<Video> videos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "note")
     private List<Note> notes;
@@ -27,12 +27,12 @@ public class Section {
     public Section() {
     }
 
-    public List<Video> getVideo() {
-        return video;
+    public List<Video> getVideos() {
+        return videos;
     }
 
-    public void setVideo(List<Video> video) {
-        this.video = video;
+    public void setVideos(List<Video> video) {
+        this.videos = video;
     }
 
     public Section(String title, Collection collection) {
