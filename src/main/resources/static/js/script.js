@@ -166,6 +166,13 @@ $(document).ready(function () {
     //#time_stamp, #ytId, #user_id
 
     //TODO change field class/ look of fields to guide users to fill in required info
+    $("#userInputtedUrl").on('change', function() {
+        if ($(this).val() === "") {
+            $(this).addClass("notFilled").removeClass("textField");
+        } else {
+            $(this).removeClass("notFilled").addClass("textField");
+        }
+    });
 
     $("#note, #section, #collection").on('change', function() {
 
@@ -201,19 +208,19 @@ $(document).ready(function () {
         return filled;
     }
 
-
+    //$(#"user_id").val()
 
     //TODO drop down menus create and show
 
-    $(document).ready(function () {
-        var url = "/collections";
-        $.getJSON(url, function (data) {
-            $.each(data, function (index, value) {
-                // APPEND OR INSERT DATA TO SELECT ELEMENT.
-                $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
-            });
-        });
-    });
+    // $(document).ready(function () {
+    //     var url = "/collections/userid/1";
+    //     $.getJSON(url, function (data) {
+    //         $.each(data, function (index, value) {
+    //             // APPEND OR INSERT DATA TO SELECT ELEMENT.
+    //             $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
+    //         });
+    //     });
+    // });
 
     // // $('#id_trial').click(function() {
     //
@@ -258,9 +265,12 @@ $(document).ready(function () {
             {
                 "note" : $("#note").val(),
                 "video": {"video_url" : $("#ytId").val()},
-                "time_stamp": $("#counter").html()
+                "time_stamp": $("#counter").html(),
+                "tag": $("#select-tags option:selected" ).attr("data-value")
             }
-        }), success : $("#note").val(''),
+        }), success :
+                $("#note").val(''),
+                // $("#select-tags >option:eq(1)").attr('selected', true)
         });
     });
 
@@ -290,6 +300,10 @@ $(document).ready(function () {
        pauseVid();
         console.log("key pressed");
     })
+
+//    select tag from drop down
+
+
 
 
 });

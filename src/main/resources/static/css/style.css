@@ -57,7 +57,6 @@ body {
     display: flex;
     margin: 5px;
     padding: 5px;
-    background: lightgrey;
     color: white;
     text-outline: 1px royalblue;
     font-weight: bold;
@@ -155,7 +154,7 @@ body {
 /*}*/
 
 .notFilled{
-    background-color: rgba(111, 53, 62, 0.91);
+    background: rgba(111, 53, 62, 0.91) !important;
 }
 
 .notFilled::placeholder {

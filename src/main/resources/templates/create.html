@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="google-signin-client_ID"
           content="365572997645-rksbja6tjvqfd4mua82ummn0hcgdc3e7.apps.googleusercontent.com">
 
@@ -22,7 +22,7 @@
     information for later use or send it to a friend. Enjoy!</p>
 <form class="form" id="inputURL" name="inputURL">
     <label class="formLabel" for="userInputtedUrl">ENTER YOUR URL HERE</label>
-    <input id="userInputtedUrl" name="userInputtedUrl" type="text" placeholder="URL">
+    <input id="userInputtedUrl" class="notFilled" name="userInputtedUrl" type="text" placeholder="URL">
     <button class="btn-submit" id="userURLSubmit">SUBMIT</button>
 </form>
 
@@ -38,27 +38,32 @@
     <div class="progress-background">
         <div id="progress-bar" class="progress-bar"></div>
         <div class="row g-2">
-            <div class="col-7">
-            <div class="input-group mb-3">
-                <input class="form-control needed notFilled" id="note" name="notes" type="text" placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK" aria-label="Recipient's username" aria-describedby="button-addon2" >
-                <button class="btn btn-outline-secondary" id="createFormSubmit" type="submit" disabled>CreateFormSubmit</button>
-            </div>
-            </div>
             <div class="col-3">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button"
+                            data-bs-toggle="dropdown"
                             aria-expanded="false">Tag Options
                     </button>
-                    <ul class="dropdown-menu" id="tag_drop">
-                        <li><a class="dropdown-item" href="#">Important</a></li>
-                        <li><a class="dropdown-item" href="#">Fundamental</a></li>
-                        <li><a class="dropdown-item" href="#">Definition</a></li>
-                        <li><a class="dropdown-item" href="#">Dont_do_this</a></li>
-                        <li><a class="dropdown-item" href="#">Step_by_Step</a></li>
-                        <li><a class="dropdown-item" href="#">Watch_again</a></li>
+                    <ul class="dropdown-menu" id="select-tags">
+                        <li><a class="dropdown-item" href="#" data-value="1">Important</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="2">Fundamental</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="3">Definition</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="4">Dont_do_this</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="5">Step_by_Step</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="6">Watch_again</a></li>
                     </ul>
                     <input type="text" class="form-control" placeholder="Tags"
                            aria-label="Text input with dropdown button">
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="input-group mb-3">
+                    <input class="form-control needed notFilled" id="note" name="notes" type="text"
+                           placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK"
+                           aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" id="createFormSubmit" type="submit" disabled>
+                        CreateFormSubmit
+                    </button>
                 </div>
             </div>
             <div class="col-2">
@@ -75,7 +80,8 @@
         <div class="row g-2">
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" id="collection_btn" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="collection_btn" type="button"
+                            data-bs-toggle="dropdown"
                             aria-expanded="false">Your Collections
                     </button>
                     <ul class="dropdown-menu" id="collection_drop">
@@ -83,12 +89,14 @@
                         <li><a class="dropdown-item" href="#">Collection 2</a></li>
                         <li><a class="dropdown-item" href="#">Collection 3</a></li>
                     </ul>
-                    <input type="text" class="form-control needed notFilled" id="collection" placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button">
+                    <input type="text" class="form-control needed notFilled" id="collection"
+                           placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button">
                 </div>
             </div>
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" id="section_btn" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-secondary dropdown-toggle" id="section_btn" type="button"
+                            data-bs-toggle="dropdown"
                             aria-expanded="false">Your Sections
                     </button>
                     <ul class="dropdown-menu" id="section_drop">
@@ -96,7 +104,8 @@
                         <li><a class="dropdown-item" href="#">Section 2</a></li>
                         <li><a class="dropdown-item" href="#">Section 3</a></li>
                     </ul>
-                    <input type="text" class="form-control needed notFilled" id="section" placeholder="Enter a new Section Title here"
+                    <input type="text" class="form-control needed notFilled" id="section"
+                           placeholder="Enter a new Section Title here"
                            aria-label="Text input with dropdown button">
 
                 </div>
@@ -105,25 +114,28 @@
         <div class="row g-2">
 
         </div>
-        <div class="row g-2" style="display:none">
+        <div class="row g-2" style="display:contents">
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden" id="ytId"
-                           aria-label="Text input with dropdown button" >
+                    <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden"
+                           id="ytId"
+                           aria-label="Text input with dropdown button">
                 </div>
             </div>
             <div class="col-md">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="user_id" name="user_id"
                            placeholder="User_Id: This field will be hidden"
-                           aria-label="Text input with dropdown button" >
+                           aria-label="Text input with dropdown button">
                 </div>
             </div>
             <div class="col-md counter-background">
-                        <div id="counter" class="counter"></div>
+                <div id="counter" class="counter"></div>
             </div>
             <div class="col-md">
-
+                <input type="text" class="form-control" id="tag_value" name="tag_value"
+                       placeholder="tag_value: This field will be hidden"
+                       aria-label="Text input">
             </div>
         </div>
 
