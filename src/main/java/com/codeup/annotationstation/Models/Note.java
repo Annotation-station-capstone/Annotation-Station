@@ -1,7 +1,6 @@
 package com.codeup.annotationstation.Models;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -26,13 +25,13 @@ public class Note {
     private String time_stamp;
 
     //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(
             name = "notes_tags",
             joinColumns = { @JoinColumn(name = "note_id") },
             inverseJoinColumns = { @JoinColumn(name = "tag_id") }
     )
-    private List<Tag> tags;
+    private Tag tag;
 
 
     //constructors
@@ -45,13 +44,14 @@ public class Note {
         this.time_stamp = time_stamp;
     }
 
-    public Note(long id, String note, Video video, Section sections, String time_stamp, List<Tag> tags) {
+
+    public Note(long id, String note, Video video, Section sections, String time_stamp, Tag tag) {
         this.id = id;
         this.note = note;
         this.video = video;
         this.sections = sections;
         this.time_stamp = time_stamp;
-        this.tags = tags;
+        this.tag = tag;
     }
 
     public Note(Video video, String time_stamp) {
@@ -60,13 +60,9 @@ public class Note {
     }
     //getters and setters
 
-    public List<Tag> getTags() {
-        return tags;
-    }
+    public Tag getTag() { return tag; }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
+    public void setTag(Tag tags) { this.tag = tags; }
 
     public long getId() {
         return id;

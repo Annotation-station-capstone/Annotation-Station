@@ -49,13 +49,13 @@
                     <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Tag Options
                     </button>
-                    <ul class="dropdown-menu" id="tag_drop">
-                        <li><a class="dropdown-item" href="#">Important</a></li>
-                        <li><a class="dropdown-item" href="#">Fundamental</a></li>
-                        <li><a class="dropdown-item" href="#">Definition</a></li>
-                        <li><a class="dropdown-item" href="#">Dont_do_this</a></li>
-                        <li><a class="dropdown-item" href="#">Step_by_Step</a></li>
-                        <li><a class="dropdown-item" href="#">Watch_again</a></li>
+                    <ul class="dropdown-menu" id="select-tags">
+                        <li><a class="dropdown-item" href="#" data-value="1">Important</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="2">Fundamental</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="3">Definition</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="4">Dont_do_this</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="5">Step_by_Step</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="6">Watch_again</a></li>
                     </ul>
                     <input type="text" class="form-control" placeholder="Tags"
                            aria-label="Text input with dropdown button">
@@ -105,7 +105,7 @@
         <div class="row g-2">
 
         </div>
-        <div class="row g-2" style="display:none">
+        <div class="row g-2" style="display:contents">
             <div class="col-md">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden" id="ytId"
@@ -123,7 +123,9 @@
                         <div id="counter" class="counter"></div>
             </div>
             <div class="col-md">
-
+                <input type="text" class="form-control" id="tag_value" name="tag_value"
+                       placeholder="tag_value: This field will be hidden"
+                       aria-label="Text input" >
             </div>
         </div>
 

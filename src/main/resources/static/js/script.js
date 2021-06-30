@@ -258,9 +258,12 @@ $(document).ready(function () {
             {
                 "note" : $("#note").val(),
                 "video": {"video_url" : $("#ytId").val()},
-                "time_stamp": $("#counter").html()
+                "time_stamp": $("#counter").html(),
+                "tag": $("#select-tags option:selected" ).attr("data-value")
             }
-        }), success : $("#note").val(''),
+        }), success :
+                $("#note").val(''),
+                // $("#select-tags >option:eq(1)").attr('selected', true)
         });
     });
 
@@ -290,6 +293,10 @@ $(document).ready(function () {
        pauseVid();
         console.log("key pressed");
     })
+
+//    select tag from drop down
+
+
 
 
 });

@@ -15,7 +15,7 @@ public class Tag {
     @Column(nullable = false, length = 255)
     private String tag;
 
-    @ManyToMany(mappedBy = "tags")
+    @OneToMany(mappedBy = "tag")
     private List<Note> notes;
 
 //constructors
