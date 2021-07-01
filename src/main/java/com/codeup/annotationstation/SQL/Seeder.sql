@@ -1,6 +1,6 @@
 USE annotation_db;
 
-truncate users;
+# truncate users;
 insert into users (first_name, last_name, is_admin, username, user_image, email, password)
 values('nathan','adcock',true,'NA', null, 'nathan@codeup.com', 'codeup');
 insert into users (first_name, last_name, is_admin, username, user_image, email, password)
@@ -13,35 +13,35 @@ insert into users (first_name, last_name, is_admin, username, user_image, email,
 values('victor','hernandez',true,'VH', null, 'victor@codeup.com', 'codeup');
 SELECT * FROM users;
 
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (1,'Web_dev', false, 'simple collection of notes on web development videos');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (1,'Web_dev', false, 'simple collection of notes on web development videos','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (2,'Home Decor', false, 'worlds greatest home decor ideas');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (2,'Home Decor', false, 'worlds greatest home decor ideas','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (3,'Mixology', false, 'awesome teaching for bartenders and alcohol lovers');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (3,'Mixology', false, 'awesome teaching for bartenders and alcohol lovers','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (4,'Books', false, 'A collection of my favorite artist');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (4,'Books', false, 'A collection of my favorite artist','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (5,'Cooking', false, 'recipes by Chef Gordon');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (5,'Cooking', false, 'recipes by Chef Gordon','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (1,'Anime', false, 'collection of the best anime of all time');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (1,'Anime', false, 'collection of the best anime of all time','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (2,'Home Improvement', false, 'Tip and Tricks for home improvement');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (2,'Home Improvement', false, 'Tip and Tricks for home improvement','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (3,'Space', false, 'The Wonders of space unraveled in this collection');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (3,'Space', false, 'The Wonders of space unraveled in this collection','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (4,'Makeup', false, 'Makeup tutorials and tricks');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (4,'Makeup', false, 'Makeup tutorials and tricks','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
-INSERT INTO collections(user_id, title, is_private, description)
-VALUES (5,'Tech', false, 'The world of Technology');
+INSERT INTO collections(user_id, title, is_private, description,image)
+VALUES (5,'Tech', false, 'The world of Technology','https://mdbootstrap.com/img/new/standard/nature/184.jpg');
 SELECT * FROM collections;
 
 INSERT INTO sections (title, collection_id)

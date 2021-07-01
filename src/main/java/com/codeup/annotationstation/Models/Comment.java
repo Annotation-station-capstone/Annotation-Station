@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name= "comments")
-@IdClass(Comment_Id.class)
+//@IdClass(Comment_Id.class)
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,12 +14,12 @@ public class Comment {
     @Column(nullable = true)
     private String comment;
 
-    @Id
+//    @Id
     @ManyToOne
     @JoinColumn(name="collection_id", referencedColumnName = "id")
     private Collection collection;
 
-    @Id
+//    @Id
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
