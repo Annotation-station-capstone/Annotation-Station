@@ -50,7 +50,12 @@ public class User {
         this.password = password;
     }
 
-
+public User(String first_name, String last_name, String email, String password){
+        this.first_name=first_name;
+        this.last_name=last_name;
+        this.email=email;
+        this.password=password;
+}
 
     public User(long id, Boolean is_admin, String first_name, String last_name, String username, String user_image, String email, String password) {
         this.id = id;

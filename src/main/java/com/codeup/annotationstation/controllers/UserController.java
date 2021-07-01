@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
         @GetMapping("/sign-up")
         public String signUpForm(Model model){
             model.addAttribute("user", new User());
-            return "users/sign-up";
+            return "collection/index";
         }
 
-        //save user
+//        save user
         @PostMapping("/sign-up")
         public String saveUser(@ModelAttribute User user){
             // still need hash strings got passwords.
