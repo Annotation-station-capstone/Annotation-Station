@@ -1,5 +1,7 @@
 package com.codeup.annotationstation.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,12 +16,16 @@ public class Comment {
     @Column(nullable = true)
     private String comment;
 
-//    @Id
+    @Id
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="collection_id", referencedColumnName = "id")
     private Collection collection;
 
-//    @Id
+
+    @Id
+    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;

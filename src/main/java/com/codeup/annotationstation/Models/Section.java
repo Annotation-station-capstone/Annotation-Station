@@ -1,5 +1,7 @@
 package com.codeup.annotationstation.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,10 +17,12 @@ public class Section {
     private String title;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "collection_id")
     private Collection collection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "section")
+    @JsonIgnore
     private List<Video> videos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "note")

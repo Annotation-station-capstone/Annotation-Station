@@ -1,6 +1,10 @@
 package com.codeup.annotationstation.Models;
 
+
 import org.hibernate.annotations.ColumnDefault;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,6 +41,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Comment> comments;
 
 

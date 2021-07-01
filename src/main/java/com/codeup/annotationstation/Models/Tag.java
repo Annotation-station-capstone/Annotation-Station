@@ -1,5 +1,7 @@
 package com.codeup.annotationstation.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Tag {
     private String tag;
 
     @OneToMany(mappedBy = "tag")
+    @JsonIgnore
     private List<Note> notes;
 
 //constructors
