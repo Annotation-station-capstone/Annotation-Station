@@ -5,11 +5,12 @@
 <!--    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>-->
     <meta charset="UTF-8">
     <title>Index</title>
-<!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 </head>
 <!--<header th:include="partials/footer :: bootStrapFooter_stylingsheet"></header>-->
 <body>
 <!--nav partial-->
+
 <nav th:replace="partials/header :: navbar"></nav>
 <!--modal-->
 <div
@@ -32,47 +33,56 @@
                 ></button>
             </div>
 
+
             <div class="modal-body">
                 <form th:action="@{/sign-up}" method="post" th:object="${user}">
-                <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input class="form-control" id="first_name" placeholder="Enter First Name" value="" th:field="*{first_name}">
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" th:field="*{last_name}">
-                </div>
-                <div class="form-group">
-                    <label for="userName">Username</label>
-                    <input type="text" class="form-control" id="userName" placeholder="Enter Username" th:field="*{username}">
-                </div>
-                <div class="form-group">
-                    <label for="reg_user_email">Email address</label>
-                    <input type="email" class="form-control" id="reg_user_email" aria-describedby="emailHelp" placeholder="Enter Email" th:field="*{email}">
-                    <small id="signupemail" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="reg_user_password">Password</label>
-                    <input type="password" class="form-control" id="reg_user_password" placeholder="Password" th:field="*{password}">
-                </div>
-                <div class="form-group">
-                    <label for="confirmpassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" >
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="newsLetterCheck">
-                    <label class="form-check-label" for="newsLetterCheck">Check if you would like to join our newsletter!</label>
-                </div>
-            </form>
-            </div>
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input name="first_name" th:type="text" class="form-control" id="first_name" placeholder="Enter First Name" value=""
+                               th:field="*{firstName}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name"
+                               th:field="*{lastName}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="userName">Username</label>
+                        <input type="text" class="form-control" id="userName" placeholder="Enter Username"
+                               th:field="*{username}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_user_email">Email address</label>
+                        <input type="email" class="form-control" id="reg_user_email" aria-describedby="emailHelp"
+                               placeholder="Enter Email" th:field="*{email}"/>
+                        <small id="signupemail" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_user_password">Password</label>
+                        <input type="password" class="form-control" id="reg_user_password" placeholder="Password"
+                               th:field="*{password}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmpassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmpassword"
+                               placeholder="Confirm Password"/>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="newsLetterCheck"/>
+                        <label class="form-check-label" for="newsLetterCheck">Check if you would like to join our
+                            newsletter!</label>
+                    </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                    Close
-                </button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                            Close
+                        </button>
 
-                <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
 
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -84,64 +94,64 @@
     <h3>ENJOY THOUGHTFULLY ASSEMBLED COLLECTIONS OF NOTES</h3>
 
 </div>
-<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;" >
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
     <h3>COLLECTIONS CURATED BY OUR ANNOTATION TEAM</h3>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-md-4 mb-4" th:each="Collection: ${collection}">
-            <div class="card" >
+        <div class="col-lg-4 col-md-4 mb-4" th:each="collection: ${collection}">
+            <div class="card">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
                     <a href="#">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>
                 </div>
-                <div class="card-body" >
-                    <h5 class="card-title" th:text="${Collection.title}"></h5>
-                    <p class="card-text" th:text="${Collection.description}">
-                        <button >
-                    <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${collection.title}"></h5>
+                    <p class="card-text" th:text="${collection.description}">
+                        <button>
+                            <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
                         </button>
                 </div>
             </div>
         </div>
-<!--        <div class="col-lg-4 col-md-12 mb-4">-->
-<!--            <div class="card">-->
-<!--                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
-<!--                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>-->
-<!--                    <a href="#">-->
-<!--                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h5 class="card-title">Post title</h5>-->
-<!--                    <p class="card-text">-->
-<!--                        Some quick example text to build on the card title and make up the bulk of the-->
-<!--                        card's content.-->
-<!--                    </p>-->
-<!--                    <a href="#" class="btn btn-primary">View Collection</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col-lg-4 col-md-12 mb-4">-->
-<!--            <div class="card">-->
-<!--                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
-<!--                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>-->
-<!--                    <a href="#">-->
-<!--                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!--                    <h5 class="card-title">Post title</h5>-->
-<!--                    <p class="card-text">-->
-<!--                        Some quick example text to build on the card title and make up the bulk of the-->
-<!--                        card's content.-->
-<!--                    </p>-->
-<!--                    <a href="#" class="btn btn-primary">View Collection</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <!--        <div class="col-lg-4 col-md-12 mb-4">-->
+        <!--            <div class="card">-->
+        <!--                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+        <!--                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>-->
+        <!--                    <a href="#">-->
+        <!--                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--                <div class="card-body">-->
+        <!--                    <h5 class="card-title">Post title</h5>-->
+        <!--                    <p class="card-text">-->
+        <!--                        Some quick example text to build on the card title and make up the bulk of the-->
+        <!--                        card's content.-->
+        <!--                    </p>-->
+        <!--                    <a href="#" class="btn btn-primary">View Collection</a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-lg-4 col-md-12 mb-4">-->
+        <!--            <div class="card">-->
+        <!--                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+        <!--                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>-->
+        <!--                    <a href="#">-->
+        <!--                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--                <div class="card-body">-->
+        <!--                    <h5 class="card-title">Post title</h5>-->
+        <!--                    <p class="card-text">-->
+        <!--                        Some quick example text to build on the card title and make up the bulk of the-->
+        <!--                        card's content.-->
+        <!--                    </p>-->
+        <!--                    <a href="#" class="btn btn-primary">View Collection</a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </div>
 </div>
 <!--if-->
