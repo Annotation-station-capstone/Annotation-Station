@@ -1,5 +1,6 @@
 package com.codeup.annotationstation.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Video {
     private String video_url;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     @JoinColumn(name= "section_id")
     private Section section;
 
