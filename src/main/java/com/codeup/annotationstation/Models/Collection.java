@@ -1,5 +1,7 @@
 package com.codeup.annotationstation.Models;
 import com.codeup.annotationstation.Models.User;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class Collection {
     private User user;
 
     @OneToMany(mappedBy = "collection")
+    @JsonManagedReference
     private List<Comment> comments;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "collection")

@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -20,7 +21,7 @@ public class Note {
     private Video video;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     @JoinColumn(name = "section_id")
     private Section sections;
 

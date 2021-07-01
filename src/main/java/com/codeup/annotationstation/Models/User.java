@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,7 +36,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
+    @JsonManagedReference
     private List<Comment> comments;
 
 
