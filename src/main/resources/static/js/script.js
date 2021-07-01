@@ -72,7 +72,7 @@ $(document).ready(function () {
         var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
         var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
         var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
-        var time = mins + "m" + ((secs < 10) ? "0" + secs : secs)+ "s";
+        var time = mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";
         return time;
     }
 
@@ -149,11 +149,11 @@ $(document).ready(function () {
 
     const options = {
         onUploadDone:
-        function (res){
-            $("#user_id").val(res.filesUploaded[0].url);
-            res.filesUploaded
-        }
-}
+            function (res) {
+                $("#user_id").val(res.filesUploaded[0].url);
+                res.filesUploaded
+            }
+    }
 
     // $('#note input[type="text"]').blur(function(e) {
     //     if(!$(this).val()){
@@ -166,15 +166,17 @@ $(document).ready(function () {
     //#time_stamp, #ytId, #user_id
 
     //TODO change field class/ look of fields to guide users to fill in required info
-    $("#userInputtedUrl").on('change', function() {
+    $("#userInputtedUrl").on('change', function () {
         if ($(this).val() === "") {
             $(this).addClass("notFilled").removeClass("textField");
+            $('#note, #section, #collection').removeAttr('disabled');
         } else {
             $(this).removeClass("notFilled").addClass("textField");
+            $('#note, #section, #collection').removeAttr('disabled')
         }
     });
 
-    $("#note, #section, #collection").on('change', function() {
+    $("#note, #section, #collection").on('change', function () {
 
         if ($(this).val() === "") {
             $(this).addClass("notFilled").removeClass("textField");
@@ -196,47 +198,74 @@ $(document).ready(function () {
 
     //TODO disable submit until all user inputs are entered
 
-    $('#note, #section, #collection, #ytId').bind('change', function() {
-        if(allFilled()) $('#createFormSubmit').removeAttr('disabled');
+    $('#note, #section, #collection, #ytId').bind('change', function () {
+        if (allFilled()) $('#createFormSubmit').removeAttr('disabled');
     });
 
     function allFilled() {
         let filled = true;
-        $('.needed').each(function() {
-            if($(this).val() === '') filled = false;
+        $('.needed').each(function () {
+            if ($(this).val() === '') filled = false;
         });
         return filled;
     }
 
+
+    //TODO Collection drop down menu create and show
+
     //$(#"user_id").val()
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/collections/userid/1',
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                console.log(data);
+                var collection_drop = ('#collection_drop');
+                $(collection_drop).empty();
+                for (var i = 0; i < data.length; i++) {
+                    $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
+                }
+            }
+        });
+    });
 
-    //TODO drop down menus create and show
+    //TODO Section drop down menu create and show
 
-    // $(document).ready(function () {
-    //     var url = "/collections/userid/1";
-    //     $.getJSON(url, function (data) {
-    //         $.each(data, function (index, value) {
-    //             // APPEND OR INSERT DATA TO SELECT ELEMENT.
-    //             $('#collection_drop').append('<li><a class="dropdown-item" value="' + value.id + '">' + value.title + '</a></li>');
+    $("#collection_drop").on('change', function () {
+        $.ajax({
+            type: 'GET',
+            url: '/collections/userid/1',
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                console.log(data);
+                var collection_drop = ('#section_drop');
+                $(collection_drop).empty();
+                for (var i = 0; i < data.length; i++) {
+                    $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].section.id + '">' + data[i].section.title + '</a></li>');
+                }
+            }
+        });
+    });
+
+
+    // $('#id_trial').click(function() {
+
+    // $.ajax({
+    //     type: "GET",
+    //     url:"/collections",
+    //     dataType: "json",
+    //     success: function (data) {
+    //         $.each(data.aaData,function(i,data)
+    //         {
+    //             var div_data='<li><a class="dropdown-item" value="' + collection.id + '">' + collection.title + '</a></li>';
+    //             $(div_data).appendTo('#collection_drop');
     //         });
-    //     });
+    //     }
     // });
 
-    // // $('#id_trial').click(function() {
-    //
-    //     $.ajax({
-    //         type: "GET",
-    //         url:"/collections",
-    //         dataType: "json",
-    //         success: function (data) {
-    //             $.each(data.aaData,function(i,data)
-    //             {
-    //                 var div_data='<li><a class="dropdown-item" value="' + collection.id + '">' + collection.title + '</a></li>';
-    //                 $(div_data).appendTo('#collection_drop');
-    //             });
-    //         }
-    //     });
-    //
     // // SHOW SELECTED VALUE.
     // $('#collection').change(function () {
     //     $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
@@ -251,26 +280,27 @@ $(document).ready(function () {
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(
-        {"collection": {
-            "user": {"id": "1"},
-            "title" : $("#collection").val(),
-                "is_private" : "true",
-                "description" : "Enter your Collection Description here",
-                "image" : "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
-        },
-            "section":{
-            "title" : $("#section").val()
-        },
-            "note":
-            {
-                "note" : $("#note").val(),
-                "video": {"video_url" : $("#ytId").val()},
-                "time_stamp": $("#counter").html(),
-                "tag": $("#select-tags option:selected" ).attr("data-value")
-            }
-        }), success :
+                {
+                    "collection": {
+                        "user": {"id": "1"},
+                        "title": $("#collection").val(),
+                        "is_private": "true",
+                        "description": "Enter your Collection Description here",
+                        "image": "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
+                    },
+                    "section": {
+                        "title": $("#section").val()
+                    },
+                    "note":
+                        {
+                            "note": $("#note").val(),
+                            "video": {"video_url": $("#ytId").val()},
+                            "time_stamp": $("#counter").html(),
+                            "tag": $("#select-tags option:selected").attr("data-value")
+                        }
+                }), success:
                 $("#note").val(''),
-                // $("#select-tags >option:eq(1)").attr('selected', true)
+            // $("#select-tags >option:eq(1)").attr('selected', true)
         });
     });
 
@@ -279,31 +309,31 @@ $(document).ready(function () {
     // get video element id
     var vidClip = document.getElementById("videoPlayer");
     console.log(vidClip);
+
 // play video event
     function playVid() {
         // vidClip.play();
-        vidClip.contentWindow.postMessage(JSON.stringify({event:"command", func:"playVideo"}),"*")
+        vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo"}), "*")
     }
+
 // pause video event
     function pauseVid() {
         // vidClip.pause();
-        vidClip.contentWindow.postMessage(JSON.stringify({event:"command", func:"pauseVideo"}),"*")
+        vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo"}), "*")
     }
 
-    $('#createFormSubmit').click(function(){
-       playVid();
+    $('#createFormSubmit').click(function () {
+        playVid();
 
         console.log("im clicked");
     })
 
-    $('#note').keypress(function(){
-       pauseVid();
+    $('#note').keypress(function () {
+        pauseVid();
         console.log("key pressed");
     })
 
 //    select tag from drop down
-
-
 
 
 });

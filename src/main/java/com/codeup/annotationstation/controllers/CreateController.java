@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 
@@ -41,12 +42,12 @@ public class CreateController {
 
     }
 
-    //fetch data from collections table and sends to create page
-    @GetMapping("/collections/userid/{userId}")
-    public List<Collection> getCollectionsForUser(@PathVariable("userId") long userId){
-        return collectionsService.getCollection(userId);
-    }
-
+//fetch data from collections table and sends to create page
+@RequestMapping(value = "/collections/userid/{userId}", method = GET)
+@ResponseBody
+public List<Collection> getCollectionsForUser(@PathVariable("userId") long userId){
+    return collectionsService.getCollection(userId);
+}
 
 
 }
