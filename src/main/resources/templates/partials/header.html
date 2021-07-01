@@ -10,20 +10,20 @@
             <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
             <div>Sign In</div>
         </button>
-        <div class="dropdown-menu mx-auto" style="width: 320px">
-            <form class="px-4 py-3">
-                <!-- Email input -->
+        <div class="dropdown-menu mx-auto text-center" style="width: 320px">
+            <form class="px-4 py-3" th:action="@{/login}" th:method="post">
+                <!-- Username input -->
                 <div class="form-outline mb-4">
-                    <input type="email" id="user_email" class="form-control"/>
-                    <label class="form-label" for="user_email">Email address</label>
+                    <input id="username" class="form-control" name="username" type="text"/>
+                    <label class="form-label" for="username">Username</label>
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="user_password" class="form-control"/>
-                    <label class="form-label" for="user_password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control"/>
+                    <label class="form-label" for="password">Password</label>
                 </div>
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                <button type="submit" value="signIn" class="btn btn-primary btn-block">Sign in</button>
             </form>
             <div class="dropdown-divider"></div>
             <button
@@ -32,7 +32,7 @@
                     data-mdb-toggle="modal"
                     data-mdb-target="#registerModal"
             >
-                Launch demo modal
+                New Around Here? Register!
             </button>
         </div>
     </div>
