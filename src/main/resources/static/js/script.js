@@ -225,7 +225,8 @@ $(document).ready(function () {
                 var collection_drop = ('#collection_drop');
                 $(collection_drop).empty();
                 for (var i = 0; i < data.length; i++) {
-                    $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
+                    $(collection_drop).append('<option value="' + data[i].id + '">' + data[i].title + '</option>');
+                    // $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
                 }
             }
         });
@@ -241,10 +242,10 @@ $(document).ready(function () {
             data: {},
             success: function (data) {
                 console.log(data);
-                var collection_drop = ('#section_drop');
-                $(collection_drop).empty();
+                var section_drop = '#section_drop';
+                $(section_drop).empty();
                 for (var i = 0; i < data.length; i++) {
-                    $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].section.id + '">' + data[i].section.title + '</a></li>');
+                    $(section_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
                 }
             }
         });
@@ -298,9 +299,10 @@ $(document).ready(function () {
                             "time_stamp": $("#counter").html(),
                             "tag": $("#select-tags option:selected").attr("data-value")
                         }
-                }), success:
-                $("#note").val(''),
-            // $("#select-tags >option:eq(1)").attr('selected', true)
+                }), success:function () {
+                $("#note").val('');
+                $("#select-tags >option:eq(1)").attr('selected', true)
+            }
         });
     });
 

@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Collection</title>
-    <link th:href="@{/css/collectionPageStyle.css}" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Collection</title>
+	<link th:href="@{/css/collectionPageStyle.css}" rel="stylesheet">
 </head>
 <body>
 <header class="header">
-    <h1 th:each="Collection: ${collections}">
-     <span th:text="${Collection.title}"></span>
-    </h1>
+	<h1 th:each="Collection: ${collections}">
+		<p th:text="${Collection.title}"></p>
+	</h1>
 </header>
-<!--<button class="accordion" th:text="${singleCollection.title}"></button>-->
 <main>
-    <div>
-        <section th:each="Collection: ${collections}">
-            <img class="img" th:text="${Collection.image}" alt="Collection-image" >
-        </section>
-        <h1 th:each="Collection: ${collections}">
-           <span th:text="${Collection.title}"></span>
-        </h1>
-        <h3 class="h3" th:each="Collection: ${collections}">
-            <span th:text="${Collection.description}"></span>
-        </h3>
-        <p>SET COLLECTION TO PUBLIC
-            <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-            </label></p>
-        <form method="POST" action="#">
-
+	<div>
+		<section th:each="Collection: ${collections}">
+			<img class="img" th:text="${Collection.image}" alt="Collection-image">
+		</section>
+		<h1 th:each="Collection: ${collections}">
+			<span th:text="${Collection.title}"></span>
+		</h1>
+		<h3 class="h3" th:each="Collection: ${collections}">
+			<span th:text="${Collection.description}"></span>
+		</h3>
+		<p>SET COLLECTION TO PUBLIC
+			<label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+			</label></p>
+		<form method="POST" action="#">
             <label for="#"></label>
-            <input id="#" placeholder="ADD URL FOR A COLLECTION IMAGE" type="text">
-            <input type="submit">
-        </form>
+			<input id="#" placeholder="ADD URL FOR A COLLECTION IMAGE" type="text">
+			<input type="submit">
+		</form>
 
-    </div>
-    <div class="panel">
-        <p>Lorem ipsum...</p>
-    </div>
+	</div>
+	<div class="panel">
+		<p>Lorem ipsum...</p>
+	</div>
 
-    <div th:each="Section: ${collections}">
-    <button class="accordion">Section <span th:text="${Section.id}"></span>: <span th:text="${Section.title}"></span></button>
-    </div>
-<!--    <div class="panel" th:each="Note: ${Note}">-->
-<!--        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
+	<div th:each="section: ${section}">
+		<button class="accordion">Section <span th:text="${Section.id}"></span>:
+            <span th:text="${Section.title}"></span></button>
+	</div>
+<!--	    <div class="panel" th:each="Note: ${Note}">-->
+<!--	        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
 
-<!--        <p>Tags: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi asperiores consequatur deserunt ea excepturi, facere id iusto, magnam neque odit officiis optio possimus qui, repellat repudiandae sapiente similique ut.</p>-->
+<!--	        <p>Tags: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi asperiores consequatur deserunt ea excepturi, facere id iusto, magnam neque odit officiis optio possimus qui, repellat repudiandae sapiente similique ut.</p>-->
 
-<!--        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
-<!--        &lt;!&ndash; add as many notes as needed...&ndash;&gt;-->
-<!--    </div>-->
+<!--	        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
+<!--	        &lt;!&ndash; add as many notes as needed...&ndash;&gt;-->
+<!--	    </div>-->
 
-<!--    <div th:each="Section: ${sections}">-->
-<!--    <button class="accordion">Section 2: <span th:text="${Section.title}"></span></button>-->
-<!--    </div>-->
-<!--    <div class="panel">-->
-<!--        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
-<!--        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
-        <!-- add as many notes as needed...-->
-    </div>
+<!--	    <div th:each="Section: ${sections}">-->
+<!--	    <button class="accordion">Section 2: <span th:text="${Section.title}"></span></button>-->
+<!--	    </div>-->
+<!--	    <div class="panel">-->
+<!--	        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
+<!--	        <p class="accordion">Note <span th:text="${Note.note_id}"></span> : <span th:text="${Note.notes}"></span></p>-->
+	</div>
 </main>
-<script src="../static/js/collectionPageScript.js" rel="script"></script>
+<script th:src="@{/js/collectionPageScript.js}" rel="script"></script>
 </body>
 </html>
