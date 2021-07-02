@@ -223,7 +223,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 var collection_drop = ('#collection_drop');
-                $(collection_drop).empty();
+                // $(collection_drop).empty();
                 for (var i = 0; i < data.length; i++) {
                     $(collection_drop).append('<option value="' + data[i].id + '">' + data[i].title + '</option>');
                     // $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
@@ -232,46 +232,31 @@ $(document).ready(function () {
         });
     });
 
-    //TODO Section drop down menu create and show
-
-    $("#collection_drop").on('change', function () {
-        $.ajax({
-            type: 'GET',
-            url: '/collections/userid/1',
-            dataType: "json",
-            data: {},
-            success: function (data) {
-                console.log(data);
-                var section_drop = '#section_drop';
-                $(section_drop).empty();
-                for (var i = 0; i < data.length; i++) {
-                    $(section_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
-                }
-            }
-        });
-    });
-
-
-    // $('#id_trial').click(function() {
-
-    // $.ajax({
-    //     type: "GET",
-    //     url:"/collections",
-    //     dataType: "json",
-    //     success: function (data) {
-    //         $.each(data.aaData,function(i,data)
-    //         {
-    //             var div_data='<li><a class="dropdown-item" value="' + collection.id + '">' + collection.title + '</a></li>';
-    //             $(div_data).appendTo('#collection_drop');
-    //         });
-    //     }
+    // //TODO Section drop down menu create and show
+    //
+    // $("#collection_drop").on('change', function () {
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: '/collections/userid/1',
+    //         dataType: "json",
+    //         data: {},
+    //         success: function (data) {
+    //             console.log(data);
+    //             var section_drop = '#section_drop';
+    //             // $(section_drop).empty();
+    //             for (var i = 0; i < data.length; i++) {
+    //                 $(section_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
+    //             }
+    //         }
+    //     });
     // });
 
-    // // SHOW SELECTED VALUE.
-    // $('#collection').change(function () {
-    //     $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
-    // });
+    //TODO drop down selections are entered into associated input fields
 
+    $('#collection_drop').on('change', function () {
+        console.log(this.innerText);
+        $('#collection').attr('value', this.value)
+    })
 
     $("#createFormSubmit").click(function (e) {
         $("#createFormSubmit").attr("disabled", true);
