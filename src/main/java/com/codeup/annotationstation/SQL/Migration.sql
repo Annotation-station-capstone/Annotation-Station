@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS annotation_db;
+DROP DATABASE  annotation_db;
 CREATE DATABASE IF NOT EXISTS annotation_db;
 
 USE annotation_db;
