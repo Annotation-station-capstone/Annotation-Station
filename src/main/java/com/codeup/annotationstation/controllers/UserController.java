@@ -19,10 +19,10 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
 
-    public UserController(UsersRepository userDao){
+    public UserController(UsersRepository userDao, PasswordEncoder passwordEncoder){
 
         this.userDao= userDao;
-        this.passwordEncoder=passwordEncoder;
+        this.passwordEncoder= passwordEncoder;
     }
     //allow user to get to sign up form
     @GetMapping("/")
