@@ -1,11 +1,9 @@
 package com.codeup.annotationstation.Models;
 
 
-import com.sun.istack.NotNull;
-import org.hibernate.annotations.ColumnDefault;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.engine.jdbc.Size;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 import javax.persistence.*;
@@ -44,7 +42,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
+    @JsonBackReference
     private List<Comment> comments;
 
 
