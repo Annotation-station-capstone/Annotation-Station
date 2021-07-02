@@ -1,9 +1,11 @@
 package com.codeup.annotationstation.Models;
 
 
+import com.sun.istack.NotNull;
 import org.hibernate.annotations.ColumnDefault;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.engine.jdbc.Size;
 
 
 import javax.persistence.*;
@@ -22,6 +24,7 @@ public class User {
     private Boolean is_admin;
 
     @Column(nullable = false, length = 255)
+//    @NotEmpty(message="Please provide a First Name")
     private String firstName;
 
     @Column(nullable = false, length = 255)
