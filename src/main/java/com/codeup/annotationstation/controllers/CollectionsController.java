@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.daos.CollectionsRepository;
+import com.codeup.annotationstation.daos.SectionRepository;
 import com.codeup.annotationstation.daos.UsersRepository;
 import com.codeup.annotationstation.Models.Collection;
 import org.springframework.stereotype.Controller;
@@ -12,10 +13,12 @@ public class CollectionsController {
     //field to inject repository
     private UsersRepository usersDao;
     private CollectionsRepository collectionsDao;
+    private SectionRepository sectionsDao;
 
-    public CollectionsController(UsersRepository usersDao, CollectionsRepository collectionsDao) {
+    public CollectionsController(UsersRepository usersDao, CollectionsRepository collectionsDao, SectionRepository sectionsDao) {
         this.usersDao = usersDao;
         this.collectionsDao = collectionsDao;
+        this.sectionsDao = sectionsDao;
     }
 //@GetMapping("/index")
 //public String showIndex(){
@@ -24,7 +27,7 @@ public class CollectionsController {
     @GetMapping(value = "/collections")
     public String indexPage(Model model) {
         model.addAttribute("collection", collectionsDao.findAll());
-//        model.addAttribute("similarTitle", collectionsDao.findFirst10ByTitleOrderByTitleDesc(collection.getTitle()));
+        model.addAttribute("sectionTitle", sectionsDao.findByTitle());
         return "/collection/index";
     }
 
