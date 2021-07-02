@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     private UsersRepository userDao;
 
+
     public UserController(UsersRepository userDao){
         this.userDao= userDao;
     }
@@ -23,6 +24,7 @@ public class UserController {
         model.addAttribute("user", new User());
         return "collection/index";
     }
+
 
     //        save user
     @PostMapping("/sign-up")

@@ -49,5 +49,12 @@ public List<Collection> getCollectionsForUser(@PathVariable("userId") long userI
     return collectionsService.getCollection(userId);
 }
 
+//    //fetch data from collections table and sends to create page
+//    @RequestMapping(value = "/collections/collection/{collectionId}", method = GET)
+//    @ResponseBody
+//    public Collection findFirstById(@PathVariable("collectionId") long userId){
+//        return collectionsService.getCollection(userId);
+//    }
+
 
 }
