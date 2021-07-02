@@ -40,18 +40,17 @@
         <div class="row g-2">
             <div class="col-3">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" id="tag_btn" type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">Tag Options
-                    </button>
-                    <ul class="dropdown-menu" id="select-tags">
-                        <li><a class="dropdown-item" href="#" data-value="1">Important</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="2">Fundamental</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="3">Definition</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="4">Dont_do_this</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="5">Step_by_Step</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="6">Watch_again</a></li>
-                    </ul>
+                        <select name="drop" id="select-tags" aria-label="drop down" placeholder="Select Tag Option">
+                            <option value="1">Select One</option>
+                            <option disabled>───────</option>
+                            <option value="2">Important</option>
+                            <option value="3">Fundemental</option>
+                            <option value="4">Definition</option>
+                            <option value="5">Dont_do_this</option>
+                            <option value="6">Step_by_Step</option>
+                            <option value="6">Watch_Again</option>
+                        </select>
+
                     <input type="text" class="form-control" placeholder="Tags"
                            aria-label="Text input with dropdown button">
                 </div>
@@ -80,38 +79,23 @@
         <div class="row g-2">
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <select name="drop" id="collection_drop">
-<!--                        <option></option>-->
-<!--                        <option></option>-->
-<!--                        <option></option>-->
+                    <select name="drop" id="collection_drop" aria-label="drop down" placeholder="Select Collection Title">
+                        <option value="1">Select One</option>
+                        <option disabled>───────</option>
                     </select>
-<!--                    <button class="btn btn-outline-secondary dropdown-toggle" id="collection_btn" type="button"-->
-<!--                            data-bs-toggle="dropdown"-->
-<!--                            aria-expanded="false">Your Collections-->
-<!--                    </button>-->
-<!--                    <ul class="dropdown-menu" id="collection_drop">-->
-<!--                        <li><a class="dropdown-item" href="#">Collection 1</a></li>-->
-<!--                        <li><a class="dropdown-item" href="#">Collection 2</a></li>-->
-<!--                        <li><a class="dropdown-item" href="#">Collection 3</a></li>-->
-<!--                    </ul>-->
                     <input type="text" class="form-control needed notFilled" id="collection"
                            placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button">
                 </div>
             </div>
             <div class="col-md">
                 <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" id="section_btn" type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">Your Sections
-                    </button>
-                    <ul class="dropdown-menu" id="section_drop">
-                        <li><a class="dropdown-item" href="#">Section 1</a></li>
-                        <li><a class="dropdown-item" href="#">Section 2</a></li>
-                        <li><a class="dropdown-item" href="#">Section 3</a></li>
-                    </ul>
+                    <select name="drop" id="section_drop" aria-label="drop down" placeholder="Select Select Title">
+                        <option value="1">Select One</option>
+                        <option disabled>───────</option>
+
+                    </select>
                     <input type="text" class="form-control needed notFilled" id="section"
-                           placeholder="Enter a new Section Title here"
-                           aria-label="Text input with dropdown button">
+                           placeholder="Enter a new Section Title here" aria-label="Text input with dropdown button">
 
                 </div>
             </div>
