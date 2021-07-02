@@ -24,7 +24,6 @@ public class User {
     private Boolean is_admin;
 
     @Column(nullable = false, length = 255)
-//    @NotEmpty(message="Please provide a First Name")
     private String firstName;
 
     @Column(nullable = false, length = 255)
