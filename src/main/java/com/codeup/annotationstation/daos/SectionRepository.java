@@ -13,6 +13,7 @@ import java.util.List;
 public interface SectionRepository extends JpaRepository<Section, Long> {
 
     Section findByTitle();
+
 //
 //    Section findFirstByTitle(String title);
 
