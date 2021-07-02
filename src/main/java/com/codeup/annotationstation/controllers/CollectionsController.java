@@ -29,7 +29,7 @@ public class CollectionsController {
     public String indexPage(Model model) {
 
         model.addAttribute("collection", collectionsDao.findAll());
-        model.addAttribute("sectionTitle", sectionsDao.findByTitle());
+
         return "/collection/index";
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface SectionRepository extends JpaRepository<Section, Long> {
 
-    Section findByTitle();
+
 
 //
 //    Section findFirstByTitle(String title);
