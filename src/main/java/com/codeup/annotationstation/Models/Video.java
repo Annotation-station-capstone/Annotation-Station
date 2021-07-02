@@ -1,6 +1,8 @@
 package com.codeup.annotationstation.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
@@ -17,11 +19,12 @@ public class Video {
     private String video_url;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     @JoinColumn(name= "section_id")
     private Section section;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "video")
+    @JsonBackReference
     private List<Note> notes;
 
     //constructors

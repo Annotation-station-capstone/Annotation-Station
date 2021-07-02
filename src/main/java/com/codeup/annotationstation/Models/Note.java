@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -16,11 +17,12 @@ public class Note {
     private String note;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     @JoinColumn(name = "video_id")
     private Video video;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     @JoinColumn(name = "section_id")
     private Section sections;
 
@@ -29,6 +31,7 @@ public class Note {
 
     //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     @JoinTable(
             name = "notes_tags",
             joinColumns = { @JoinColumn(name = "note_id") },

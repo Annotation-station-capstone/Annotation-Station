@@ -18,7 +18,9 @@ public class UserController {
     private UsersRepository userDao;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UsersRepository userDao, PasswordEncoder passwordEncoder){
+
+    public UserController(UsersRepository userDao){
+
         this.userDao= userDao;
         this.passwordEncoder=passwordEncoder;
     }
@@ -28,6 +30,7 @@ public class UserController {
         model.addAttribute("user", new User());
         return "collection/index";
     }
+
 
     //        save user
     @PostMapping("/sign-up")
