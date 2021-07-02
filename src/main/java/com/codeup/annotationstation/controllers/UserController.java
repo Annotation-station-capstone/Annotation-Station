@@ -21,17 +21,22 @@ public class UserController {
     @GetMapping("/")
     public String signUpForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("test", "stringtest123");
         return "collection/index";
     }
 
     //        save user
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user) {
+    public String saveUser( @ModelAttribute User user, BindingResult bindingResult) {
         // still need hash strings got passwords.
         //user.setPassword(hash) for security.
-        userDao.save(user);
-        return "redirect:/";
+        if(bindingResult.hasErrors()){
+            return "/";
+        }else{
+            userDao.save(user);
+            return "redirect:/";
+        }
+
+
     }
 
 

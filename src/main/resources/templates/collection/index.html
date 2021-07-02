@@ -37,9 +37,10 @@
             <div class="modal-body">
                 <form th:action="@{/sign-up}" method="post" th:object="${user}">
                     <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input name="first_name" th:type="text" class="form-control" id="first_name" placeholder="Enter First Name" value=""
-                               th:field="*{firstName}"/>
+                        <label for="firstName">First Name</label>
+                        <input name="first_name" th:type="text" class="form-control" id="firstName" placeholder="Enter First Name"
+                               th:field="*{firstName}"/><span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                        class="text-danger">Enter First Name</span>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
@@ -99,7 +100,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-md-4 mb-4" th:each="collection: ${collection}">
+        <div class="col-lg-4 col-md-4 mb-4" th:each="Collection: ${collection}">
             <div class="card">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
@@ -108,8 +109,8 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${collection.title}"></h5>
-                    <p class="card-text" th:text="${collection.description}">
+                    <h5 class="card-title" th:text="${Collection.title}"></h5>
+                    <p class="card-text" th:text="${Collection.description}">
                         <button>
                             <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
                         </button>
