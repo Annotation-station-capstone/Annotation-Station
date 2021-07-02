@@ -2,6 +2,7 @@ package com.codeup.annotationstation.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Section {
     private String title;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonManagedReference
     @JoinColumn(name = "collection_id")
     private Collection collection;
 
@@ -27,6 +28,7 @@ public class Section {
     private List<Video> videos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "note")
+    @JsonBackReference
     private List<Note> notes;
 
     public Section() {
