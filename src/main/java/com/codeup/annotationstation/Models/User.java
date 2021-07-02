@@ -1,5 +1,6 @@
 package com.codeup.annotationstation.Models;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -7,6 +8,7 @@ import com.sun.istack.NotNull;
 import org.hibernate.annotations.ColumnDefault;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.engine.jdbc.Size;
+
 
 
 import javax.persistence.*;
@@ -20,19 +22,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
+    @ColumnDefault("0")
     private Boolean is_admin;
 
     @Column(nullable = false, length = 255)
-    private String first_name;
+//    @NotEmpty(message="Please provide a First Name")
+    private String firstName;
 
     @Column(nullable = false, length = 255)
-    private String last_name;
+    private String lastName;
 
     @Column(nullable = false, length = 255)
     private String username;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = true, length = 255)
+    @ColumnDefault("''")
     private String user_image;
 
     @Column(nullable = false, length = 255)
@@ -50,28 +55,28 @@ public class User {
     public User() {
     }
 
-    public User(Boolean is_admin, String first_name, String last_name, String username, String user_image, String email, String password) {
+    public User(Boolean is_admin, String firstName, String lastName, String username, String user_image, String email, String password) {
         this.is_admin = is_admin;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.user_image = user_image;
         this.email = email;
         this.password = password;
     }
 
-public User(String first_name, String last_name, String email, String password){
-        this.first_name=first_name;
-        this.last_name=last_name;
+public User(String firstName, String lastName, String email, String password){
+        this.firstName=firstName;
+        this.lastName=lastName;
         this.email=email;
         this.password=password;
 }
 
-    public User(long id, Boolean is_admin, String first_name, String last_name, String username, String user_image, String email, String password) {
+    public User(long id, Boolean is_admin, String firstName, String lastName, String username, String user_image, String email, String password) {
         this.id = id;
         this.is_admin = is_admin;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.user_image = user_image;
         this.email = email;
@@ -86,8 +91,8 @@ public User(String first_name, String last_name, String email, String password){
         email = copy.email;
         username = copy.username;
         password = copy.password;
-        first_name= copy.first_name;
-        last_name=copy.last_name;
+        firstName= copy.firstName;
+        lastName=copy.lastName;
         is_admin=copy.is_admin;
         user_image=copy.user_image;
         comments=copy.comments;
@@ -110,23 +115,13 @@ public User(String first_name, String last_name, String email, String password){
     public void setIs_admin(Boolean is_admin) {
         this.is_admin = is_admin;
     }
-
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirsName(String firstName) {
+        this.firstName = firstName;
     }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -160,6 +155,18 @@ public User(String first_name, String last_name, String email, String password){
     }
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setComments(List<Comment> comments) {

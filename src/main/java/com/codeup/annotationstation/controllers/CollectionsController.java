@@ -21,16 +21,17 @@ public class CollectionsController {
 //public String showIndex(){
 //        return "index";
 //}
-    @GetMapping(value = "/collection")
-    public String indexPage(Model model, Collection collection) {
+
+    @GetMapping(value = "/collections")
+    public String indexPage(Model model) {
+
         model.addAttribute("collection", collectionsDao.findAll());
 //        model.addAttribute("similarTitle", collectionsDao.findFirst10ByTitleOrderByTitleDesc(collection.getTitle()));
-
-        return "collection/index";
+        return "/collection/index";
     }
 
     //show all collections
-    @GetMapping("/collections")
+    @GetMapping("/collectionsPage")
     public String showCollectionsPage(Model model){
         model.addAttribute("collections", collectionsDao.findAll());
         return "collectionPage";
