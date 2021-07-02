@@ -38,8 +38,8 @@
 		<p>Lorem ipsum...</p>
 	</div>
 
-	<div th:each="section: ${section}">
-		<button class="accordion">Section <span th:text="${Section.id}"></span>:
+	<div th:each="Section: ${collections}">
+		<button class="accordion">Section <span th:text="${Section.title}"></span>:
             <span th:text="${Section.title}"></span></button>
 	</div>
 <!--	    <div class="panel" th:each="Note: ${Note}">-->
