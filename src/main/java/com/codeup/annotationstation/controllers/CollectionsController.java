@@ -21,7 +21,7 @@ public class CollectionsController {
 //public String showIndex(){
 //        return "index";
 //}
-    @GetMapping(value = "/")
+    @GetMapping(value = "/collection")
     public String indexPage(Model model, Collection collection) {
         model.addAttribute("collection", collectionsDao.findAll());
 //        model.addAttribute("similarTitle", collectionsDao.findFirst10ByTitleOrderByTitleDesc(collection.getTitle()));
@@ -35,6 +35,7 @@ public class CollectionsController {
         model.addAttribute("collections", collectionsDao.findAll());
         return "collectionPage";
     }
+
 //show one collection
     @GetMapping("/collections/{id}")
     public String oneCollection(@PathVariable long id, Model model){

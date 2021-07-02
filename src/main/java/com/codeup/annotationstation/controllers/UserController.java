@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
         private UsersRepository users;
 
         //allow user to get to sign up form
-        @GetMapping("/sign-up")
+        @GetMapping("/")
         public String signUpForm(Model model){
             model.addAttribute("user", new User());
             return "collection/index";
