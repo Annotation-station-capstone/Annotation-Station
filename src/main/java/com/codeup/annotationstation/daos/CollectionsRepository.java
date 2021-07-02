@@ -21,8 +21,10 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
     List<Collection> findByUserAndId(User user, long id);
     List<Collection> findByUser(User user);
+
     
     List<Collection> findFirst10ByTitleOrderByTitleDesc(String title);
+    List<Collection> findBySectionsAndTitle(String title);
 
 //    Collection findAllCollections(String title);
 }
