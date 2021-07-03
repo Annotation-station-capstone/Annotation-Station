@@ -4,6 +4,7 @@ package com.codeup.annotationstation.Models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.ColumnDefault;
 import com.sun.istack.NotNull;
 import org.hibernate.annotations.ColumnDefault;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,7 +28,6 @@ public class User {
     private Boolean is_admin;
 
     @Column(nullable = false, length = 255)
-//    @NotEmpty(message="Please provide a First Name")
     private String firstName;
 
     @Column(nullable = false, length = 255)
