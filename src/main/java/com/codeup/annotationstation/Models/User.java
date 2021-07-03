@@ -33,14 +33,14 @@ public class User {
     @Column(nullable = false, length = 255)
     private String lastName;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 255, unique = true)
     private String username;
 
     @Column(nullable = true, length = 255)
     @ColumnDefault("''")
     private String user_image;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 255, unique = true)
     private String email;
 
     @Column(nullable = false, length = 255)
