@@ -3,14 +3,18 @@ package com.codeup.annotationstation.service;
 import com.codeup.annotationstation.Models.User;
 import com.codeup.annotationstation.Models.UserWithRoles;
 import com.codeup.annotationstation.daos.UsersRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserDetailsLoader implements UserDetailsService {
     private final UsersRepository users;
+
 
     public UserDetailsLoader(UsersRepository users) {
         this.users = users;
@@ -25,4 +29,5 @@ public class UserDetailsLoader implements UserDetailsService {
 
         return new UserWithRoles(user);
     }
+
 }

@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.daos.UsersRepository;
+import com.codeup.annotationstation.service.UserDetailsLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     private UsersRepository userDao;
     private PasswordEncoder passwordEncoder;
+    private UserDetailsLoader userService;
 
 
-    public UserController(UsersRepository userDao, PasswordEncoder passwordEncoder){
+    public UserController(UsersRepository userDao, PasswordEncoder passwordEncoder, UserDetailsLoader userService){
 
         this.userDao= userDao;
         this.passwordEncoder= passwordEncoder;
+        this.userService=userService;
     }
     //allow user to get to sign up form
     @GetMapping("/")
@@ -35,10 +38,10 @@ public class UserController {
     //        save user
     @PostMapping("/sign-up")
     public String saveUser( @ModelAttribute User user) {
-        String hash = passwordEncoder.encode(user.getPassword());
+String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
-            userDao.save(user);
-            return "redirect:/";
+        userDao.save(user);
+return "redirect:/";
         }
 
 
