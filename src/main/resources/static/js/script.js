@@ -41,6 +41,8 @@ $(document).ready(function () {
         youtubeId = getYoutubeVideoID(searchVid)
         $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1`);
         $("#ytId").attr("value", `${youtubeId}`);
+        $("#userURLSubmit").removeAttr('data-balloon-visible')
+        $("#collection-tip").attr('data-balloon-visible', true)
     });
 
     function onPlayerReady(event) {
@@ -166,24 +168,37 @@ $(document).ready(function () {
     //#time_stamp, #ytId, #user_id
 
     //TODO change field class/ look of fields to guide users to fill in required info
-    $("#userInputtedUrl").on('change', function () {
-        if ($(this).val() === "") {
-            $(this).addClass("notFilled").removeClass("textField");
-            $('#note, #section, #collection').removeAttr('disabled');
-        } else {
-            $(this).removeClass("notFilled").addClass("textField");
-            $('#note, #section, #collection').removeAttr('disabled')
-        }
-    });
 
-    $("#note, #section, #collection").on('change', function () {
+    // $("#userInputtedUrl").on('change', function () {
+    //     $("#collection-tip").attr('data-balloon-visible')
+    // });
+
+    $("#note, #section, #collection, #userInputtedUrl").on('change', function () {
 
         if ($(this).val() === "") {
             $(this).addClass("notFilled").removeClass("textField");
         } else {
-            $(this).removeClass("notFilled").addClass("textField");
+            $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
+            $('#createFormSubmit').removeAttr('disabled')
         }
     });
+
+    $("#collection, #collection_drop").on('change', function () {
+        $('#collection-tip').removeAttr('data-balloon-visible');
+        $('#section-tip').attr('data-balloon-visible', true);
+    })
+
+    $("#section, #section_drop").on('change', function () {
+        $('#section-tip').removeAttr('data-balloon-visible');
+        $('#note-tip').attr('data-balloon-visible', true);
+        $('#tag-tip').attr('data-balloon-visible', true);
+    })
+
+    $("#note").on('change', function () {
+        $('#note-tip').removeAttr('data-balloon-visible');
+        $('#tag-tip').removeAttr('data-balloon-visible');
+    })
+
 
     // function onChange() {
     //     var x = document.getElementById("note").value;
@@ -225,7 +240,7 @@ $(document).ready(function () {
                 var collection_drop = ('#collection_drop');
                 // $(collection_drop).empty();
                 for (var i = 0; i < data.length; i++) {
-                    $(collection_drop).append('<option value="' + data[i].id + '">' + data[i].title + '</option>');
+                    $(collection_drop).append('<option value="' + data[i].id+ " : " + data[i].title + '">' + data[i].title + '</option>');
                     // $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
                 }
             }
@@ -251,12 +266,15 @@ $(document).ready(function () {
     //     });
     // });
 
-    //TODO drop down selections are entered into associated input fields
+    //TODO drop down selections are entered into associated input fields and those fields are colored differently
 
     $('#collection_drop').on('change', function () {
         console.log(this.innerText);
-        $('#collection').attr('value', this.value)
+        $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+        $('#section_drop').removeAttr('disabled')
     })
+
+    //TODO post method to send newly created collections/sections/and notes to the db
 
     $("#createFormSubmit").click(function (e) {
         $("#createFormSubmit").attr("disabled", true);
