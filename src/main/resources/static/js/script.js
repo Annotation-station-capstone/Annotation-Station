@@ -320,7 +320,7 @@ $(document).ready(function () {
         console.log("key pressed");
     })
 
-    let password = document.getElementById("password")
+    let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
 
     function validatePassword(){
