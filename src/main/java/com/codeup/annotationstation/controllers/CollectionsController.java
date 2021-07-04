@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 @Controller
 public class CollectionsController {
     //field to inject repository
@@ -44,7 +46,7 @@ public class CollectionsController {
     @GetMapping("/collections/{id}")
     public String oneCollection(@PathVariable long id, Model model){
         model.addAttribute("singleCollection", collectionsDao.getById(id));
-        return "collections/show";
+        return "collection/show";
     }
 
 //get a collection to edit
