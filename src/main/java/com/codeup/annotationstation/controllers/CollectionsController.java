@@ -20,9 +20,9 @@ public class CollectionsController {
         this.collectionsDao = collectionsDao;
         this.sectionsDao = sectionsDao;
     }
-//@GetMapping("/index")
+//@GetMapping("collection/index")
 //public String showIndex(){
-//        return "index";
+//        return "collection/index";
 //}
 
     @GetMapping(value = "/collections")
@@ -30,7 +30,7 @@ public class CollectionsController {
 
         model.addAttribute("collection", collectionsDao.findAll());
 
-        return "/collection/index";
+        return "collection/index";
     }
 
     //show all collections
