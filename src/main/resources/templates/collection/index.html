@@ -12,10 +12,9 @@
 <!--nav partial-->
 
 <nav th:replace="partials/header :: navbar"></nav>
-<div sec:authorize="!isAuthenticated()">
+<div sec:authorize="isAuthenticated()">
+    Welcome, <span th:text="${#authentication.principal.username}"/>    `
 
-
-  hello
 </div>
 <!--modal-->
 <div sec:authorize="!isAuthenticated()"
@@ -37,12 +36,7 @@
                         aria-label="Close"
                 ></button>
             </div>
-            <div sec:authorize="isAuthenticated()">
-                This content is only shown to authenticated users.
 
-                Username: <span th:text="${#authentication.principal.username}"/>
-                Email: <span th:text="${#authentication.principal.email}"/>
-            </div>
 
             <div class="modal-body" >
                 <form th:action="@{/sign-up}" method="post" th:object="${user}">

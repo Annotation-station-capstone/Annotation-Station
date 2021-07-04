@@ -27,7 +27,7 @@ public class CollectionsController {
 //        return "collection/index";
 //}
 
-    @GetMapping(value = "/collections")
+    @PostMapping(value = "/collections")
     public String indexPage(Model model) {
 
         model.addAttribute("collection", collectionsDao.findAll());
