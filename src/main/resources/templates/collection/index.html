@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:include="partials/head :: headStylesheets">
 <!--    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
 <!--    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>-->
@@ -12,8 +12,13 @@
 <!--nav partial-->
 
 <nav th:replace="partials/header :: navbar"></nav>
+<div sec:authorize="!isAuthenticated()">
+
+
+  hello
+</div>
 <!--modal-->
-<div
+<div sec:authorize="!isAuthenticated()"
         class="modal fade"
         id="registerModal"
         tabindex="-1"
@@ -32,9 +37,14 @@
                         aria-label="Close"
                 ></button>
             </div>
+            <div sec:authorize="isAuthenticated()">
+                This content is only shown to authenticated users.
 
+                Username: <span th:text="${#authentication.principal.username}"/>
+                Email: <span th:text="${#authentication.principal.email}"/>
+            </div>
 
-            <div class="modal-body">
+            <div class="modal-body" >
                 <form th:action="@{/sign-up}" method="post" th:object="${user}">
                     <div class="form-group">
                         <label for="firstName">First Name</label>

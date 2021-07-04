@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!--Nav Starts Here-->
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark row-cols-auto" th:fragment="navbar">
     <div class="dropdown col-2 pl-5">
-        <div>Sign In</div>
+        <div sec:authorize="!isAuthenticated()">Sign In</div>
             <div th:if="${param.error}">
                 Invalid Username and Password.
             </div>
@@ -17,7 +17,7 @@
             <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
         </button>
         <div class="dropdown-menu mx-auto text-center" style="width: 320px">
-            <form class="px-4 py-3" th:action="@{/login}" th:method="post">
+            <form class="px-4 py-3" th:action="@{/}" th:method="post">
                 <!-- Username input -->
                 <div class="form-outline mb-4">
                     <input id="username" class="form-control" name="username" type="text"/>

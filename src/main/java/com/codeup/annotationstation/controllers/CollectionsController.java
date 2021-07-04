@@ -22,7 +22,7 @@ public class CollectionsController {
         this.collectionsDao = collectionsDao;
         this.sectionsDao = sectionsDao;
     }
-//@GetMapping("collection/index")
+//@GetMapping("/")
 //public String showIndex(){
 //        return "collection/index";
 //}
