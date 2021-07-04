@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="comment">
+
+    <h1>Comment Section</h1>
+    <form th:action="@{/comment}">
+    <input type="text" id="comment" placeholder="Type comment here">
+    <button type="submit" id="submit">submit</button>
+    </form>
+    <div id="allComments">
+    </div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <script>
+
+            $.ajax({
+                type: "GET",
+                url:"/comments",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data.aaData,function(i,data)
+                    {
+                        var div_data='<p> comment.user + <br> + comment.comment </p>';
+                        $(div_data).appendTo('#allComments');
+                    });
+                }
+            });
+
+
+            // $("#submit").click(function (e) {
+            //     $("#submit");
+            //     e.preventDefault()
+            //     let ajax = $.ajax({
+            //         url: '/comments/create',
+            //         type: 'POST',
+            //         contentType: 'application/json; charset=utf-8',
+            //         data: JSON.stringify(
+            //             {"comment": {
+            //                     "user_id": {"id": "1"},
+            //                     "collection_id" : $("#collection").val(),
+            //                     "comment" :    $("#comment").val('')
+            //                 }
+            //             })
+            //
+            //     });
+
+
+    </script>
+</div>
+</html>

@@ -2,6 +2,7 @@ package com.codeup.annotationstation.daos;
 
 import com.codeup.annotationstation.Models.Collection;
 import com.codeup.annotationstation.Models.User;
+import org.hibernate.annotations.CollectionId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +22,7 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
     List<Collection> findByUserAndId(User user, long id);
     List<Collection> findByUser(User user);
+
 
     
     List<Collection> findFirst10ByTitleOrderByTitleDesc(String title);

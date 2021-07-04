@@ -30,4 +30,9 @@ public class CollectionsService {
         return collectionsRepository.findByUser(user);
     }
 
+    public Collection getCollectionById(long collectionId){
+
+        return collectionsRepository.findFirstById(collectionId);
+    }
+
 }
