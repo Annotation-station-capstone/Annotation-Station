@@ -179,9 +179,13 @@ $(document).ready(function () {
             $(this).addClass("notFilled").removeClass("textField");
         } else {
             $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
-            $('#createFormSubmit').removeAttr('disabled')
         }
     });
+    $("#userInputtedUrl").on('change', function () {
+        $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
+        $('#collection-tip').attr('data-balloon-visible', true);
+        $('#collection').addClass("notFilled").removeClass("textField")
+    })
 
     $("#collection, #collection_drop").on('change', function () {
         $('#collection-tip').removeAttr('data-balloon-visible');
@@ -214,7 +218,7 @@ $(document).ready(function () {
     //TODO disable submit until all user inputs are entered
 
     $('#note, #section, #collection, #ytId').bind('change', function () {
-        if (allFilled()) $('#createFormSubmit').removeAttr('disabled');
+        if (allFilled() === true) $('#createFormSubmit').removeAttr('disabled');
     });
 
     function allFilled() {
@@ -309,34 +313,44 @@ $(document).ready(function () {
         });
     });
 
+
     //pause on keydown and play on submit
 
     // get video element id
     var vidClip = document.getElementById("videoPlayer");
     console.log(vidClip);
 
-// play video event
-    function playVid() {
-        // vidClip.play();
-        vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo"}), "*")
-    }
 
-// pause video event
-    function pauseVid() {
-        // vidClip.pause();
-        vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo"}), "*")
-    }
 
-    $('#createFormSubmit').click(function () {
-        playVid();
 
-        console.log("im clicked");
-    })
 
-    $('#note').keypress(function () {
-        pauseVid();
-        console.log("key pressed");
-    })
+    $("#autoPause").click(function(){
+        if($(this).prop("checked") === true){
+            // play video event
+            function playVid() {
+                // vidClip.play();
+                vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo"}), "*")
+            }
+            // pause video event
+            function pauseVid() {
+                // vidClip.pause();
+                vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo"}), "*")
+            }
+            $('#createFormSubmit').click(function () {
+                playVid();
+
+                console.log("im clicked");
+            })
+
+            $('#note').keypress(function () {
+                pauseVid();
+                console.log("key pressed");
+            })
+        }else{
+
+        }
+    });
+
 
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");

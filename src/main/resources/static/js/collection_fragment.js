@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
-            url: '/collections/{id}',
+            url: '/collections/Id/{id}',
             dataType: "json",
             data: {},
             success: function (data) {
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 let accordion = $("#accordion")
                 $(accordion).empty();
                 for (var i = 0; i < data.length; i++) {
-                    $(accordion).append('<button class="accordion">Section 1: {this.section}'+ section.title +'</button>'
+                    $(accordion).append('<button class="accordion">Section 1:'+ section.title +'</button>'
                     + '<div class="panel">'
 
                     + '<p class="accordion"><a href="javascript: loadNote()">'+ note.title +'</a></p>'
