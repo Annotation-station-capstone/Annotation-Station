@@ -22,12 +22,12 @@ public class CollectionsController {
         this.collectionsDao = collectionsDao;
         this.sectionsDao = sectionsDao;
     }
-//@GetMapping("collection/index")
+//@GetMapping("/")
 //public String showIndex(){
 //        return "collection/index";
 //}
 
-    @GetMapping(value = "/collections")
+    @PostMapping(value = "/collections")
     public String indexPage(Model model) {
 
         model.addAttribute("collection", collectionsDao.findAll());
