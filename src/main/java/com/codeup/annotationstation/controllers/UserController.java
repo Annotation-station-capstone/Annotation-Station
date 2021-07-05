@@ -31,7 +31,7 @@ public class UserController {
         this.userService=userService;
     }
     //allow user to get to sign up form
-//    @GetMapping("/sign-up")
+//    @GetMapping("/")
 //    public String signUpForm(Model model) {
 //        model.addAttribute("user", new User());
 //        return "collection/index";
@@ -50,10 +50,10 @@ String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         List<User> userList = userDao.findAll();
         String errorMessage;
-        for (User existingUser: userList) {
-           if(existingUser.getUsername().equals(user.getUsername())){
-               errorMessage = "This Username is taken";
-               model.addAttribute("errorMessage", errorMessage);
+        for (User existingUser : userList) {
+           if(existingUser.getUsername().equalsIgnoreCase(user.getUsername())){
+               errorMessage= "This username is taken";
+               model.addAttribute("errorMessage",errorMessage);
            }
             return "collection/index";
         }
