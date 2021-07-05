@@ -19,16 +19,16 @@ public class Section {
     private String title;
 
     @ManyToOne
-    @JsonManagedReference
+    @JsonBackReference(value="collection-sections")
     @JoinColumn(name = "collection_id")
     private Collection collection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "section")
-    @JsonBackReference
+    @JsonManagedReference(value="videos-section")
     private List<Video> videos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "note")
-    @JsonBackReference
+    @JsonManagedReference(value="notes-section")
     private List<Note> notes;
 
     public Section() {

@@ -20,14 +20,14 @@ public class Comment implements Serializable {
     private String comment;
 
 //    @Id
-    @JsonManagedReference
+    @JsonBackReference(value="collection-comments")
     @ManyToOne
     @JoinColumn(name="collection_id", referencedColumnName = "id")
     private Collection collection;
 
 
 //    @Id
-    @JsonManagedReference
+    @JsonBackReference(value="user-comments")
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
