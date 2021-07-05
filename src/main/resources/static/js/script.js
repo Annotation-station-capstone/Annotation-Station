@@ -173,34 +173,88 @@ $(document).ready(function () {
     //     $("#collection-tip").attr('data-balloon-visible')
     // });
 
-    $("#note, #section, #collection, #userInputtedUrl").on('change', function () {
+    // $("#note, #section, #collection, #userInputtedUrl").on('change', function () {
+    //
+    //     if ($(this).val() === "") {
+    //         // $(this).addClass("notFilled").removeClass("textField");
+    //     } else {
+    //         // $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
+    //         $('#createFormSubmit').removeAttr('disabled')
+    //     }
+    // });
 
-        if ($(this).val() === "") {
-            $(this).addClass("notFilled").removeClass("textField");
-        } else {
-            $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
-        }
-    });
     $("#userInputtedUrl").on('change', function () {
-        $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
+        $(this).addClass("textField").removeClass("notFilled");
+        $("#collection").addClass("notFilled").removeClass("textField");
+        $('#userURLSubmit').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
         $('#collection-tip').attr('data-balloon-visible', true);
-        $('#collection').addClass("notFilled").removeClass("textField")
+        $('#collection').removeAttr('disabled');
+        $('#collection_drop').removeAttr('disabled');
+    })
+
+
+    $("#collection_drop").on('change', function () {
+        $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+    })
+
+    $("#collection").on('change', function () {
+        $('#collection').removeClass("notFilled").addClass("textField");
     })
 
     $("#collection, #collection_drop").on('change', function () {
-        $('#collection-tip').removeAttr('data-balloon-visible');
-        $('#section-tip').attr('data-balloon-visible', true);
+        if ($(this).val() === "") {
+
+        } else {
+            $("#section").addClass("notFilled").removeClass("textField");
+            $('#collection-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
+            $('#section-tip').attr('data-balloon-visible', true);
+            $('#section').removeAttr('disabled');
+            $('#section_drop').removeAttr('disabled');
+        }
+    })
+
+    $("#section_drop").on('change', function () {
+        $('#section').attr('value', this.value).removeClass("notFilled").addClass("textField");
+    })
+
+    $("#section").on('change', function () {
+        $('#section').removeClass("notFilled").addClass("textField");
     })
 
     $("#section, #section_drop").on('change', function () {
-        $('#section-tip').removeAttr('data-balloon-visible');
-        $('#note-tip').attr('data-balloon-visible', true);
-        $('#tag-tip').attr('data-balloon-visible', true);
+        if ($(this).val() === "") {
+
+        } else {
+            $("#note").addClass("notFilled").removeClass("textField");
+            $("#tag").addClass("notFilled").removeClass("textField");
+            $('#section-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
+            $('#note-tip').attr('data-balloon-visible', true);
+            $('#tag-tip').attr('data-balloon-visible', true);
+            $('#note').removeAttr('disabled');
+        }
     })
 
     $("#note").on('change', function () {
-        $('#note-tip').removeAttr('data-balloon-visible');
-        $('#tag-tip').removeAttr('data-balloon-visible');
+        if ($(this).val() === "") {
+            $(this).addClass("notFilled").removeClass("textField");
+        } else {
+            $(this).addClass("textField").removeClass("notFilled");
+            $('#note-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
+            $('#createFormSubmit').removeAttr('disabled')
+        }
+    })
+
+
+
+
+    $("#tags_drop").on('change', function () {
+        if ($(this).val() === "") {
+
+        } else {
+            $("#tag").addClass("textField").removeClass("notFilled");
+            $('#tag-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
+            $('#tag').attr('value', this.value);
+        }
     })
 
 
@@ -217,17 +271,17 @@ $(document).ready(function () {
 
     //TODO disable submit until all user inputs are entered
 
-    $('#note, #section, #collection, #ytId').bind('change', function () {
-        if (allFilled() === true) $('#createFormSubmit').removeAttr('disabled');
-    });
-
-    function allFilled() {
-        let filled = true;
-        $('.needed').each(function () {
-            if ($(this).val() === '') filled = false;
-        });
-        return filled;
-    }
+    // $('#note, #section, #collection, #ytId').bind('change', function () {
+    //     if (allFilled()) $('#createFormSubmit').removeAttr('disabled');
+    // });
+    //
+    // function allFilled() {
+    //     let filled = true;
+    //     $('.needed').each(function () {
+    //         if ($(this).val() === '') filled = false;
+    //     });
+    //     return filled;
+    // }
 
 
     //TODO Collection drop down menu create and show
@@ -272,11 +326,11 @@ $(document).ready(function () {
 
     //TODO drop down selections are entered into associated input fields and those fields are colored differently
 
-    $('#collection_drop').on('change', function () {
-        console.log(this.innerText);
-        $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
-        $('#section_drop').removeAttr('disabled')
-    })
+    // $('#collection_drop').on('change', function () {
+    //     console.log(this.innerText);
+    //     $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+    //     $('#section_drop').removeAttr('disabled')
+    // })
 
     //TODO post method to send newly created collections/sections/and notes to the db
 
@@ -313,60 +367,49 @@ $(document).ready(function () {
         });
     });
 
-
     //pause on keydown and play on submit
 
     // get video element id
     var vidClip = document.getElementById("videoPlayer");
     console.log(vidClip);
 
+// play video event
+    function playVid() {
+        // vidClip.play();
+        vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo"}), "*")
+    }
 
+// pause video event
+    function pauseVid() {
+        // vidClip.pause();
+        vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo"}), "*")
+    }
 
+    $('#createFormSubmit').click(function () {
+        playVid();
 
+        console.log("im clicked");
+    })
 
-    $("#autoPause").click(function(){
-        if($(this).prop("checked") === true){
-            // play video event
-            function playVid() {
-                // vidClip.play();
-                vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo"}), "*")
-            }
-            // pause video event
-            function pauseVid() {
-                // vidClip.pause();
-                vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo"}), "*")
-            }
-            $('#createFormSubmit').click(function () {
-                playVid();
-
-                console.log("im clicked");
-            })
-
-            $('#note').keypress(function () {
-                pauseVid();
-                console.log("key pressed");
-            })
-        }else{
-
-        }
-    });
-
+    $('#note').keypress(function () {
+        pauseVid();
+        console.log("key pressed");
+    })
 
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
 
-    function validatePassword(){
-        if(password.value !== confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
-        } else {
-            confirm_password.setCustomValidity('');
-        }
-    }
-
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
+    // function validatePassword(){
+    //     if(password.value !== confirm_password.value) {
+    //         confirm_password.setCustomValidity("Passwords Don't Match");
+    //     } else {
+    //         confirm_password.setCustomValidity('');
+    //     }
+    // }
+    //
+    // password.onchange = validatePassword;
+    // confirm_password.onkeyup = validatePassword;
 
 
 
 });
-

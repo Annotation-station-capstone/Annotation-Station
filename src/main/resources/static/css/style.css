@@ -44,6 +44,15 @@ body {
     text-align: center;
 }
 
+.btn-select{
+    background: #6c757d;
+    color: white;
+    font-weight: bold;
+    /*font-size: large;*/
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+}
+
 .formLabel{
     display: flex;
     align-self: center;
@@ -55,7 +64,6 @@ body {
 
 #userInputtedUrl{
     display: flex;
-    margin: 5px;
     padding: 5px;
     color: white;
     text-outline: 1px royalblue;
@@ -72,13 +80,27 @@ body {
     font-size: large;
 }
 
-#videoPlayer{
-    width: 900px;
-    height: 500px;
-    margin-right: auto;
+.video-container {
     margin-left: auto;
-    display: flex;
-    justify-content: center;
+    margin-right: auto;
+    position: relative;
+    width: 75%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background: #6c757d;
+}
+
+
+#videoPlayer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+form{
+    width: 80% !important;
 }
 
 .captions{
@@ -101,6 +123,25 @@ body {
 
 /*code for the progress bar*/
 
+.progress-background{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 20px;
+    background-color: #313139;
+    /*position: fixed;*/
+    bottom: 0;
+    border-radius: .25em;
+}
+.progress-bar{
+    width: 2px;
+    height: 20px;
+    background-color: #fa1d57;
+    /*position: fixed;*/
+    bottom: 0;
+    border-radius: .25em;
+}
+
+
 .bar{
     height: 80px;
     width: 100%;
@@ -114,52 +155,13 @@ body {
     bottom: 0;
 }
 
-/*.tooltip {*/
-/*    position: relative;*/
-/*    display: inline-block;*/
-/*    !*border-bottom: 1px dotted black;*!*/
-/*}*/
-
-/*.tooltip .tooltiptext {*/
-/*    visibility: hidden;*/
-/*    width: 120px;*/
-/*    background-color: #555;*/
-/*    color: #fff;*/
-/*    text-align: center;*/
-/*    border-radius: 6px;*/
-/*    padding: 5px 0;*/
-/*    position: absolute;*/
-/*    z-index: 1;*/
-/*    bottom: 125%;*/
-/*    left: 50%;*/
-/*    margin-left: -60px;*/
-/*    opacity: 0;*/
-/*    transition: opacity 0.3s;*/
-/*}*/
-
-/*.tooltip .tooltiptext::after {*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    top: 100%;*/
-/*    left: 50%;*/
-/*    margin-left: -5px;*/
-/*    border-width: 5px;*/
-/*    border-style: solid;*/
-/*    border-color: #555 transparent transparent transparent;*/
-/*}*/
-
-/*.tooltip:hover .tooltiptext {*/
-/*    visibility: visible;*/
-/*    opacity: 1;*/
-/*}*/
-
 .notFilled{
-    background: rgba(111, 53, 62, 0.91) !important;
+    background: rgba(253, 182, 192, 0.91) !important;
 }
 
 .notFilled::placeholder {
-    color: #eeccc3;
-    opacity: .8;
+    color: #b63939;
+    /*opacity: .8;*/
 }
 
 /*#section:empty{*/
@@ -178,26 +180,12 @@ body {
     font-family: "Montserrat", serif !important;
 }
 
-.progress-background{
-    width: 100%;
-    height: 20px;
-    background-color: #313139;
-    /*position: fixed;*/
-    bottom: 0;
-}
-.progress-bar{
-    width: 2px;
-    height: 20px;
-    background-color: #fa1d57;
-    /*position: fixed;*/
-    bottom: 0;
-}
 
 .textField{
     display: flex;
     align-self: center;
     width: 100%;
-    background: lightgrey;
+    background: #908f8f !important;
     font-weight: bold;
     font-size: large;
     color: white;
@@ -236,10 +224,6 @@ body {
     color: #fff !important;
     background-color: #787878 !important;
 }
-
-
-
-
 
 
 /*TODO animated logo*/
@@ -383,10 +367,10 @@ body {
 
 :root {
     --balloon-border-radius: 2px;
-    --balloon-color: rgba(16, 16, 16, 0.95);
+    --balloon-color: rgba(241, 6, 6, 0.95);
     --balloon-text-color: #fff;
-    --balloon-font-size: 12px;
-    --balloon-move: 4px; }
+    --balloon-font-size: 20px;
+    --balloon-move: 10px; }
 
 button[aria-label][data-balloon-pos] {
     overflow: visible; }

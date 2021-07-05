@@ -1,14 +1,15 @@
 package com.codeup.annotationstation.controllers;
 
-import com.codeup.annotationstation.daos.CollectionsRepository;
-import com.codeup.annotationstation.daos.SectionRepository;
-import com.codeup.annotationstation.daos.UsersRepository;
+import com.codeup.annotationstation.Models.Comment;
+import com.codeup.annotationstation.daos.*;
 import com.codeup.annotationstation.Models.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 
 @Controller
 public class CollectionsController {
@@ -16,11 +17,15 @@ public class CollectionsController {
     private UsersRepository usersDao;
     private CollectionsRepository collectionsDao;
     private SectionRepository sectionsDao;
+    private NoteRepository noteDao;
+    private CommentRepository commentDao;
 
-    public CollectionsController(UsersRepository usersDao, CollectionsRepository collectionsDao, SectionRepository sectionsDao) {
+    public CollectionsController(UsersRepository usersDao, CollectionsRepository collectionsDao, SectionRepository sectionsDao, NoteRepository noteDao, CommentRepository commentDao) {
         this.usersDao = usersDao;
         this.collectionsDao = collectionsDao;
         this.sectionsDao = sectionsDao;
+        this.noteDao = noteDao;
+        this.commentDao = commentDao;
     }
 //@GetMapping("collection/index")
 //public String showIndex(){
@@ -42,21 +47,24 @@ public class CollectionsController {
         return "collectionPage";
     }
 
-//show one collection
+    //show one collection
     @GetMapping("/collections/{id}")
     public String oneCollection(@PathVariable long id, Model model){
-        model.addAttribute("singleCollection", collectionsDao.getById(id));
+        model.addAttribute("singleCollection", collectionsDao.findFirstById(id));
+        model.addAttribute("allSections", sectionsDao.findSectionsByCollectionId(id));
+        model.addAttribute("allComments", commentDao.findCommentsByCollectionId(id));
+        //     model.addAttribute("allNotes", noteDao.findNoteBySectionsId(id));
         return "collection/show";
     }
 
-//get a collection to edit
+    //get a collection to edit
     @GetMapping("/collections/edit/{id}")
     public String editCollection(@PathVariable long id, Model model){
         //find collection to edit
         Collection collectionToEdit = collectionsDao.getById(id);
         return "collection/edit";
     }
-//save a edited collection
+    //save a edited collection
     @PostMapping(value = "/collections/edit/{id}")
     public String saveEditedCollection(@PathVariable long id, @ModelAttribute Collection collection){
         //save changes made to collection
@@ -64,7 +72,7 @@ public class CollectionsController {
         collectionsDao.save(collection);
         return "redirect:/collections/{id}";
     }
-//get information about collections from form to add
+    //get information about collections from form to add
     @GetMapping(value= "/collection/add")
     public String addCollection(@RequestParam(name= "addCollection") String title,@RequestParam String description, @RequestParam boolean isPrivate, @RequestParam String image ){
         Collection collection = new Collection(title, description, isPrivate, image);
@@ -78,14 +86,15 @@ public class CollectionsController {
         model.addAttribute("addcollection", new Collection());
         return "/create";
     }
-//save created collection
+    //save created collection
     @PostMapping(value="collection/create")
     public String createNewCollection(@ModelAttribute Collection collection){
         collection.setUser(usersDao.getById(collection.getId()));
         Collection saveCollection = collectionsDao.save(collection);
         return "redirect:/collection"+ saveCollection.getId();
     }
-//destroy a collection
+
+    //destroy a collection
     @PostMapping("/collections/{id}/delete")
     public String delete(@PathVariable long id){
         collectionsDao.deleteById(id);

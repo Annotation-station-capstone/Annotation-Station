@@ -9,14 +9,20 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SectionController {
     //adding fields for injected repository
-
+    private UsersRepository usersDao;
+    private CollectionsRepository collectionsDao;
+    private NoteRepository noteDao;
+    private CommentRepository commentDao;
     private SectionRepository sectionDao;
+    private VideoRepository videoDao;
 
-
-    public SectionController(SectionRepository sectionDao ){
-
-        this.sectionDao=sectionDao;
-
+    public SectionController(UsersRepository usersDao, CollectionsRepository collectionsDao, NoteRepository noteDao, CommentRepository commentDao, SectionRepository sectionDao, VideoRepository videoDao) {
+        this.usersDao = usersDao;
+        this.collectionsDao = collectionsDao;
+        this.noteDao = noteDao;
+        this.commentDao = commentDao;
+        this.sectionDao = sectionDao;
+        this.videoDao = videoDao;
     }
 
     @GetMapping("/section/{id}")
@@ -29,6 +35,15 @@ public class SectionController {
         model.addAttribute("section", sectionDao.findAll());
         return "redirect:/collections/index";
     }
+
+//show one section
+@GetMapping("/sections/{id}")
+public String oneSection(@PathVariable long id, Model model){
+    model.addAttribute("singleSection", sectionDao.findFirstById(id));
+    model.addAttribute("allNotes", noteDao.findNoteBySectionsId(id));
+    model.addAttribute("video", videoDao.findVideoBySectionId(id));
+    return "section";
+}
 
 
     @PostMapping("/section/{id}")

@@ -10,13 +10,26 @@
 
 <body>
 <h1>Single Collection</h1>
-<div th:each="Collection: ${singleCollection}">
-    <span th:text="${Collection}"></span>
-</div>
+<p th:text="${singleCollection.title}"></p>
+<p th:text="${singleCollection.description}"></p>
+<p th:text="${singleCollection.image}"></p>
 
-<div th:each="Collection: ${singleCollection}">
-    <span th:text="${Collection}"></span>
-</div>
-<script th:src="@{/js/collectionPageScript.js}" rel="script"></script>
+<h1 th:each="Section: ${allSections}">
+<p th:text="${Section.title}"></p>
+<p th:text="${Section.id}"></p>
+</h1>
+
+
+<!--display comments-->
+<!--<form th:action="@{/comment/create}" th:method="post" th:object="${Comment}">-->
+<!--    Title:-->
+<!--    <input th:field="*{comment}" />-->
+<!--    <br />-->
+<!--    <input type="submit" />-->
+<!--</form>-->
+
+<h1 th:each="Comment: ${allComments}">
+    <p th:text="${Comment.comment}"></p>
+</h1>
 </body>
 </html>

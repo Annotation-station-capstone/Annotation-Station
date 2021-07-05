@@ -5,145 +5,9 @@
     <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="google-signin-client_ID"
           content="365572997645-rksbja6tjvqfd4mua82ummn0hcgdc3e7.apps.googleusercontent.com">
-
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<style>
-    :root {
-        --balloon-border-radius: 2px;
-        --balloon-color: rgba(16, 16, 16, 0.95);
-        --balloon-text-color: #fff;
-        --balloon-font-size: 12px;
-        --balloon-move: 4px; }
-
-    button[aria-label][data-balloon-pos] {
-        overflow: visible; }
-
-    [aria-label][data-balloon-pos] {
-        position: relative;
-        cursor: pointer; }
-    [aria-label][data-balloon-pos]:after {
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.18s ease-out 0.18s;
-        text-indent: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        font-weight: normal;
-        font-style: normal;
-        text-shadow: none;
-        font-size: var(--balloon-font-size);
-        background: var(--balloon-color);
-        border-radius: 2px;
-        color: var(--balloon-text-color);
-        border-radius: var(--balloon-border-radius);
-        content: attr(aria-label);
-        padding: .5em 1em;
-        position: absolute;
-        white-space: nowrap;
-        z-index: 10; }
-    [aria-label][data-balloon-pos]:before {
-        width: 0;
-        height: 0;
-        border: 5px solid transparent;
-        border-top-color: var(--balloon-color);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.18s ease-out 0.18s;
-        content: "";
-        position: absolute;
-        z-index: 10; }
-    [aria-label][data-balloon-pos]:hover:before, [aria-label][data-balloon-pos]:hover:after, [aria-label][data-balloon-pos][data-balloon-visible]:before, [aria-label][data-balloon-pos][data-balloon-visible]:after, [aria-label][data-balloon-pos]:not([data-balloon-nofocus]):focus:before, [aria-label][data-balloon-pos]:not([data-balloon-nofocus]):focus:after {
-        opacity: 1;
-        pointer-events: none; }
-    [aria-label][data-balloon-pos].font-awesome:after {
-        font-family: FontAwesome, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
-    [aria-label][data-balloon-pos][data-balloon-break]:after {
-        white-space: pre; }
-    [aria-label][data-balloon-pos][data-balloon-break][data-balloon-length]:after {
-        white-space: pre-line;
-        word-break: break-word; }
-    [aria-label][data-balloon-pos][data-balloon-blunt]:before, [aria-label][data-balloon-pos][data-balloon-blunt]:after {
-        transition: none; }
-    [aria-label][data-balloon-pos][data-balloon-pos="up"]:hover:after, [aria-label][data-balloon-pos][data-balloon-pos="up"][data-balloon-visible]:after, [aria-label][data-balloon-pos][data-balloon-pos="down"]:hover:after, [aria-label][data-balloon-pos][data-balloon-pos="down"][data-balloon-visible]:after {
-        transform: translate(-50%, 0); }
-    [aria-label][data-balloon-pos][data-balloon-pos="up"]:hover:before, [aria-label][data-balloon-pos][data-balloon-pos="up"][data-balloon-visible]:before, [aria-label][data-balloon-pos][data-balloon-pos="down"]:hover:before, [aria-label][data-balloon-pos][data-balloon-pos="down"][data-balloon-visible]:before {
-        transform: translate(-50%, 0); }
-    [aria-label][data-balloon-pos][data-balloon-pos*="-left"]:after {
-        left: 0; }
-    [aria-label][data-balloon-pos][data-balloon-pos*="-left"]:before {
-        left: 5px; }
-    [aria-label][data-balloon-pos][data-balloon-pos*="-right"]:after {
-        right: 0; }
-    [aria-label][data-balloon-pos][data-balloon-pos*="-right"]:before {
-        right: 5px; }
-    [aria-label][data-balloon-pos][data-balloon-pos*="-left"]:hover:after, [aria-label][data-balloon-pos][data-balloon-pos*="-left"][data-balloon-visible]:after, [aria-label][data-balloon-pos][data-balloon-pos*="-right"]:hover:after, [aria-label][data-balloon-pos][data-balloon-pos*="-right"][data-balloon-visible]:after {
-        transform: translate(0, 0); }
-    [aria-label][data-balloon-pos][data-balloon-pos*="-left"]:hover:before, [aria-label][data-balloon-pos][data-balloon-pos*="-left"][data-balloon-visible]:before, [aria-label][data-balloon-pos][data-balloon-pos*="-right"]:hover:before, [aria-label][data-balloon-pos][data-balloon-pos*="-right"][data-balloon-visible]:before {
-        transform: translate(0, 0); }
-    [aria-label][data-balloon-pos][data-balloon-pos^="up"]:before, [aria-label][data-balloon-pos][data-balloon-pos^="up"]:after {
-        bottom: 100%;
-        transform-origin: top;
-        transform: translate(0, var(--balloon-move)); }
-    [aria-label][data-balloon-pos][data-balloon-pos^="up"]:after {
-        margin-bottom: 10px; }
-    [aria-label][data-balloon-pos][data-balloon-pos="up"]:before, [aria-label][data-balloon-pos][data-balloon-pos="up"]:after {
-        left: 50%;
-        transform: translate(-50%, var(--balloon-move)); }
-    [aria-label][data-balloon-pos][data-balloon-pos^="down"]:before, [aria-label][data-balloon-pos][data-balloon-pos^="down"]:after {
-        top: 100%;
-        transform: translate(0, calc(var(--balloon-move) * -1)); }
-    [aria-label][data-balloon-pos][data-balloon-pos^="down"]:after {
-        margin-top: 10px; }
-    [aria-label][data-balloon-pos][data-balloon-pos^="down"]:before {
-        width: 0;
-        height: 0;
-        border: 5px solid transparent;
-        border-bottom-color: var(--balloon-color); }
-    [aria-label][data-balloon-pos][data-balloon-pos="down"]:after, [aria-label][data-balloon-pos][data-balloon-pos="down"]:before {
-        left: 50%;
-        transform: translate(-50%, calc(var(--balloon-move) * -1)); }
-    [aria-label][data-balloon-pos][data-balloon-pos="left"]:hover:after, [aria-label][data-balloon-pos][data-balloon-pos="left"][data-balloon-visible]:after, [aria-label][data-balloon-pos][data-balloon-pos="right"]:hover:after, [aria-label][data-balloon-pos][data-balloon-pos="right"][data-balloon-visible]:after {
-        transform: translate(0, -50%); }
-    [aria-label][data-balloon-pos][data-balloon-pos="left"]:hover:before, [aria-label][data-balloon-pos][data-balloon-pos="left"][data-balloon-visible]:before, [aria-label][data-balloon-pos][data-balloon-pos="right"]:hover:before, [aria-label][data-balloon-pos][data-balloon-pos="right"][data-balloon-visible]:before {
-        transform: translate(0, -50%); }
-    [aria-label][data-balloon-pos][data-balloon-pos="left"]:after, [aria-label][data-balloon-pos][data-balloon-pos="left"]:before {
-        right: 100%;
-        top: 50%;
-        transform: translate(var(--balloon-move), -50%); }
-    [aria-label][data-balloon-pos][data-balloon-pos="left"]:after {
-        margin-right: 10px; }
-    [aria-label][data-balloon-pos][data-balloon-pos="left"]:before {
-        width: 0;
-        height: 0;
-        border: 5px solid transparent;
-        border-left-color: var(--balloon-color); }
-    [aria-label][data-balloon-pos][data-balloon-pos="right"]:after, [aria-label][data-balloon-pos][data-balloon-pos="right"]:before {
-        left: 100%;
-        top: 50%;
-        transform: translate(calc(var(--balloon-move) * -1), -50%); }
-    [aria-label][data-balloon-pos][data-balloon-pos="right"]:after {
-        margin-left: 10px; }
-    [aria-label][data-balloon-pos][data-balloon-pos="right"]:before {
-        width: 0;
-        height: 0;
-        border: 5px solid transparent;
-        border-right-color: var(--balloon-color); }
-    [aria-label][data-balloon-pos][data-balloon-length]:after {
-        white-space: normal; }
-    [aria-label][data-balloon-pos][data-balloon-length="small"]:after {
-        width: 80px; }
-    [aria-label][data-balloon-pos][data-balloon-length="medium"]:after {
-        width: 150px; }
-    [aria-label][data-balloon-pos][data-balloon-length="large"]:after {
-        width: 260px; }
-    [aria-label][data-balloon-pos][data-balloon-length="xlarge"]:after {
-        width: 380px; }
-    @media screen and (max-width: 768px) {
-        [aria-label][data-balloon-pos][data-balloon-length="xlarge"]:after {
-            width: 90vw; } }
-    [aria-label][data-balloon-pos][data-balloon-length="fit"]:after {
-        width: 100%; }
-</style>
     <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
     <title>Annotation Station</title>
 
@@ -158,84 +22,88 @@
     information for later use or send it to a friend. Enjoy!</p>
 <form class="form" id="inputURL" name="inputURL">
     <label class="formLabel" for="userInputtedUrl">ENTER YOUR URL HERE</label>
-    <input id="userInputtedUrl" class="notFilled" name="userInputtedUrl" type="text" placeholder="URL">
-    <button class="btn-submit tooltip-red tooltip-big-text" id="userURLSubmit" data-balloon-visible aria-label="Step 1: Enter a YouTube URL, Click Submit. Then look ate the tips below" data-balloon-pos="right">SUBMIT</button>
+    <div class="col-12">
+    <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary btn-select" id="userURLSubmit" data-balloon-visible aria-label="Step 1: Enter a YouTube URL, Click Submit" data-balloon-pos="down-left">
+            Submit
+        </button>
+        <input id="userInputtedUrl" class="form-control notFilled" name="userInputtedUrl" type="text" placeholder="URL">
+    </div>
+    </div>
 </form>
-
+<div class="video-container">
 <iframe id="videoPlayer" src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1" title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
-
+</div>
 <form class="form" id="notesForm" method="post">
+    <div class="progress-background"><div id="progress-bar" class="progress-bar"></div></div>
+    <div class="row g-2">
+        <div class="col-md">
+            <div class="input-group mb-3 help-tip" id="collection-tip" aria-label="Step 2: Select an existing collection or name a new one" data-balloon-pos="down-left" disabled>
+                <select id="collection_drop" class="btn-select" placeholder="Collections group your notes, so they are easy to find" disabled>
+                    <option selected="selected" value="">Select One</option>
+                    <option disabled>───────</option>
+                </select>
+                <input type="text" class="form-control" id="collection"
+                       placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button" disabled>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="input-group mb-3 " id="section-tip" aria-label="Step 3: Select an existing section or name a new one" data-balloon-pos="down-left" disabled>
+                <select id="section_drop" class="btn-select" placeholder="Sections are more specific parts of a collection"  aria-label="section_drop" disabled>
+                    <option selected="selected" value="">Select One</option>
+                    <option disabled>───────</option>
 
-    <label class="formLabel" for="note">TYPE A LINE OF NOTES AND PRESS ENTER</label>
+                </select>
+                <input type="text" class="form-control" id="section"
+                       placeholder="Enter a new Section Title here" aria-label="Text input with dropdown button" disabled>
+
+            </div>
+        </div>
+    </div>
+<!--    <label class="formLabel" for="note">TYPE A LINE OF NOTES AND PRESS ENTER</label>-->
     <!--    <div class="captions-background">-->
     <!--        <div id="captions" class="captions"></div>-->
     <!--    </div>-->
-    <div class="progress-background">
-        <div id="progress-bar" class="progress-bar"></div>
-        <div class="row g-2">
-            <div class="col-3">
-                <div class="input-group mb-3 help-tip" id="tag-tip" aria-label="Optional: Select a tag"
-                     data-balloon-pos="down" placeholder="Tags are helpful labels for notes">
-                        <select name="drop" id="select-tags">
-                            <option value="1">Select One</option>
-                            <option disabled>───────</option>
-                            <option value="2">Important</option>
-                            <option value="3">Fundemental</option>
-                            <option value="4">Definition</option>
-                            <option value="5">Dont_do_this</option>
-                            <option value="6">Step_by_Step</option>
-                            <option value="6">Watch_Again</option>
-                        </select>
 
-                    <input type="text" class="form-control" placeholder="Tags"
-                           aria-label="Text input with dropdown button">
+
+        <div class="row g-2">
+            <div class="col-5">
+                <div class="input-group mb-3 help-tip" id="tag-tip" aria-label="Optional: Select a tag"
+                     data-balloon-pos="down-left" placeholder="Tags are helpful labels for notes">
+                        <select name="drop" class="btn-select" id="tags_drop" aria-label="tags_drop">
+                            <option selected="selected" value="">Select Tag</option>
+                            <option disabled>───────</option>
+                            <option value="1: Important">Important</option>
+                            <option value="2: Fundemental">Fundemental</option>
+                            <option value="3: Definition">Definition</option>
+                            <option value="4: Dont_do_this">Dont_do_this</option>
+                            <option value="5: Step_by_Step">Step_by_Step</option>
+                            <option value="6: Watch_Again">Watch_Again</option>
+                        </select>
+                    <input class="form-control" id="tag" name="tag" type="text" aria-label="Text input with dropdown button" placeholder="Tags" disabled>
                 </div>
             </div>
             <div class="col-7">
-                <div class="input-group mb-3 help-tip" id="note-tip"  aria-label="Step 4: enter a note and submit" data-balloon-pos="down">
-                    <input class="form-control needed notFilled" id="note" name="notes" type="text"
-                           placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK">
+                <div class="input-group mb-3 help-tip" id="note-tip"  aria-label="Step 4: enter a note and submit" data-balloon-pos="down-left">
+                    <input class="form-control" id="note" name="notes" type="text" aria-label="notes" disabled placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK">
                     <button class="btn btn-outline-secondary" id="createFormSubmit" type="submit" disabled>
                         CreateFormSubmit
                     </button>
                 </div>
             </div>
-            <div class="col-2">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-1"></div>
-                    <div class="form-check form-switch col-2 ">
-                        <label class="form-check-label" for="autoPause"></label>
-                        <input class="form-check-input" type="checkbox" id="autoPause">
-                    </div>
-                    <h6 class="col-9">Auto Pause: Playback will stop when you type</h6>
-                </div>
-            </div>
+<!--            <div class="col-2">-->
+<!--                <div class="row justify-content-center align-items-center">-->
+<!--                    <div class="col-1"></div>-->
+<!--                    <div class="form-check form-switch col-2 ">-->
+<!--                        <label class="form-check-label" for="autoPause"></label>-->
+<!--                        <input class="form-check-input" type="checkbox" id="autoPause">-->
+<!--                    </div>-->
+<!--                    <h6 class="col-9">Auto Pause: Playback will stop when you type</h6>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
-        <div class="row g-2">
-            <div class="col-md">
-                <div class="input-group mb-3 help-tip" id="collection-tip" aria-label="Step 2: Select an existing collection or name a new one" data-balloon-pos="up">
-                    <select id="collection_drop" placeholder="Collections group your notes, so they are easy to find">
-                        <option selected="selected" value="">Select One</option>
-                        <option disabled>───────</option>
-                    </select>
-                    <input type="text" class="form-control needed notFilled" id="collection"
-                           placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button">
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="input-group mb-3 help-tip" id="section-tip"  aria-label="Step 3: Select an existing section or name a new one" data-balloon-pos="up">
-                    <select id="section_drop" placeholder="Sections are more specific parts of a collection" disabled>
-                        <option selected="selected" value="">Select One</option>
-                        <option disabled>───────</option>
 
-                    </select>
-                    <input type="text" class="form-control needed notFilled" id="section"
-                           placeholder="Enter a new Section Title here" aria-label="Text input with dropdown button">
-
-                </div>
-            </div>
-        </div>
         <div class="row g-2">
 
         </div>
@@ -264,7 +132,7 @@
             </div>
         </div>
 
-    </div>
+
 </form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -272,6 +140,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script th:src="@{js/script.js}" rel="script"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://apis.google.com/js/api.js"></script>

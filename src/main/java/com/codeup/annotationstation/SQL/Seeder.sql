@@ -146,7 +146,7 @@ VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 1);
 SELECT * FROM videos;
 
 INSERT INTO notes (note, video_id, time_stamp,section_id)
-VALUES ('This is my first annotati!', 2, '0:45',1);
+VALUES ('This is my first annotation!', 2, '0:45',2);
 SELECT * FROM notes;
 
 INSERT INTO tags (tag)
