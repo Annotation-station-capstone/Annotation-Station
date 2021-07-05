@@ -364,7 +364,46 @@ form{
 
 
 /*This is the section that enables the balloons*/
-
+#heading
+{
+    margin-top:150px;
+    text-align:center;
+    font-size:27px;
+    color:#2E2EFE;
+}
+#reg_password
+{
+    margin-left:0%;
+    height:35px;
+    width:377px;
+    border-radius:3px;
+    border:1px solid grey;
+    padding:10px;
+    font-size:18px;
+}
+#meter_wrapper
+{
+    border:1px solid grey;
+    margin-left:0%;
+    margin-top:0px;
+    width:202px;
+    height:16px;
+    border-radius:3px;
+}
+#meter
+{
+    width:0px;
+    height:14px;
+    border-radius:.02em;
+}
+#pass_type
+{
+    font-size:16px;
+    margin-top:20px;
+    margin-left:0%;
+    text-align:center;
+    color:grey;
+}
 :root {
     --balloon-border-radius: 2px;
     --balloon-color: rgba(241, 6, 6, 0.95);
