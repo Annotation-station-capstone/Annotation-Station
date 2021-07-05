@@ -40,195 +40,194 @@
     <div class="carousel-item active">
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 mb-4" th:each="Collection: ${collection}">
           <div class="card">
             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
+              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" alt="img"/>
+              <a href="#">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
             </div>
             <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
+              <h5 class="card-title" th:text="${Collection.title}"></h5>
+              <p class="card-text" th:text="${Collection.description}">
+                <button>
+                  <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
+                </button>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4 clearfix d-none d-md-block">
-          <div class="card">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col-md-4 clearfix d-none d-md-block">-->
+<!--          <div class="card">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 clearfix d-none d-md-block">
-          <div class="card">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--        <div class="col-md-4 clearfix d-none d-md-block">-->
+<!--          <div class="card">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
-    <!--/.First slide-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/.First slide&ndash;&gt;-->
 
-    <!--Second slide-->
-    <div class="carousel-item">
+<!--    &lt;!&ndash;Second slide&ndash;&gt;-->
+<!--    <div class="carousel-item">-->
 
-      <div class="row">
-        <div class="col-md-4">
-          <div  class="card mb-2">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
+<!--      <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--          <div  class="card mb-2">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 clearfix d-none d-md-block">
-          <div  class="card mb-2">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col-md-4 clearfix d-none d-md-block">-->
+<!--          <div  class="card mb-2">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 clearfix d-none d-md-block">
-          <div  class="card mb-2">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--        <div class="col-md-4 clearfix d-none d-md-block">-->
+<!--          <div  class="card mb-2">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
-    <!--/.Second slide-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/.Second slide&ndash;&gt;-->
 
-    <!--Third slide-->
-    <div class="carousel-item">
+<!--    &lt;!&ndash;Third slide&ndash;&gt;-->
+<!--    <div class="carousel-item">-->
 
-      <div class="row">
-        <div class="col-md-4">
-          <div  class="card mb-2">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
+<!--      <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--          <div  class="card mb-2">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 clearfix d-none d-md-block">
-          <div  class="card mb-2">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
+<!--        <div class="col-md-4 clearfix d-none d-md-block">-->
+<!--          <div  class="card mb-2">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="col-md-4 clearfix d-none d-md-block">
-          <div  class="card mb-2">
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Post title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the
-                card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Read</a>
-            </div>
-          </div>
-        </div>
-      </div>
+<!--        <div class="col-md-4 clearfix d-none d-md-block">-->
+<!--          <div  class="card mb-2">-->
+<!--            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">-->
+<!--              <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>-->
+<!--              <a href="#!">-->
+<!--                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Post title</h5>-->
+<!--              <p class="card-text">-->
+<!--                Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content.-->
+<!--              </p>-->
+<!--              <a href="#!" class="btn btn-primary">Read</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
+<!--    </div>-->
     <!--/.Third slide-->
 
   </div>

@@ -366,11 +366,15 @@ $(document).ready(function () {
     confirm_password.onkeyup = validatePassword;
 
 
+
         $("#reg_password").keyup(function(){
             check_pass();
         });
-    });
 
+
+
+
+//password strength meter
     function check_pass()
     {
         var val=document.getElementById("reg_password").value;
@@ -395,17 +399,18 @@ $(document).ready(function () {
                 $("#meter").animate({width:'50px'},300);
                 meter.style.backgroundColor="red";
                 document.getElementById("pass_type").innerHTML="Very Weak";
+                password.setCustomValidity("password needs contain any lowercase alphabet and any number or any special character");
             }
 
             if(no===2)
-            {
+            { password.setCustomValidity("password, needs special character and number")
                 $("#meter").animate({width:'100px'},300);
                 meter.style.backgroundColor="#f82004";
                 document.getElementById("pass_type").innerHTML="Weak";
             }
 
             if(no===3)
-            {
+            { password.setCustomValidity("password, needs special character and number")
                 $("#meter").animate({width:'150px'},300);
                 meter.style.backgroundColor="#fad203";
                 document.getElementById("pass_type").innerHTML="Good";
@@ -423,8 +428,10 @@ $(document).ready(function () {
         {
             meter.style.backgroundColor="white";
             document.getElementById("pass_type").innerHTML="";
+            password.setCustomValidity("password needs at least 6 Characters");
         }
 
 
 
 }
+});
