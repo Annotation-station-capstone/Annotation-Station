@@ -2,6 +2,7 @@ package com.codeup.annotationstation.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,15 +19,15 @@ public class Comment implements Serializable {
     @Column(nullable = true)
     private String comment;
 
-    @Id
-    @JsonBackReference
+//    @Id
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="collection_id", referencedColumnName = "id")
     private Collection collection;
 
 
-    @Id
-    @JsonBackReference
+//    @Id
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
