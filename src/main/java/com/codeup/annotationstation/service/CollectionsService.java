@@ -37,7 +37,7 @@ public class CollectionsService {
 
     public Collection getCollectionById(long collectionId){
 
-        return collectionsRepository.findFirstById(collectionId);
+        return collectionsRepository.findById(collectionId).get();
     }
 
     public Section getSectionById(long collectionId){

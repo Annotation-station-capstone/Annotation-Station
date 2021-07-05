@@ -47,7 +47,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    @JsonBackReference
+    @JsonManagedReference(value="user-comments")
     private List<Comment> comments;
 
 
