@@ -3,6 +3,7 @@ package com.codeup.annotationstation.controllers;
 import com.codeup.annotationstation.daos.UsersRepository;
 import com.codeup.annotationstation.service.UserDetailsLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,10 @@ public class UserController {
         return "collection/index";
     }
 
+//    @PostMapping("/")
+//    public String showLoggedIn(){
+//
+////    }
 
     //        save user
     @PostMapping("/sign-up")
