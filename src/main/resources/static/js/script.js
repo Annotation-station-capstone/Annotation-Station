@@ -33,13 +33,16 @@ $(document).ready(function () {
         return videoID;
     }
 
+    // function startPlayBack(){
+    //     $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1?autoplay=1&rel=0`).contentWindow.location.reload(true);
+    // }
 
     let youtubeId = "";
     $("#userURLSubmit").click(function (e) {
         e.preventDefault()
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
-        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1`);
+        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1`)
         $("#ytId").attr("value", `${youtubeId}`);
         $("#userURLSubmit").removeAttr('data-balloon-visible')
         $("#collection-tip").attr('data-balloon-visible', true)
@@ -80,63 +83,63 @@ $(document).ready(function () {
 
     // Runs the fetched Json Captions and converts them to CSV
 
-    const main = async () => {
-        const
-            defaultId = getYoutubeVideoID($('#userInputtedUrl').val()), /* Queen – Bohemian Rhapsody */
-            json = YouTubeCaptionUtil
-                .fetchCaptions(YouTubeCaptionUtil.videoId() || defaultId),
-            csv = CsvUtil.fromJson(json);
-        document.getElementById("captions").innerHTML = csv;
-        console.log(csv);
-
-    };
-
-    // fetch Json caption data
-    class YouTubeCaptionUtil {
-        static async fetchCaptions(videoId, options) {
-            const
-                opts = {...YouTubeCaptionUtil.defaultOptions, ...options},
-                response = await fetch(YouTubeCaptionUtil.__requestUrl(videoId, opts)),
-                json = await response.json();
-            return YouTubeCaptionUtil.__parseTranscript(json);
-        }
-
-        //prep user-inputted YT URL
-        static videoId() {
-            const video_id = window.location.search.split('v=')[1];
-            if (video_id != null) {
-                const ampersandPosition = video_id.indexOf('&');
-                if (ampersandPosition != -1) {
-                    return video_id.substring(0, ampersandPosition);
-                }
-            }
-            return null;
-        }
-
-
-        static __requestUrl(videoId, {baseUrl, languageId}) {
-            return `${baseUrl}?lang=${languageId}&v=${videoId}&fmt=json3`;
-        }
-
-        static __parseTranscript({events}) {
-            return events.map(({tStartMs, dDurationMs, segs: [{utf8}]}) => ({
-                start: YouTubeCaptionUtil.__formatTime(tStartMs),
-                dur: YouTubeCaptionUtil.__formatTime(dDurationMs),
-                text: utf8
-            }));
-        }
-
-        static __formatTime(seconds) {
-            const date = new Date(null);
-            date.setSeconds(seconds);
-            return date.toISOString().substr(11, 8);
-        };
-    }
-
-    YouTubeCaptionUtil.defaultOptions = {
-        baseUrl: 'https://video.google.com/timedtext',
-        languageId: 'en'
-    };
+    // const main = async () => {
+    //     const
+    //         defaultId = getYoutubeVideoID($('#userInputtedUrl').val()), /* Queen – Bohemian Rhapsody */
+    //         json = YouTubeCaptionUtil
+    //             .fetchCaptions(YouTubeCaptionUtil.videoId() || defaultId),
+    //         csv = CsvUtil.fromJson(json);
+    //     document.getElementById("captions").innerHTML = csv;
+    //     console.log(csv);
+    //
+    // };
+    //
+    // // fetch Json caption data
+    // class YouTubeCaptionUtil {
+    //     static async fetchCaptions(videoId, options) {
+    //         const
+    //             opts = {...YouTubeCaptionUtil.defaultOptions, ...options},
+    //             response = await fetch(YouTubeCaptionUtil.__requestUrl(videoId, opts)),
+    //             json = await response.json();
+    //         return YouTubeCaptionUtil.__parseTranscript(json);
+    //     }
+    //
+    //     //prep user-inputted YT URL
+    //     static videoId() {
+    //         const video_id = window.location.search.split('v=')[1];
+    //         if (video_id != null) {
+    //             const ampersandPosition = video_id.indexOf('&');
+    //             if (ampersandPosition != -1) {
+    //                 return video_id.substring(0, ampersandPosition);
+    //             }
+    //         }
+    //         return null;
+    //     }
+    //
+    //
+    //     static __requestUrl(videoId, {baseUrl, languageId}) {
+    //         return `${baseUrl}?lang=${languageId}&v=${videoId}&fmt=json3`;
+    //     }
+    //
+    //     static __parseTranscript({events}) {
+    //         return events.map(({tStartMs, dDurationMs, segs: [{utf8}]}) => ({
+    //             start: YouTubeCaptionUtil.__formatTime(tStartMs),
+    //             dur: YouTubeCaptionUtil.__formatTime(dDurationMs),
+    //             text: utf8
+    //         }));
+    //     }
+    //
+    //     static __formatTime(seconds) {
+    //         const date = new Date(null);
+    //         date.setSeconds(seconds);
+    //         return date.toISOString().substr(11, 8);
+    //     };
+    // }
+    //
+    // YouTubeCaptionUtil.defaultOptions = {
+    //     baseUrl: 'https://video.google.com/timedtext',
+    //     languageId: 'en'
+    // };
 
 
     // 5. The API calls this function when the player's state changes (works)
@@ -157,31 +160,12 @@ $(document).ready(function () {
             }
     }
 
-    // $('#note input[type="text"]').blur(function(e) {
-    //     if(!$(this).val()){
-    //         $(this).addClass("error");
-    //     } else {
-    //         $(this).removeClass("error");
-    //     }
-    // });
 
-    //#time_stamp, #ytId, #user_id
+    //TODO drop down selections are entered into associated input fields and those fields are colored differently
+
+    //TODO disable submit until all user inputs are entered
 
     //TODO change field class/ look of fields to guide users to fill in required info
-
-    // $("#userInputtedUrl").on('change', function () {
-    //     $("#collection-tip").attr('data-balloon-visible')
-    // });
-
-    // $("#note, #section, #collection, #userInputtedUrl").on('change', function () {
-    //
-    //     if ($(this).val() === "") {
-    //         // $(this).addClass("notFilled").removeClass("textField");
-    //     } else {
-    //         // $(this).removeClass("notFilled").addClass("textField").removeAttr('data-balloon-visible');
-    //         $('#createFormSubmit').removeAttr('disabled')
-    //     }
-    // });
 
     $("#userInputtedUrl").on('change', function () {
         $(this).addClass("textField").removeClass("notFilled");
@@ -226,7 +210,6 @@ $(document).ready(function () {
 
         } else {
             $("#note").addClass("notFilled").removeClass("textField");
-            $("#tag").addClass("notFilled").removeClass("textField");
             $('#section-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
             $('#note-tip').attr('data-balloon-visible', true);
             $('#tag-tip').attr('data-balloon-visible', true);
@@ -237,6 +220,7 @@ $(document).ready(function () {
     $("#note").on('change', function () {
         if ($(this).val() === "") {
             $(this).addClass("notFilled").removeClass("textField");
+            $('#createFormSubmit').attr('disabled', true)
         } else {
             $(this).addClass("textField").removeClass("notFilled");
             $('#note-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
@@ -245,43 +229,15 @@ $(document).ready(function () {
     })
 
 
-
-
     $("#tags_drop").on('change', function () {
         if ($(this).val() === "") {
 
         } else {
-            $("#tag").addClass("textField").removeClass("notFilled");
+            $("#tag").addClass("textField");
             $('#tag-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
             $('#tag').attr('value', this.value);
         }
     })
-
-
-    // function onChange() {
-    //     var x = document.getElementById("note").value;
-    //     document.getElementById("demo").innerHTML = "You selected: " + x;
-    // }
-    //
-    // function onInput() {
-    //     var x = document.getElementById("section").value;
-    //     document.getElementById("demo").innerHTML = "You wrote: " + x;
-    // }
-    //
-
-    //TODO disable submit until all user inputs are entered
-
-    // $('#note, #section, #collection, #ytId').bind('change', function () {
-    //     if (allFilled()) $('#createFormSubmit').removeAttr('disabled');
-    // });
-    //
-    // function allFilled() {
-    //     let filled = true;
-    //     $('.needed').each(function () {
-    //         if ($(this).val() === '') filled = false;
-    //     });
-    //     return filled;
-    // }
 
 
     //TODO Collection drop down menu create and show
@@ -324,7 +280,7 @@ $(document).ready(function () {
     //     });
     // });
 
-    //TODO drop down selections are entered into associated input fields and those fields are colored differently
+
 
     // $('#collection_drop').on('change', function () {
     //     console.log(this.innerText);
