@@ -42,21 +42,21 @@ public class CollectionsController {
         return "collectionPage";
     }
 
-//show one collection
+    //show one collection
     @GetMapping("/collections/{id}")
     public String oneCollection(@PathVariable long id, Model model){
         model.addAttribute("singleCollection", collectionsDao.getById(id));
         return "collection/show";
     }
 
-//get a collection to edit
+    //get a collection to edit
     @GetMapping("/collections/edit/{id}")
     public String editCollection(@PathVariable long id, Model model){
         //find collection to edit
         Collection collectionToEdit = collectionsDao.getById(id);
         return "collection/edit";
     }
-//save a edited collection
+    //save a edited collection
     @PostMapping(value = "/collections/edit/{id}")
     public String saveEditedCollection(@PathVariable long id, @ModelAttribute Collection collection){
         //save changes made to collection
@@ -64,7 +64,7 @@ public class CollectionsController {
         collectionsDao.save(collection);
         return "redirect:/collections/{id}";
     }
-//get information about collections from form to add
+    //get information about collections from form to add
     @GetMapping(value= "/collection/add")
     public String addCollection(@RequestParam(name= "addCollection") String title,@RequestParam String description, @RequestParam boolean isPrivate, @RequestParam String image ){
         Collection collection = new Collection(title, description, isPrivate, image);
@@ -78,14 +78,14 @@ public class CollectionsController {
         model.addAttribute("addcollection", new Collection());
         return "/create";
     }
-//save created collection
+    //save created collection
     @PostMapping(value="collection/create")
     public String createNewCollection(@ModelAttribute Collection collection){
         collection.setUser(usersDao.getById(collection.getId()));
         Collection saveCollection = collectionsDao.save(collection);
         return "redirect:/collection"+ saveCollection.getId();
     }
-//destroy a collection
+    //destroy a collection
     @PostMapping("/collections/{id}/delete")
     public String delete(@PathVariable long id){
         collectionsDao.deleteById(id);

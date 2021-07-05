@@ -2,6 +2,7 @@ package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.Models.Collection;
 import com.codeup.annotationstation.Models.IncomingRequest;
+import com.codeup.annotationstation.Models.Section;
 import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,13 @@ public Collection getCollections(@PathVariable("collectionId") long collectionId
     return collectionsService.getCollectionById(collectionId);
 }
 
+
+@RequestMapping(value = "/collections/id/{collectionId}", method = GET)
+@ResponseBody
+public Section getSection(@PathVariable("collectionId") long collectionId){
+        Section section = collectionsService.getSectionById(collectionId);
+    return collectionsService.getSectionById(collectionId);
+}
 //    //fetch data from collections table and sends to create page
 //    @RequestMapping(value = "/collections/collection/{collectionId}", method = GET)
 //    @ResponseBody

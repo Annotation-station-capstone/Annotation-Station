@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Single-Section</title>
+</head>
+<body>
+<h1>Single Section</h1>
+<p th:text="${singleSection.title}"></p>
+
+<h1 th:each="Notes: ${allNotes}">
+
+    <p th:text="${Notes.note}"></p>
+</h1>
+
+<p th:text="${video.video_url}"></p>
+
+</body>
+</html>

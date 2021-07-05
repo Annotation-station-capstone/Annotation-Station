@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.daos;
 
 import com.codeup.annotationstation.Models.Collection;
+import com.codeup.annotationstation.Models.Section;
 import com.codeup.annotationstation.Models.User;
 import org.hibernate.annotations.CollectionId;
 import org.springframework.data.jpa.repository.JpaRepository;
