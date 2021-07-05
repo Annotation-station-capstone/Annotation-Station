@@ -4,6 +4,7 @@ $(document).ready(function () {
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
+
             url: '/collections/Id/12',
             dataType: "json",
             data: {},
@@ -84,6 +85,23 @@ $(document).ready(function () {
                     // + '<p>Tag:'+ note.tag +'</p>'
 
                 // }
+
+//             url: '/collections/Id/{id}',
+//             dataType: "json",
+//             data: {},
+//             success: function (data) {
+//                 console.log(data);
+//                 let accordion = $("#accordion")
+//                 $(accordion).empty();
+//                 for (var i = 0; i < data.length; i++) {
+//                     $(accordion).append('<button class="accordion">Section 1:'+ section.title +'</button>'
+//                     + '<div class="panel">'
+
+//                     + '<p class="accordion"><a href="javascript: loadNote()">'+ note.title +'</a></p>'
+//                     + '<p>Tag:'+ note.tag +'</p>'
+//                     + '</div>')
+//                 }
+
             }
         })
     })

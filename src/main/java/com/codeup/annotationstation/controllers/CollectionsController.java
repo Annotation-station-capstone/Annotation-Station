@@ -1,6 +1,7 @@
 package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.Models.Comment;
+import com.codeup.annotationstation.Models.User;
 import com.codeup.annotationstation.daos.*;
 import com.codeup.annotationstation.Models.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +33,11 @@ public class CollectionsController {
 //        return "collection/index";
 //}
 
-    @GetMapping(value = "/collections")
+    @GetMapping(value = "/")
     public String indexPage(Model model) {
 
         model.addAttribute("collection", collectionsDao.findAll());
-
+        model.addAttribute("user",new User());
         return "collection/index";
     }
 
