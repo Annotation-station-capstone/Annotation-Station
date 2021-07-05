@@ -1,14 +1,15 @@
 package com.codeup.annotationstation.controllers;
 
-import com.codeup.annotationstation.daos.CollectionsRepository;
-import com.codeup.annotationstation.daos.SectionRepository;
-import com.codeup.annotationstation.daos.UsersRepository;
+import com.codeup.annotationstation.Models.Comment;
+import com.codeup.annotationstation.daos.*;
 import com.codeup.annotationstation.Models.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 
 @Controller
 public class CollectionsController {
@@ -16,18 +17,22 @@ public class CollectionsController {
     private UsersRepository usersDao;
     private CollectionsRepository collectionsDao;
     private SectionRepository sectionsDao;
+    private NoteRepository noteDao;
+    private CommentRepository commentDao;
 
-    public CollectionsController(UsersRepository usersDao, CollectionsRepository collectionsDao, SectionRepository sectionsDao) {
+    public CollectionsController(UsersRepository usersDao, CollectionsRepository collectionsDao, SectionRepository sectionsDao, NoteRepository noteDao, CommentRepository commentDao) {
         this.usersDao = usersDao;
         this.collectionsDao = collectionsDao;
         this.sectionsDao = sectionsDao;
+        this.noteDao = noteDao;
+        this.commentDao = commentDao;
     }
-//@GetMapping("/")
+//@GetMapping("collection/index")
 //public String showIndex(){
 //        return "collection/index";
 //}
 
-    @PostMapping(value = "/collections")
+    @GetMapping(value = "/collections")
     public String indexPage(Model model) {
 
         model.addAttribute("collection", collectionsDao.findAll());
@@ -45,7 +50,10 @@ public class CollectionsController {
     //show one collection
     @GetMapping("/collections/{id}")
     public String oneCollection(@PathVariable long id, Model model){
-        model.addAttribute("singleCollection", collectionsDao.getById(id));
+        model.addAttribute("singleCollection", collectionsDao.findFirstById(id));
+        model.addAttribute("allSections", sectionsDao.findSectionsByCollectionId(id));
+        model.addAttribute("allComments", commentDao.findCommentsByCollectionId(id));
+        //     model.addAttribute("allNotes", noteDao.findNoteBySectionsId(id));
         return "collection/show";
     }
 
@@ -85,6 +93,7 @@ public class CollectionsController {
         Collection saveCollection = collectionsDao.save(collection);
         return "redirect:/collection"+ saveCollection.getId();
     }
+
     //destroy a collection
     @PostMapping("/collections/{id}/delete")
     public String delete(@PathVariable long id){
