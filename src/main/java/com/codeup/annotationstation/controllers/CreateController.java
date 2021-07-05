@@ -56,7 +56,6 @@ public Collection getCollections(@PathVariable("collectionId") long collectionId
     return collectionsService.getCollectionById(collectionId);
 }
 
-
 @RequestMapping(value = "/collections/id/{collectionId}", method = GET)
 @ResponseBody
 public Section getSection(@PathVariable("collectionId") long collectionId){

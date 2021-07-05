@@ -103,4 +103,10 @@ public class CollectionsController {
     }
 
 
+    //get form to create new collection
+    @GetMapping(value="/collections/fragment")
+    public String getCollectionsFragment(Model model) {
+//        model.addAttribute("addcollection", new Collection());
+        return "/collectionsFragment";
+    }
 }

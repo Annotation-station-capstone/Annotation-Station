@@ -160,6 +160,22 @@ $(document).ready(function () {
             }
     }
 
+    //
+    // function getProjects() {
+    //     var selectionList; // keep this local to the function - implicit globals are risky
+    //
+    //     $.getJSON("php/getProjects.php", function (data) {
+    //         selectionList = "<form><select>";
+    //         for (var i = 0; i < data.length; i++) {
+    //             selectionList += "<option name='prjTitle'>" + data[i].ProjectTitle + "</option>";
+    //         }
+    //         selectionList += "</select></form>";
+    //     }).complete(function() {
+    //         $('#project-selection-menu').append(selectionList).removeClass('hidden');
+    //         firstLoad = false;
+    //     });
+    // }
+
 
     //TODO drop down selections are entered into associated input fields and those fields are colored differently
 
@@ -178,6 +194,12 @@ $(document).ready(function () {
 
 
     $("#collection_drop").on('change', function () {
+    //     if ($(this).children('option:selected').attr('value', this.value) === "") {
+    //         $("#collection").attr($(this).children('option:selected').attr('value', true)).removeClass("notFilled").addClass("textField");
+    //     }
+    //     else
+    //         $("#collection").attr("").removeClass("notFilled").addClass("textField");
+    // });
         $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
     })
 
@@ -236,13 +258,30 @@ $(document).ready(function () {
             $("#tag").addClass("textField");
             $('#tag-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
             $('#tag').attr('value', this.value);
+            $('#collectionId').attr('value', this.value);
+
+            //TODO Sections drop down menu create and show
+            $.ajax({
+                type: 'GET',
+                url: '/section/sectionId/$(\'#collectionId\').val();',
+                dataType: "json",
+                data: {},
+                success: function (data) {
+
+                    console.log(data);
+                    var section_drop = ('#section_drop');
+                    $(section_drop).empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $(section_drop).append('<option value="' + data[i].id + " : " + data[i].title + '">' + data[i].title + '</option>');
+                    }
+                }
+            });
+
         }
     })
 
+    // //TODO Collections drop down menu create and show
 
-    //TODO Collection drop down menu create and show
-
-    //$(#"user_id").val()
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
@@ -260,26 +299,6 @@ $(document).ready(function () {
             }
         });
     });
-
-    // //TODO Section drop down menu create and show
-    //
-    // $("#collection_drop").on('change', function () {
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: '/collections/userid/1',
-    //         dataType: "json",
-    //         data: {},
-    //         success: function (data) {
-    //             console.log(data);
-    //             var section_drop = '#section_drop';
-    //             // $(section_drop).empty();
-    //             for (var i = 0; i < data.length; i++) {
-    //                 $(section_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
-    //             }
-    //         }
-    //     });
-    // });
-
 
 
     // $('#collection_drop').on('change', function () {
@@ -316,7 +335,7 @@ $(document).ready(function () {
                             "time_stamp": $("#counter").html(),
                             "tag": $("#select-tags option:selected").attr("data-value")
                         }
-                }), success:function () {
+                }), success: function () {
                 $("#note").val('');
                 $("#select-tags >option:eq(1)").attr('selected', true)
             }
@@ -426,5 +445,9 @@ $(document).ready(function () {
         }
 
 
+});
 
-}
+
+
+
+
