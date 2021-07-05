@@ -365,15 +365,15 @@ $(document).ready(function () {
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
 
-    $(document).ready(function(){
-        $("#pass").keyup(function(){
+
+        $("#reg_password").keyup(function(){
             check_pass();
         });
     });
 
     function check_pass()
     {
-        var val=document.getElementById("pass").value;
+        var val=document.getElementById("reg_password").value;
         var meter=document.getElementById("meter");
         var no=0;
         if(val!="")
@@ -390,31 +390,31 @@ $(document).ready(function () {
             // If the password length is greater than 6 and must contain alphabets,numbers and special characters
             if(val.length>6 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))no=4;
 
-            if(no==1)
+            if(no===1)
             {
                 $("#meter").animate({width:'50px'},300);
                 meter.style.backgroundColor="red";
                 document.getElementById("pass_type").innerHTML="Very Weak";
             }
 
-            if(no==2)
+            if(no===2)
             {
                 $("#meter").animate({width:'100px'},300);
-                meter.style.backgroundColor="#F5BCA9";
+                meter.style.backgroundColor="#f82004";
                 document.getElementById("pass_type").innerHTML="Weak";
             }
 
-            if(no==3)
+            if(no===3)
             {
                 $("#meter").animate({width:'150px'},300);
-                meter.style.backgroundColor="#FF8000";
+                meter.style.backgroundColor="#fad203";
                 document.getElementById("pass_type").innerHTML="Good";
             }
 
-            if(no==4)
+            if(no===4)
             {
                 $("#meter").animate({width:'200px'},300);
-                meter.style.backgroundColor="#00FF40";
+                meter.style.backgroundColor="#089c2d";
                 document.getElementById("pass_type").innerHTML="Strong";
             }
         }
@@ -424,7 +424,7 @@ $(document).ready(function () {
             meter.style.backgroundColor="white";
             document.getElementById("pass_type").innerHTML="";
         }
-    }
 
 
-});
+
+}
