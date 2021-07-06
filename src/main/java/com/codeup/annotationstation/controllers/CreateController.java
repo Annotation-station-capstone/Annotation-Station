@@ -43,7 +43,7 @@ public class CreateController {
 
     }
 
-//fetch data from collections table and sends to create page
+//fetch data from collections table and sends to create page or profile page as needed
 @RequestMapping(value = "/collections/userid/{userId}", method = GET)
 @ResponseBody
 public List<Collection> getCollectionsForUser(@PathVariable("userId") long userId){
