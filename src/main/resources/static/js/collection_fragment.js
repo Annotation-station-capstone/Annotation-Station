@@ -2,13 +2,17 @@ $(document).ready(function () {
     $.ajax({
         type: 'GET',
 
-        url: '/collections/Id/1',
+        url: '/collections/Id/15',
         dataType: "json",
         data: {},
         success:
 
             function (data) {
                 console.log(data);
+                let testDiv = $('#testDiv');
+                $(testDiv).append('<h1>' + data.id + ' ' + data.title + '</h1>');
+                let collectionTitle = data.title;
+                let collectionId = data.id;
                 console.log(data.id);
                 console.log(data.description);
                 console.log(data.image);
@@ -17,13 +21,13 @@ $(document).ready(function () {
 
                 for(var i = 0; i < sections.length; i++) {
                     console.log(sections[i].videos);
-
                     for(var j = 0; j < sections[i].videos.length; j++) {
                         var videoData = sections[i].videos[j];
                         console.log(videoData.video_url);
                         console.log(videoData.notes);
                         var noteData = videoData.notes;
-
+                        let videoUrl = videoData.video_url;
+                        $(testDiv).append('<br><h3>' + videoData.video_url + '</h3>')
                         //console.log(sections[i].videos[j].notes);
 
                         for(var l = 0; l < noteData.length; l++) {
@@ -34,8 +38,10 @@ $(document).ready(function () {
                             var time = noteData[l].time_stamp;
                             console.log(time);
                             console.log(singleNote);
-
+                            $(testDiv).append('<br><h3>'+ collectionId + ' ' + collectionTitle + ' ' + time + ' ' + singleNote + ' ' + singleNote + ' ' + videoUrl + '</h3>')
                         }
+
+
                     }
 
 

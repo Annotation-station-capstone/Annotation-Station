@@ -438,18 +438,18 @@ $(document).ready(function () {
 
             }
 
-<<<<<<< HEAD
+
             if(no===4)
             {
                 $("#meter").animate({width:'200px'},150);
                 meter.style.backgroundColor="#089c2d";
                 document.getElementById("pass_type").innerHTML="Strong";
-=======
+
             if (no === 4) {
                 $("#meter").animate({width: '200px'}, 300);
                 meter.style.backgroundColor = "#089c2d";
                 document.getElementById("pass_type").innerHTML = "Strong";
->>>>>>> 1a9a361b460d03834fee212c38bf784088aa4320
+
             }
 
         }
