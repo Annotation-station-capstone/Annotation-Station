@@ -29,11 +29,11 @@ public class Collection {
     private User user;
 
     @OneToMany(mappedBy = "collection")
-    @JsonBackReference
+    @JsonManagedReference(value="collection-comments")
     private List<Comment> comments;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "collection")
-    @JsonBackReference
+    @JsonManagedReference(value="collection-sections")
     private List<Section> sections;
 
 

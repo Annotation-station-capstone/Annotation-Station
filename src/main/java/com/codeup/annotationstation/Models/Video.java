@@ -19,12 +19,12 @@ public class Video {
     private String video_url;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonBackReference(value="videos-section")
     @JoinColumn(name= "section_id")
     private Section section;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "video")
-    @JsonBackReference
+    @JsonManagedReference(value="note-videos")
     private List<Note> notes;
 
     //constructors

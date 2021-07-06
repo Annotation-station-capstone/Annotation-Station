@@ -2,6 +2,7 @@ package com.codeup.annotationstation.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,7 +20,7 @@ public class Tag {
     private String tag;
 
     @OneToMany(mappedBy = "tag")
-    @JsonBackReference
+    @JsonManagedReference(value="tag-notes")
     private List<Note> notes;
 
 //constructors
