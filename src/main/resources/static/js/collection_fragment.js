@@ -23,12 +23,16 @@ $(document).ready(function () {
                         console.log(videoData.video_url);
                         console.log(videoData.notes);
                         var noteData = videoData.notes;
+
                         //console.log(sections[i].videos[j].notes);
 
                         for(var l = 0; l < noteData.length; l++) {
                             console.log(noteData[l]);
 
+
                             var singleNote = noteData[l].note;
+                            var time = noteData[l].time_stamp;
+                            console.log(time);
                             console.log(singleNote);
 
                         }
