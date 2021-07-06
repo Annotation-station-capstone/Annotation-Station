@@ -109,4 +109,10 @@ public class CollectionsController {
 //        model.addAttribute("addcollection", new Collection());
         return "/collectionsFragment";
     }
+
+    //get form to create new collection
+    @GetMapping(value="/collections/single")
+    public String getCollectionsCard(Model model) {
+        return "/collectionsSingle";
+    }
 }

@@ -4,7 +4,6 @@ $(document).ready(function () {
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
-
             url: '/collections/Id/12',
             dataType: "json",
             data: {},
