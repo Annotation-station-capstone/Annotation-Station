@@ -1,0 +1,68 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="partials/head :: headStylesheets">
+  <!--    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+  <!--    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>-->
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <!--    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+</head>
+<!--<header th:include="partials/footer :: bootStrapFooter_stylingsheet"></header>-->
+<body>
+
+
+        <form th:action="@{/sign-up}" method="post" th:object="${user}">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input required name="first_name" th:type="text" class="form-control" id="firstName" placeholder="Enter First Name"
+                   th:field="*{firstName}"/><span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                                                  class="text-danger">Enter First Name</span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input required type="text" class="form-control" id="lastName" placeholder="Enter Last Name"
+                   th:field="*{lastName}"/>
+          </div>
+          <div class="form-group">
+            <label for="userName">Username</label>
+            <input required type="text" class="form-control" id="userName" placeholder="Enter Username" th:field="*{username}"/>
+          </div>
+          <h5 class="alert-danger"> There is another user with this username please try again.</h5>
+          <div class="form-group">
+            <label for="reg_user_email">Email address</label>
+            <input required type="email" class="form-control" id="reg_user_email" aria-describedby="emailHelp"
+                   placeholder="Enter Email" th:field="*{email}"/>
+            <!--                        <p th:text="${errorMessage1}" class="alert-danger"></p>-->
+          </div>
+          <div class="form-group">
+            <label for="reg_password">Password</label>
+            <input required type="password" class="form-control" id="reg_password" placeholder="Password"
+                   th:field="*{password}"/>
+            <small>Strength meter</small>
+            <div id="meter_wrapper">
+              <div id="meter"></div>
+            </div>
+            <span id="pass_type"></span>
+          </div>
+          <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input required type="password" class="form-control" id="confirm_password"
+                   placeholder="Confirm Password"/>
+          </div>
+          <div class="form-check">
+            <input  type="checkbox" class="form-check-input" id="newsLetterCheck"/>
+            <label class="form-check-label" for="newsLetterCheck">Check if you would like to join our
+              newsletter!</label>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+              Close
+            </button>
+
+            <button type="submit" class="btn btn-primary">Confirm</button>
+
+          </div>
+        </form>
+</body>
+<footer th:include="partials/footer :: footer"></footer>
+</html>

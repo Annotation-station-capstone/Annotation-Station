@@ -420,22 +420,20 @@ $(document).ready(function () {
                 $("#meter").animate({width:'50px'},150);
                 meter.style.backgroundColor="red";
                 document.getElementById("pass_type").innerHTML="Very Weak";
-                password.setCustomValidity("password needs contain any lowercase alphabet and any number or any special character");
             }
 
             if(no===2)
-            { password.setCustomValidity("password, needs special character and number")
+            {
                 $("#meter").animate({width:'100px'},150);
                 meter.style.backgroundColor="#f82004";
                 document.getElementById("pass_type").innerHTML="Weak";
             }
 
             if(no===3)
-            { password.setCustomValidity("password, needs special chara cter and number")
+            {
                 $("#meter").animate({width:'150px'},150);
                 meter.style.backgroundColor="#fad203";
                 document.getElementById("pass_type").innerHTML="Good";
-
             }
 
 
@@ -444,6 +442,7 @@ $(document).ready(function () {
                 $("#meter").animate({width:'200px'},150);
                 meter.style.backgroundColor="#089c2d";
                 document.getElementById("pass_type").innerHTML="Strong";
+<<<<<<< HEAD
 
             if (no === 4) {
                 $("#meter").animate({width: '200px'}, 300);
@@ -452,18 +451,19 @@ $(document).ready(function () {
 
             }
 
+=======
+>>>>>>> 008bda70eabfd27d0ca11b499b9525db2232f07c
         }
 
         else
         {
             meter.style.backgroundColor="white";
             document.getElementById("pass_type").innerHTML="";
-            password.setCustomValidity("password needs at least 6 Characters");
 
         }
 
 
-};
+}
 
 
 

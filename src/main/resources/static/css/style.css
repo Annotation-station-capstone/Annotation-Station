@@ -364,6 +364,7 @@ form{
 
 
 /*This is the section that enables the balloons*/
+/*this is for strength meter*/
 #heading
 {
     margin-top:150px;
@@ -404,6 +405,7 @@ form{
     text-align:center;
     color:grey;
 }
+/*end strength meter*/
 :root {
     --balloon-border-radius: 2px;
     --balloon-color: rgba(241, 6, 6, 0.95);

@@ -2,18 +2,12 @@ package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.daos.UsersRepository;
 import com.codeup.annotationstation.service.UserDetailsLoader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import com.codeup.annotationstation.Models.User;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -44,6 +38,12 @@ public class UserController {
 
     //        save user
 
+//    @GetMapping("/sign-up")
+//    public String grabErrorInfo( @ModelAttribute User user, Model model) {
+//
+//    }
+
+
     @PostMapping("/sign-up")
     public String saveUser( @ModelAttribute User user, Model model) {
 String hash = passwordEncoder.encode(user.getPassword());
@@ -52,10 +52,12 @@ String hash = passwordEncoder.encode(user.getPassword());
         String errorMessage;
         for (User existingUser : userList) {
            if(existingUser.getUsername().equalsIgnoreCase(user.getUsername())){
-               errorMessage= "This username is taken";
-               model.addAttribute("errorMessage",errorMessage);
-           }
-            return "collection/index";
+               return "error/errorUsername";
+           }else if(existingUser.getEmail().equalsIgnoreCase(user.getEmail())){
+                System.out.println("existingUserEmail = " + existingUser);
+                return "error/errorEmail";
+            }
+             System.out.println("existingUser = " + existingUser);
         }
         userDao.save(user);
         return "redirect:/";

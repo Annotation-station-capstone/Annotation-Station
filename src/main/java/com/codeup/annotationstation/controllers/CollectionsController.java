@@ -55,7 +55,7 @@ public class CollectionsController {
         model.addAttribute("allSections", sectionsDao.findSectionsByCollectionId(id));
         model.addAttribute("allComments", commentDao.findCommentsByCollectionId(id));
         //     model.addAttribute("allNotes", noteDao.findNoteBySectionsId(id));
-        return "collection/show";
+        return "collection/index";
     }
 
     //get a collection to edit
