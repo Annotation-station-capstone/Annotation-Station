@@ -39,7 +39,7 @@ public class User {
 
     @Column(nullable = false, length = 255, unique = true)
     @NotBlank(message= "username must be filled out")
-    @Size(min=6, message = "Username must have at least 6 characters")
+//    @Size(min=6, message = "Username must have at least 6 characters")
     private String username;
 
     @Column(nullable = true, length = 255)
@@ -52,7 +52,7 @@ public class User {
 
     @Column(nullable = false, length = 255)
     @NotBlank(message= "You must have a password")
-    @Size(min =6, message = "A password must have at least 6 characters, special character and capital letter" )
+//    @Size(min =6, message = "A password must have at least 6 characters, special character and capital letter" )
     private String password;
 
     @OneToMany(mappedBy = "user")
