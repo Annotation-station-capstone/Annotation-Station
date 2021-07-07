@@ -9,15 +9,15 @@ $(document).ready(function () {
 
             function (data) {
                 console.log(data);
-<<<<<<< HEAD
+
                 let testDiv = $('#testDiv');
                 $(testDiv).append('<h1>' + data.id + ' ' + data.title + '</h1>');
                 let collectionTitle = data.title;
                 let collectionId = data.id;
                 console.log(data.id);
-=======
+
                 console.log(data.title);
->>>>>>> 008bda70eabfd27d0ca11b499b9525db2232f07c
+
                 console.log(data.description);
                 console.log(data.image);
                 console.log(data.is_private);
@@ -43,15 +43,15 @@ $(document).ready(function () {
                             $(section_data).append("<li> " + videoData.video_url + "</li>");
 
                         console.log(videoData.notes);
-<<<<<<< HEAD
+
                         var noteData = videoData.notes;
                         let videoUrl = videoData.video_url;
                         $(testDiv).append('<br><h3>' + videoData.video_url + '</h3>')
                         //console.log(sections[i].videos[j].notes);
-=======
 
-                        var noteData = videoData.notes;
->>>>>>> 008bda70eabfd27d0ca11b499b9525db2232f07c
+
+
+
 
                         for(var l = 0; l < noteData.length; l++) {
                         console.log(noteData[l]);
@@ -61,12 +61,12 @@ $(document).ready(function () {
                             console.log(time);
                                 $(section_data).append("<li> " + time + "</li>");
                             console.log(singleNote);
-<<<<<<< HEAD
+
                             $(testDiv).append('<br><h3>'+ collectionId + ' ' + collectionTitle + ' ' + time + ' ' + singleNote + ' ' + singleNote + ' ' + videoUrl + '</h3>')
-=======
+
                                 $(section_data).append("<li> " + singleNote + "</li>");
 
->>>>>>> 008bda70eabfd27d0ca11b499b9525db2232f07c
+
                         }
 
 
