@@ -370,6 +370,7 @@ $(document).ready(function () {
         pauseVid();
         console.log("key pressed");
     })
+
 // password and confirm password are the same
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
@@ -377,14 +378,37 @@ $(document).ready(function () {
     function validatePassword(){
         if(password.value !== confirm_password.value) {
             confirm_password.setCustomValidity("Passwords Don't Match");
+            confirm_password.style.borderColor="#f82004";
         } else {
             confirm_password.setCustomValidity('');
+            confirm_password.style.borderColor="#0ac23b";
         }
     }
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
 
+    function checkPassword() {
+        let password = document.getElementById('reg_password').value,
+            errors = [];
+        if (password.length < 8) {
+            errors.push("Your password must be at least 8 characters.");
+        }
+        if (password.search(/[a-z]/i) < 0) {
+            errors.push("Your password must contain at least one letter.");
+        }
+        if (password.search(/[0-9]/) < 0) {
+            errors.push("Your password must contain at least one digit.");
+        }
+        if(password.search(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)<0){
+            errors.push("Your password must contain at least one special character.")
+        }
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
 
+        }
+    }
+    password.onchange = checkPassword;
+    confirm_password.onkeyup = checkPassword;
 
         $("#reg_password").keyup(function(){
             check_pass();
@@ -402,7 +426,6 @@ $(document).ready(function () {
         var no=0;
         if(val!="")
         {
-
             // If the password length is less than or equal to 6
             if (val.length <= 6) no = 1;
 
@@ -414,6 +437,7 @@ $(document).ready(function () {
 
             // If the password length is greater than 6 and must contain alphabets,numbers and special characters
             if (val.length > 6 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
+
 
             if(no===1)
             {
@@ -437,14 +461,12 @@ $(document).ready(function () {
             }
 
 
-            if (no === 4) {
-                $("#meter").animate({width: '200px'}, 300);
-                meter.style.backgroundColor = "#089c2d";
-                document.getElementById("pass_type").innerHTML = "Strong";
 
-            }
-
-
+            if(no===4)
+            {
+                $("#meter").animate({width:'200px'},150);
+                meter.style.backgroundColor="#0ac23b";
+                document.getElementById("pass_type").innerHTML="Strong";
 
         }
 
@@ -455,10 +477,8 @@ $(document).ready(function () {
 
         }
 
-
 }
-
-
+}
 
 });
 
