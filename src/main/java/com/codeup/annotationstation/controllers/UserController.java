@@ -42,8 +42,6 @@ public class UserController {
 //    public String grabErrorInfo( @ModelAttribute User user, Model model) {
 //
 //    }
-
-
     @PostMapping("/sign-up")
     public String saveUser( @ModelAttribute User user, Model model) {
 String hash = passwordEncoder.encode(user.getPassword());
