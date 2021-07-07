@@ -55,7 +55,7 @@
                         <label for="userName">Username</label>
                         <input required type="text" class="form-control" id="userName" placeholder="Enter Username" th:field="*{username}"/>
                     </div>
-                    <p th:text="${errorMessage}" class="alert-danger"></p>
+
                     <div class="form-group">
                         <label for="reg_user_email">Email address</label>
                         <input required type="email" class="form-control" id="reg_user_email" aria-describedby="emailHelp"
@@ -119,9 +119,9 @@
                 <div class="card-body">
                     <h5 class="card-title" th:text="${Collection.title}"></h5>
                     <p class="card-text" th:text="${Collection.description}">
-                        <button>
-                            <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
-                        </button>
+                    <div th:if="${single}"></div>
+                    <p><a th:href="${singleCollection}" class="btn btn-primary" th:method="GET">View Collection</a></p>
+
                 </div>
             </div>
         </div>
