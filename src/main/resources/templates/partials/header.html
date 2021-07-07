@@ -32,7 +32,7 @@
                 Invalid Username and Password
             </div>
             </form>
-            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider" sec:authorize="!isAuthenticated()"></div>
             <button
                     type="button"
                     class="btn btn-primary text-center"
@@ -57,24 +57,26 @@
     <!--    <div class="col-1"></div>-->
     <div class="col-3">
         <div class="input-group pl-5">
-            <div class="form-outline">
-                <input id="search-input" type="search" class="form-control search-frame"/>
-                <label class="form-label" for="search-input">Search</label>
-            </div>
-            <button id="search-button" type="button" class="btn btn-primary search-btn">
-                <i class="fas fa-search search-icon"></i>
-            </button>
+<!--            <div class="form-outline">-->
+<!--                <input id="search-input" type="search" class="form-control search-frame"/>-->
+<!--                <label class="form-label" for="search-input">Search</label>-->
+<!--            </div>-->
+<!--            <button id="search-button" type="button" class="btn btn-primary search-btn">-->
+<!--                <i class="fas fa-search search-icon"></i>-->
+<!--            </button>-->
+            <div class="text-light" sec:authorize="isAuthenticated()">
+            Welcome, <span  th:text="${#authentication.principal.username}"/>
+        </div>
+            <br>
             <form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
-                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+                <button class="btn-link btn btn-light" style="margin-top: 8px">Logout</button>
                 <div th:if="${param.logout}">
                 You have been logged out.
             </div>
             </form>
         </div>
     </div>
-    <div sec:authorize="isAuthenticated()">
-        Welcome, <span th:text="${#authentication.principal.username}"/>
-    </div>
+
 </nav>
 
 
@@ -151,5 +153,5 @@
 <!--<script src="https://apis.google.com/js/api.js"></script>-->
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>-->
 <!--<script src="js/script.js" rel="script"></script>-->
-</body>
+
 </html>

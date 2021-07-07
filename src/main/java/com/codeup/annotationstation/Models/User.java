@@ -8,11 +8,13 @@ import org.hibernate.annotations.ColumnDefault;
 import com.sun.istack.NotNull;
 import org.hibernate.annotations.ColumnDefault;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.engine.jdbc.Size;
+
 
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -28,12 +30,16 @@ public class User {
     private Boolean is_admin;
 
     @Column(nullable = false, length = 255)
+    @NotBlank(message= "username must be filled out")
     private String firstName;
 
     @Column(nullable = false, length = 255)
+    @NotBlank(message= "username must be filled out")
     private String lastName;
 
     @Column(nullable = false, length = 255, unique = true)
+    @NotBlank(message= "username must be filled out")
+    @Size(min=6, message = "Username must have at least 6 characters")
     private String username;
 
     @Column(nullable = true, length = 255)
@@ -41,9 +47,12 @@ public class User {
     private String user_image;
 
     @Column(nullable = false, length = 255, unique = true)
+    @NotBlank(message = "You must have a email")
     private String email;
 
     @Column(nullable = false, length = 255)
+    @NotBlank(message= "You must have a password")
+    @Size(min =6, message = "A password must have at least 6 characters, special character and capital letter" )
     private String password;
 
     @OneToMany(mappedBy = "user")

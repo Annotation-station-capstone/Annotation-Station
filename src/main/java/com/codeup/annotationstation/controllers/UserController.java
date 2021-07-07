@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -44,6 +45,12 @@ public class UserController {
 
     //        save user
 
+//    @GetMapping("/sign-up")
+//    public String grabErrorInfo( @ModelAttribute User user, Model model) {
+//
+//    }
+
+
     @PostMapping("/sign-up")
     public String saveUser( @ModelAttribute User user, Model model) {
 String hash = passwordEncoder.encode(user.getPassword());
@@ -52,10 +59,9 @@ String hash = passwordEncoder.encode(user.getPassword());
         String errorMessage;
         for (User existingUser : userList) {
            if(existingUser.getUsername().equalsIgnoreCase(user.getUsername())){
-               errorMessage= "This username is taken";
-               model.addAttribute("errorMessage",errorMessage);
+               System.out.println("existingUser = " + existingUser);
            }
-            return "collection/index";
+            return "error/errorRegister";
         }
         userDao.save(user);
         return "redirect:/";
