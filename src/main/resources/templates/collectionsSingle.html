@@ -16,20 +16,76 @@
 <body>
 <nav th:replace="partials/header :: navbar"></nav>
 
-<div id="title" class="title-header"></div>
+<div style="background-color: #d2d2d2; height: 150px; width: 100%; margin-top: 50px">
+    <h1 class="title-header title"></h1>
+</div>
+
 <div class="row">
-<ul id="collection-data"></ul>
-
-
-<img id="collection_image" alt="" src="">
+    <div class="col-1"></div>
+    <div class="col-3">
+        <div style="margin: 10px">
+            <img id="collection_image" alt="" src="">
+        </div>
     </div>
-<div class="row">
-<ul id="section-data"></ul>
-</div>
-<div class="row">
-<ul id="comment-data"></ul>
+
+    <div class="col-4">
+        <div class="row">
+            <h3 class="title-header title"></h3>
+        </div>
+        <div class="row">
+            <ul id="collection-data"></ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <p>SET COLLECTION TO PUBLIC
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label></p>
+        <form method="POST" action="#">
+            <label for="#"></label>
+            <input id="#" placeholder="ADD URL FOR A COLLECTION IMAGE" type="text">
+            <input type="submit">
+        </form>
+    </div>
+    <div class="col-1"></div>
 </div>
 
+<div style="background-color: #d2d2d2; padding-top: 50px">
+    <div class="container" id="accordionExample" style="height: max-content; width: max-content">
+        <div id="section-data" style="height: 1000px; width: 1000px"></div>
+    </div>
+</div>
+
+<div class="row">
+    <ul id="comment-data"></ul>
+</div>
+
+
+<!--<div class="accordion" id="accordionExample">-->
+<!--    <div class="accordion-item">-->
+<!--        <h2 class="accordion-header" id="headingOne">-->
+<!--            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+<!--                Accordion Item #1-->
+<!--            </button>-->
+<!--        </h2>-->
+<!--        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">-->
+<!--            <div class="accordion-body">-->
+<!--                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<a data-target="#demo" data-toggle="collapse">-->
+<!--    CLICKABLE TEXT WOULD GO HERE INSTEAD OF BUTTON-->
+<!--</a>-->
+
+<!--<div class="collapse out" id="demo">-->
+<!--    <p>-->
+<!--        Hidden Content goes here.-->
+<!--    </p>-->
+<!--</div>-->
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"
