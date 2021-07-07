@@ -461,11 +461,13 @@ $(document).ready(function () {
             }
 
 
+
             if(no===4)
             {
                 $("#meter").animate({width:'200px'},150);
                 meter.style.backgroundColor="#0ac23b";
                 document.getElementById("pass_type").innerHTML="Strong";
+
         }
 
         else
@@ -477,5 +479,6 @@ $(document).ready(function () {
 
 }
 }
+
 });
 
