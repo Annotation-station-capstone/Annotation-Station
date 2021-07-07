@@ -2,20 +2,13 @@ package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.daos.UsersRepository;
 import com.codeup.annotationstation.service.UserDetailsLoader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import com.codeup.annotationstation.Models.User;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -59,9 +52,12 @@ String hash = passwordEncoder.encode(user.getPassword());
         String errorMessage;
         for (User existingUser : userList) {
            if(existingUser.getUsername().equalsIgnoreCase(user.getUsername())){
-               System.out.println("existingUser = " + existingUser);
-           }
-            return "error/errorRegister";
+               return "error/errorUsername";
+           }else if(existingUser.getEmail().equalsIgnoreCase(user.getEmail())){
+                System.out.println("existingUserEmail = " + existingUser);
+                return "error/errorEmail";
+            }
+             System.out.println("existingUser = " + existingUser);
         }
         userDao.save(user);
         return "redirect:/";
