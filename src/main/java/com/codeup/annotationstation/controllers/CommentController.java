@@ -62,9 +62,9 @@ public class CommentController {
                                 @ModelAttribute Collection collection) {
 
         Collection currentCollection = collectionDao.getById(collection.getId());
-        User currentUser = userDao.getById(user.getId());
+//        User currentUser = userDao.getById(user.getId());
         Comment comment1 = new Comment(addComment);
-        comment.setUser(currentUser);
+//        comment.setUser(currentUser);
         commentDao.save(comment1);
         comment1.setCollection(currentCollection);
 
