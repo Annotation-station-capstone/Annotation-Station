@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $.ajax({
         type: 'GET',
@@ -12,10 +13,20 @@ $(document).ready(function () {
                 console.log(data.image);
                 console.log(data.is_private);
                 console.log(data.id);
-                var collection_data = ('#collection-data');
-                var collection_title = ('.title');
-                var section_data = ('#section-data');
-                var comment_data = ('#comment-data')
+                let collection_title = data.title;
+                let collection_description = data.description;
+                let collection_image = data.image;
+                let collection_is_private = data.is_private;
+                let collection_id= data.id;
+
+
+
+
+
+
+
+
+
                 $(collection_title).text("You selected the " + data.title + " Collection");
                 $(collection_title).text("You selected the " + data.title + " Collection");
                 $(collection_data).append("<li> " + data.description + "</li>");
@@ -124,8 +135,12 @@ $(document).ready(function () {
 //                             // $(testDiv).append('<br><h3>'+ collectionId + ' ' + collectionTitle + ' ' + time + ' ' + singleNote + ' ' + singleNote + ' ' + videoUrl + '</h3>')
 //
 //                                 $(section_data).append("<li> " + singleNote + "</li>");
+// <button src=" (javascript: loadNote() )"
 //
-//
+//function(){
+//$('#button').click(function,{
+// let Id =$('#collectionId');
+// })
 //                         }
 //
 //
