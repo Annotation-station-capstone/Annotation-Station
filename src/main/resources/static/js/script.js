@@ -399,7 +399,7 @@ $(document).ready(function () {
         if (password.search(/[0-9]/) < 0) {
             errors.push("Your password must contain at least one digit.");
         }
-        if(password.search(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)<0){
+        if(password.search(/[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) < 0){
             errors.push("Your password must contain at least one special character.")
         }
         if (errors.length > 0) {
@@ -426,17 +426,17 @@ $(document).ready(function () {
         var no=0;
         if(val!="")
         {
-            // If the password length is less than or equal to 6
-            if (val.length <= 6) no = 1;
+            // If the password length is less than or equal to 8
+            if (val.length <= 8) no = 1;
 
-            // If the password length is greater than 6 and contain any lowercase alphabet or any number or any special character
-            if (val.length > 6 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
+            // If the password length is greater than 8 and contain any lowercase alphabet or any number or any special character
+            if (val.length > 8 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
 
-            // If the password length is greater than 6 and contain alphabet,number,special character respectively
-            if (val.length > 6 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)))) no = 3;
+            // If the password length is greater than 8 and contain alphabet,number,special character respectively
+            if (val.length > 8 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)))) no = 3;
 
-            // If the password length is greater than 6 and must contain alphabets,numbers and special characters
-            if (val.length > 6 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
+            // If the password length is greater than 8 and must contain alphabets,numbers and special characters
+            if (val.length > 8 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
 
 
             if(no===1)
@@ -445,23 +445,24 @@ $(document).ready(function () {
                 meter.style.backgroundColor="red";
                 document.getElementById("pass_type").innerHTML="Very Weak";
             }
-
             if(no===2)
             {
                 $("#meter").animate({width:'100px'},150);
                 meter.style.backgroundColor="#f82004";
                 document.getElementById("pass_type").innerHTML="Weak";
             }
-
             if(no===3)
             {
                 $("#meter").animate({width:'150px'},150);
                 meter.style.backgroundColor="#fad203";
                 document.getElementById("pass_type").innerHTML="Good";
             }
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 33cfc43bd8cafa2a91f588da9f5d7e70e944db7e
             if(no===4)
             {
                 $("#meter").animate({width:'200px'},150);
@@ -469,12 +470,10 @@ $(document).ready(function () {
                 document.getElementById("pass_type").innerHTML="Strong";
 
         }
-
         else
         {
             meter.style.backgroundColor="white";
             document.getElementById("pass_type").innerHTML="";
-
         }
 
 }
