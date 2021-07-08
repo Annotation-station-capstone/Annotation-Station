@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name= "comments")
-@IdClass(Comment_Id.class)
+//@IdClass(Comment_Id.class)
 public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
