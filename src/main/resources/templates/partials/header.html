@@ -28,7 +28,7 @@
                 </div>
                 <!-- Submit button -->
                 <button type="submit" value="signIn" class="btn btn-primary btn-block text-center ml-3">Sign in</button>
-                <div th:if="${param.error}">
+                <div class="alert-danger mx-auto" th:if="${param.error}">
                 Invalid Username and Password
             </div>
             </form>
