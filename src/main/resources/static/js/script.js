@@ -447,6 +447,7 @@ $(document).ready(function () {
                 meter.style.backgroundColor="#fad203";
                 document.getElementById("pass_type").innerHTML="Good";
             }
+
             if(no===4)
             {
                 $("#meter").animate({width:'200px'},150);
