@@ -121,7 +121,7 @@
                     <p class="card-text" th:text="${Collection.description}">
                     <p th:text="${Collection.id}"></p>
                     <form th:action="@{'/collections/Id/' + ${Collection.id}}" th:method="get">
-                    <p><a id="viewCollection" th:href="@{'/collections/Id/' + ${Collection.id}}" class="btn btn-primary" th:method="GET">View Collection</a></p></form>
+                    <p><a id='${collection_id}' href='javascript: loadCollection(${collection_id});'></p></form>
 
                 </div>
             </div>

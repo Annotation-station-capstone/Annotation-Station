@@ -459,12 +459,6 @@ $(document).ready(function () {
             meter.style.backgroundColor="white";
             document.getElementById("pass_type").innerHTML="";
         }
-        function loadCollction(){
-            $('#viewCollection').click(function (){
-                let collectionId = $('#collectionId')
-                window.location.replace(collections/Id/)
-            })
-        }
 }
 }
 
