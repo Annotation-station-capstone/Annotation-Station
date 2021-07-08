@@ -7,7 +7,7 @@ $(document).ready(function () {
         success:
             function (data) {
 
-                for (var i = 0; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {
                     console.log(data[i]);
                     console.log(data[i].id);
                     console.log(data[i].is_private);
