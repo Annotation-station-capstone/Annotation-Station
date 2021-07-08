@@ -457,11 +457,18 @@ $(document).ready(function () {
                 meter.style.backgroundColor="#fad203";
                 document.getElementById("pass_type").innerHTML="Good";
             }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 33cfc43bd8cafa2a91f588da9f5d7e70e944db7e
             if(no===4)
             {
                 $("#meter").animate({width:'200px'},150);
                 meter.style.backgroundColor="#0ac23b";
                 document.getElementById("pass_type").innerHTML="Strong";
+
         }
         else
         {
@@ -471,5 +478,6 @@ $(document).ready(function () {
 
 }
 }
+
 });
 
