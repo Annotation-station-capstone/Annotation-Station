@@ -1,26 +1,23 @@
 package com.codeup.annotationstation.controllers;
 
 import com.codeup.annotationstation.Models.Comment;
-import com.codeup.annotationstation.Models.User;
+import com.codeup.annotationstation.daos.CollectionsRepository;
 import com.codeup.annotationstation.daos.CommentRepository;
 import com.codeup.annotationstation.daos.UsersRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CommentController {
     private CommentRepository commentDao;
     private UsersRepository userDao;
+    private CollectionsRepository collectionDao;
 
-    public CommentController(CommentRepository commentDao, UsersRepository userDao) {
+    public CommentController(CommentRepository commentDao, UsersRepository userDao, CollectionsRepository collectionDao) {
         this.commentDao = commentDao;
         this.userDao=userDao;
+        this.collectionDao= collectionDao;
     }
 //show all comments on a collection
     @GetMapping("/comment/all")
@@ -49,7 +46,23 @@ public class CommentController {
         return "redirect/collection";
     }
 
-
+//    @GetMapping("/comment/create")
+//    public String showCreateForm() {
+//        return "collectionsSingle";
+//    }
+//
+//    @PostMapping("/comment/create")
+//        public String createComment(
+//            @RequestParam(name = "comment") String comment,
+//            @RequestParam(name = "user_id") long user_id,
+//            @RequestParam(name = "collection_id") long collection_id
+//    )
+//    {
+//        Comment comment1 = new Comment();
+//        comment1.setComment(comment);
+//        comment1.setUser(userDao.getById(user_id));
+//        comment1.setCollection(collectionDao.getById(collection_id));
+//    }
 
 
 
