@@ -13,21 +13,25 @@ $(document).ready(function () {
                 console.log(data.is_private);
                 console.log(data.id);
                 var collection_data = ('#collection-data');
-                var collection_title = ('#title');
+                var collection_title = ('.title');
                 var section_data = ('#section-data');
                 var comment_data = ('#comment-data')
-                $(collection_title).append(data.title);
+                $(collection_title).text("You selected the " + data.title + " Collection");
+                $(collection_title).text("You selected the " + data.title + " Collection");
                 $(collection_data).append("<li> " + data.description + "</li>");
                 document.getElementById("collection_image").setAttribute("src", data.image);
                 $(collection_data).append(data.is_private);
                 var sections = data.sections;
                 for(var i = 0; i < sections.length; i++) {
                     console.log(sections[i].videos);
-                    $(section_data).append("<li> " + sections[i].title + "</li>");
+                    $('.top_accord').attr('id','section'+i);
+                    $('.anchor-accord').attr('data-bs-target', '#collapse'+i).attr('aria-controls', '#collapse'+i);
+                    $('.bottom_accord').attr('aria-labelledby', 'section'+i);
+                    $(section_data).append("<div class='accordion-item top_accord' style='width: 1000px'><h2 class='accordion-header' id='section'><a class='accordion-button anchor-accord' type='button' data-bs-toggle='collapse' data-bs-target='#collapse[i]' aria-expanded='true' aria-controls='collapse[i]'> " + sections[i].title + " </a></h2></div></div>");
                     for(var j = 0; j < sections[i].videos.length; j++) {
                         var videoData = sections[i].videos[j];
                         console.log(videoData.video_url);
-                        $(section_data).append("<li> " + videoData.video_url + "</li>");
+                        // $(section_data).append("<li> " + videoData.video_url + "</li>");
                         console.log(videoData.notes);
                         var noteData = videoData.notes;
                         for(var l = 0; l < noteData.length; l++) {
@@ -35,9 +39,10 @@ $(document).ready(function () {
                             var singleNote = noteData[l].note;
                             var time = noteData[l].time_stamp;
                             console.log(time);
-                            $(section_data).append("<li> " + time + "</li>");
                             console.log(singleNote);
-                            $(section_data).append("<li> " + singleNote + "</li>");
+                            $(section_data).append("<div id='collapse[i]' class='accordion-collapse collapse show bottom_accord' aria-labelledby='section[i]' data-bs-parent='#accordionExample' style='width: 1000px'><div class='accordion-body'>" + singleNote + "</div></div>");
+                            // $(section_data).append("<li> " + time + "</li>");
+                            // <div className='col-md-6'><button></button></div>
                         }
                     }
                 }
