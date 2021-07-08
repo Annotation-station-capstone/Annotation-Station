@@ -119,8 +119,9 @@
                 <div class="card-body">
                     <h5 class="card-title" th:text="${Collection.title}"></h5>
                     <p class="card-text" th:text="${Collection.description}">
-                    <div th:if="${single}"></div>
-                    <p><a th:href="${singleCollection}" class="btn btn-primary" th:method="GET">View Collection</a></p>
+                    <p th:text="${Collection.id}"></p>
+                    <form th:action="@{'/collections/Id/' + ${Collection.id}}" th:method="get">
+                    <p><a id="viewCollection" th:href="@{'/collections/Id/' + ${Collection.id}}" class="btn btn-primary" th:method="GET">View Collection</a></p></form>
 
                 </div>
             </div>

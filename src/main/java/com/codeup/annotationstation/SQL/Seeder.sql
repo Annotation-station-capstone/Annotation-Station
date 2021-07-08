@@ -143,10 +143,62 @@ SELECT * FROM sections;
 
 INSERT INTO videos (video_url, section_id)
 VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 1);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 2);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 3);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 4);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 5);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 6);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 7);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 8);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 9);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 10);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 11);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 12);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 13);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 14);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 15);
+INSERT INTO videos (video_url, section_id)
+VALUES ('https://www.youtube.com/watch?v=pQN-pnXPaVg', 16);
 SELECT * FROM videos;
 
 INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 1, '0:45',1);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
 VALUES ('This is my first annotation!', 2, '0:45',2);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 3, '0:45',3);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 4, '0:45',4);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 5, '0:45',5);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 6, '0:45',6);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 7, '0:45',7);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 8, '0:45',8);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 9, '0:45',9);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 10, '0:45',10);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 11, '0:45',11);
+INSERT INTO notes (note, video_id, time_stamp,section_id)
+VALUES ('This is my first annotation!', 12, '0:45',12);
 SELECT * FROM notes;
 
 INSERT INTO tags (tag)
@@ -156,10 +208,6 @@ VALUES (1, 1);
 SELECT * FROM tags;
 SELECT * FROM notes_tags;
 
-INSERT INTO comments (user_id, comment, collection_id)
-VALUES (2, 'Nice Annotation!', 1);
-SELECT * FROM comments;
-
-INSERT INTO comments (collection_id, user_id, id, comment)
-VALUES (1, 4, 6, 'testing 123!');
+INSERT INTO comments (user_id,  collection_id, comment)
+VALUES (2, 2, 'Nice Annotation!');
 SELECT * FROM comments;

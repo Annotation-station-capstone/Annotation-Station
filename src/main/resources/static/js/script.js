@@ -347,19 +347,16 @@ $(document).ready(function () {
     // get video element id
     var vidClip = document.getElementById("videoPlayer");
     console.log(vidClip);
-
 // play video event
     function playVid() {
         // vidClip.play();
         vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo"}), "*")
     }
-
 // pause video event
     function pauseVid() {
         // vidClip.pause();
         vidClip.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo"}), "*")
     }
-
     $('#createFormSubmit').click(function () {
         playVid();
 
@@ -374,7 +371,6 @@ $(document).ready(function () {
 // password and confirm password are the same
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
-
     function validatePassword(){
         if(password.value !== confirm_password.value) {
             confirm_password.setCustomValidity("Passwords Don't Match");
@@ -414,10 +410,6 @@ $(document).ready(function () {
             check_pass();
         });
 
-
-
-
-
 //password strength meter
     function check_pass()
     {
@@ -437,8 +429,6 @@ $(document).ready(function () {
 
             // If the password length is greater than 8 and must contain alphabets,numbers and special characters
             if (val.length > 8 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
-
-
             if(no===1)
             {
                 $("#meter").animate({width:'50px'},150);
@@ -463,14 +453,18 @@ $(document).ready(function () {
                 $("#meter").animate({width:'200px'},150);
                 meter.style.backgroundColor="#0ac23b";
                 document.getElementById("pass_type").innerHTML="Strong";
-
         }
         else
         {
             meter.style.backgroundColor="white";
             document.getElementById("pass_type").innerHTML="";
         }
-
+        function loadCollction(){
+            $('#viewCollection').click(function (){
+                let collectionId = $('#collectionId')
+                window.location.replace(collections/Id/)
+            })
+        }
 }
 }
 

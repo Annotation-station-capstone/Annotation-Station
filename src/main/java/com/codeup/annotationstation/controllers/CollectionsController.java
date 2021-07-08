@@ -49,7 +49,7 @@ public class CollectionsController {
     }
 
     //show one collection
-    @GetMapping("/collections/{id}")
+    @GetMapping("/collection/{id}")
     public String oneCollection(@PathVariable long id, Model model){
         model.addAttribute("singleCollection", collectionsDao.findFirstById(id));
         model.addAttribute("allSections", sectionsDao.findSectionsByCollectionId(id));
