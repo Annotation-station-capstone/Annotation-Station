@@ -1,6 +1,8 @@
 package com.codeup.annotationstation.controllers;
 
+import com.codeup.annotationstation.Models.Collection;
 import com.codeup.annotationstation.Models.Comment;
+import com.codeup.annotationstation.Models.User;
 import com.codeup.annotationstation.daos.CollectionsRepository;
 import com.codeup.annotationstation.daos.CommentRepository;
 import com.codeup.annotationstation.daos.UsersRepository;
@@ -16,55 +18,63 @@ public class CommentController {
 
     public CommentController(CommentRepository commentDao, UsersRepository userDao, CollectionsRepository collectionDao) {
         this.commentDao = commentDao;
-        this.userDao=userDao;
-        this.collectionDao= collectionDao;
+        this.userDao = userDao;
+        this.collectionDao = collectionDao;
     }
-//show all comments on a collection
+
+    //show all comments on a collection
     @GetMapping("/comment/all")
-    public String showAllComments(Model model){
+    public String showAllComments(Model model) {
         //find user of the comment
         model.addAttribute("allComments", commentDao.findAll());
         return "redirect:/comments/all";
     }
 
     @GetMapping("/comment/{id}/edit")
-    public String getCommentToEdit(@PathVariable long id,Model model){
+    public String getCommentToEdit(@PathVariable long id, Model model) {
         model.addAttribute("postToEdit", commentDao.getById(id));
-        return "redirect/comment/{id}/edit";
+        return "redirect:/comment/{id}/edit";
     }
 
     @PostMapping("/comment/{id}/edit")
-    public String saveEditedComment(@PathVariable long id, @ModelAttribute Comment comment){
+    public String saveEditedComment(@PathVariable long id, @ModelAttribute Comment comment) {
         Comment commentToBeEdited = commentDao.getById(id);
         commentDao.save(commentToBeEdited);
-        return "redirect/collection";
+        return "redirect:/collection";
     }
 
     @GetMapping("comment/{id}/delete")
-    public String destroyComment(@PathVariable long id){
+    public String destroyComment(@PathVariable long id) {
         commentDao.deleteById(id);
-        return "redirect/collection";
+        return "redirect:/collection";
     }
 
-//    @GetMapping("/comment/create")
-//    public String showCreateForm() {
-//        return "collectionsSingle";
-//    }
-//
-//    @PostMapping("/comment/create")
-//        public String createComment(
-//            @RequestParam(name = "comment") String comment,
-//            @RequestParam(name = "user_id") long user_id,
-//            @RequestParam(name = "collection_id") long collection_id
-//    )
-//    {
-//        Comment comment1 = new Comment();
-//        comment1.setComment(comment);
-//        comment1.setUser(userDao.getById(user_id));
-//        comment1.setCollection(collectionDao.getById(collection_id));
-//    }
+    @GetMapping("/comment/create")
+    public String showCreateForm(Model model) {
+        model.addAttribute("comment", new Comment());
+        return "collectionsSingle";
+    }
 
+    @PostMapping("/comment/add")
+    public String createComment(@RequestParam(name = "addComment") String addComment,
+                                @ModelAttribute User user,
+                                @ModelAttribute Comment comment,
+                                @ModelAttribute Collection collection) {
 
+        Collection currentCollection = collectionDao.getById(collection.getId());
+        User currentUser = userDao.getById(user.getId());
+        Comment comment1 = new Comment(addComment);
+        comment.setUser(currentUser);
+        commentDao.save(comment1);
+        comment1.setCollection(currentCollection);
 
-
+        return "redirect:/collectionsSingle";
+    }
 }
+
+
+
+
+
+
+
