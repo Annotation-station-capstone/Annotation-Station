@@ -37,7 +37,7 @@ public class CollectionsController {
     public String indexPage(Model model) {
 
         model.addAttribute("collection", collectionsDao.findAll());
-        model.addAttribute("user",new User());
+        model.addAttribute("user", new User());
         return "collection/index";
     }
 

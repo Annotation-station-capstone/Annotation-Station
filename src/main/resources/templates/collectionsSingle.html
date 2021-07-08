@@ -58,9 +58,8 @@
 </div>
 
 <form th:action="@{/comment/create}" th:method="post" th:object="${comment}">
-    <label for="user_id">
 
-    </label><input th:field="*{user}" id="user_id">
+<!--    <p th:text="${comment.user.username}" id="user_id"></p>-->
 
     <label for="comment"></label>
     <input th:field="*{comment}" id="comment" placeholder="Type comment here">
