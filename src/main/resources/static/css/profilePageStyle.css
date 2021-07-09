@@ -1,4 +1,4 @@
-.profileBody {
+.profileBannerTop {
     background-color: #d2d2d2;
     height: 150px;
     width: 100%;
@@ -10,17 +10,17 @@
 
 
 .collectionCards{
-    border-radius: 5px;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
 .collection_image{
     width: 250px;
     height: 200px;
+    border-radius: 50px;
     position: relative;
     display: flex;
     justify-content: center;

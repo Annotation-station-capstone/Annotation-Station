@@ -32,11 +32,10 @@ public class CreateController {
     }
 
 
-@GetMapping("/create")
-    public String getCreatePage(@RequestParam String url){
-    System.out.println("url = " + url);
-    return "/create";
-}
+    @GetMapping("/create")
+    public String getCreatePage() {
+        return "/create";
+    }
 
     public void get(@RequestBody IncomingRequest incomingRequest) {
 
