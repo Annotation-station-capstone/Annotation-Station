@@ -1,6 +1,11 @@
 
 
 $(document).ready(function () {
+
+    const urlSearchParam = new URLSearchParams(window.location.search);
+    let entries =Object.fromEntries(urlSearchParam.entries());
+    console.log(entries.collection_id);
+
     let videoUrl = '';
     let timeStamp= '';
     let singleNoteId= '';
@@ -8,7 +13,9 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: '/collections/Id/' + newId,
+
+        url: `/collections/Id/${entries.collection_id}`,
+
         dataType: "json",
         data: {},
         success:
@@ -48,7 +55,7 @@ $(document).ready(function () {
                         let videoData = sections[i].videos[j];
                         console.log(videoData.video_url);
                         console.log(videoData.notes);
-                        videoUrl += videoData.video_url;
+                        videoUrl = videoData.video_url;
 
 
 
@@ -59,15 +66,15 @@ $(document).ready(function () {
                             console.log(noteData[l].note);
                             let singleNote = noteData[l].note;
                             singleNoteId += noteData[l].id;
-                            timeStamp += noteData[l].time_stamp;
+                            let timeStamp = noteData[l].time_stamp;
 
-                            let note_tag = `<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1${timeStamp}'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p>`;
+                            let note_tag = `<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p>`;
 
                             body += note_tag;
                         }
                     }
                     accordian_item += body + '</div></div></div>'
-                    $(collection_data).append(accordian_item);
+                    collection_data.append(accordian_item);
                 }
 
                 }
