@@ -411,7 +411,7 @@ $(document).ready(function () {
     //     });
 
 //password strength meter
-<<<<<<< HEAD
+
 //     function check_pass()
 //     {
 //         var val=document.getElementById("reg_password").value;
@@ -460,7 +460,7 @@ $(document).ready(function () {
 //             meter.style.backgroundColor="white";
 //             document.getElementById("pass_type").innerHTML="";
 //         }
-=======
+
     function check_pass()
     {
         var val=document.getElementById("reg_password").value;
@@ -510,7 +510,7 @@ $(document).ready(function () {
             document.getElementById("pass_type").innerHTML="";
         }
 
->>>>>>> 28cd2f26550442acf1323a2b6ce50fa6da93ff80
+
         // function loadCollction(){
         //     $('#viewCollection').click(function (){
         //         let collectionId = $('#collectionId')
@@ -518,16 +518,13 @@ $(document).ready(function () {
         //     })
         // }
 
-<<<<<<< HEAD
 
+            //receiving data passed from collections page and setting it on create page
             let query = window.location.search.substring(1);
-
             let paramList = query.split('&');
-
             for (let i=0; i < paramList.length; i++)
             {
                 let param = paramList[i].split('=');
-
                 if(param[0] === 'url')
                 {
                     return $('#userInputtedUrl').attr('value', param[0]);
@@ -536,10 +533,10 @@ $(document).ready(function () {
 
 
 
-=======
+
 }
 }
->>>>>>> 28cd2f26550442acf1323a2b6ce50fa6da93ff80
+
 
 });
 
