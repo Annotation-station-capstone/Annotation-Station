@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+
+
     $.ajax({
         type: 'GET',
         url: '/collections/userid/1',
@@ -6,6 +9,8 @@ $(document).ready(function () {
         data: {},
         success:
             function (data) {
+
+                let collection_user = '';
 
                 for (let i = 0; i < data.length; i++) {
                     console.log(data[i]);
@@ -19,7 +24,7 @@ $(document).ready(function () {
                     let collection_image = (data[i].image);
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
-                    let collection_user = (data[i].user.username);
+                    collection_user += (data[i].user.username);
 
 
 
@@ -40,9 +45,11 @@ $(document).ready(function () {
                     }
                     $(cardContainer).append("<div class='col-lg-4 col-md-4 mb-4 collectionCards'><div class='card'>" + image + cardBody + '<p> Sections in this Collection: ' + sectionsHtml + '</p>' + "</div></div>");
                 }
+                $('#userTitle').append('Value', `Welcome ${collection_user} your users profile`)
             }
 
     })
+
 
 })
 //     })
