@@ -104,6 +104,7 @@ public class CollectionsController {
 
 
     //get form to create new collection
+    //This is also a part of the comment controller functionality
     @GetMapping(value="/collections/single")
     public String getCollectionsFragment(Model model) {
 //        model.addAttribute("addcollection", new Collection());
