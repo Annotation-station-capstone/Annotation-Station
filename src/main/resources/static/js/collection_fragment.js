@@ -61,7 +61,7 @@ $(document).ready(function () {
                             singleNoteId += noteData[l].id;
                             timeStamp += noteData[l].time_stamp;
 
-                            let note_tag = `<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p>`;
+                            let note_tag = `<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1${timeStamp}'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p>`;
 
                             body += note_tag;
                         }
@@ -69,12 +69,6 @@ $(document).ready(function () {
                     accordian_item += body + '</div></div></div>'
                     $(collection_data).append(accordian_item);
                 }
-
-
-                    $(`#${singleNoteId}`).on('click', async function() {
-                            await setupPlayer();
-                            $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${videoUrl}?enablejsapi=1${timeStamp}`);
-                        })
 
                 }
 
@@ -84,14 +78,52 @@ $(document).ready(function () {
                 //     console.log(comments[c]);
                 //     $(comment_data).append("<li> " + comments[c].comment + "</li>");
                 // }
+
             })
     })
 
 
 
+// $(`#${singleNoteId}`).on('click',  function() {
+//     // await setupPlayer();
+//     $("#userInputtedUrl").prop("value", `https://www.youtube.com/embed/${videoUrl}?enablejsapi=1${timeStamp}`);
+// })
 
 
 
+
+
+// let query = window.location.search.substring(1);
+//
+//
+//
+// let paramList = query.split('&');
+//
+// for (let i=0; i < paramList.length; i++)
+// {
+//     let param = paramList[i].split('=');
+//
+//     if(param[0] === 'url')
+//     {
+//         // //change this to ID of target element
+//         // let element = document.getElementById('userInputtedUrl');
+//         //
+//         // if (element)
+//         // {
+//         $('#userInputtedUrl').attr('value', param[0])
+//             break
+//     // }
+//     }
+// }
+
+
+
+
+
+// $(`#${singleNoteId}`).on('click', async function() {
+//         await setupPlayer();
+//         $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${videoUrl}?enablejsapi=1${timeStamp}`);
+//     })
 
 // function loadNote() {
 //     window.location.replace('/create', $(document).ready(function () {
