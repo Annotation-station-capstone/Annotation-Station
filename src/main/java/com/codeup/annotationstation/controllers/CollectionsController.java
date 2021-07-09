@@ -104,6 +104,7 @@ public class CollectionsController {
 
 
     //get form to create new collection
+
     @GetMapping(value="/collections/single/{id}")
     public String getCollectionsFragment(@PathVariable String id, Model model) {
         model.addAttribute("newId", id);
