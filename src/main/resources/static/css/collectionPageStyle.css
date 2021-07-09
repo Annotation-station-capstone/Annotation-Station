@@ -146,11 +146,3 @@ input:checked + .slider:before {
     height: 50px;
     margin: auto;
 }
-
-.collectionCards{
-    border-radius: 5px;
-    display: flex;
-    text-align: center;
-    justify-items: center;
-
-}
