@@ -17,16 +17,33 @@ $(document).ready(function() {
                     let snippet = video.snippet;
                     let thumbnails = snippet.thumbnails;
                     let defaultThumbnails = thumbnails.default;
+                    let url = defaultThumbnails.url;
                     let title = snippet.title;
-                    let vidId = video.id.videoId
-                    console.log(vidId, snippet, video);
-                    console.log(title);
-                    console.log(defaultThumbnails);
+                    let vidId = video.id.videoId;
+                    // console.log(vidId, snippet, video);
+                    // console.log(title);
+                    // console.log(defaultThumbnails);
+                    // $('#thumbnails').append("<img src ='" + url + "'>");
+                    $('#results').append("<p class='getVid' value='" + vidId + "'><img src ='" + url +  "'> " + title + " </p>");
+
                 }
+
             },
             type: "GET"
         });
     }
+
+    let results = $('#results').val();
+
     var submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', videoSearch);
+
+
+    var videoId = $(".getVid").attr();
+
+    $('.getvid').click(function() {
+        videoId;
+    });
+
 });
+
