@@ -57,12 +57,12 @@
     </div>
 </div>
 
-<form th:action="@{/comment/create}" th:method="post" th:object="${comment}">
+<form th:action="@{/comment/add}" th:method="post" th:object="${newComment}">
 
-<!--    <p th:text="${comment.user.username}" id="user_id"></p>-->
+    <!--    <p th:text="${comment.user.username}" id="user_id"></p>-->
 
-    <label for="comment"></label>
-    <input th:field="*{comment}" id="comment" placeholder="Type comment here">
+    <label for="comment">Comment</label>
+    <input th:field="*{comment}" id="comment" type="text" class="form-control" placeholder="Type comment here">
 
 
     <input type="submit" id="submit">
