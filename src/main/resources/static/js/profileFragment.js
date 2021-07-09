@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
 
-
     $.ajax({
         type: 'GET',
         url: '/collections/userid/1',
@@ -26,8 +25,6 @@ $(document).ready(function () {
                     let collection_description = (data[i].description);
                     collection_user += (data[i].user.username);
 
-
-
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainer');
 
@@ -47,11 +44,11 @@ $(document).ready(function () {
                 }
                 $('#userTitle').append('Value', `Welcome ${collection_user} your users profile`)
             }
-
     })
-
-
 })
+
+
+
 //     })
 // })
 
