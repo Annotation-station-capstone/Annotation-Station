@@ -22,6 +22,7 @@ $(document).ready(function () {
                     let collection_user = (data[i].user.username);
 
 
+
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainer');
 
@@ -29,6 +30,7 @@ $(document).ready(function () {
 
 
                     let cardBody = `<div class='card-body'><h1 class='card-title'> ${collection_title} </h1><p class='card-text' > ${collection_description}</p><p>${collection_user}</p><p style="visibility: hidden">${collection_id}</p><div></div></div>`;
+
 
                     let sectionsHtml = '';
                     for (var j = 0; j < sections.length; j++) {
