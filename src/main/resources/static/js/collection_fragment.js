@@ -4,11 +4,11 @@ $(document).ready(function () {
     let videoUrl = '';
     let timeStamp= '';
     let singleNoteId= '';
-
+    let newId = document.querySelector("#newId").value
 
     $.ajax({
         type: 'GET',
-        url: '/collections/Id/15',
+        url: '/collections/Id/' + newId,
         dataType: "json",
         data: {},
         success:
