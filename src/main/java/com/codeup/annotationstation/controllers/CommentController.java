@@ -49,26 +49,23 @@ public class CommentController {
         return "redirect:/collection";
     }
 
-    @GetMapping("/comment/create")
-    public String showCreateForm(Model model) {
-        model.addAttribute("comment", new Comment());
-        return "collectionsSingle";
-    }
+//    @GetMapping("/comment/create")
+//    public String showCreateForm(Model model) {
+//        model.addAttribute("comment", new Comment());
+//        return "collectionsSingle";
+//    }
 
     @PostMapping("/comment/add")
-    public String createComment(@RequestParam(name = "addComment") String addComment,
-                                @ModelAttribute User user,
-                                @ModelAttribute Comment comment,
+    public String createComment(@ModelAttribute User user,
+                                @ModelAttribute Comment newComment,
                                 @ModelAttribute Collection collection) {
 
         Collection currentCollection = collectionDao.getById(collection.getId());
-//        User currentUser = userDao.getById(user.getId());
-        Comment comment1 = new Comment(addComment);
-//        comment.setUser(currentUser);
-        commentDao.save(comment1);
-        comment1.setCollection(currentCollection);
-
-        return "redirect:/collectionsSingle";
+        User currentUser = userDao.getById(user.getId());
+        newComment.setUser(currentUser);
+        newComment.setCollection(currentCollection);
+        commentDao.save(newComment);
+        return "redirect:/collections/single";
     }
 }
 

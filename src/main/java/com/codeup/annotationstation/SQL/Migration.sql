@@ -76,15 +76,15 @@ CREATE TABLE IF NOT EXISTS comments (
 	FOREIGN KEY (collection_id) REFERENCES collections(id)
 	);
 
-alter table collections add constraint FKn7pdedyqaiddr0uxdj603my7d foreign key (user_id) references users (id)
-alter table comments add constraint FK56gwrgendmnb9fxjpn0cwjnoc foreign key (collection_id) references collections (id)
-alter table comments add constraint FK8omq0tc18jd43bu5tjh6jvraq foreign key (user_id) references users (id)
-alter table notes add constraint FKsuonsoogp60wim91moa8ly5jr foreign key (section_id) references sections (id)
-alter table notes add constraint FKhtvvt60nbw5pwwhwgjma4rd5e foreign key (video_id) references videos (id)
-alter table notes_tags add constraint FK9oi8krp2qos7c0icr3j01butb foreign key (tag_id) references tags (id)
-alter table notes_tags add constraint FKcxrhvlv1dppm49b2snddodsvi foreign key (note_id) references notes (id)
-alter table sections add constraint FK2j70x0uihv80smbnrqok9liwx foreign key (collection_id) references collections (id)
-alter table videos add constraint FK5pbmp2i4a97q92m4uo9b5v1iu foreign key (section_id) references sections (id)
+alter table collections add constraint FKn7pdedyqaiddr0uxdj603my7d foreign key (user_id) references users (id);
+alter table comments add constraint FK56gwrgendmnb9fxjpn0cwjnoc foreign key (collection_id) references collections (id);
+alter table comments add constraint FK8omq0tc18jd43bu5tjh6jvraq foreign key (user_id) references users (id);
+alter table notes add constraint FKsuonsoogp60wim91moa8ly5jr foreign key (section_id) references sections (id);
+alter table notes add constraint FKhtvvt60nbw5pwwhwgjma4rd5e foreign key (video_id) references videos (id);
+alter table notes_tags add constraint FK9oi8krp2qos7c0icr3j01butb foreign key (tag_id) references tags (id);
+alter table notes_tags add constraint FKcxrhvlv1dppm49b2snddodsvi foreign key (note_id) references notes (id);
+alter table sections add constraint FK2j70x0uihv80smbnrqok9liwx foreign key (collection_id) references collections (id);
+alter table videos add constraint FK5pbmp2i4a97q92m4uo9b5v1iu foreign key (section_id) references sections (id);
 
 
 
