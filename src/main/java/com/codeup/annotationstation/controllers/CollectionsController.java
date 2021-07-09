@@ -107,6 +107,7 @@ public class CollectionsController {
     @GetMapping(value="/collections/single")
     public String getCollectionsFragment(Model model) {
 //        model.addAttribute("addcollection", new Collection());
+        model.addAttribute("newComment", new Comment());
         return "/collectionsSingle";
     }
 

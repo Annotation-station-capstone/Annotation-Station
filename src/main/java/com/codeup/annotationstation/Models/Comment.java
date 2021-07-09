@@ -49,6 +49,7 @@ public class Comment implements Serializable {
     }
 
     public Comment(String comment) {
+        this.comment=comment;
     }
 
     public long getId() {
