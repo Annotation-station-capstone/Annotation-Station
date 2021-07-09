@@ -368,6 +368,13 @@ $(document).ready(function () {
         console.log("key pressed");
     })
 
+    $(document).ready(function () {
+        const urlSearchParam = new URLSearchParams(window.location.search);
+       let entries =Object.fromEntries(urlSearchParam.entries());
+        console.log(entries.url);
+        $('#videoPlayer').attr('src', `${entries.url}`)
+    })
+
 // password and confirm password are the same
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
@@ -521,21 +528,8 @@ $(document).ready(function () {
 
             //receiving data passed from collections page and setting it on create page
 
-            let query = window.location.search.substring(1);
-            let paramList = query.split('&');
-            for (let i=0; i < paramList.length; i++)
-            {
-                let param = paramList[i].split('=');
-                if(param[0] === 'url')
-                {
-                    return $('#userInputtedUrl').attr('value', param[0]);
-                }
-            }
 
-
-
-
-}
+        }
 }
 
 
