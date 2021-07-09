@@ -1,4 +1,9 @@
 $(document).ready(function () {
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> bec742c610559d9a316c2649b23c655e2e304f22
     $.ajax({
         type: 'GET',
         url: '/collections/userid/1',
@@ -6,6 +11,9 @@ $(document).ready(function () {
         data: {},
         success:
             function (data) {
+            let collection_user1 = data[0].user.username;
+                let userTitle = $('#userTitle')
+            $(userTitle).append("<div class='profileBody'><h1>Welcome to your Profile " + collection_user1 + "</h1></div>")
 
                 for (let i = 0; i < data.length; i++) {
                     console.log(data[i]);
@@ -15,18 +23,21 @@ $(document).ready(function () {
                     console.log(data[i].title);
                     console.log(data[i].description);
                     console.log(data[i].user.username);
+
                     let collection_id = (data[i].id);
                     let collection_image = (data[i].image);
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
+<<<<<<< HEAD
+                    collection_user += (data[i].user.username);
+=======
                     let collection_user = (data[i].user.username);
-
+>>>>>>> bec742c610559d9a316c2649b23c655e2e304f22
 
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainer');
 
                     let image = `<img src="${collection_image}" class='img-fluid' alt='img'><a id='${collection_id}' href='javascript: loadCollection(${collection_id});'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
-
 
                     let cardBody = `<div class='card-body'><h1 class='card-title'> ${collection_title} </h1><p class='card-text' > ${collection_description}</p><p>${collection_user}</p><p style="visibility: hidden">${collection_id}</p><div></div></div>`;
 
@@ -34,15 +45,21 @@ $(document).ready(function () {
                     for (var j = 0; j < sections.length; j++) {
                         console.log(sections[j].title);
                         sectionsHtml += `${sections[j].title}, `
-
                     }
+
                     $(cardContainer).append("<div class='col-lg-4 col-md-4 mb-4 collectionCards'><div class='card'>" + image + cardBody + '<p> Sections in this Collection: ' + sectionsHtml + '</p>' + "</div></div>");
                 }
             }
-
     })
-
 })
+
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> bec742c610559d9a316c2649b23c655e2e304f22
+
+
 //     })
 // })
 
