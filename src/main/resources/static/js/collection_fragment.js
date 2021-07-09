@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: '/collections/Id/15',
+        url: '/collections/Id/1',
         dataType: "json",
         data: {},
         success:

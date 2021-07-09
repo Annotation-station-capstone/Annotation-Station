@@ -31,7 +31,7 @@ public class Comment implements Serializable {
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
-
+//insert
     public Comment() {
     }
 
@@ -46,6 +46,9 @@ public class Comment implements Serializable {
         this.comment = comment;
         this.collection = collection;
         this.user = user;
+    }
+
+    public Comment(String comment) {
     }
 
     public long getId() {

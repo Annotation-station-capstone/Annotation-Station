@@ -42,8 +42,9 @@ public class UserController {
 //    public String grabErrorInfo( @ModelAttribute User user, Model model) {
 //
 //    }
+
     @PostMapping("/sign-up")
-    public String saveUser( @ModelAttribute User user, Model model) {
+    public String saveUser( @ModelAttribute User user) {
 String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         List<User> userList = userDao.findAll();
