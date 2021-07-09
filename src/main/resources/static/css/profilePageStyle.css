@@ -1,13 +1,21 @@
-#body {
-    background-color: #2E2EFE;
+.profileBody {
+    background-color: #d2d2d2;
+    height: 150px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .collectionCards{
     border-radius: 5px;
+    margin: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    justify-items: center;
-
 }
 
 .collection_image{
