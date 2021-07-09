@@ -1,4 +1,9 @@
 $(document).ready(function () {
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> bec742c610559d9a316c2649b23c655e2e304f22
     $.ajax({
         type: 'GET',
         url: '/collections/userid/1',
@@ -23,7 +28,11 @@ $(document).ready(function () {
                     let collection_image = (data[i].image);
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
+<<<<<<< HEAD
+                    collection_user += (data[i].user.username);
+=======
                     let collection_user = (data[i].user.username);
+>>>>>>> bec742c610559d9a316c2649b23c655e2e304f22
 
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainer');
@@ -44,8 +53,11 @@ $(document).ready(function () {
     })
 })
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> bec742c610559d9a316c2649b23c655e2e304f22
 
 
 //     })

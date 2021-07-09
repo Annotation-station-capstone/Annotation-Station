@@ -225,6 +225,25 @@ form{
     background-color: #787878 !important;
 }
 
+/*TODO card grid system*/
+
+.resultsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+    margin: 13% auto 0 auto;
+    perspective: 700px;
+    row-gap: 168px;
+    column-gap: 40px;
+}
+
+.card {
+    /*position: relative;*/
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
 
 /*TODO animated logo*/
 
@@ -412,6 +431,9 @@ form{
     --balloon-text-color: #fff;
     --balloon-font-size: 20px;
     --balloon-move: 10px; }
+
+
+
 
 button[aria-label][data-balloon-pos] {
     overflow: visible; }

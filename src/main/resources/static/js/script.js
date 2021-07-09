@@ -520,6 +520,7 @@ $(document).ready(function () {
 
 
             //receiving data passed from collections page and setting it on create page
+
             let query = window.location.search.substring(1);
             let paramList = query.split('&');
             for (let i=0; i < paramList.length; i++)
