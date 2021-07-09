@@ -93,6 +93,11 @@ $(document).ready(function () {
 
 
 
+// function loadNote() {
+//     window.location.replace('/create', $(document).ready(function () {
+//         $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1${time_stamp}`);
+//     }))
+// }
 // $(document).ready(function () {
 //     $.ajax({
 //         type: 'GET',
