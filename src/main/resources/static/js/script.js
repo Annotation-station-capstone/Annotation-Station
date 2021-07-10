@@ -183,6 +183,15 @@ $(document).ready(function () {
 
     //TODO change field class/ look of fields to guide users to fill in required info
 
+    $("#results").on('click', function () {
+        $("#userInputtedUrl").addClass("textField").removeClass("notFilled");
+        $("#collection").addClass("notFilled").removeClass("textField");
+        $('#userURLSubmit').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
+        $('#collection-tip').attr('data-balloon-visible', true);
+        $('#collection').removeAttr('disabled');
+        $('#collection_drop').removeAttr('disabled');
+    })
+
     $("#userInputtedUrl").on('change', function () {
         $(this).addClass("textField").removeClass("notFilled");
         $("#collection").addClass("notFilled").removeClass("textField");
@@ -193,14 +202,43 @@ $(document).ready(function () {
     })
 
 
-    // $("#collection_drop").on('change', function () {
-    //     if ($(this).children('option:selected').attr('value', this.value) === "") {
-    //         $("#collection").attr($(this).children('option:selected').attr('value', true)).removeClass("notFilled").addClass("textField");
-    //     }
-    //     else
-    //         $("#collection").attr("").removeClass("notFilled").addClass("textField");
-    // });
-    //     $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+    $("#collection_drop").on('change', function () {
+        if ($(this).children('option:selected').attr('value', this.value) === "") {
+            $("#collection").attr($(this).children('option:selected').attr('value', true)).removeClass("notFilled").addClass("textField");
+        } else {
+             // $("#collection").attr('').removeClass("notFilled").addClass("textField");
+            $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+            let collectionId = $(this).children('option:selected').attr('data-id');
+                    console.log(collectionId);
+
+                    //TODO Sections drop down menu create and show
+                    $.ajax({
+                        type: 'GET',
+                        url: `/collections/Id/${collectionId}`,
+                        dataType: "json",
+                        data: {},
+                        success: function (data) {
+
+                            console.log(data);
+                            var section_drop = ('#section_drop');
+                            $(section_drop).empty();
+                            for (var i = 0; i < data.length; i++) {
+                                let sections = data[i].sections;
+                                console.log(sections);
+
+                                for (var j = 0; j < sections.length; j++) {
+                                    console.log(sections[j].title);
+                                    $(section_drop).append('<option data-id="'+ sections[j].id +'" value="' + sections[j].title + '">' + sections[j].title + '</option>');
+
+                                }
+                            }
+                        }
+
+                })
+        }
+    });
+
+    //
     // })
 
     $("#collection").on('change', function () {
@@ -217,37 +255,6 @@ $(document).ready(function () {
             $('#section').removeAttr('disabled');
             $('#section_drop').removeAttr('disabled');
         }
-    })
-
-    $("#collection_drop optgroup:selected").on('change', function () {
-
-            let collectionId = $(this).attr("selected", "selected")
-            // let collectionId = $(this).children('option:selected').attr('data-id', value);
-            console.log(collectionId, 'test');
-
-            //TODO Sections drop down menu create and show
-        //     $.ajax({
-        //         type: 'GET',
-        //         url: `/collections/id/${collectionId}`,
-        //         dataType: "json",
-        //         data: {},
-        //         success: function (data) {
-        //
-        //             console.log(data);
-        //             var section_drop = ('#section_drop');
-        //             $(section_drop).empty();
-        //             for (var i = 0; i < data.length; i++) {
-        //                 let sections = data[i].sections;
-        //                 // let sectionsHtml = '';
-        //                 for (var j = 0; j < sections.length; j++) {
-        //                     console.log(sections[j].title);
-        //                     $(section_drop).append('<option data-id="'+ sections[j].id +'" value="' + sections[j].title + '">' + sections[j].title + '</option>');
-        //                     // sectionsHtml += `${sections[j].title},`
-        //                 }
-        //             }
-        //         }
-        //
-        // })
     })
 
 
