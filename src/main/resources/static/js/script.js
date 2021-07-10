@@ -74,10 +74,10 @@ $(document).ready(function () {
 
     //converts seconds to minutes to be used in the progress bar and timer (currently functioning and being called)
     function convert_to_mins_and_secs(seconds, minus1) {
-        var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
-        var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
-        var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
-        var time = mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";
+        // var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
+        // var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
+        // var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
+        var time = seconds -1; /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
         return time;
     }
 
@@ -193,15 +193,15 @@ $(document).ready(function () {
     })
 
 
-    $("#collection_drop").on('change', function () {
+    // $("#collection_drop").on('change', function () {
     //     if ($(this).children('option:selected').attr('value', this.value) === "") {
     //         $("#collection").attr($(this).children('option:selected').attr('value', true)).removeClass("notFilled").addClass("textField");
     //     }
     //     else
     //         $("#collection").attr("").removeClass("notFilled").addClass("textField");
     // });
-        $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
-    })
+    //     $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+    // })
 
     $("#collection").on('change', function () {
         $('#collection').removeClass("notFilled").addClass("textField");
@@ -218,6 +218,38 @@ $(document).ready(function () {
             $('#section_drop').removeAttr('disabled');
         }
     })
+
+    $("#collection_drop optgroup:selected").on('change', function () {
+
+            let collectionId = $(this).attr("selected", "selected")
+            // let collectionId = $(this).children('option:selected').attr('data-id', value);
+            console.log(collectionId, 'test');
+
+            //TODO Sections drop down menu create and show
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: `/collections/id/${collectionId}`,
+        //         dataType: "json",
+        //         data: {},
+        //         success: function (data) {
+        //
+        //             console.log(data);
+        //             var section_drop = ('#section_drop');
+        //             $(section_drop).empty();
+        //             for (var i = 0; i < data.length; i++) {
+        //                 let sections = data[i].sections;
+        //                 // let sectionsHtml = '';
+        //                 for (var j = 0; j < sections.length; j++) {
+        //                     console.log(sections[j].title);
+        //                     $(section_drop).append('<option data-id="'+ sections[j].id +'" value="' + sections[j].title + '">' + sections[j].title + '</option>');
+        //                     // sectionsHtml += `${sections[j].title},`
+        //                 }
+        //             }
+        //         }
+        //
+        // })
+    })
+
 
     $("#section_drop").on('change', function () {
         $('#section').attr('value', this.value).removeClass("notFilled").addClass("textField");
@@ -250,7 +282,6 @@ $(document).ready(function () {
         }
     })
 
-
     $("#tags_drop").on('change', function () {
         if ($(this).val() === "") {
 
@@ -260,24 +291,15 @@ $(document).ready(function () {
             $('#tag').attr('value', this.value);
             $('#collectionId').attr('value', this.value);
 
-            //TODO Sections drop down menu create and show
-            $.ajax({
-                type: 'GET',
-                url: '/section/sectionId/$(\'#collectionId\').val();',
-                dataType: "json",
-                data: {},
-                success: function (data) {
-
-                    console.log(data);
-                    var section_drop = ('#section_drop');
-                    $(section_drop).empty();
-                    for (var i = 0; i < data.length; i++) {
-                        $(section_drop).append('<option value="' + data[i].id + " : " + data[i].title + '">' + data[i].title + '</option>');
-                    }
-                }
-            });
-
         }
+    })
+
+    //get params from url search and transfers it to iframe
+    $(document).ready(function () {
+        const urlSearchParam = new URLSearchParams(window.location.search);
+        let entries =Object.fromEntries(urlSearchParam.entries());
+        console.log(entries.url, 'test');
+        $('#videoPlayer').attr('src', entries.url)
     })
 
     // //TODO Collections drop down menu create and show
@@ -293,7 +315,7 @@ $(document).ready(function () {
                 var collection_drop = ('#collection_drop');
                 // $(collection_drop).empty();
                 for (var i = 0; i < data.length; i++) {
-                    $(collection_drop).append('<option value="' + data[i].id+ " : " + data[i].title + '">' + data[i].title + '</option>');
+                    $(collection_drop).append('<option data-id="'+ data[i].id +'" value="' + data[i].title + '">' + data[i].title + '</option>');
                     // $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
                 }
             }
@@ -368,12 +390,7 @@ $(document).ready(function () {
         console.log("key pressed");
     })
 
-    $(document).ready(function () {
-        const urlSearchParam = new URLSearchParams(window.location.search);
-       let entries =Object.fromEntries(urlSearchParam.entries());
-        console.log(entries.url);
-        $('#videoPlayer').attr('src', `${entries.url}`)
-    })
+
 
 
 // password and confirm password are the same
@@ -470,6 +487,12 @@ $(document).ready(function () {
         }
 
 
+
+
+
+
+        }
+}
 
 
 }}
