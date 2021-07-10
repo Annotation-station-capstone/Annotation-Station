@@ -3,7 +3,7 @@ $(document).ready(function() {
     function videoSearch() {
         let search = document.getElementById("search").value;
         console.log(search);
-        const key = "AIzaSyCBGdtk0uvKjYzDqYe87wCn9Xcw5NNWXdI";
+        const key = "AIzaSyBc5x4I6inW029ixn-vjaKE0fJGLah8v7w";
         const maxResults = 5;
         $.ajax({
             url:'https://www.googleapis.com/youtube/v3/search?key=' + key + '&part=snippet&q=' + search,
@@ -42,11 +42,17 @@ $(document).ready(function() {
     let submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', videoSearch);
 
-    let enterSubmit = document.querySelector('#submit');
-    enterSubmit.addEventListener('keypress', videoSearch);
+    $('#search').on('keypress',function(e) {
+        if(e.which == 13) {
+            videoSearch();
+        }
+    });
 
-    let enterSearch = document.querySelector('#search');
-    enterSearch.addEventListener('keypress', videoSearch);
+    // let enterSubmit = document.querySelector('#submit');
+    // enterSubmit.addEventListener('enter', videoSearch);
+    //
+    // let enterSearch = document.querySelector('#search');
+    // enterSearch.addEventListener('enter', videoSearch);
 
     let g0 = document.getElementById('get0');
     let g1 = document.getElementById('get1');
