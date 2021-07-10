@@ -21,8 +21,6 @@ $(document).ready(function () {
                     let collection_description = (data[i].description);
                     let collection_user = (data[i].user.username);
 
-
-
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainer');
 

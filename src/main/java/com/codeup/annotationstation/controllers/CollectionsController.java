@@ -102,14 +102,13 @@ public class CollectionsController {
         return "redirect:/collections";
     }
 
-
     //get form to create new collection
 
-    @GetMapping(value="/collections/single/{id}")
-    public String getCollectionsFragment(@PathVariable String id, Model model) {
-        model.addAttribute("newId", id);
-//        model.addAttribute("addcollection", new Collection());
-        model.addAttribute("newComment", new Comment());
+    @GetMapping(value="/collections/single")
+    public String getCollectionsFragment() {
+//        model.addAttribute("newId", id);
+////        model.addAttribute("addcollection", new Collection());
+//        model.addAttribute("newComment", new Comment());
         return "/collectionsSingle";
     }
 

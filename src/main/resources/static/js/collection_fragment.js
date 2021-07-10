@@ -65,7 +65,7 @@ $(document).ready(function () {
                             console.log(noteData[l].time_stamp);
                             console.log(noteData[l].note);
                             let singleNote = noteData[l].note;
-                            singleNoteId += noteData[l].id;
+                            let singleNoteId = noteData[l].id;
                             let timeStamp = noteData[l].time_stamp;
 
                             let note_tag = `<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p>`;
