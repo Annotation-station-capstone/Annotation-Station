@@ -42,6 +42,11 @@ $(document).ready(function() {
     let submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', videoSearch);
 
+    let enterSubmit = document.querySelector('#submit');
+    enterSubmit.addEventListener('keypress', videoSearch);
+
+    let enterSearch = document.querySelector('#search');
+    enterSearch.addEventListener('keypress', videoSearch);
 
     let g0 = document.getElementById('get0');
     let g1 = document.getElementById('get1');
