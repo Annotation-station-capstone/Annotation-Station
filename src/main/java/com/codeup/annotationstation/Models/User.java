@@ -92,8 +92,17 @@ public User(String firstName, String lastName, String email, String password){
         this.password = password;
     }
 
-
-
+    public User(long id, Boolean is_admin, String firstName, String lastName, String username, String user_image, String email, String password, List<Comment> comments) {
+        this.id = id;
+        this.is_admin = is_admin;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.user_image = user_image;
+        this.email = email;
+        this.password = password;
+        this.comments = comments;
+    }
 
     public User(User copy) {
         id = copy.id;
