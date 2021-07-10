@@ -238,8 +238,7 @@ $(document).ready(function () {
         }
     });
 
-    //
-    // })
+
 
     $("#collection").on('change', function () {
         $('#collection').removeClass("notFilled").addClass("textField");
@@ -495,15 +494,13 @@ $(document).ready(function () {
 
 
 
-<<<<<<< HEAD
 
 
         }
 }
-=======
->>>>>>> 8ce2f4f2fd6d4b8c4f3662cc64812fd7b700cb84
 
-}}
+
 })
+
 
 
