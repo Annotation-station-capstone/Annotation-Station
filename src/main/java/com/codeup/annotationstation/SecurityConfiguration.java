@@ -36,28 +36,28 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 /* Login configuration */
-//                .formLogin()
-//                .loginPage("/")
-//
-//                .defaultSuccessUrl("/") // user's home page, it can be any URL
-//                .permitAll() // Anyone can go to the login page
-//                /* Logout configuration */
-//                .and()
-//                .logout()
-//                .logoutSuccessUrl("/") // append a query string value
-//                /* Pages that can be viewed without having to log in */
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/", "/collection/index") // anyone can see the home and the ads pages
-//                .permitAll()
-//                /* Pages that require authentication */
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers(
-//                        "/create", // only authenticated users can create ads
-//                        "/collection/{id}/edit" // only authenticated users can edit ads
-//                )
-//                .authenticated()
+                .formLogin()
+                .loginPage("/")
+
+                .defaultSuccessUrl("/") // user's home page, it can be any URL
+                .permitAll() // Anyone can go to the login page
+                /* Logout configuration */
+                .and()
+                .logout()
+                .logoutSuccessUrl("/") // append a query string value
+                /* Pages that can be viewed without having to log in */
+                .and()
+                .authorizeRequests()
+                .antMatchers("/", "/collection/index") // anyone can see the home and the ads pages
+                .permitAll()
+                /* Pages that require authentication */
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        "/create", // only authenticated users can create ads
+                        "/collection/{id}/edit" // only authenticated users can edit ads
+                )
+                .authenticated()
         ;
     }
 

@@ -105,10 +105,10 @@ public class CollectionsController {
     //get form to create new collection
 
     @GetMapping(value="/collections/single")
-    public String getCollectionsFragment() {
+    public String getCollectionsFragment(Model model) {
 //        model.addAttribute("newId", id);
 ////        model.addAttribute("addcollection", new Collection());
-//        model.addAttribute("newComment", new Comment());
+        model.addAttribute("newComment", new Comment());
         return "/collectionsSingle";
     }
 
