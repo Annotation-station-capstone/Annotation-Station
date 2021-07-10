@@ -6,9 +6,13 @@ import com.codeup.annotationstation.Models.User;
 import com.codeup.annotationstation.daos.CollectionsRepository;
 import com.codeup.annotationstation.daos.CommentRepository;
 import com.codeup.annotationstation.daos.UsersRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class CommentController {
@@ -56,14 +60,40 @@ public class CommentController {
 //    }
 
     @PostMapping("/comment/add")
-    public String createComment(@ModelAttribute User user,
-                                @ModelAttribute Comment newComment,
-                                @ModelAttribute Collection collection) {
+    public String createComment(@ModelAttribute Comment newComment,
+                                @RequestParam long collectionId) {
+//
+//        @ModelAttribute Comment newComment,
 
-        Collection currentCollection = collectionDao.getById(collection.getId());
-        User currentUser = userDao.getById(user.getId());
+
+
+
+//        newComment.setComment("Hellooooo to the world!");
+//        newComment.setComment("Overriding whatever was in the input!");
+
+        System.out.println("collectionId = " + collectionId);
+//
+//        //TODO: let's grab the user through the principal and assign it to the user object
+//
+        Collection currentCollection = collectionDao.getById(collectionId);
+//
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println("user = " + currentUser.getUsername());
+        System.out.println("currentCollection.getTitle() = " + currentCollection.getTitle());
+//
+//
+        System.out.println("currentUser = " + currentUser);
         newComment.setUser(currentUser);
         newComment.setCollection(currentCollection);
+//
+        List<Comment> comments = new ArrayList<>();
+//
+        comments.add(newComment);
+//
+        currentCollection.setComments(comments);
+//
+//        collectionDao.save(currentCollection);
+
         commentDao.save(newComment);
         return "redirect:/collections/single";
     }

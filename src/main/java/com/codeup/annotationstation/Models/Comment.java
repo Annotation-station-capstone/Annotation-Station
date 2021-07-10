@@ -11,10 +11,11 @@ import java.util.List;
 @Entity
 @Table(name= "comments")
 //@IdClass(Comment_Id.class)
-public class Comment implements Serializable {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(nullable = true)
     private String comment;
 
