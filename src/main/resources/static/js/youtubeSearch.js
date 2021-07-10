@@ -24,8 +24,12 @@ $(document).ready(function() {
                     // console.log(title);
                     // console.log(defaultThumbnails);
                     // $('#thumbnails').append("<img src ='" + url + "'>");
-                    $('#results').append("<p class='getVid' value='" + vidId + "'><img src ='" + url +  "'> " + title + " </p>");
-
+                    $('#results').append("<p id='get" + [i] +"' value='" + vidId + "'><img src ='" + url +  "'> " + title + " </p>");
+                    console.log($("#get0").attr('value'));
+                    console.log($("#get1").attr('value'));
+                    console.log($("#get2").attr('value'));
+                    console.log($("#get3").attr('value'));
+                    console.log($("#get4").attr('value'));
                 }
 
             },
@@ -33,17 +37,53 @@ $(document).ready(function() {
         });
     }
 
-    let results = $('#results').val();
+    let url = document.getElementById("userInputtedUrl");
 
-    var submitButton = document.querySelector('#submit');
+    let submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', videoSearch);
 
 
-    var videoId = $(".getVid").attr();
+    let g0 = document.getElementById('get0');
+    let g1 = document.getElementById('get1');
+    let g2 = document.getElementById('get2');
+    let g3 = document.getElementById('get3');
+    let g4 = document.getElementById('get4');
 
-    $('.getvid').click(function() {
-        videoId;
-    });
+
+    $(document).on("click", "p#get0", function(){
+        let id0 = $("#get0").attr('value');
+        let thisUrl0 = "https://www.youtube.com/watch?v=" + id0;
+        url.setAttribute("value", thisUrl0)
+        console.log(thisUrl0);
+    })
+
+    $(document).on("click", "p#get1", function(){
+        let id1 = $("#get1").attr('value');
+        let thisUrl1 = "https://www.youtube.com/watch?v=" + id1;
+
+        url.setAttribute("value", thisUrl1)
+        console.log(thisUrl1);
+    })
+    $(document).on("click", "p#get2", function(){
+        let id2 = $("#get2").attr('value');
+        let thisUrl2 = "https://www.youtube.com/watch?v=" + id2;
+
+        url.setAttribute("value", thisUrl2)
+        console.log(thisUrl2);
+    })
+    $(document).on("click", "p#get3", function(){
+        let id3 = $("#get3").attr('value');
+        let thisUrl3 = "https://www.youtube.com/watch?v=" + id3;
+        url.setAttribute("value", thisUrl3)
+        console.log(thisUrl3);
+    })
+    $(document).on("click", "p#get4", function(){
+        let id4 = $("#get4").attr('value');
+        let thisUrl4 = "https://www.youtube.com/watch?v=" + id4;
+        url.setAttribute("value", thisUrl4)
+        console.log(thisUrl4);
+    })
+
 
 });
 
