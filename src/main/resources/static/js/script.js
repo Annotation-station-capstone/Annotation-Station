@@ -375,6 +375,7 @@ $(document).ready(function () {
         $('#videoPlayer').attr('src', `${entries.url}`)
     })
 
+
 // password and confirm password are the same
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
