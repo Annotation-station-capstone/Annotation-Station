@@ -72,26 +72,25 @@ public class CommentController {
 //        newComment.setComment("Overriding whatever was in the input!");
 
         System.out.println("collectionId = " + collectionId);
-//
+
 //        //TODO: let's grab the user through the principal and assign it to the user object
-//
+
         Collection currentCollection = collectionDao.getById(collectionId);
-//
+
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println("user = " + currentUser.getUsername());
         System.out.println("currentCollection.getTitle() = " + currentCollection.getTitle());
-//
-//
+
         System.out.println("currentUser = " + currentUser);
         newComment.setUser(currentUser);
         newComment.setCollection(currentCollection);
-//
+
         List<Comment> comments = new ArrayList<>();
-//
+
         comments.add(newComment);
-//
+
         currentCollection.setComments(comments);
-//
+
 //        collectionDao.save(currentCollection);
 
         commentDao.save(newComment);

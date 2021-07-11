@@ -9,7 +9,7 @@
 
 
 
-        <button class="btn btn-primary dropdown-toggle signin-btn" type="button" data-mdb-toggle="dropdown"
+        <button class="btn btn-primary dropdown-toggle signin-btn" id="myModal" type="button" data-mdb-toggle="dropdown"
                             aria-expanded="false">
             <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
         </button>
@@ -29,6 +29,10 @@
                 <!-- Submit button -->
                 <button type="submit" value="signIn" class="btn btn-primary btn-block text-center ml-3">Sign in</button>
                 <div class="alert-danger mx-auto" th:if="${param.error}">
+                    <script>
+                    setTimeout(function() {
+                        $('#myModal').trigger('click');
+                    }, 5);console.log("the modal has been targeted")</script>
                 Invalid Username and Password
             </div>
             </form>
