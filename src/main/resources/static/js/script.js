@@ -353,7 +353,11 @@ $(document).ready(function () {
                             "note": $("#note").val(),
                             "video": {"video_url": $("#ytId").val()},
                             "time_stamp": $("#counter").html(),
-                            "tag": $("#select-tags option:selected").attr("data-value")
+                            "tag": {
+                               id: $("#tags_drop").children('option:selected').attr('data-id'),
+                                tag: $("#tags_drop").children('option:selected').attr('value')
+                            }
+
                         }
                 }), success: function () {
                 $("#note").val('');

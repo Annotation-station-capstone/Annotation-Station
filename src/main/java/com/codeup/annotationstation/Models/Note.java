@@ -31,7 +31,7 @@ public class Note {
     private String time_stamp;
 
     //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JsonBackReference(value="tag-notes")
     @JoinTable(
             name = "notes_tags",

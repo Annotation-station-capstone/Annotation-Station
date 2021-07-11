@@ -15,6 +15,7 @@ public interface SectionRepository extends JpaRepository<Section, Long> {
     List<Section> findSectionsByCollectionId (long id);
     Section findAllById(long id);
     Section findFirstById (long id);
+    Section findByTitle(String string);
     Section getAllByCollectionId (long id);
     List<Section> findAllByTitle(String Title);
 
