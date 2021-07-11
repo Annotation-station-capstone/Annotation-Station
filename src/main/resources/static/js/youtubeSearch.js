@@ -20,11 +20,7 @@ $(document).ready(function() {
                     let url = defaultThumbnails.url;
                     let title = snippet.title;
                     let vidId = video.id.videoId;
-                    // console.log(vidId, snippet, video);
-                    // console.log(title);
-                    // console.log(defaultThumbnails);
-                    // $('#thumbnails').append("<img src ='" + url + "'>");
-                    $('#results').append("<p id='get" + [i] +"' value='" + vidId + "'><img src ='" + url +  "'> " + title + " </p>");
+                    $('#results').append("<p id='get" + [i] +"' value='" + vidId + "'><img id='img'" + [i]+ " src ='" + url +  "'> " + title + " </p>");
                     console.log($("#get0").attr('value'));
                     console.log($("#get1").attr('value'));
                     console.log($("#get2").attr('value'));
@@ -39,20 +35,17 @@ $(document).ready(function() {
 
     let url = document.getElementById("userInputtedUrl");
 
-    let submitButton = document.querySelector('#submit');
-    submitButton.addEventListener('click', videoSearch);
+    $('#submit').on('click',function(e) {
+        $("#results").html('');
+            videoSearch();
+    });
 
     $('#search').on('keypress',function(e) {
+        $("#results").html('');
         if(e.which == 13) {
             videoSearch();
         }
     });
-
-    // let enterSubmit = document.querySelector('#submit');
-    // enterSubmit.addEventListener('enter', videoSearch);
-    //
-    // let enterSearch = document.querySelector('#search');
-    // enterSearch.addEventListener('enter', videoSearch);
 
     let g0 = document.getElementById('get0');
     let g1 = document.getElementById('get1');
@@ -67,6 +60,12 @@ $(document).ready(function() {
         url.setAttribute("value", thisUrl0)
         console.log(thisUrl0);
     })
+    $(document).on("click", "img0", function(){
+        let id0 = $("#get0").attr('value');
+        let thisUrl0 = "https://www.youtube.com/watch?v=" + id0;
+        url.setAttribute("value", thisUrl0)
+        console.log(thisUrl0);
+    })
 
     $(document).on("click", "p#get1", function(){
         let id1 = $("#get1").attr('value');
@@ -75,6 +74,15 @@ $(document).ready(function() {
         url.setAttribute("value", thisUrl1)
         console.log(thisUrl1);
     })
+
+    $(document).on("click", "img1", function(){
+        let id1 = $("#get1").attr('value');
+        let thisUrl1 = "https://www.youtube.com/watch?v=" + id1;
+
+        url.setAttribute("value", thisUrl1)
+        console.log(thisUrl1);
+    })
+
     $(document).on("click", "p#get2", function(){
         let id2 = $("#get2").attr('value');
         let thisUrl2 = "https://www.youtube.com/watch?v=" + id2;
@@ -82,18 +90,43 @@ $(document).ready(function() {
         url.setAttribute("value", thisUrl2)
         console.log(thisUrl2);
     })
+
+    $(document).on("click", "img2", function(){
+        let id2 = $("#get2").attr('value');
+        let thisUrl2 = "https://www.youtube.com/watch?v=" + id2;
+
+        url.setAttribute("value", thisUrl2)
+        console.log(thisUrl2);
+    })
+
     $(document).on("click", "p#get3", function(){
         let id3 = $("#get3").attr('value');
         let thisUrl3 = "https://www.youtube.com/watch?v=" + id3;
         url.setAttribute("value", thisUrl3)
         console.log(thisUrl3);
     })
+
+    $(document).on("click", "img3", function(){
+        let id3 = $("#get3").attr('value');
+        let thisUrl3 = "https://www.youtube.com/watch?v=" + id3;
+        url.setAttribute("value", thisUrl3)
+        console.log(thisUrl3);
+    })
+
     $(document).on("click", "p#get4", function(){
         let id4 = $("#get4").attr('value');
         let thisUrl4 = "https://www.youtube.com/watch?v=" + id4;
         url.setAttribute("value", thisUrl4)
         console.log(thisUrl4);
     })
+    $(document).on("click", "img4", function(){
+        let id4 = $("#get4").attr('value');
+        let thisUrl4 = "https://www.youtube.com/watch?v=" + id4;
+        url.setAttribute("value", thisUrl4)
+        console.log(thisUrl4);
+    })
+
+
 
 
 });
