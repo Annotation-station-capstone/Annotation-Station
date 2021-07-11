@@ -1,8 +1,8 @@
 package com.codeup.annotationstation.controllers;
 
-import com.codeup.annotationstation.Models.Collection;
-import com.codeup.annotationstation.Models.IncomingRequest;
-import com.codeup.annotationstation.Models.Section;
+import com.codeup.annotationstation.Models.*;
+import com.codeup.annotationstation.daos.CollectionsRepository;
+import com.codeup.annotationstation.daos.SectionRepository;
 import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,30 +20,48 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class CreateController {
 
     @Autowired
+    private SectionRepository sectionsDao;
+
+    @Autowired
+    private CollectionsRepository collectionsDao;
+
+    @Autowired
     CreateService createService;
 
     @Autowired
     private CollectionsService collectionsService;
 
+//    Mapping for the create page
+    @GetMapping("/create")
+    public String getCreatePage(){
+        return "/create";
+    }
+
+//    Posting for each level of creation (i.e. Collection > Notes)
     @RequestMapping(value = "/collections/create", method = POST)
     @ResponseBody
-    public void add(@RequestBody IncomingRequest incomingRequest) {
-        createService.addCollection(incomingRequest.getCollection(),incomingRequest.getSection(), incomingRequest.getNote());
+    public void add(@RequestBody IncomingCollection incomingCollection) {
+        int collectionbyNameSize = collectionsDao.findAllByTitle(incomingCollection.getCollection().getTitle()).size();
+        int sectionbyNameSize = sectionsDao.findAllByTitle(incomingCollection.getSection().getTitle()).size();
+
+        if (collectionbyNameSize == 0) {
+            createService.addCollection(incomingCollection.getCollection(), incomingCollection.getSection(), incomingCollection.getNote());
+        }if(sectionbyNameSize == 0){
+            System.out.println("Collection already existed");
+            Collection existingCollection = collectionsDao.findByTitle(incomingCollection.getCollection().getTitle());
+            incomingCollection.getSection().setCollection(existingCollection);
+            createService.addSectionAndNote(incomingCollection.getSection(), incomingCollection.getNote());
+        }else{
+            System.out.println("Section already existed");
+            createService.addJustNote(incomingCollection.getNote());
+        }
     }
 
 
-
-@GetMapping("/create")
-    public String getCreatePage(){
-    return "/create";
-}
-
-
-    public void get(@RequestBody IncomingRequest incomingRequest) {
-
-        createService.getCollection(incomingRequest.getCollection());
-
+    public void get(@RequestBody IncomingCollection incomingCollection) {
+        createService.getCollection(incomingCollection.getCollection());
     }
+
 
 //fetch data from collections table and sends to create page or profile page as needed
 @RequestMapping(value = "/collections/userid/{userId}", method = GET)

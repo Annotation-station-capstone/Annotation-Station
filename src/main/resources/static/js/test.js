@@ -1,73 +1,86 @@
-// $(document).ready(function () {
-//
-//
-//
-//
-//     function loadCollection() {
-//         $('#button').click(function() {
-//             let collectionId = $('#collectionId');
-//             window.location.replace(‘create ’, $(document).ready(function () {
-//
-//             $.ajax({
-//                 type: 'GET',
-//                 url: '/collections/Id/15',
-//                 dataType: "json",
-//                 data: {},
-//                 success:
-//                     function (data) {
-//                         console.log(data);
-//                         console.log(data.title);
-//                         console.log(data.description);
-//                         console.log(data.image);
-//                         console.log(data.is_private);
-//                         console.log(data.id);
-//                         var collection_data = ('#collection-data');
-//                         var collection_title = ('.title');
-//                         var section_data = ('#section-data');
-//                         var comment_data = ('#comment-data')
-//                         $(collection_title).text("You selected the " + data.title + " Collection");
-//                         $(collection_title).text("You selected the " + data.title + " Collection");
-//                         $(collection_data).append("<li> " + data.description + "</li>");
-//                         document.getElementById("collection_image").setAttribute("src", data.image);
-//                         $(collection_data).append(data.is_private);
-//                         var sections = data.sections;
-//                         for(var i = 0; i < sections.length; i++) {
-//                             console.log(sections[i].videos);
-//                             $('.top_accord').attr('id','section'+i);
-//                             $('.anchor-accord').attr('data-bs-target', '#collapse'+i).attr('aria-controls', '#collapse'+i);
-//                             $('.bottom_accord').attr('aria-labelledby', 'section'+i);
-//                             $(section_data).append("<div class='accordion-item top_accord' style='width: 1000px'><h2 class='accordion-header' id='section'><a class='accordion-button anchor-accord' type='button' data-bs-toggle='collapse' data-bs-target='#collapse[i]' aria-expanded='true' aria-controls='collapse[i]'> " + sections[i].title + " </a></h2></div></div>");
-//                             for(var j = 0; j < sections[i].videos.length; j++) {
-//                                 var videoData = sections[i].videos[j];
-//                                 console.log(videoData.video_url);
-//                                 // $(section_data).append("<li> " + videoData.video_url + "</li>");
-//                                 console.log(videoData.notes);
-//                                 var noteData = videoData.notes;
-//                                 for(var l = 0; l < noteData.length; l++) {
-//                                     console.log(noteData[l]);
-//                                     var singleNote = noteData[l].note;
-//                                     var time = noteData[l].time_stamp;
-//                                     console.log(time);
-//                                     console.log(singleNote);
-//                                     $(section_data).append("<div id='collapse[i]' class='accordion-collapse collapse show bottom_accord' aria-labelledby='section[i]' data-bs-parent='#accordionExample' style='width: 1000px'><div class='accordion-body'>" + singleNote + "</div></div>");
-//                                     // $(section_data).append("<li> " + time + "</li>");
-//                                     // <div className='col-md-6'><button></button></div>
-//                                 }
-//                             }
-//                         }
-//                         var comments = data.comments;
-//                         console.log(comments);
-//                         for(var c = 0; c < comments.length; c++) {
-//                             console.log(comments[c]);
-//                             $(comment_data).append("<li> " + comments[c].comment + "</li>");
-//                         }
-//                     }
-//             })
-//         })
-//
-//         }
-//
-//
-//
-//
-// });
+$(document).ready(function () {
+
+
+    // $(document).ready(function () {
+    //         $.ajax({
+    //             type: 'GET',
+    //             url: '/collections/userid/1',
+    //             dataType: "json",
+    //             data: {},
+    //             success: function (data) {
+    //                 console.log(data);
+    //                 var collection_drop = ('#collection_drop');
+    //                 for (var i = 0; i < data.length; i++) {
+    //                     $(collection_drop).append('<option data-id="'+ data[i].id +'" value="' + data[i].title + '">' + data[i].title + '</option>');
+    //
+    //
+    //
+    // $("#createFormSubmit").click(function (e) {
+    // e.preventDefault()
+    //
+    // if(
+    // any in array of collections names = current value of #collection input and
+    // any in array of section names = current value of #sections input
+    // ){
+    // ajax post that passes just a new note
+    // }
+    // elseif(
+    // any in array of collections names = current value of #collection input and
+    // ){
+    // ajax post that passes just a new section and new note
+    // }
+    // else{
+    // ajax post that sends a new collection, new section, and new note
+    // }
+    //
+    //   }
+    //             }
+    //         });
+    //     });
+    //
+
+
+
+
+
+    //TODO post method to send newly created collections/sections/and notes to the db
+
+    // $("#createFormSubmit").click(function (e) {
+    //     $("#createFormSubmit").attr("disabled", true);
+    //     e.preventDefault()
+    //     $.ajax({
+    //         url: '/collections/create',
+    //         type: 'POST',
+    //         contentType: 'application/json; charset=utf-8',
+    //         data: JSON.stringify(
+    //             {
+    //                 "collection": {
+    //                     "user": {"id": "1"},
+    //                     "title": $("#collection").val(),
+    //                     "is_private": "true",
+    //                     "description": "Enter your Collection Description here",
+    //                     "image": "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
+    //                 },
+    //                 "section": {
+    //                     "title": $("#section").val()
+    //                 },
+    //                 "note":
+    //                     {
+    //                         "note": $("#note").val(),
+    //                         "video": {"video_url": $("#ytId").val()},
+    //                         "time_stamp": $("#counter").html(),
+    //                         "tag": $("#select-tags option:selected").attr("data-value")
+    //                     }
+    //             }), success: function () {
+    //             $("#note").val('');
+    //             $("#select-tags >option:eq(1)").attr('selected', true)
+    //         }
+    //     });
+    // });
+
+
+
+
+
+
+});

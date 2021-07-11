@@ -36,8 +36,25 @@ public class CreateService {
 
     }
 
+    public void addSectionAndNote(Section section,Note note)  {
+
+        Section section1 = sectionRepository.save(section);
+        note.setSections(section1);
+        note.getVideo().setSection(section1);
+        Note note1 = noteRepository.save(note);
+
+    }
+
+    public void addJustNote(Note note)  {
+
+        Note note1 = noteRepository.save(note);
+
+    }
+
     public void getCollection(Collection collection) {
     }
+
+
 
 //    public void getCollection(Collection collection) {
 //    }
