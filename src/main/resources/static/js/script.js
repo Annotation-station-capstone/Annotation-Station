@@ -183,6 +183,15 @@ $(document).ready(function () {
 
     //TODO change field class/ look of fields to guide users to fill in required info
 
+    $("#results").on('click', function () {
+        $("#userInputtedUrl").addClass("textField").removeClass("notFilled");
+        $("#collection").addClass("notFilled").removeClass("textField");
+        $('#userURLSubmit').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
+        $('#collection-tip').attr('data-balloon-visible', true);
+        $('#collection').removeAttr('disabled');
+        $('#collection_drop').removeAttr('disabled');
+    })
+
     $("#userInputtedUrl").on('change', function () {
         $(this).addClass("textField").removeClass("notFilled");
         $("#collection").addClass("notFilled").removeClass("textField");
@@ -193,15 +202,37 @@ $(document).ready(function () {
     })
 
 
-    // $("#collection_drop").on('change', function () {
-    //     if ($(this).children('option:selected').attr('value', this.value) === "") {
-    //         $("#collection").attr($(this).children('option:selected').attr('value', true)).removeClass("notFilled").addClass("textField");
-    //     }
-    //     else
-    //         $("#collection").attr("").removeClass("notFilled").addClass("textField");
-    // });
-    //     $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
-    // })
+    $("#collection_drop").on('change', function () {
+        if ($(this).children('option:selected').attr('value', this.value) === "") {
+            $("#collection").attr($(this).children('option:selected').attr('value', true)).removeClass("notFilled").addClass("textField");
+        } else {
+             // $("#collection").attr('').removeClass("notFilled").addClass("textField");
+            $('#collection').attr('value', this.value).removeClass("notFilled").addClass("textField");
+            let collectionId = $(this).children('option:selected').attr('data-id');
+                    console.log(collectionId);
+
+                    //TODO Sections drop down menu create and show
+                    $.ajax({
+                        type: 'GET',
+                        url: `/collections/Id/${collectionId}`,
+                        dataType: "json",
+                        data: {},
+                        success: function (data) {
+                            console.log(collectionId);
+                            console.log(data);
+                            var section_drop = ('#section_drop');
+                            let sections= data.sections;
+                            for (var i = 0; i < sections.length; i++) {
+                                console.log(sections);
+                                $(section_drop).append('<option data-id="'+ sections[i].id +'" value="' + sections[i].title + '">' + sections[i].title + '</option>');
+                            }
+                        }
+
+                })
+        }
+    });
+
+
 
     $("#collection").on('change', function () {
         $('#collection').removeClass("notFilled").addClass("textField");
@@ -217,37 +248,6 @@ $(document).ready(function () {
             $('#section').removeAttr('disabled');
             $('#section_drop').removeAttr('disabled');
         }
-    })
-
-    $("#collection_drop optgroup:selected").on('change', function () {
-
-            let collectionId = $(this).attr("selected", "selected")
-            // let collectionId = $(this).children('option:selected').attr('data-id', value);
-            console.log(collectionId, 'test');
-
-            //TODO Sections drop down menu create and show
-        //     $.ajax({
-        //         type: 'GET',
-        //         url: `/collections/id/${collectionId}`,
-        //         dataType: "json",
-        //         data: {},
-        //         success: function (data) {
-        //
-        //             console.log(data);
-        //             var section_drop = ('#section_drop');
-        //             $(section_drop).empty();
-        //             for (var i = 0; i < data.length; i++) {
-        //                 let sections = data[i].sections;
-        //                 // let sectionsHtml = '';
-        //                 for (var j = 0; j < sections.length; j++) {
-        //                     console.log(sections[j].title);
-        //                     $(section_drop).append('<option data-id="'+ sections[j].id +'" value="' + sections[j].title + '">' + sections[j].title + '</option>');
-        //                     // sectionsHtml += `${sections[j].title},`
-        //                 }
-        //             }
-        //         }
-        //
-        // })
     })
 
 
@@ -313,10 +313,8 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 var collection_drop = ('#collection_drop');
-                // $(collection_drop).empty();
                 for (var i = 0; i < data.length; i++) {
                     $(collection_drop).append('<option data-id="'+ data[i].id +'" value="' + data[i].title + '">' + data[i].title + '</option>');
-                    // $(collection_drop).append('<li><a class="dropdown-item" data-value="' + data[i].id + '">' + data[i].title + '</a></li>');
                 }
             }
         });
@@ -394,108 +392,109 @@ $(document).ready(function () {
 
 
 // password and confirm password are the same
-    let password = document.getElementById("reg_password")
-        , confirm_password = document.getElementById("confirm_password");
-    function validatePassword(){
-        if(password.value !== confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
-            confirm_password.style.borderColor="#f82004";
-        } else {
-            confirm_password.setCustomValidity('');
-            confirm_password.style.borderColor="#0ac23b";
-        }
-    }
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
+//     let password = document.getElementById("reg_password")
+//         , confirm_password = document.getElementById("confirm_password");
+//     function validatePassword(){
+//         if(password.value !== confirm_password.value) {
+//             confirm_password.setCustomValidity("Passwords Don't Match");
+//             confirm_password.style.borderColor="#f82004";
+//         } else {
+//             confirm_password.setCustomValidity('');
+//             confirm_password.style.borderColor="#0ac23b";
+//         }
+//     }
+//     password.onchange = validatePassword;
+//     confirm_password.onkeyup = validatePassword;
+//
+//     function checkPassword() {
+//         let password = document.getElementById('reg_password').value,
+//             errors = [];
+//         if (password.length < 8) {
+//             errors.push("Your password must be at least 8 characters.");
+//         }
+//         if (password.search(/[a-z]/i) < 0) {
+//             errors.push("Your password must contain at least one letter.");
+//         }
+//         if (password.search(/[0-9]/) < 0) {
+//             errors.push("Your password must contain at least one digit.");
+//         }
+//         if(password.search(/[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) < 0){
+//             errors.push("Your password must contain at least one special character.")
+//         }
+//         if (errors.length > 0) {
+//             alert(errors.join("\n"));
+//
+//         }
+//     }
+//     password.onchange = checkPassword;
+//     confirm_password.onkeyup = checkPassword;
+//
+//         $("#reg_password").keyup(function(){
+//             check_pass();
+//         });
+//
+// //password strength meter
+//
+//     function check_pass()
+//     {
+//         var val=document.getElementById("reg_password").value;
+//         var meter=document.getElementById("meter");
+//         var no=0;
+//         if(val!="")
+//         {
+//             // If the password length is less than or equal to 8
+//             if (val.length <= 8) no = 1;
+//
+//             // If the password length is greater than 8 and contain any lowercase alphabet or any number or any special character
+//             if (val.length > 8 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
+//
+//             // If the password length is greater than 8 and contain alphabet,number,special character respectively
+//             if (val.length > 8 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)))) no = 3;
+//
+//             // If the password length is greater than 8 and must contain alphabets,numbers and special characters
+//             if (val.length > 8 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
+//             if(no===1)
+//             {
+//                 $("#meter").animate({width:'50px'},150);
+//                 meter.style.backgroundColor="red";
+//                 document.getElementById("pass_type").innerHTML="Very Weak";
+//             }
+//             if(no===2)
+//             {
+//                 $("#meter").animate({width:'100px'},150);
+//                 meter.style.backgroundColor="#f82004";
+//                 document.getElementById("pass_type").innerHTML="Weak";
+//             }
+//             if(no===3)
+//             {
+//                 $("#meter").animate({width:'150px'},150);
+//                 meter.style.backgroundColor="#fad203";
+//                 document.getElementById("pass_type").innerHTML="Good";
+//             }
+//
+//             if(no===4)
+//             {
+//                 $("#meter").animate({width:'200px'},150);
+//                 meter.style.backgroundColor="#0ac23b";
+//                 document.getElementById("pass_type").innerHTML="Strong";
+//         }
+//         else
+//         {
+//             meter.style.backgroundColor="white";
+//             document.getElementById("pass_type").innerHTML="";
+//         }
+//
+//
+//
+//
+//
+//
+//         }
+// }
 
-    function checkPassword() {
-        let password = document.getElementById('reg_password').value,
-            errors = [];
-        if (password.length < 8) {
-            errors.push("Your password must be at least 8 characters.");
-        }
-        if (password.search(/[a-z]/i) < 0) {
-            errors.push("Your password must contain at least one letter.");
-        }
-        if (password.search(/[0-9]/) < 0) {
-            errors.push("Your password must contain at least one digit.");
-        }
-        if(password.search(/[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) < 0){
-            errors.push("Your password must contain at least one special character.")
-        }
-        if (errors.length > 0) {
-            alert(errors.join("\n"));
-
-        }
-    }
-    password.onchange = checkPassword;
-    confirm_password.onkeyup = checkPassword;
-
-        $("#reg_password").keyup(function(){
-            check_pass();
-        });
-
-//password strength meter
-
-    function check_pass()
-    {
-        var val=document.getElementById("reg_password").value;
-        var meter=document.getElementById("meter");
-        var no=0;
-        if(val!="")
-        {
-            // If the password length is less than or equal to 8
-            if (val.length <= 8) no = 1;
-
-            // If the password length is greater than 8 and contain any lowercase alphabet or any number or any special character
-            if (val.length > 8 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
-
-            // If the password length is greater than 8 and contain alphabet,number,special character respectively
-            if (val.length > 8 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)))) no = 3;
-
-            // If the password length is greater than 8 and must contain alphabets,numbers and special characters
-            if (val.length > 8 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
-            if(no===1)
-            {
-                $("#meter").animate({width:'50px'},150);
-                meter.style.backgroundColor="red";
-                document.getElementById("pass_type").innerHTML="Very Weak";
-            }
-            if(no===2)
-            {
-                $("#meter").animate({width:'100px'},150);
-                meter.style.backgroundColor="#f82004";
-                document.getElementById("pass_type").innerHTML="Weak";
-            }
-            if(no===3)
-            {
-                $("#meter").animate({width:'150px'},150);
-                meter.style.backgroundColor="#fad203";
-                document.getElementById("pass_type").innerHTML="Good";
-            }
-
-            if(no===4)
-            {
-                $("#meter").animate({width:'200px'},150);
-                meter.style.backgroundColor="#0ac23b";
-                document.getElementById("pass_type").innerHTML="Strong";
-        }
-        else
-        {
-            meter.style.backgroundColor="white";
-            document.getElementById("pass_type").innerHTML="";
-        }
 
 
-
-
-
-
-        }
-}
-
-
-}}
 })
+
 
 

@@ -3,7 +3,7 @@ package com.codeup.annotationstation.Models;
 import org.springframework.stereotype.Component;
 
 
-public class IncomingRequest {
+public class IncomingCollection {
 
     private Collection collection;
     private Section section;
