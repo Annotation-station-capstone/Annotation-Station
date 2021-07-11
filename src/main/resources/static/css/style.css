@@ -164,6 +164,66 @@ form{
     /*opacity: .8;*/
 }
 
+div#Yt{
+    display: flex;
+    align-self: center;
+    margin: auto;
+    width: 1728px;
+    padding: 35px 35px 0 5px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+div#yResults{
+    display: flex;
+    align-self: center;
+    margin: auto;
+    width: 1728px;
+    padding: 5px 5px 0 5px;
+}
+
+p#get0:hover{
+    background-color: #A0A0A0;
+}
+
+p#get1:hover{
+    background-color: #A0A0A0;
+}
+
+p#get2:hover{
+    background-color: #A0A0A0;
+}
+
+p#get3:hover{
+    background-color: #A0A0A0;
+}
+
+p#get4:hover{
+    background-color: #A0A0A0;
+}
+
+p#get0:active{
+    background-color: pink;
+}
+
+p#get1:active{
+    background-color: pink;
+}
+
+p#get2:active{
+    background-color: pink;
+}
+
+p#get3:active{
+    background-color: pink;
+}
+
+p#get4:active{
+    background-color: pink;
+}
+
+
+
 /*#section:empty{*/
 /*    filter: sepia(1);*/
 /*}*/
