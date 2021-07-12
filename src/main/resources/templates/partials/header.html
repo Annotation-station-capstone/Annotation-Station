@@ -5,10 +5,10 @@
 <!--Nav Starts Here-->
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark row-cols-auto" th:fragment="navbar">
     <div class="dropdown col-2 pl-5">
-<!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Register</div>-->
+<!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
 
 
-
+        <div sec:authorize="!isAuthenticated()">
         <button class="btn btn-primary dropdown-toggle signin-btn" id="myModal" type="button" data-mdb-toggle="dropdown"
                             aria-expanded="false">
             <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
@@ -36,7 +36,7 @@
                 Invalid Username and Password
             </div>
             </form>
-            <div class="dropdown-divider" sec:authorize="!isAuthenticated()"></div>
+            <div class="dropdown-divider"></div>
             <button
                     type="button"
                     class="btn btn-primary text-center"
@@ -47,9 +47,11 @@
             </button>
         </div>
     </div>
-    <div class="col-2"></div>
+    </div>
+    <div class="col-2" href="/"></div>
     <div class="col-5 wrapper">
         <p class="annotation">Annotation</p>
+        <a href="/">
         <ul class="dynamic-txts">
             <li><span>Creation</span></li>
             <li><span>Organization</span></li>
@@ -57,7 +59,9 @@
             <li><span>Station</span></li>
         </ul>
         <span class="station-word">Station</span>
+        </a>
     </div>
+
     <!--    <div class="col-1"></div>-->
 
     <a href="/">
@@ -77,7 +81,7 @@
 <!--                <i class="fas fa-search search-icon"></i>-->
 <!--            </button>-->
             <div class="text-light" sec:authorize="isAuthenticated()">
-            Welcome, <span  th:text="${#authentication.principal.username}"/>
+            Welcome, <a href="/"><span th:text="${#authentication.principal.username}"/></a>
         </div>
             <br>
             <form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
