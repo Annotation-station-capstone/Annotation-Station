@@ -89,7 +89,7 @@ public class CollectionsController {
     @GetMapping(value="/collection/create")
     public String getCreateCollection(Model model){
         model.addAttribute("addcollection", new Collection());
-        return "/create";
+        return "create";
     }
     //save created collection
     @PostMapping(value="collection/create")
@@ -118,13 +118,13 @@ public class CollectionsController {
 
         model.addAttribute("newComment", new Comment());
         System.out.println("collection.getId() = " + collection_id);
-        return "/collectionsSingle";
+        return "collectionsSingle";
     }
 
     //User page
     @GetMapping(path="/collections/profile")
     public String getCollectionsCard(Model model) {
-        return "/profileFragment";
+        return "profileFragment";
     }
 
     //carousel test page

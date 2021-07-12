@@ -35,7 +35,7 @@ public class CreateController {
 //    Mapping for the create page
     @GetMapping("/create")
     public String getCreatePage(){
-        return "/create";
+        return "create";
     }
 
 //    Posting for each level of creation (i.e. Collection > Notes)
