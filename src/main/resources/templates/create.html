@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<nav th:replace="partials/header :: navbar"></nav>
 <header class="title">TURN YOUR TYPED NOTES INTO <BR> TIMESTAMPED BOOKMARKS FOR VIDEOS</header>
 <p class="explanation">Enter a URL of a video that you wish to take notes about, type in the text field below and press
     enter.
@@ -89,12 +90,12 @@
                         <select name="drop" class="btn-select" id="tags_drop" aria-label="tags_drop">
                             <option selected="selected" value="">Select Tag</option>
                             <option disabled>───────</option>
-                            <option value="1: Important">Important</option>
-                            <option value="2: Fundemental">Fundemental</option>
-                            <option value="3: Definition">Definition</option>
-                            <option value="4: Dont_do_this">Dont_do_this</option>
-                            <option value="5: Step_by_Step">Step_by_Step</option>
-                            <option value="6: Watch_Again">Watch_Again</option>
+                            <option data-id="1" value="Important">Important</option>
+                            <option data-id="2" value="Fundemental">Fundemental</option>
+                            <option data-id="3" value="Definition">Definition</option>
+                            <option data-id="4" value="Dont_do_this">Dont_do_this</option>
+                            <option data-id="5" value="Step_by_Step">Step_by_Step</option>
+                            <option data-id="6" value="Watch_Again">Watch_Again</option>
                         </select>
                     <input class="form-control" id="tag" name="tag" type="text" aria-label="Text input with dropdown button" placeholder="Tags" disabled>
                 </div>
@@ -168,6 +169,6 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://apis.google.com/js/api.js"></script>
 <script th:src="@{js/youtubeSearch.js}" rel="script"></script>
-
+<footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>

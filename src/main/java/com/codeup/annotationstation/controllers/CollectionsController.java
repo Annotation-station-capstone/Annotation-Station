@@ -108,19 +108,21 @@ public class CollectionsController {
 
     //get form to create new collection
 
+
     @GetMapping(value="/collections/single")
     public String getCollectionsFragment(Model model,
                                          @RequestParam(name="collection_id") String collectionId ) {
         long collection_id = Long.parseLong(collectionId);
         List<Comment> comments = commentDao.findByCollection_Id(collection_id);
         model.addAttribute("comments", comments);
+
         model.addAttribute("newComment", new Comment());
         System.out.println("collection.getId() = " + collection_id);
         return "/collectionsSingle";
     }
 
     //get form to create new collection
-    @GetMapping(value="/collections/profile")
+    @GetMapping(path="/collections/profile")
     public String getCollectionsCard(Model model) {
         return "/profileFragment";
     }

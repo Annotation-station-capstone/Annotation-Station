@@ -53,6 +53,8 @@ public class CreateController {
             createService.addSectionAndNote(incomingCollection.getSection(), incomingCollection.getNote());
         }else{
             System.out.println("Section already existed");
+            Section existingSection = sectionsDao.findByTitle(incomingCollection.getSection().getTitle());
+            incomingCollection.getNote().setSections(existingSection);
             createService.addJustNote(incomingCollection.getNote());
         }
     }

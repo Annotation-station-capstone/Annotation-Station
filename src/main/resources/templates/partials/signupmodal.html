@@ -29,19 +29,19 @@
         <form action="/sign-up">
           <div class="form-group">
             <label for="user_firstName">First Name</label>
-            <input type="text" class="form-control" id="user_firstName" placeholder="Enter First Name">
+            <input type="text" class="form-control" id="user_firstName" placeholder="Enter First Name" value="<?php if (isset($_POST['firstName'])) echo $_POST['firstName']; ?>">
           </div>
           <div class="form-group">
             <label for="user_lastName">Last Name</label>
-            <input type="text" class="form-control" id="user_lastName" placeholder="Enter Last Name">
+            <input type="text" class="form-control" id="user_lastName" placeholder="Enter Last Name" value="<?php if (isset($_POST['lastName'])) echo $_POST['lastName']; ?>">
           </div>
           <div class="form-group">
             <label for="userName">Username</label>
-            <input type="email" class="form-control" id="userName" placeholder="Enter Username">
+            <input type="email" class="form-control" id="userName" placeholder="Enter Username" value="<?php if (isset($_POST['userName'])) echo $_POST['userName']; ?>">
           </div>
           <div class="form-group">
             <label for="user_Email">Email address</label>
-            <input type="email" class="form-control" id="user_Email" aria-describedby="emailHelp" placeholder="Enter Email">
+            <input type="email" class="form-control" id="user_Email" aria-describedby="emailHelp" placeholder="Enter Email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
             <small id="signupemail" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
