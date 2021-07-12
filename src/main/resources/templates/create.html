@@ -24,7 +24,7 @@
 <div id="Yt">
 <h1>Youtube search</h1>
 <input type="text" id="search" placeholder="type here to search Youtube">
-<input type="submit" id="submit">
+<input type="submit" id="submitYt">
 </div>
 <div id="yResults">
     <div>
@@ -166,9 +166,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script th:src="@{js/script.js}" rel="script"></script>
+<script th:src="@{js/youtubeSearch.js}" rel="script"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://apis.google.com/js/api.js"></script>
-<script th:src="@{js/youtubeSearch.js}" rel="script"></script>
 <footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>

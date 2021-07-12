@@ -3,7 +3,7 @@ $(document).ready(function() {
     function videoSearch() {
         let search = document.getElementById("search").value;
         console.log(search);
-        const key = "AIzaSyBc5x4I6inW029ixn-vjaKE0fJGLah8v7w";
+        const key = "AIzaSyB3EYKIF8__Mq5SXkMKzGlC6WK8cB6228c";
         const maxResults = 5;
         $.ajax({
             url:'https://www.googleapis.com/youtube/v3/search?key=' + key + '&part=snippet&q=' + search,
@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     let url = document.getElementById("userInputtedUrl");
 
-    $('#submit').on('click',function(e) {
+    $('#submitYt').on('click',function(e) {
         $("#results").html('');
             videoSearch();
     });
