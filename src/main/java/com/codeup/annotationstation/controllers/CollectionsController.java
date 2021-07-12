@@ -104,7 +104,7 @@ public class CollectionsController {
 
     //get form to create new collection
 
-    @GetMapping(value="/collections/single")
+    @GetMapping(path="/collections/single")
     public String getCollectionsFragment(Model model) {
 //        model.addAttribute("newId", id);
 ////        model.addAttribute("addcollection", new Collection());
@@ -113,7 +113,7 @@ public class CollectionsController {
     }
 
     //get form to create new collection
-    @GetMapping(value="/collections/profile")
+    @GetMapping(path="/collections/profile")
     public String getCollectionsCard(Model model) {
         return "/profileFragment";
     }

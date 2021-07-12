@@ -1,15 +1,13 @@
-
-
 $(document).ready(function () {
 
     const urlSearchParam = new URLSearchParams(window.location.search);
-    let entries =Object.fromEntries(urlSearchParam.entries());
+    let entries = Object.fromEntries(urlSearchParam.entries());
     console.log(entries.collection_id);
 
     let videoUrl = '';
-    let timeStamp= '';
-    let singleNoteId= '';
-    let newId = document.querySelector("#newId").value
+    let timeStamp = '';
+    let singleNoteId = '';
+
 
     $.ajax({
         type: 'GET',
@@ -21,54 +19,72 @@ $(document).ready(function () {
         success:
             function (data) {
                 console.log(data);
-                console.log(data.title);
-                console.log(data.description);
-                console.log(data.image);
-                console.log(data.is_private);
-                console.log(data.id);
+                // console.log(data.title);
+                // console.log(data.description);
+                // console.log(data.image);
+                // console.log(data.is_private);
+                // console.log(data.id);
                 let collection_title = data.title;
                 let collection_description = data.description;
                 let collection_image = data.image;
                 let collection_is_private = data.is_private;
-                let collection_id= data.id;
+                let collection_id = data.id;
                 let collection_data = $('#section-data');
                 let sections = data.sections;
-                for(let i = 0; i < sections.length; i++) {
+                for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
-                    <div class="accordion-item w-100">
+
+                    <div class="accordion-item w-100 row"><div class="dropdown col-4 text-*-center">
+                    
+  <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>
+    <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>
+  </ul>
+</div>
                     `;
-                    console.log(sections[i].title);
-                    console.log(sections[i].id);
+                    // console.log(sections[i].title);
+                    // console.log(sections[i].id);
                     console.log(sections[i].videos);
-                    let section_title =  sections[i].title;
+                    let section_title = sections[i].title;
                     let section_id = sections[i].id;
                     let section_video = sections[i].videos;
 
-                    let body = `<h1 class="accordion-header" id="heading${i}"><a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">${section_title}</a></h1><div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample"><div class="accordion-body">`;
+                    let body = `<h1 class="accordion-header  col-4" id="heading${i}"><a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">${section_title}</a></h1><div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample"><div class="accordion-body">`;
 
 
-                    $('.top_accord').attr('id','section'+i);
-                    $('.anchor-accord').attr('data-bs-target', '#collapse'+i).attr('aria-controls', '#collapse'+i);
-                    $('.bottom_accord').attr('aria-labelledby', 'section'+i);
+                    $('.top_accord').attr('id', 'section' + i);
+                    $('.anchor-accord').attr('data-bs-target', '#collapse' + i).attr('aria-controls', '#collapse' + i);
+                    $('.bottom_accord').attr('aria-labelledby', 'section' + i);
 
-                    for(let j = 0; j < sections[i].videos.length; j++) {
+                    for (let j = 0; j < sections[i].videos.length; j++) {
                         let videoData = sections[i].videos[j];
-                        console.log(videoData.video_url);
-                        console.log(videoData.notes);
+                        // console.log(videoData.video_url);
+                        // console.log(videoData.notes);
                         videoUrl = videoData.video_url;
 
 
-
                         let noteData = videoData.notes;
-                        for(var l = 0; l < noteData.length; l++) {
-                            console.log(noteData[l]);
-                            console.log(noteData[l].time_stamp);
-                            console.log(noteData[l].note);
+                        for (var l = 0; l < noteData.length; l++) {
+                            // console.log(noteData[l]);
+                            // console.log(noteData[l].time_stamp);
+                            // console.log(noteData[l].note);
                             let singleNote = noteData[l].note;
                             let singleNoteId = noteData[l].id;
                             let timeStamp = noteData[l].time_stamp;
 
-                            let note_tag = `<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p>`;
+                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p></div>
+<div class="btn-group col-4">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Small button
+  </button>
+  <ul class="dropdown-menu">
+   <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>
+    <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>
+  </ul>
+</div></div> `;
 
                             body += note_tag;
                         }
@@ -77,27 +93,23 @@ $(document).ready(function () {
                     collection_data.append(accordian_item);
                 }
 
-                }
+            }
 
-                // var comments = data.comments;
-                // console.log(comments);
-                // for(var c = 0; c < comments.length; c++) {
-                //     console.log(comments[c]);
-                //     $(comment_data).append("<li> " + comments[c].comment + "</li>");
-                // }
+        // var comments = data.comments;
+        // console.log(comments);
+        // for(var c = 0; c < comments.length; c++) {
+        //     console.log(comments[c]);
+        //     $(comment_data).append("<li> " + comments[c].comment + "</li>");
+        // }
 
-            })
     })
-
+})
 
 
 // $(`#${singleNoteId}`).on('click',  function() {
 //     // await setupPlayer();
 //     $("#userInputtedUrl").prop("value", `https://www.youtube.com/embed/${videoUrl}?enablejsapi=1${timeStamp}`);
 // })
-
-
-
 
 
 // let query = window.location.search.substring(1);
@@ -122,9 +134,6 @@ $(document).ready(function () {
 //     // }
 //     }
 // }
-
-
-
 
 
 // $(`#${singleNoteId}`).on('click', async function() {
