@@ -114,9 +114,15 @@ public class CollectionsController {
         return "/collectionsSingle";
     }
 
-    //get form to create new collection
+    //User page
     @GetMapping(path="/collections/profile")
     public String getCollectionsCard(Model model) {
         return "/profileFragment";
+    }
+
+    //carousel test page
+    @GetMapping(path="/collections/carousel")
+    public String getCarouselCard(Model model) {
+        return "partials/carousel2";
     }
 }

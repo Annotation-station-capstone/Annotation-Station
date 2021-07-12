@@ -7,6 +7,7 @@ import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -84,12 +85,12 @@ public Section getSection(@PathVariable("collectionId") long collectionId){
         Section section = collectionsService.getSectionById(collectionId);
     return collectionsService.getSectionById(collectionId);
 }
-//    //fetch data from collections table and sends to create page
-//    @RequestMapping(value = "/collections/collection/{collectionId}", method = GET)
-//    @ResponseBody
-//    public Collection findFirstById(@PathVariable("collectionId") long userId){
-//        return collectionsService.getCollection(userId);
-//    }
+
+    @GetMapping(value = "/collections/public")
+    @ResponseBody
+    public List<Collection> findAllByis_private(boolean is_private){
+        return collectionsDao.findAllByis_private(false);
+    }
 
 
 }
