@@ -60,40 +60,12 @@ public class CommentController {
 //    }
 
     @PostMapping("/comment/add")
-    public String createComment(@ModelAttribute Comment newComment,
-                                @RequestParam long collectionId) {
-//
-//        @ModelAttribute Comment newComment,
-
-
-
-
-//        newComment.setComment("Hellooooo to the world!");
-//        newComment.setComment("Overriding whatever was in the input!");
-
-        System.out.println("collectionId = " + collectionId);
-
-//        //TODO: let's grab the user through the principal and assign it to the user object
-
-        Collection currentCollection = collectionDao.getById(collectionId);
-
+    public String createComment(@RequestParam String comment,
+                                @RequestParam long  collectionId) {
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println("user = " + currentUser.getUsername());
-        System.out.println("currentCollection.getTitle() = " + currentCollection.getTitle());
-
-        System.out.println("currentUser = " + currentUser);
-        newComment.setUser(currentUser);
-        newComment.setCollection(currentCollection);
-
-        List<Comment> comments = new ArrayList<>();
-
-        comments.add(newComment);
-
-        currentCollection.setComments(comments);
-
-//        collectionDao.save(currentCollection);
-
-        commentDao.save(newComment);
+        Collection currentCollection = collectionDao.getById(collectionId);
+        Comment newComment = new Comment(comment,currentCollection,currentUser);
+       commentDao.save(newComment);
         return "redirect:/collections/single";
     }
 }

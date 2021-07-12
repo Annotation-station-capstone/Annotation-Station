@@ -38,6 +38,7 @@ public class CollectionsController {
 
         model.addAttribute("collection", collectionsDao.findAll());
         model.addAttribute("user", new User());
+
         return "collection/index";
     }
 
@@ -109,6 +110,7 @@ public class CollectionsController {
 //        model.addAttribute("newId", id);
 ////        model.addAttribute("addcollection", new Collection());
         model.addAttribute("newComment", new Comment());
+        model.addAttribute("comments", commentDao.findAll());
         return "/collectionsSingle";
     }
 
