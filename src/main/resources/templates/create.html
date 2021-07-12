@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<nav th:replace="partials/header :: navbar"></nav>
 <header class="title">TURN YOUR TYPED NOTES INTO <BR> TIMESTAMPED BOOKMARKS FOR VIDEOS</header>
 <p class="explanation">Enter a URL of a video that you wish to take notes about, type in the text field below and press
     enter.
@@ -168,6 +169,6 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://apis.google.com/js/api.js"></script>
 <script th:src="@{js/youtubeSearch.js}" rel="script"></script>
-
+<footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>
