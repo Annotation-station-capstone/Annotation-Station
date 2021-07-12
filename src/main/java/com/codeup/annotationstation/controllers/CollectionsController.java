@@ -103,7 +103,7 @@ public class CollectionsController {
     @PostMapping("/collections/delete")
     public String delete(@RequestParam long id){
         collectionsDao.deleteById(id);
-        return "redirect:/collections";
+        return "redirect:/";
     }
 
     //get form to create new collection
