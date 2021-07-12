@@ -130,8 +130,22 @@
 <div style="background-color: #d2d2d2; padding-top: 50px">
     <div class="container" id="accordionExample" style=" width: 80%">
         <div id="section-data" style="height: 1000px; width: 1000px"></div>
+        <div id="delete"></div>
     </div>
 </div>
+
+<!--    <form action="/collections/delete" method="post">-->
+<!--        <input type="hidden" name="section_id" value="13" >-->
+<!--        <input class="btn btn-danger btn-sm" type="submit">-->
+<!--    </form>-->
+
+
+<h1>Delete this collection</h1>
+<form th:action="@{/collections/delete}" th:method="POST" >
+    <input type="hidden" name="id" th:value="${param.collection_id}">
+        <input type="submit" name="delete" placeholder="delete">
+</form>
+
 
 <div th:each="comments : ${comments}">
 

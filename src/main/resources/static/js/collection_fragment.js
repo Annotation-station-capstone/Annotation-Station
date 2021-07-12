@@ -30,21 +30,28 @@ $(document).ready(function () {
                 let collection_is_private = data.is_private;
                 let collection_id = data.id;
                 let collection_data = $('#section-data');
+                let deleteButton = $('#delete');
                 let sections = data.sections;
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
 
-                    <div class="accordion-item w-100 row"><div class="dropdown col-4 text-*-center">
+                    <div class="accordion-item w-100 row" xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center">
                     
   <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown button
   </button>
-  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-    <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>
-    <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>
-  </ul>
+
+  
+
+
+     
 </div>
                     `;
+                    let delete_form = '    <form class="dropdown-menu dropdown-menu-dark" action="/collections/delete" method="post" aria-labelledby="dropdownMenuButton2">\n' +
+                        '\n' +
+                        '     <input type="hidden" name="section_id" value="${section_id}">\n' +
+                        '     <input class="dropdown-item btn btn-danger btn-sm" data-id="" type="submit" value="Delete">Delete Section</input>\n' +
+                        '   </form>';
                     // console.log(sections[i].title);
                     // console.log(sections[i].id);
                     console.log(sections[i].videos);
@@ -90,7 +97,8 @@ $(document).ready(function () {
                         }
                     }
                     accordian_item += body + '</div></div></div>'
-                    collection_data.append(accordian_item);
+                    collection_data.append(accordian_item)
+                    deleteButton.append(delete_form);
                 }
 
             }
@@ -116,6 +124,17 @@ $(document).ready(function () {
 //
 //
 //
+//
+//
+//
+
+
+
+//</form action="/products/delete" method="post">
+//                         <input type="hidden" name="product_id" value="${product.id}">
+//                         <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+//                     </form>
+
 // let paramList = query.split('&');
 //
 // for (let i=0; i < paramList.length; i++)

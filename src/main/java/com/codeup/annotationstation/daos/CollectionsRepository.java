@@ -16,6 +16,7 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
     Collection findFirstById(long id);
     Collection findFirstByTitle(String title);
+    Collection deleteCollectionById(long id);
     List<Collection> findAllByTitle(String title);
 //    List<Collection> findAllByis_private(boolean is_private);
 
