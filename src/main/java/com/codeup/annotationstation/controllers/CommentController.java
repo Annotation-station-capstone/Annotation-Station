@@ -59,6 +59,8 @@ public class CommentController {
 //        return "collectionsSingle";
 //    }
 
+
+
     @PostMapping("/comment/add")
     public String createComment(@RequestParam String comment,
                                 @RequestParam long  collectionId) {
@@ -66,7 +68,7 @@ public class CommentController {
         Collection currentCollection = collectionDao.getById(collectionId);
         Comment newComment = new Comment(comment,currentCollection,currentUser);
        commentDao.save(newComment);
-        return "redirect:/collections/single";
+        return "redirect:/collections/single?collection_id="+collectionId;
     }
 }
 

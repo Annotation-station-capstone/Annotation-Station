@@ -132,16 +132,14 @@
         <div id="section-data" style="height: 1000px; width: 1000px"></div>
     </div>
 </div>
+
 <div th:each="comments : ${comments}">
+
     <p th:text="${comments.user.username}"></p>
     <p th:text="${comments.getComment()}"></p>
-
 </div>
 
 <form th:action="@{/comment/add}" th:method="POST" >
-
-    <!--    <p th:text="${comment.user.username}" id="user_id"></p>-->
-
 
     <input type="hidden" name="collectionId" th:value="${param.collection_id}">
 

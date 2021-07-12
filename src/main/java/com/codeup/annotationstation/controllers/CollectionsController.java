@@ -5,9 +5,12 @@ import com.codeup.annotationstation.Models.User;
 import com.codeup.annotationstation.daos.*;
 import com.codeup.annotationstation.Models.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -106,11 +109,13 @@ public class CollectionsController {
     //get form to create new collection
 
     @GetMapping(value="/collections/single")
-    public String getCollectionsFragment(Model model) {
-//        model.addAttribute("newId", id);
-////        model.addAttribute("addcollection", new Collection());
+    public String getCollectionsFragment(Model model,
+                                         @RequestParam(name="collection_id") String collectionId ) {
+        long collection_id = Long.parseLong(collectionId);
+        List<Comment> comments = commentDao.findByCollection_Id(collection_id);
+        model.addAttribute("comments", comments);
         model.addAttribute("newComment", new Comment());
-        model.addAttribute("comments", commentDao.findAll());
+        System.out.println("collection.getId() = " + collection_id);
         return "/collectionsSingle";
     }
 
