@@ -77,7 +77,7 @@ $(document).ready(function () {
         // var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
         // var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
         // var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
-        var time = seconds -1; /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
+        var time = Math.ceil(seconds); /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
         return time;
     }
 
@@ -192,7 +192,7 @@ $(document).ready(function () {
         $('#collection_drop').removeAttr('disabled');
     })
 
-    $("#userInputtedUrl").on('change', function () {
+    $("#userInputtedUrl").on('keydown', function () {
         $(this).addClass("textField").removeClass("notFilled");
         $("#collection").addClass("notFilled").removeClass("textField");
         $('#userURLSubmit').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
@@ -271,7 +271,7 @@ $(document).ready(function () {
         }
     })
 
-    $("#note").on('change', function () {
+    $("#note").on('keydown', function () {
         if ($(this).val() === "") {
             $(this).addClass("notFilled").removeClass("textField");
             $('#createFormSubmit').attr('disabled', true)
@@ -353,7 +353,11 @@ $(document).ready(function () {
                             "note": $("#note").val(),
                             "video": {"video_url": $("#ytId").val()},
                             "time_stamp": $("#counter").html(),
-                            "tag": $("#select-tags option:selected").attr("data-value")
+                            "tag": {
+                               id: $("#tags_drop").children('option:selected').attr('data-id'),
+                                tag: $("#tags_drop").children('option:selected').attr('value')
+                            }
+
                         }
                 }), success: function () {
                 $("#note").val('');
