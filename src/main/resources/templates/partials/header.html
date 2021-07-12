@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-
 <!--Nav Starts Here-->
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark row-cols-auto" th:fragment="navbar">
+    <link th:href="@{/css/createButton.css}" rel="stylesheet">
     <div class="dropdown col-2 pl-5">
         <!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
 
@@ -51,11 +51,13 @@
         </div>
     </div>
     <div sec:authorize="isAuthenticated()">
-    <a href="/create">CREATE</a>
+    <a href="/create" class="createButton" style="background-color:lightblue;">CREATE</a>
     </div>
     <div class="col-2" href="/"></div>
     <div class="col-5 wrapper">
-        <p class="annotation">Annotation</p>
+        <a href="/">
+            <p class="annotation">Annotation</p>
+        </a>
         <a href="/">
             <ul class="dynamic-txts">
                 <li><span>Creation</span></li>
