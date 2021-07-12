@@ -5,60 +5,65 @@
 <!--Nav Starts Here-->
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark row-cols-auto" th:fragment="navbar">
     <div class="dropdown col-2 pl-5">
-<!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
+        <!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
 
 
         <div sec:authorize="!isAuthenticated()">
-        <button class="btn btn-primary dropdown-toggle signin-btn" id="myModal" type="button" data-mdb-toggle="dropdown"
-                            aria-expanded="false">
-            <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
-        </button>
-        <div class="dropdown-menu text-center mx-auto" style="width: 320px">
-            <form class="px-4 py-3" th:action="@{/}" th:method="post">
-                <!-- Username input -->
-                <div class="form-outline mb-4  text-center">
-                    <input id="username" class="form-control" name="username" type="text"/>
-                    <label class="form-label" for="username" >Username</label>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4  text-center">
-                    <input type="password" id="password" name="password" class="form-control"/>
-                    <label class="form-label" for="password">Password</label>
-                </div>
-                </div>
-                <!-- Submit button -->
-                <button type="submit" value="signIn" class="btn btn-primary btn-block text-center ml-3">Sign in</button>
-                <div class="alert-danger mx-auto" th:if="${param.error}">
-                    <script>
-                    setTimeout(function() {
-                        $('#myModal').trigger('click');
-                    }, 5);</script>
-                Invalid Username and Password
-            </div>
-            </form>
-            <div class="dropdown-divider"></div>
-            <button
-                    type="button"
-                    class="btn btn-primary text-center"
-                    data-mdb-toggle="modal"
-                    data-mdb-target="#registerModal"
-            >
-                New around here? Register!
+            <button class="btn btn-primary dropdown-toggle signin-btn" id="myModal" type="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false">
+                <div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
             </button>
+            <div class="dropdown-menu text-center mx-auto" style="width: 320px">
+                <form class="px-4 py-3" th:action="@{/}" th:method="post">
+                    <!-- Username input -->
+                    <div class="form-outline mb-4  text-center">
+                        <input id="username" class="form-control" name="username" type="text"/>
+                        <label class="form-label" for="username">Username</label>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4  text-center">
+                            <input type="password" id="password" name="password" class="form-control"/>
+                            <label class="form-label" for="password">Password</label>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" value="signIn" class="btn btn-primary btn-block text-center ml-3">Sign in
+                    </button>
+                    <div class="alert-danger mx-auto" th:if="${param.error}">
+                        <script>
+                            setTimeout(function () {
+                                $('#myModal').trigger('click');
+                            }, 5);</script>
+                        Invalid Username and Password
+                    </div>
+                </form>
+                <div class="dropdown-divider"></div>
+                <button
+                        type="button"
+                        class="btn btn-primary text-center"
+                        data-mdb-toggle="modal"
+                        data-mdb-target="#registerModal"
+                >
+                    New around here? Register!
+                </button>
+            </div>
         </div>
     </div>
+    <div sec:authorize="isAuthenticated()">
+    <a href="/create">CREATE</a>
     </div>
     <div class="col-2" href="/"></div>
     <div class="col-5 wrapper">
         <p class="annotation">Annotation</p>
         <a href="/">
-        <ul class="dynamic-txts">
-            <li><span>Creation</span></li>
-            <li><span>Organization</span></li>
-            <li><span>Circulation</span></li>
-            <li><span>Station</span></li>
-        </ul>
-        <span class="station-word">Station</span>
+            <ul class="dynamic-txts">
+                <li><span>Creation</span></li>
+                <li><span>Organization</span></li>
+                <li><span>Circulation</span></li>
+                <li><span>Station</span></li>
+            </ul>
+            <span class="station-word">Station</span>
         </a>
     </div>
 
@@ -73,22 +78,22 @@
 
     <div class="col-3">
         <div class="input-group pl-5">
-<!--            <div class="form-outline">-->
-<!--                <input id="search-input" type="search" class="form-control search-frame"/>-->
-<!--                <label class="form-label" for="search-input">Search</label>-->
-<!--            </div>-->
-<!--            <button id="search-button" type="button" class="btn btn-primary search-btn">-->
-<!--                <i class="fas fa-search search-icon"></i>-->
-<!--            </button>-->
+            <!--            <div class="form-outline">-->
+            <!--                <input id="search-input" type="search" class="form-control search-frame"/>-->
+            <!--                <label class="form-label" for="search-input">Search</label>-->
+            <!--            </div>-->
+            <!--            <button id="search-button" type="button" class="btn btn-primary search-btn">-->
+            <!--                <i class="fas fa-search search-icon"></i>-->
+            <!--            </button>-->
             <div class="text-light" sec:authorize="isAuthenticated()">
-            Welcome, <a href="/"><span th:text="${#authentication.principal.username}"/></a>
-        </div>
+                Welcome, <a href="/collections/profile"><span th:text="${#authentication.principal.username}"/></a>
+            </div>
             <br>
             <form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
                 <button class="btn-link btn btn-light" style="margin-top: 8px">Logout</button>
                 <div th:if="${param.logout}">
-                You have been logged out.
-            </div>
+                    You have been logged out.
+                </div>
             </form>
         </div>
     </div>
