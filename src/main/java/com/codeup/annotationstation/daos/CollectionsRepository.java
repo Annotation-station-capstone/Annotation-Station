@@ -28,6 +28,10 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
     
     List<Collection> findFirst10ByTitleOrderByTitleDesc(String title);
 
+    Collection getById(long id);
+
+
+
 
 //    Collection findAllCollections(String title);
 }
