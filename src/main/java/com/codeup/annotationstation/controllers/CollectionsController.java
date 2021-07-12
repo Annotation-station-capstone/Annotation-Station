@@ -100,8 +100,8 @@ public class CollectionsController {
     }
 
     //destroy a collection
-    @PostMapping("/collections/{id}/delete")
-    public String delete(@PathVariable long id){
+    @PostMapping("/collections/delete")
+    public String delete(@RequestParam long id){
         collectionsDao.deleteById(id);
         return "redirect:/collections";
     }
