@@ -8,13 +8,13 @@ $(document).ready(function () {
             function (data) {
 
                 for (let i = 0; i < data.length; i++) {
-                    console.log(data[i]);
-                    console.log(data[i].id);
-                    console.log(data[i].is_private);
-                    console.log(data[i].image);
-                    console.log(data[i].title);
-                    console.log(data[i].description);
-                    console.log(data[i].user.username);
+                    // console.log(data[i]);
+                    // console.log(data[i].id);
+                    // console.log(data[i].is_private);
+                    // console.log(data[i].image);
+                    // console.log(data[i].title);
+                    // console.log(data[i].description);
+                    // console.log(data[i].user.username);
                     let collection_id = (data[i].id);
                     let collection_image = (data[i].image);
                     let collection_title = (data[i].title);
@@ -22,7 +22,7 @@ $(document).ready(function () {
                     let collection_user = (data[i].user.username);
 
                     let sections = data[i].sections;
-                    let cardContainer = $('#cardContainer');
+                    let cardContainer = $('#cardContainerHome');
 
                     let image = `<img src="${collection_image}" class='img-fluid' alt='img'><a id='${collection_id}' href='/collections/single?collection_id=${collection_id}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
 
