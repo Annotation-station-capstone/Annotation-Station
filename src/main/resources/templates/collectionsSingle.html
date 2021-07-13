@@ -165,11 +165,18 @@
     <input type="hidden" name="collectionId" th:value="${param.collection_id}">
 
     <label>
-        <input name="comment" placeholder="Type comment here">
+        <input disabled placeholder="Must be logged in to make a comment" sec:authorize="!isAuthenticated()">
+    </label>
+
+<!--    <button type="button" th:href="@{/}" sec:authorize="!isAuthenticated()" >Login</button>-->
+    <label>
+        <input name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">
     </label>
 
 
-    <input type="submit">
+
+
+    <input type="submit" sec:authorize="isAuthenticated()">
 </form>
 <!--<div th:replace="partials/comment :: commentForm"></div>-->
 
