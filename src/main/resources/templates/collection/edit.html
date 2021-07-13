@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="google-signin-client_ID"
+          content="365572997645-rksbja6tjvqfd4mua82ummn0hcgdc3e7.apps.googleusercontent.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
+    <title>Annotation Station</title>
+</head>
+<body>
+<nav th:replace="partials/header :: navbar"></nav>
+
+<h1>Edit this collection</h1>
+<form th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
+    <input th:field="*{title}" type="text">
+    <input th:field="*{is_private}" type="text">
+    <input th:field="*{description}" type="text">
+    <input th:field="*{image}" type="text">
+    <input th:field="*{user}" type="text">
+    <input type="submit" name="edit" placeholder="edit">
+
+</form>
+
+
+
+
+</body>
+</html>
