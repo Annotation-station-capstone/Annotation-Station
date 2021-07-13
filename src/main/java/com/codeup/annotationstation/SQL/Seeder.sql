@@ -201,13 +201,6 @@ INSERT INTO notes (note, video_id, time_stamp,section_id)
 VALUES ('This is my first annotation!', 12, '0:45',12);
 SELECT * FROM notes;
 
-INSERT INTO tags (tag)
-VALUES ('HTML');
-INSERT INTO notes_tags (note_id, tag_id)
-VALUES (1, 1);
-SELECT * FROM tags;
-SELECT * FROM notes_tags;
-
 INSERT INTO comments (user_id,  collection_id, comment)
 VALUES (2, 2, 'Nice Annotation!');
 SELECT * FROM comments;
