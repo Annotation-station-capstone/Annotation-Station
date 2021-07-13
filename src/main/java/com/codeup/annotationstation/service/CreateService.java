@@ -30,6 +30,7 @@ public class CreateService {
         Collection collection1 = collectionsRepository.save(collection);
         section.setCollection(collection1);
         Section section1 = sectionRepository.save(section);
+//        video.setSections(section1);
         note.setSections(section1);
         note.getVideo().setSection(section1);
         Note note1 = noteRepository.save(note);
