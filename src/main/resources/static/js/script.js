@@ -394,7 +394,7 @@ $(document).ready(function () {
 
 
 
-password and confirm password are the same
+// password and confirm password are the same
     let password = document.getElementById("reg_password")
         , confirm_password = document.getElementById("confirm_password");
     function validatePassword(){
@@ -436,7 +436,7 @@ password and confirm password are the same
             check_pass();
         });
 
-password strength meter
+// password strength meter
 
     function check_pass()
     {
