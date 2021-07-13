@@ -18,14 +18,28 @@
     <input th:field="*{title}" type="text">
     <input th:field="*{is_private}" type="text">
     <input th:field="*{description}" type="text">
-    <input th:field="*{image}" type="text">
+    <input th:field="*{image}" type="text" id="Url">
     <input th:field="*{user}" type="text">
     <input type="submit" name="edit" placeholder="edit">
 
 </form>
 
+<div id="Yt">
+    <h1>Youtube images search</h1>
+    <input type="text" id="search" placeholder="type here to search Youtube">
+    <input type="submit" id="submitYt">
+</div>
+<div id="yResults">
+    <div>
+        <div id="thumbnails"></div>
+        <div id="results" value=""> </div>
+        <br>
+    </div>
+    <div id="thumbnail"></div>
+</div>
+<footer th:include="partials/footer :: footer"></footer>
 
-
+<script src="/../js/youtubeImages.js" rel="script"></script>
 
 </body>
 </html>
