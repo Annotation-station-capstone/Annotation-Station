@@ -45,12 +45,20 @@ body {
 }
 
 .btn-select{
+    line-height: 1.5;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
     background: #6c757d;
     color: white;
     font-weight: bold;
-    /*font-size: large;*/
     border-bottom-left-radius: 0.25rem;
     border-top-left-radius: 0.25rem;
+    border: #6c757d 1px solid;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .formLabel{
@@ -629,30 +637,30 @@ button[aria-label][data-balloon-pos] {
 
 
 /*carousel*/
-.row-equal .card {
-    width: 100%;
-}
+/*.row-equal .card {*/
+/*    width: 100%;*/
+/*}*/
 
-/* ensure equal card height inside carousel */
-.carousel-inner>.row-equal.active,
-.carousel-inner>.row-equal.next,
-.carousel-inner>.row-equal.prev {
-    display: flex;
-}
+/*!* ensure equal card height inside carousel *!*/
+/*.carousel-inner>.row-equal.active,*/
+/*.carousel-inner>.row-equal.next,*/
+/*.carousel-inner>.row-equal.prev {*/
+/*    display: flex;*/
+/*}*/
 
-/* prevent flicker during transition */
-.carousel-inner>.row-equal.active.left,
-.carousel-inner>.row-equal.active.right {
-    opacity: 0.5;
-    display: flex;
-}
-
-
-/* control image height */
-.card-img-top-250 {
-    max-height: 250px;
-    overflow:hidden;
-}
+/*!* prevent flicker during transition *!*/
+/*.carousel-inner>.row-equal.active.left,*/
+/*.carousel-inner>.row-equal.active.right {*/
+/*    opacity: 0.5;*/
+/*    display: flex;*/
+/*}*/
 
 
-.card-header{color:dodgerblue}
+/*!* control image height *!*/
+/*.card-img-top-250 {*/
+/*    max-height: 250px;*/
+/*    overflow:hidden;*/
+/*}*/
+
+
+/*.card-header{color:dodgerblue}*/
