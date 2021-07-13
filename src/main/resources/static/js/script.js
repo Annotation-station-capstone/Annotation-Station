@@ -348,9 +348,9 @@ $(document).ready(function () {
                     "section": {
                         "title": $("#section").val()
                     },
-                    "video": {
-                        "video_url": $("#ytId").val()
-                    },
+                    // "video": {
+                    //     "video_url": $("#ytId").val()
+                    // },
                     "note":
                         {
                             "note": $("#note").val(),

@@ -58,16 +58,8 @@ public class CreateController {
             createService.addSectionAndNote(incomingCollection.getSection(), incomingCollection.getNote());
         }else{
             System.out.println("Section already existed");
-            System.out.println("incomingCollection.getVideo().getVideo_url() = " + incomingCollection.getVideo().getVideo_url()); //correctly grabbing video YTID
-
             Section existingSection = sectionsDao.findByTitle(incomingCollection.getSection().getTitle());
-            Video existingVideo = videoDao.findVideoByvURL(incomingCollection.getVideo().getVideo_url());
-
-            System.out.println("video.getVideo_url() = " + existingVideo.getVideo_url()); //test to make sure video is going?
-
             incomingCollection.getNote().setSections(existingSection);
-            incomingCollection.getNote().setVideo(existingVideo);
-
             createService.addJustNote(incomingCollection.getNote());
         }
     }
