@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: 'GET',
-        url: '/collections/userid/1',
+        url: '/collections/public',
         dataType: "json",
         data: {},
         success:
