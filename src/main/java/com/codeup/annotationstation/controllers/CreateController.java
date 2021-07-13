@@ -3,6 +3,7 @@ package com.codeup.annotationstation.controllers;
 import com.codeup.annotationstation.Models.*;
 import com.codeup.annotationstation.daos.CollectionsRepository;
 import com.codeup.annotationstation.daos.SectionRepository;
+import com.codeup.annotationstation.daos.VideoRepository;
 import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class CreateController {
     @Autowired
     private CollectionsService collectionsService;
 
+    @Autowired
+    private VideoRepository videoDao;
+
 //    Mapping for the create page
     @GetMapping("/create")
     public String getCreatePage(){
@@ -54,8 +58,16 @@ public class CreateController {
             createService.addSectionAndNote(incomingCollection.getSection(), incomingCollection.getNote());
         }else{
             System.out.println("Section already existed");
+            System.out.println("incomingCollection.getVideo().getVideo_url() = " + incomingCollection.getVideo().getVideo_url()); //correctly grabbing video YTID
+
             Section existingSection = sectionsDao.findByTitle(incomingCollection.getSection().getTitle());
+            Video existingVideo = videoDao.findVideoByvURL(incomingCollection.getVideo().getVideo_url());
+
+            System.out.println("video.getVideo_url() = " + existingVideo.getVideo_url()); //test to make sure video is going?
+
             incomingCollection.getNote().setSections(existingSection);
+            incomingCollection.getNote().setVideo(existingVideo);
+
             createService.addJustNote(incomingCollection.getNote());
         }
     }
