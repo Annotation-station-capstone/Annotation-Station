@@ -1,6 +1,6 @@
 USE annotation_db;
 
-# truncate users;
+
 insert into users (first_name, last_name, is_admin, username, user_image, email, password)
 values('nathan','adcock',true,'NA', null, 'nathan@codeup.com', 'codeup');
 insert into users (first_name, last_name, is_admin, username, user_image, email, password)
@@ -200,13 +200,6 @@ VALUES ('This is my first annotation!', 11, '0:45',11);
 INSERT INTO notes (note, video_id, time_stamp,section_id)
 VALUES ('This is my first annotation!', 12, '0:45',12);
 SELECT * FROM notes;
-
-INSERT INTO tags (tag)
-VALUES ('HTML');
-INSERT INTO notes_tags (note_id, tag_id)
-VALUES (1, 1);
-SELECT * FROM tags;
-SELECT * FROM notes_tags;
 
 INSERT INTO comments (user_id,  collection_id, comment)
 VALUES (2, 2, 'Nice Annotation!');

@@ -31,14 +31,14 @@ public class Note {
     private String time_stamp;
 
     //many to many table includes join table for tags. notes claims ownership of tags and notes_tags
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JsonBackReference(value="tag-notes")
-    @JoinTable(
-            name = "notes_tags",
-            joinColumns = { @JoinColumn(name = "note_id") },
-            inverseJoinColumns = { @JoinColumn(name = "tag_id") }
-    )
-    private Tag tag;
+//    @ManyToOne(cascade = CascadeType.MERGE)
+//    @JsonBackReference(value="tag-notes")
+//    @JoinTable(
+//            name = "notes_tags",
+//            joinColumns = { @JoinColumn(name = "note_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "tag_id") }
+//    )
+//    private Tag tag;
 
 
     //constructors
@@ -52,13 +52,13 @@ public class Note {
     }
 
 
-    public Note(long id, String note, Video video, Section sections, String time_stamp, Tag tag) {
+    public Note(long id, String note, Video video, Section sections, String time_stamp) {
         this.id = id;
         this.note = note;
         this.video = video;
         this.sections = sections;
         this.time_stamp = time_stamp;
-        this.tag = tag;
+        //     this.tag = tag;
     }
 
     public Note(Video video, String time_stamp) {
@@ -67,9 +67,9 @@ public class Note {
     }
     //getters and setters
 
-    public Tag getTag() { return tag; }
-
-    public void setTag(Tag tags) { this.tag = tags; }
+//    public Tag getTag() { return tag; }
+//
+//    public void setTag(Tag tags) { this.tag = tags; }
 
     public long getId() {
         return id;
