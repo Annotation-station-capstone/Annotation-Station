@@ -140,6 +140,13 @@
 <!--    </form>-->
 
 
+
+<h1>Edit this collection</h1>
+<form th:action="@{/collections/edit}" th:method="GET" >
+    <input type="hidden" name="id" th:value="${param.collection_id}">
+    <input type="submit" name="edit" placeholder="edit">
+</form>
+
 <h1>Delete this collection</h1>
 <form th:action="@{/collections/delete}" th:method="POST" >
     <input type="hidden" name="id" th:value="${param.collection_id}">

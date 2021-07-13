@@ -300,7 +300,7 @@ p#get4:active{
     flex-wrap: wrap;
     width: 80%;
     height: auto;
-    margin: 13% auto 0 auto;
+    margin: 10px auto 20px auto;
     perspective: 700px;
     row-gap: 168px;
     column-gap: 40px;
