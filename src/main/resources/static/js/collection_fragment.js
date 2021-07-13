@@ -39,13 +39,9 @@ $(document).ready(function () {
                     
   <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
     Dropdown button
-  </button>
-
-  
-
-
-     
+  </button>  
 </div>
+
                     `;
                     let delete_form = '    <form class="dropdown-menu dropdown-menu-dark" action="/collections/delete" method="post" aria-labelledby="dropdownMenuButton2">\n' +
                         '\n' +
@@ -97,8 +93,7 @@ $(document).ready(function () {
                         }
                     }
                     accordian_item += body + '</div></div></div>'
-                    collection_data.append(accordian_item)
-                    deleteButton.append(delete_form);
+                    collection_data.append(accordian_item);
                 }
 
             }
