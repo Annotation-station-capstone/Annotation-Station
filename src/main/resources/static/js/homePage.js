@@ -24,7 +24,7 @@ $(document).ready(function () {
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerHome');
 
-                    let image = `<img src="${collection_image}" class='img-fluid' alt='img'><a id='${collection_id}' href='/collections/single?collection_id=${collection_id}?user_id=${userId}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
+                    let image = `<img src="${collection_image}" class='img-fluid' alt='img'><a id='${collection_id}' href='/collections/single?collection_id=${collection_id}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
 
                     let cardBody = `<div class='card-body '><h1 class='card-title'> ${collection_title} </h1><p class='card-text' > ${collection_description}</p><p>${collection_user}</p><p style="visibility: hidden">${collection_id}</p><div></div></div>`;
 
