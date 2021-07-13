@@ -7,6 +7,7 @@ import com.codeup.annotationstation.daos.CollectionsRepository;
 import com.codeup.annotationstation.daos.CommentRepository;
 import com.codeup.annotationstation.daos.UsersRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -60,25 +61,18 @@ public class CommentController {
 //    }
 
 
-
     @PostMapping("/comment/add")
     public String createComment(@RequestParam String comment,
-                                @RequestParam long  collectionId) {
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(currentUser != null){
-            System.out.println("currentUser = " + currentUser);
+                                @RequestParam long collectionId) {
+        User currentUser1 = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Collection currentCollection = collectionDao.getById(collectionId);
 
+        Comment newComment = new Comment(comment, currentCollection, currentUser1);
 
-            Collection currentCollection = collectionDao.getById(collectionId);
+        commentDao.save(newComment);
 
-            Comment newComment = new Comment(comment,currentCollection,currentUser);
+        return "redirect:/collections/single?collection_id=" + collectionId;
 
-            commentDao.save(newComment);
-
-            return "redirect:/collections/single?collection_id="+collectionId;
-
-        }
-        return "redirect:/";
     }
 }
 

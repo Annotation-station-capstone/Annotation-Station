@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/html">
 <head th:include="partials/head :: headStylesheets">
     <meta charset="UTF-8">
     <title>Index</title>
@@ -114,5 +115,6 @@
 
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/homePage.js" rel="script"></script>
+<script th:src="@{/js/passwordScript.js}"></script>
 </body>
 </html>

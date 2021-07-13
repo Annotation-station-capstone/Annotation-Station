@@ -393,49 +393,50 @@ $(document).ready(function () {
     })
 
 
-// password and confirm password are the same
-//     let password = document.getElementById("reg_password")
-//         , confirm_password = document.getElementById("confirm_password");
-//     function validatePassword(){
-//         if(password.value !== confirm_password.value) {
-//             confirm_password.setCustomValidity("Passwords Don't Match");
-//             confirm_password.style.borderColor="#f82004";
-//         } else {
-//             confirm_password.setCustomValidity('');
-//             confirm_password.style.borderColor="#0ac23b";
-//         }
-//     }
-//     password.onchange = validatePassword;
-//     confirm_password.onkeyup = validatePassword;
-//
-//     function checkPassword() {
-//         let password = document.getElementById('reg_password').value,
-//             errors = [];
-//         if (password.length < 8) {
-//             errors.push("Your password must be at least 8 characters.");
-//         }
-//         if (password.search(/[a-z]/i) < 0) {
-//             errors.push("Your password must contain at least one letter.");
-//         }
-//         if (password.search(/[0-9]/) < 0) {
-//             errors.push("Your password must contain at least one digit.");
-//         }
-//         if(password.search(/[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) < 0){
-//             errors.push("Your password must contain at least one special character.")
-//         }
-//         if (errors.length > 0) {
-//             alert(errors.join("\n"));
-//
-//         }
-//     }
-//     password.onchange = checkPassword;
-//     confirm_password.onkeyup = checkPassword;
-//
-//         $("#reg_password").keyup(function(){
-//             check_pass();
-//         });
 
-//password strength meter
+password and confirm password are the same
+    let password = document.getElementById("reg_password")
+        , confirm_password = document.getElementById("confirm_password");
+    function validatePassword(){
+        if(password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+            confirm_password.style.borderColor="#f82004";
+        } else {
+            confirm_password.setCustomValidity('');
+            confirm_password.style.borderColor="#0ac23b";
+        }
+    }
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+    function checkPassword() {
+        let password = document.getElementById('reg_password').value,
+            errors = [];
+        if (password.length < 8) {
+            errors.push("Your password must be at least 8 characters.");
+        }
+        if (password.search(/[a-z]/i) < 0) {
+            errors.push("Your password must contain at least one letter.");
+        }
+        if (password.search(/[0-9]/) < 0) {
+            errors.push("Your password must contain at least one digit.");
+        }
+        if(password.search(/[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) < 0){
+            errors.push("Your password must contain at least one special character.")
+        }
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+
+        }
+    }
+    password.onchange = checkPassword;
+    confirm_password.onkeyup = checkPassword;
+
+        $("#reg_password").keyup(function(){
+            check_pass();
+        });
+
+password strength meter
 
     function check_pass()
     {
@@ -493,6 +494,7 @@ $(document).ready(function () {
 
         }
 }
+
 
             //
             // $('.next').click(function(){ $('.carousel').carousel('next');return false; });
