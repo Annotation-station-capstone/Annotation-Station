@@ -65,10 +65,20 @@ public class CommentController {
     public String createComment(@RequestParam String comment,
                                 @RequestParam long  collectionId) {
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Collection currentCollection = collectionDao.getById(collectionId);
-        Comment newComment = new Comment(comment,currentCollection,currentUser);
-       commentDao.save(newComment);
-        return "redirect:/collections/single?collection_id="+collectionId;
+        if(currentUser != null){
+            System.out.println("currentUser = " + currentUser);
+
+
+            Collection currentCollection = collectionDao.getById(collectionId);
+
+            Comment newComment = new Comment(comment,currentCollection,currentUser);
+
+            commentDao.save(newComment);
+
+            return "redirect:/collections/single?collection_id="+collectionId;
+
+        }
+        return "redirect:/";
     }
 }
 
