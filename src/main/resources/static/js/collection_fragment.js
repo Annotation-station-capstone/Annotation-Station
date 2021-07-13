@@ -3,7 +3,7 @@ $(document).ready(function () {
     const urlSearchParam = new URLSearchParams(window.location.search);
     let entries = Object.fromEntries(urlSearchParam.entries());
     console.log(entries.collection_id);
-    console.log(entries.user_id)
+
 
     let videoUrl = '';
     let timeStamp = '';
