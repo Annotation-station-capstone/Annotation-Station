@@ -38,7 +38,8 @@ $(document).ready(function () {
 
                     console.log(collection_id);
                     $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
-                    $(buttonContainer).append("<button class='btn btn-select' id='" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>Edit/Delete</button>");
+                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit/Delete</button></div>");
+
                     console.log([i]);
                     $(`#${[i]}`).on('click', function(){
                         console.log('hello');
