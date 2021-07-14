@@ -93,7 +93,7 @@ public Section getSection(@PathVariable("collectionId") long collectionId){
 @GetMapping(value = "/collections/public")
 @ResponseBody
 public List<Collection> findAllByis_private(boolean is_private){
-    return collectionsDao.findAllBypublic();
+    return collectionsDao.findAllByPublic();
 }
 
 
