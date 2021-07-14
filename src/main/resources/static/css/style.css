@@ -297,6 +297,18 @@ p#get4:active {
     font-size: 2vw;
 }
 
+/*TODO Edit and delelt form styling*/
+.editDeleteForm{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    background-color: lightgrey;
+}
+.editDeleteFormText{
+    text-align: center;
+    font-size: 2vw;
+}
+
 /*TODO card grid system*/
 
 .resultsContainer {
@@ -304,7 +316,7 @@ p#get4:active {
     flex-wrap: wrap;
     width: 80%;
     height: auto;
-    margin: 10px auto 25px auto;
+    margin: 25px auto 25px auto;
     perspective: 700px;
     row-gap: 5%;
     column-gap: 12%;
@@ -321,6 +333,10 @@ p#get4:active {
 }
 
 .card-text{
+
+}
+
+.CImage{
 
 }
 
