@@ -44,7 +44,7 @@ $(document).ready(function () {
         e.preventDefault()
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
-        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?start=60`)
+        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}`)
         $("#ytId").attr("value", `${youtubeId}`);
         $("#userURLSubmit").removeAttr('data-balloon-visible')
         $("#collection-tip").attr('data-balloon-visible', true)

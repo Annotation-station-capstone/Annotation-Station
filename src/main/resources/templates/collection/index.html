@@ -12,7 +12,7 @@
 
 <nav th:replace="partials/header :: navbar"></nav>
 <!--<input type="hidden" name="userId" th:value="${#authentication.principal}">-->
-<div sec:authorize="isAuthenticated()">
+<div sec:authorize="isAuthenticated()" style="display: none">
     User ID: <span id="currentUser" th:text="${#authentication.principal.id}"/>
 </div>
 
