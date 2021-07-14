@@ -1,11 +1,17 @@
 $(document).ready(function () {
+
+    let currentUser = $('#currentUser').text();
+    console.log(currentUser);
     $.ajax({
         type: 'GET',
-        url: '/collections/userid/1',
+        url: `/collections/userid/${currentUser}`,
         dataType: "json",
         data: {},
         success:
             function (data) {
+                let collection_user = '';
+                let userTitle = $('#userTitle')
+                $(userTitle).append("<div class='profileBannerTop'><h1>Welcome to your Profile " + collection_user + "</h1></div>")
 
                 for (let i = 0; i < data.length; i++) {
                     // console.log(data[i]);
@@ -26,6 +32,7 @@ $(document).ready(function () {
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
 
+
                     let image = `<img src="${collection_image}" class='img-fluid shadow-4 rounded-5' alt='img'><a id='${collection_id}' href='/collections/single?collection_id=${collection_id}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
 
                     let cardBody = `<div class='card-body shadow-4 rounded-5 Ctop-card'><h1 class='card-text CTitle'> ${collection_title} </h1><p class='card-text CDescrip' > ${collection_description}</p><p class='card-text CUser'>Made by: ${collection_user}</p><p style="display: none">${collection_id}</p><div></div></div>`;
@@ -39,7 +46,6 @@ $(document).ready(function () {
                     console.log(collection_id);
                     $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
                     $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit/Delete</button></div>");
-
                     console.log([i]);
                     $(`#${[i]}`).on('click', function(){
                         console.log('hello');

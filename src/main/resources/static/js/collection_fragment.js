@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+    let currentUser = $('#currentUser').text();
+    console.log(currentUser);
     const urlSearchParam = new URLSearchParams(window.location.search);
     let entries = Object.fromEntries(urlSearchParam.entries());
     console.log(entries.collection_id);
@@ -79,7 +80,7 @@ $(document).ready(function () {
                             let singleNoteId = noteData[l].id;
                             let timeStamp = noteData[l].time_stamp;
 
-                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}">${counter++})   ${singleNote} </a></strong></div>
+                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}">${counter++})   ${singleNote} </a></strong></div>
 <!--<div class="btn-group col-4">-->
 <!--  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
 <!--    Small button-->

@@ -156,7 +156,11 @@
         </div>
 
 
+
 </form>
+<script th:inline="javascript">
+    let currentUserId = /*[[${currentUserId}]]*/ 0;
+</script>
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/youtubeSearch.js" rel="script"></script>
 <script src="/js/script.js" rel="script"></script>

@@ -2,6 +2,7 @@ $(document).ready(function () {
     console.log('im connected')
     console.info(`loadVideo called`);
 
+
     (function loadYoutubeIFrameApiScript() {
 
         var tag = document.createElement('script');
@@ -33,6 +34,7 @@ $(document).ready(function () {
         return videoID;
     }
 
+
     // function startPlayBack(){
     //     $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1?autoplay=1&rel=0`).contentWindow.location.reload(true);
     // }
@@ -42,7 +44,7 @@ $(document).ready(function () {
         e.preventDefault()
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
-        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?enablejsapi=1`)
+        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}?start=60`)
         $("#ytId").attr("value", `${youtubeId}`);
         $("#userURLSubmit").removeAttr('data-balloon-visible')
         $("#collection-tip").attr('data-balloon-visible', true)
@@ -303,11 +305,13 @@ $(document).ready(function () {
     })
 
     // //TODO Collections drop down menu create and show
-
+    let currentUser = $('#currentUser').text();
     $(document).ready(function () {
+
+        console.log(currentUser);
         $.ajax({
             type: 'GET',
-            url: '/collections/userid/1',
+            url: `/collections/userid/${currentUser}`,
             dataType: "json",
             data: {},
             success: function (data) {
@@ -339,7 +343,7 @@ $(document).ready(function () {
             data: JSON.stringify(
                 {
                     "collection": {
-                        "user": {"id": "1"},
+                        "user": {"id": `${currentUser}`},
                         "title": $("#collection").val(),
                         "is_private": "true",
                         "description": "Enter your Collection Description here",

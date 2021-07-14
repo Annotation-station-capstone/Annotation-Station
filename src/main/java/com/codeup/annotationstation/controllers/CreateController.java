@@ -7,6 +7,7 @@ import com.codeup.annotationstation.daos.VideoRepository;
 import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,9 @@ public class CreateController {
 
 //    Mapping for the create page
     @GetMapping("/create")
-    public String getCreatePage(){
+    public String getCreatePage(Model model){
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("currentUserId",currentUser.getId());
         return "create";
     }
 
