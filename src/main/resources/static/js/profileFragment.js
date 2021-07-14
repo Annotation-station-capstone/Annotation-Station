@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $.ajax({
         type: 'GET',
         url: '/collections/userid/1',
@@ -7,46 +6,57 @@ $(document).ready(function () {
         data: {},
         success:
             function (data) {
-            let collection_user1 = data[0].user.username;
-                let userTitle = $('#userTitle')
-            $(userTitle).append("<div class='profileBannerTop'><h1>Welcome to your Profile " + collection_user1 + "</h1></div>")
 
                 for (let i = 0; i < data.length; i++) {
-                    console.log(data[i]);
-                    console.log(data[i].id);
-                    console.log(data[i].is_private);
-                    console.log(data[i].image);
-                    console.log(data[i].title);
-                    console.log(data[i].description);
-                    console.log(data[i].user.username);
-
+                    // console.log(data[i]);
+                    // console.log(data[i].id);
+                    // console.log(data[i].is_private);
+                    // console.log(data[i].image);
+                    // console.log(data[i].title);
+                    // console.log(data[i].description);
+                    // console.log(data[i].user.username);
                     let collection_id = (data[i].id);
                     let collection_image = (data[i].image);
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
-
                     let collection_user = (data[i].user.username);
 
-
+                    let collection_user_id = (data[i].user.id);
+                    let userId = $('#userId.val')
 
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
+                    let buttonContainer = $('#buttonContainerProfile');
 
-                    let image = `<img src="${collection_image}" class='img-fluid' alt='img'><a class="" id='${collection_id}' href='http://localhost:8080/collections/single/?collection_id=${collection_id}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
-                                                                                                                                    //http://localhost:8080/collections/single?collection_id=6
-                    let cardBody = `<div class='card-body'><h1 class='card-title'> ${collection_title} </h1><p class='card-text' > ${collection_description}</p><p>${collection_user}</p><p style="visibility: hidden">${collection_id}</p><div></div></div>`;
+                    let image = `<img src="${collection_image}" class='img-fluid shadow-4 rounded-5' alt='img'><a id='${collection_id}' href='/collections/single?collection_id=${collection_id}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
+
+                    let cardBody = `<div class='card-body shadow-4 rounded-5 Ctop-card'><h1 class='card-text CTitle'> ${collection_title} </h1><p class='card-text CDescrip' > ${collection_description}</p><p class='card-text CUser'>Made by: ${collection_user}</p><p style="display: none">${collection_id}</p><div></div></div>`;
 
                     let sectionsHtml = '';
                     for (var j = 0; j < sections.length; j++) {
                         console.log(sections[j].title);
-                        sectionsHtml += `${sections[j].title}, `
+                        sectionsHtml += `${sections[j].title},`
                     }
-                    let currentUserId  = /*[[${currentUserId}]]*/ 0;
-                    $(cardContainer).append("<div class='col-lg-4 col-md-4 mb-4 collectionCards'><div class='card'>" + image + cardBody + '<p> Sections in this Collection: ' + sectionsHtml + '</p>' + "</div></div>");
+
+                    console.log(collection_id);
+                    $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
+                    $(buttonContainer).append("<button class='btn btn-select' id='" + data[i].id + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>Edit/Delete</button>");
+                    console.log(data[i].id);
+                    $(`#${data[i].id}`).on('click', function(){
+                        console.log('hello');
+                        $('#collectionIdField').val(this.value);
+                        // $('#userIdField').val(this.data-id);
+                    });
+
                 }
+
             }
     })
+
 })
+
+
+
 
 //     })
 // })
