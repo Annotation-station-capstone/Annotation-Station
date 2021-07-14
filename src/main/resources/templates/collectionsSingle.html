@@ -176,13 +176,13 @@
         <input name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">
     </label>
 
-
+    <input type="submit" sec:authorize="isAuthenticated()">
 
 
 
 </form>
 <!--<div th:replace="partials/comment :: commentForm"></div>-->
-<!--<input type="submit" sec:authorize="isAuthenticated()">-->
+
 <!--<div th:if="${currentUserId == param.collection_Id}">-->
 <!--    <h3>Delete this collection</h3>-->
 <!--    <form th:action="@{/collections/delete}" th:method="POST" >-->

@@ -122,7 +122,7 @@ public class CollectionsController {
 
         model.addAttribute("newComment", new Comment());
         System.out.println("collection.getId() = " + collection_id);
-        return "collectionsSingle";
+       return "collectionsSingle";
     }
 
     //User page
