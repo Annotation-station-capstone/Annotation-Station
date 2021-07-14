@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Not Found' + ${error}"></title>
+</head>
+<body>
+
+<th:block th:switch="${error}">
+    <div style="display: flex; justify-content: center; align-items: center" th:case="'Not Found'">
+         <img th:src="@{img/404error.jpeg}" alt="User" style="height: 700px"/>
+    </div>
+    <div th:case="'Forbidden'">
+        <h1>You don't have permission to view this page.</h1>
+    </div>
+</th:block>
+</body>
+</html>
