@@ -20,21 +20,8 @@ $(document).ready(function () {
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
                     let collection_user = (data[i].user.username);
-<<<<<<< HEAD
-<<<<<<< HEAD
                     let collection_user_id = (data[i].user.id);
                     let userId = $('#userId.val')
-=======
-
-
-
->>>>>>> c1f33ef3d98dca003003dfc6474be033132c9beb
-=======
-
-                    let collection_user_id = (data[i].user.id);
-                    let userId = $('#userId.val')
-
->>>>>>> 38cc51dd9f511f53263a6f31437519048a36ea0d
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
@@ -48,28 +35,17 @@ $(document).ready(function () {
                         console.log(sections[j].title);
                         sectionsHtml += `${sections[j].title},`
                     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 38cc51dd9f511f53263a6f31437519048a36ea0d
                     console.log(collection_id);
                     $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
-                    $(buttonContainer).append("<button class='btn btn-select' id='" + data[i].id + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>Edit/Delete</button>");
-                    console.log(data[i].id);
-                    $(`#${data[i].id}`).on('click', function(){
+                    $(buttonContainer).append("<button class='btn btn-select' id='" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>Edit/Delete</button>");
+                    console.log([i]);
+                    $(`#${[i]}`).on('click', function(){
                         console.log('hello');
                         $('#collectionIdField').val(this.value);
                         // $('#userIdField').val(this.data-id);
                     });
-<<<<<<< HEAD
-=======
-                    let currentUserId  = /*[[${currentUserId}]]*/ 0;
-                    $(cardContainer).append("<div class='col-lg-4 col-md-4 mb-4 collectionCards'><div class='card'>" + image + cardBody + '<p> Sections in this Collection: ' + sectionsHtml + '</p>' + "</div></div>");
->>>>>>> c1f33ef3d98dca003003dfc6474be033132c9beb
-=======
 
->>>>>>> 38cc51dd9f511f53263a6f31437519048a36ea0d
                 }
 
             }
