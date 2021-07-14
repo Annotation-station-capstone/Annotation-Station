@@ -21,7 +21,7 @@ $(document).ready(function () {
                     let collection_description = (data[i].description);
                     let collection_user = (data[i].user.username);
                     let collection_user_id = (data[i].user.id);
-                    let userId = $('#userId.val')
+                    let userId = $('#userId.val');
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
@@ -43,6 +43,9 @@ $(document).ready(function () {
                     $(`#${[i]}`).on('click', function(){
                         console.log('hello');
                         $('#collectionIdField').val(this.value);
+                        $('#colIdEdit').val(this.value);
+                        $('#colIdDelete').val(this.value);
+
                         // $('#userIdField').val(this.data-id);
                     });
 
