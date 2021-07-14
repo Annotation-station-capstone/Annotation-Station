@@ -5,7 +5,9 @@ import com.codeup.annotationstation.Models.User;
 import com.codeup.annotationstation.daos.*;
 import com.codeup.annotationstation.Models.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -126,6 +128,8 @@ public class CollectionsController {
     //User page
     @GetMapping(path="/collections/profile")
     public String getCollectionsCard(Model model) {
+       User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+       model.addAttribute("currentUserId",currentUser.getId());
         return "profileFragment";
     }
 

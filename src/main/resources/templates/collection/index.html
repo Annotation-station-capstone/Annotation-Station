@@ -11,6 +11,10 @@
 <!--nav partial-->
 
 <nav th:replace="partials/header :: navbar"></nav>
+<!--<input type="hidden" name="userId" th:value="${#authentication.principal}">-->
+<div sec:authorize="isAuthenticated()">
+    User ID: <span th:text="${#authentication.principal.id}"/>
+</div>
 
 <!--modal-->
 <div sec:authorize="!isAuthenticated()"
