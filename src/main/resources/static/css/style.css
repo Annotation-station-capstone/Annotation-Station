@@ -304,10 +304,20 @@ p#get4:active {
     flex-wrap: wrap;
     width: 80%;
     height: auto;
-    margin: 10px auto 100px auto;
+    margin: 10px auto 25px auto;
     perspective: 700px;
     row-gap: 5%;
     column-gap: 12%;
+}
+
+#buttonContainerProfile {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#buttonContainerProfile>* {
+    text-align: center;
 }
 
 .card-text{
