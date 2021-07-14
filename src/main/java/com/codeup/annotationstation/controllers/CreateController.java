@@ -3,6 +3,7 @@ package com.codeup.annotationstation.controllers;
 import com.codeup.annotationstation.Models.*;
 import com.codeup.annotationstation.daos.CollectionsRepository;
 import com.codeup.annotationstation.daos.SectionRepository;
+import com.codeup.annotationstation.daos.VideoRepository;
 import com.codeup.annotationstation.service.CollectionsService;
 import com.codeup.annotationstation.service.CreateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class CreateController {
 
     @Autowired
     private CollectionsService collectionsService;
+
+    @Autowired
+    private VideoRepository videoDao;
 
 //    Mapping for the create page
     @GetMapping("/create")
@@ -86,11 +90,10 @@ public Section getSection(@PathVariable("collectionId") long collectionId){
     return collectionsService.getSectionById(collectionId);
 }
 
-//    @GetMapping(value = "/collections/public")
-//    @ResponseBody
-//    public List<Collection> findAllByis_private(boolean is_private){
-//        return collectionsDao.findAllByis_private(false);
-//    }
-
+@GetMapping(value = "/collections/public")
+@ResponseBody
+public List<Collection> findAllByis_private(boolean is_private){
+    return collectionsDao.findAllBypublic();
+}
 
 }

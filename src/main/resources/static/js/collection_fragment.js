@@ -4,10 +4,11 @@ $(document).ready(function () {
     let entries = Object.fromEntries(urlSearchParam.entries());
     console.log(entries.collection_id);
 
+
     let videoUrl = '';
     let timeStamp = '';
     let singleNoteId = '';
-
+    let counter= 1;
 
     $.ajax({
         type: 'GET',
@@ -19,11 +20,11 @@ $(document).ready(function () {
         success:
             function (data) {
                 console.log(data);
-                // console.log(data.title);
-                // console.log(data.description);
-                // console.log(data.image);
-                // console.log(data.is_private);
-                // console.log(data.id);
+                console.log(data.title);
+                console.log(data.description);
+                console.log(data.image);
+                console.log(data.is_private);
+                console.log(data.id);
                 let collection_title = data.title;
                 let collection_description = data.description;
                 let collection_image = data.image;
@@ -37,9 +38,9 @@ $(document).ready(function () {
 
                     <div class="accordion-item w-100 row" xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center">
                     
-  <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>  
+<!--  <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--    Dropdown button-->
+<!--  </button>  -->
 </div>
 
                     `;
@@ -64,30 +65,30 @@ $(document).ready(function () {
 
                     for (let j = 0; j < sections[i].videos.length; j++) {
                         let videoData = sections[i].videos[j];
-                        // console.log(videoData.video_url);
-                        // console.log(videoData.notes);
+                        console.log(videoData.video_url);
+                        console.log(videoData.notes);
                         videoUrl = videoData.video_url;
 
 
                         let noteData = videoData.notes;
                         for (var l = 0; l < noteData.length; l++) {
-                            // console.log(noteData[l]);
-                            // console.log(noteData[l].time_stamp);
-                            // console.log(noteData[l].note);
+                            console.log(noteData[l]);
+                            console.log(noteData[l].time_stamp);
+                            console.log(noteData[l].note);
                             let singleNote = noteData[l].note;
                             let singleNoteId = noteData[l].id;
                             let timeStamp = noteData[l].time_stamp;
 
-                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" onclick="location.href='http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}'">${singleNote}: </a></strong><p>${timeStamp}</p><p>Tag</p></div>
-<div class="btn-group col-4">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Small button
-  </button>
-  <ul class="dropdown-menu">
-   <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>
-    <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>
-  </ul>
-</div></div> `;
+                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="http://localhost:8080/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}">${counter++})   ${singleNote} </a></strong></div>
+<!--<div class="btn-group col-4">-->
+<!--  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--    Small button-->
+<!--  </button>-->
+<!--  <ul class="dropdown-menu">-->
+<!--   <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>-->
+<!--    <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>-->
+<!--  </ul>-->
+<!--</div></div>--> `;
 
                             body += note_tag;
                         }

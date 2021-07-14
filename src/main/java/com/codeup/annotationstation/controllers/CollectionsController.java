@@ -64,20 +64,22 @@ public class CollectionsController {
         return "collectionsSingle";
     }
 
-    //get a collection to edit
-    @GetMapping("/collections/edit/{id}")
-    public String editCollection(@PathVariable long id, Model model){
+   // edit button links to collection by Id
+    @GetMapping("/collections/edit")
+    public String editCollection(@RequestParam long id, Model model){
         //find collection to edit
         Collection collectionToEdit = collectionsDao.getById(id);
+        model.addAttribute("collection", collectionToEdit);
         return "collection/edit";
     }
+
     //save a edited collection
     @PostMapping(value = "/collections/edit/{id}")
     public String saveEditedCollection(@PathVariable long id, @ModelAttribute Collection collection){
         //save changes made to collection
-        collection.setUser(usersDao.getById(id));//update collection at the id of ?
+        //collection.setUser(usersDao.getById(id));//update collection at the id of ?
         collectionsDao.save(collection);
-        return "redirect:/collections/{id}";
+        return "redirect:/";
     }
     //get information about collections from form to add
     @GetMapping(value= "/collection/add")
@@ -105,7 +107,7 @@ public class CollectionsController {
     @PostMapping("/collections/delete")
     public String delete(@RequestParam long id){
         collectionsDao.deleteById(id);
-        return "redirect:/";
+        return "collection/index";
     }
 
     //get form to create new collection

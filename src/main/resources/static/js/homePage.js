@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: 'GET',
-        url: '/collections/userid/1',
+        url: '/collections/public',
         dataType: "json",
         data: {},
         success:
@@ -20,7 +20,7 @@ $(document).ready(function () {
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
                     let collection_user = (data[i].user.username);
-
+                    let userId = $('#userId.val')
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerHome');
 
