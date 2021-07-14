@@ -318,6 +318,7 @@ p#get4:active {
     text-align: center;
     word-wrap: break-word;
     font-size: 2vw;
+    font-weight: bolder;
 }
 
 .CDescrip{
@@ -335,6 +336,7 @@ p#get4:active {
     padding: 10px;
     text-align: left;
     font-size: 1vw;
+    color: white;
 }
 
 .Ctop-card{
