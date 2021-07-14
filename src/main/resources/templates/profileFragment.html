@@ -45,6 +45,23 @@
 </form>
 
 
+
+
+
+<h1>Edit this collection</h1>
+<form th:action="@{/collections/edit}" th:method="GET" >
+	<input type="hidden" id="colIdEdit" name="id" value="">
+	<input type="submit" name="edit" placeholder="edit">
+</form>
+
+<h1>Delete this collection</h1>
+<form th:action="@{/collections/delete}" th:method="POST" >
+	<input type="hidden" id="colIdDelete" name="id" value="">
+	<input type="submit" name="delete" placeholder="delete">
+</form>
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 		crossorigin="anonymous"></script>
