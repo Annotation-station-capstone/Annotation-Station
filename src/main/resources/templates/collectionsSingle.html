@@ -141,6 +141,7 @@
 
 
 
+
 <h1>Edit this collection</h1>
 <form th:action="@{/collections/edit}" th:method="GET" >
     <input type="hidden" name="id" th:value="${param.collection_id}">
@@ -154,6 +155,7 @@
 </form>
 
 
+
 <div th:each="comments : ${comments}">
 
     <p th:text="${comments.user.username}"></p>
@@ -163,6 +165,7 @@
 <form th:action="@{/comment/add}" th:method="POST" >
 
     <input type="hidden" name="collectionId" th:value="${param.collection_id}">
+
 
     <label>
         <input disabled placeholder="Must be logged in to make a comment" sec:authorize="!isAuthenticated()">
@@ -176,10 +179,16 @@
 
 
 
-    <input type="submit" sec:authorize="isAuthenticated()">
+
 </form>
 <!--<div th:replace="partials/comment :: commentForm"></div>-->
-
+<input type="submit" sec:authorize="isAuthenticated()">
+<div th:if="${currentUserId == param.collection_Id}">
+    <h3>Delete this collection</h3>
+    <form th:action="@{/collections/delete}" th:method="POST" >
+        <input type="hidden" name="id" th:value="${param.collection_id}">
+        <input type="submit" name="delete" placeholder="delete">
+    </form>
 
 <div class="row">
     <ul id="comment-data"></ul>
@@ -222,7 +231,9 @@
 <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 <!--<script src="https://apis.google.com/js/api.js"></script>-->
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>-->
-
+<script th:inline="javascript">
+    let currentUserId = /*[[${currentUserId}]]*/ 0;
+</script>
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/collection_fragment.js" rel="script"></script>
 </body>

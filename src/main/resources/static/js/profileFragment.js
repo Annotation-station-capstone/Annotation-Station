@@ -28,6 +28,7 @@ $(document).ready(function () {
                     let collection_user = (data[i].user.username);
 
 
+
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
 
@@ -40,7 +41,7 @@ $(document).ready(function () {
                         console.log(sections[j].title);
                         sectionsHtml += `${sections[j].title}, `
                     }
-
+                    let currentUserId  = /*[[${currentUserId}]]*/ 0;
                     $(cardContainer).append("<div class='col-lg-4 col-md-4 mb-4 collectionCards'><div class='card'>" + image + cardBody + '<p> Sections in this Collection: ' + sectionsHtml + '</p>' + "</div></div>");
                 }
             }

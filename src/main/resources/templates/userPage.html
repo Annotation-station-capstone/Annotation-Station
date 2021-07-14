@@ -22,9 +22,12 @@
                 <div class="card-body">
                     <h5 class="card-title" th:text="${Collection.title}"></h5>
                     <p class="card-text" th:text="${Collection.description}">
-                        <button>
-                            <a href="/collection/{id}" class="btn btn-primary" th:method="GET">View Collection</a>
-                        </button>
+                    <div th:if="${loggedInUser.id == collection.userId}">
+                        <h3>Delete this collection</h3>
+                        <form th:action="@{/collections/delete}" th:method="POST" >
+                            <input type="hidden" name="id" th:value="${param.collection_id}">
+                            <input type="submit" name="delete" placeholder="delete">
+                        </form>
                 </div>
             </div>
         </div>
