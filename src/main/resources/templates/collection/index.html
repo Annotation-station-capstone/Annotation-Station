@@ -11,6 +11,10 @@
 <!--nav partial-->
 
 <nav th:replace="partials/header :: navbar"></nav>
+<!--<input type="hidden" name="userId" th:value="${#authentication.principal}">-->
+<div sec:authorize="isAuthenticated()">
+    User ID: <span th:text="${#authentication.principal.id}"/>
+</div>
 
 <!--modal-->
 <div sec:authorize="!isAuthenticated()"
@@ -96,22 +100,23 @@
 </div>
 <!--modal ends-->
 <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
-    <h2>WELCOME TO THE STATIONS PUBLIC LIBRARY</h2>
-    <br>
-    <h3>ENJOY THOUGHTFULLY ASSEMBLED COLLECTIONS OF NOTES</h3>
+    <h2 class="Cbanners">WELCOME TO THE STATIONS PUBLIC LIBRARY</h2>
+    <h3 class="Cbanners">ENJOY THOUGHTFULLY ASSEMBLED COLLECTIONS OF NOTES</h3>
 
 </div>
 
 <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
-    <h3>COLLECTIONS CURATED BY OUR ANNOTATION TEAM</h3>
+    <h3 class="Cbanners">COLLECTIONS CURATED BY OUR ANNOTATION TEAM</h3>
 </div>
 
 
-<div id="cardContainer" class='bg-image hover-overlay ripple resultsContainer' data-mdb-ripple-color='light'></div>
-
-
-
 <div id="cardContainerHome" class='bg-image hover-overlay ripple resultsContainer' data-mdb-ripple-color='light'></div>
+
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+    <h3 class="Cbanners">COLLECTIONS CURATED BY USERS LIKE YOU</h3>
+</div>
+
+<!--<div id="cardContainerHome" class='bg-image hover-overlay ripple resultsContainer' data-mdb-ripple-color='light'></div>-->
 
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/homePage.js" rel="script"></script>

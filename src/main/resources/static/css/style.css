@@ -226,7 +226,7 @@ p#get3:active{
     background-color: pink;
 }
 
-p#get4:active{
+p#get4:active {
     background-color: pink;
 }
 
@@ -293,6 +293,10 @@ p#get4:active{
     background-color: #787878 !important;
 }
 
+.Cbanners{
+    font-size: 2vw;
+}
+
 /*TODO card grid system*/
 
 .resultsContainer {
@@ -300,10 +304,43 @@ p#get4:active{
     flex-wrap: wrap;
     width: 80%;
     height: auto;
-    margin: 10px auto 20px auto;
+    margin: 10px auto 100px auto;
     perspective: 700px;
-    row-gap: 168px;
-    column-gap: 40px;
+    row-gap: 5%;
+    column-gap: 12%;
+}
+
+.card-text{
+
+}
+
+.CTitle{
+    text-align: center;
+    word-wrap: break-word;
+    font-size: 2vw;
+    font-weight: bolder;
+}
+
+.CDescrip{
+    border-top: #444444 solid 2px;
+    text-align: Center;
+    font-size: 1.5vw;
+}
+
+.CUser{
+    text-align: center;
+    font-size: 1vw;
+}
+
+.CSections{
+    padding: 10px;
+    text-align: left;
+    font-size: 1vw;
+    color: white;
+}
+
+.Ctop-card{
+    background: rgba(239, 239, 239, 0.59);
 }
 
 .card {
@@ -311,6 +348,7 @@ p#get4:active{
     display: flex;
     flex-direction: column;
     width: 20vw;
+    background: #787878;
 }
 
 /*TODO animated logo*/
