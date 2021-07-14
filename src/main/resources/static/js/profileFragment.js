@@ -20,10 +20,8 @@ $(document).ready(function () {
                     let collection_title = (data[i].title);
                     let collection_description = (data[i].description);
                     let collection_user = (data[i].user.username);
-
                     let collection_user_id = (data[i].user.id);
                     let userId = $('#userId.val')
-
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
@@ -40,9 +38,9 @@ $(document).ready(function () {
 
                     console.log(collection_id);
                     $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
-                    $(buttonContainer).append("<button class='btn btn-select' id='" + data[i].id + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>Edit/Delete</button>");
-                    console.log(data[i].id);
-                    $(`#${data[i].id}`).on('click', function(){
+                    $(buttonContainer).append("<button class='btn btn-select' id='" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>Edit/Delete</button>");
+                    console.log([i]);
+                    $(`#${[i]}`).on('click', function(){
                         console.log('hello');
                         $('#collectionIdField').val(this.value);
                         // $('#userIdField').val(this.data-id);
