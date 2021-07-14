@@ -96,4 +96,5 @@ public List<Collection> findAllByis_private(boolean is_private){
     return collectionsDao.findAllBypublic();
 }
 
+
 }

@@ -182,13 +182,13 @@
 
 </form>
 <!--<div th:replace="partials/comment :: commentForm"></div>-->
-<input type="submit" sec:authorize="isAuthenticated()">
-<div th:if="${currentUserId == param.collection_Id}">
-    <h3>Delete this collection</h3>
-    <form th:action="@{/collections/delete}" th:method="POST" >
-        <input type="hidden" name="id" th:value="${param.collection_id}">
-        <input type="submit" name="delete" placeholder="delete">
-    </form>
+<!--<input type="submit" sec:authorize="isAuthenticated()">-->
+<!--<div th:if="${currentUserId == param.collection_Id}">-->
+<!--    <h3>Delete this collection</h3>-->
+<!--    <form th:action="@{/collections/delete}" th:method="POST" >-->
+<!--        <input type="hidden" name="id" th:value="${param.collection_id}">-->
+<!--        <input type="submit" name="delete" placeholder="delete">-->
+<!--    </form>-->
 
 <div class="row">
     <ul id="comment-data"></ul>
