@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    let currentUser = $('#currentUser').text()
+    console.log(currentUser);
     $.ajax({
         type: 'GET',
         url: '/collections/public',

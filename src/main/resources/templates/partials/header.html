@@ -118,6 +118,9 @@
             <!--            <button id="search-button" type="button" class="btn btn-primary search-btn">-->
             <!--                <i class="fas fa-search search-icon"></i>-->
             <!--            </button>-->
+            <div sec:authorize="isAuthenticated()" style="display: none">
+                User ID: <span id="currentUser" th:text="${#authentication.principal.id}"/>
+            </div>
             <div class="text-light" sec:authorize="isAuthenticated()">
                 Welcome, <a href="/collections/profile"><span th:text="${#authentication.principal.username}"/></a>
             </div>
