@@ -21,7 +21,7 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
     List<Collection> findAllByTitle(String title);
 
     @Query("from Collection public where public.is_private=false")
-    List<Collection> findAllBypublic();
+    List<Collection> findAllByPublic();
 
     List<Collection> findByTitleLike(String title);
     List<Collection> findCollectionByTitleLike(String title);
@@ -31,10 +31,10 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
 
    @Query("from Collection public where public.is_private=false and public.user.is_admin")
-   List<Colleciton> findAllByPublicAndIsAdmin();
+   List<Collection> findAllByPublicAndIsAdmin();
 
     @Query("from Collection public where public.is_private=false and public.user.is_admin=false")
-    List<Colleciton> findAllByPublicAndIsNotAdmin();
+    List<Collection> findAllByPublicAndIsNotAdmin();
 
 
     
