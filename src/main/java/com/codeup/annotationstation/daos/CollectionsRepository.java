@@ -30,6 +30,13 @@ public interface CollectionsRepository extends JpaRepository<Collection, Long> {
     List<Collection> findByUser(User user);
 
 
+   @Query("from Collection public where public.is_private=false and public.user.is_admin")
+   List<Colleciton> findAllByPublicAndIsAdmin();
+
+    @Query("from Collection public where public.is_private=false and public.user.is_admin=false")
+    List<Colleciton> findAllByPublicAndIsNotAdmin();
+
+
     
     List<Collection> findFirst10ByTitleOrderByTitleDesc(String title);
 
