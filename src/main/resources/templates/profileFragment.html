@@ -22,23 +22,10 @@
 
 <div id="userTitle"></div>
 
+<div id="cardContainerProfile" class='bg-image hover-overlay ripple resultsContainer'
+	 data-mdb-ripple-color='light'></div>
 
-<div id="cardContainerProfile" class='bg-image hover-overlay ripple resultsContainer' data-mdb-ripple-color='light'></div>
-
-
-<div id="buttonContainerProfile">
-
-</div>
-
-<form disabled style="display: none">
-	<div class="mb-3">
-		<label for="collectionIdField" class="form-label">Collection ID</label>
-		<input type="text" class="form-control" id="collectionIdField" aria-describedby="collectionId" >
-	</div>
-</form>
-
-
-
+<div id="buttonContainerProfile"></div>
 
 <div class="row editDeleteForm p-4 m-4 shadow-4 rounded-3 jumbotron">
 	<div class="col-1"></div>
@@ -56,8 +43,16 @@
 	<input type="submit" id='submitDelete' name="delete" placeholder="delete">
 </form>
 		</div>
-	<div class="col-1"></div>
+
 </div>
+
+
+<form disabled style="display: none">
+	<div class="mb-3">
+		<label for="collectionIdField" class="form-label">Collection ID</label>
+		<input type="text" class="form-control" id="collectionIdField" aria-describedby="collectionId" >
+	</div>
+</form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
