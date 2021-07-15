@@ -10,7 +10,7 @@
 <body>
 
 
-<form th:action="@{/sign-up}" method="post" th:object="${user}">
+<form class="justify-content-center" th:action="@{/sign-up}" method="post" th:object="${user}">
     <div class="form-group">
         <label for="firstName">First Name</label>
         <input required name="first_name" th:type="text" class="form-control" id="firstName" placeholder="Enter First Name"
@@ -55,7 +55,7 @@
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+        <button href="/" type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
             Close
         </button>
 
