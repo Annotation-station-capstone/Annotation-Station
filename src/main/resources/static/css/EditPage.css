@@ -1,0 +1,52 @@
+p{
+    margin-top: 1rem;
+    margin-bottom: 0px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+#Yt{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p#get0:hover{
+    background-color: #A0A0A0;
+}
+
+p#get1:hover{
+    background-color: #A0A0A0;
+}
+
+p#get2:hover{
+    background-color: #A0A0A0;
+}
+
+p#get3:hover{
+    background-color: #A0A0A0;
+}
+
+p#get4:hover{
+    background-color: #A0A0A0;
+}
+
+p#get0:active{
+    background-color: pink;
+}
+
+p#get1:active{
+    background-color: pink;
+}
+
+p#get2:active{
+    background-color: pink;
+}
+
+p#get3:active{
+    background-color: pink;
+}
+
+p#get4:active {
+    background-color: pink;
+}

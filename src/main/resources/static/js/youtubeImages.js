@@ -108,7 +108,14 @@ $(document).ready(function() {
         console.log(id4);
     })
 
-
+    // $( window ).load(function() {
+    //     $('#hiddenUrl').val($('#Url').val())
+    // });
+    // let pastedUrl = $('#hiddenUrl').val();
+    // let UrlVal = $('#Url').val()
+    // if (UrlVal !== pastedUrl){
+    //     alert("Image updated");
+    // }
 
 
 });

@@ -48,16 +48,45 @@ $(document).ready(function () {
 
                     console.log(collection_id);
                     $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
-                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit/Delete</button></div>");
+                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button></div>");
+                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button></div>")
+                    ;
+
                     console.log([i]);
-                    $(`#${[i]}`).on('click', function(){
+                    $(`#${'edit'+[i]}`).on('click', function(){
                         console.log('hello');
                         $('#collectionIdField').val(this.value);
                         $('#colIdEdit').val(this.value);
                         $('#colIdDelete').val(this.value);
 
+                        if ((`#${'edit'+[i]}`).val !== ""){
+                            $('#linkToEdit').submit();
+                            console.log("BANG!");
+                        }
                         // $('#userIdField').val(this.data-id);
                     });
+
+
+                        $(`#${'delete'+[i]}`).on('click', function(){
+                        console.log('hello');
+                        $('#collectionIdField').val(this.value);
+                        $('#colIdEdit').val(this.value);
+                        $('#colIdDelete').val(this.value);
+                            $('#linkToDelete').submit();
+
+
+                            // if ((`#${'delete'+[i]}`).val !== ""){
+                            //     var confirmation = confirm("Are you sure you want to delete?");
+                            //     if (confirmation === true) {
+                            //         $('#linkToDelete').submit();
+                            //     } else {
+                            //         console.log("did not delete");
+                            //     }
+                            // }
+
+                        // $('#userIdField').val(this.data-id);
+                    });
+
 
                 }
 
@@ -66,42 +95,3 @@ $(document).ready(function () {
 
 })
 
-
-
-
-//     })
-// })
-
-// var collection_data = ('#collection-data');
-// var collection_title = ('.title');
-// var section_data = ('#section-data');
-// var comment_data = ('#comment-data')
-// $(collection_title).text("You selected the " + data.title + " Collection");
-// $(collection_title).text("You selected the " + data.title + " Collection");
-// $(collection_data).append("<li> " + data.description + "</li>");
-// $("#collection_image").attr("src", data.image);
-// $(collection_data).append(data.is_private);
-
-// $('.top_accord').attr('id','section'+i);
-// $('.anchor-accord').attr('data-bs-target', '#collapse'+i).attr('aria-controls', '#collapse'+i);
-// $('.bottom_accord').attr('aria-labelledby', 'section'+i);
-// $(section_data).append("<div class='accordion-item top_accord' style='width: 1000px'><h2 class='accordion-header' id='section'><a class='accordion-button anchor-accord' type='button' data-bs-toggle='collapse' data-bs-target='#collapse[i]' aria-expanded='true' aria-controls='collapse[i]'> " + sections[i].title + " </a></h2></div></div>");
-
-// <div class="col-lg-4 col-md-4 mb-4" th:each="Collection: ${collection}">
-//     <div class="card">
-//         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-//             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"
-//                  alt="img"/>
-//             <a href="#">
-//                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-//             </a>
-//         </div>
-//         <div class="card-body">
-//             <h5 class="card-title" th:text="${Collection.title}"></h5>
-//             <p class="card-text" th:text="${Collection.description}">
-//                 <div th:if="${single}"></div>
-//                 <p><a th:href="${singleCollection}" class="btn btn-primary" th:method="GET">View
-//                     Collection</a></p>
-//         </div>
-//     </div>
-// </div>
