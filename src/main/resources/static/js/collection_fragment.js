@@ -34,6 +34,7 @@ $(document).ready(function () {
                 let collection_data = $('#section-data');
                 let deleteButton = $('#delete');
                 let sections = data.sections;
+                $('#collectionTitle').append(collection_title);
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
 
