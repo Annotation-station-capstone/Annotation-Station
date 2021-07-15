@@ -23,9 +23,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class CreateController {
 
     @Autowired
-    private SectionRepository sectionsDao;
-
-    @Autowired
     private CollectionsRepository collectionsDao;
 
     @Autowired
@@ -34,8 +31,6 @@ public class CreateController {
     @Autowired
     private CollectionsService collectionsService;
 
-    @Autowired
-    private VideoRepository videoDao;
 
 //    Mapping for the create page
     @GetMapping("/create")
@@ -49,22 +44,7 @@ public class CreateController {
     @RequestMapping(value = "/collections/create", method = POST)
     @ResponseBody
     public void add(@RequestBody IncomingCollection incomingCollection) {
-        int collectionbyNameSize = collectionsDao.findAllByTitle(incomingCollection.getCollection().getTitle()).size();
-        int sectionbyNameSize = sectionsDao.findAllByTitle(incomingCollection.getSection().getTitle()).size();
-
-        if (collectionbyNameSize == 0) {
-            createService.addCollection(incomingCollection.getCollection(), incomingCollection.getSection(), incomingCollection.getNote());
-        }if(sectionbyNameSize == 0){
-            System.out.println("Collection already existed");
-            Collection existingCollection = collectionsDao.findByTitle(incomingCollection.getCollection().getTitle());
-            incomingCollection.getSection().setCollection(existingCollection);
-            createService.addSectionAndNote(incomingCollection.getSection(), incomingCollection.getNote());
-        }else{
-            System.out.println("Section already existed");
-            Section existingSection = sectionsDao.findByTitle(incomingCollection.getSection().getTitle());
-            incomingCollection.getNote().setSections(existingSection);
-            createService.addJustNote(incomingCollection.getNote());
-        }
+        createService.addSectionAndNote(incomingCollection);
     }
 
 

@@ -13,6 +13,9 @@ import java.util.List;
 @Repository
 public interface CollectionsRepository extends JpaRepository<Collection, Long> {
 
+    @Query(value="select * from collections col where col.title = :title AND col.user_id = :user",nativeQuery = true)
+    List<Collection> findAllByTitleAndByUser(String title, long user);
+
     Collection findByTitle(String title); // select * from collection where title= ?
 
     Collection findFirstById(long id);
