@@ -17,32 +17,46 @@
 
 </head>
 
-<body style="background-color: royalblue">
+<body>
 <nav th:replace="partials/header :: navbar"></nav>
 
 <div id="userTitle"></div>
 
 
-<div id="cardContainerProfile" class='bg-image hover-overlay ripple resultsContainer' data-mdb-ripple-color='light'></div>
+<div id="cardContainerProfile" class='bg-image hover-overlay ripple resultsContainer'
+	 data-mdb-ripple-color='light'></div>
 
-<div id="buttonContainerProfile"></div>
 
-<form>
-	<div class="mb-3">
-		<label for="collectionIdField" class="form-label">Collection ID</label>
-		<input type="text" class="form-control" id="collectionIdField" aria-describedby="collectionId">
-	</div>
-	<div class="mb-3">
-		<label for="userIdField" class="form-label">Password</label>
-		<input type="text" class="form-control" id="userIdField">
-	</div>
-	<div class="mb-3 form-check">
-		<input type="checkbox" class="form-check-input" id="exampleCheck1">
-		<label class="form-check-label" for="exampleCheck1"></label>
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div>
+	<div id="buttonContainerProfile"></div>
 
+	<form disabled style="display: none">
+		<div class="mb-3">
+			<label for="collectionIdField" class="form-label">Collection ID</label>
+			<input type="text" class="form-control" id="collectionIdField" aria-describedby="collectionId">
+		</div>
+	</form>
+
+
+	<div class="row editDeleteForm p-4 m-4 shadow-4 rounded-3 jumbotron">
+		<div class="col-1"></div>
+		<div class="col-5">
+			<h1 class="editDeleteFormText">Edit this collection</h1>
+			<form th:action="@{/collections/edit}" th:method="GET">
+				<input type="hidden" id="colIdEdit" name="id" value="">
+				<input type="submit" name="edit" placeholder="edit">
+			</form>
+		</div>
+		<div class="col-5">
+			<h1 class="editDeleteFormText">Delete this collection</h1>
+			<form th:action="@{/collections/delete}" th:method="POST">
+				<input type="hidden" id="colIdDelete" name="id" value="">
+				<input type="submit" name="delete" placeholder="delete">
+			</form>
+		</div>
+		<div class="col-1"></div>
+	</div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

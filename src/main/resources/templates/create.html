@@ -48,7 +48,7 @@
     </div>
 </form>
 <div class="video-container">
-<iframe id="videoPlayer" src="https://www.youtube.com/embed/7AP86CYeR30?enablejsapi=1" title="YouTube video player"
+<iframe id="videoPlayer" src="https://www.youtube.com/embed/cb0ESeX81tA?enablejsapi=1" title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
 </div>
 <form class="form" id="notesForm" method="post">
@@ -156,7 +156,11 @@
         </div>
 
 
+
 </form>
+<script th:inline="javascript">
+    let currentUserId = /*[[${currentUserId}]]*/ 0;
+</script>
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/youtubeSearch.js" rel="script"></script>
 <script src="/js/script.js" rel="script"></script>

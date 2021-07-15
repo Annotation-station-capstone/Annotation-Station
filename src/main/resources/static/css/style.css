@@ -1,8 +1,5 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-*{
-    margin: 0;
-    padding: 0;
-}
+
 @font-face {
     font-family: "Montserrat";
     src: url("../fonts/Montserrat/Montserrat-Regular.ttf") format("TrueType");
@@ -16,8 +13,8 @@ body {
 }
 
 .title{
-    width: 90%;
-    margin: 2em auto 0em auto;
+    width: 100%;
+    margin: 2em auto 0 auto;
     display: flex;
     justify-content: center;
     font-weight: bold;
@@ -174,10 +171,11 @@ form{
 
 div#Yt{
     display: flex;
+    text-align: center;
     align-self: center;
     margin: auto;
-    width: 1728px;
-    padding: 35px 35px 0 5px;
+    width: 100%;
+    padding: 50px 90px 0 90px;
     font-weight: bold;
     font-size: x-large;
 }
@@ -186,7 +184,6 @@ div#yResults{
     display: flex;
     align-self: center;
     margin: auto;
-    width: 1728px;
     padding: 5px 5px 0 5px;
 }
 
@@ -297,6 +294,18 @@ p#get4:active {
     font-size: 2vw;
 }
 
+/*TODO Edit and delelt form styling*/
+.editDeleteForm{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    background-color: lightgrey;
+}
+.editDeleteFormText{
+    text-align: center;
+    font-size: 2vw;
+}
+
 /*TODO card grid system*/
 
 .resultsContainer {
@@ -304,13 +313,27 @@ p#get4:active {
     flex-wrap: wrap;
     width: 80%;
     height: auto;
-    margin: 10px auto 100px auto;
+    margin: 25px auto 25px auto;
     perspective: 700px;
     row-gap: 5%;
     column-gap: 12%;
 }
 
+#buttonContainerProfile {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#buttonContainerProfile>* {
+    text-align: center;
+}
+
 .card-text{
+
+}
+
+.CImage{
 
 }
 

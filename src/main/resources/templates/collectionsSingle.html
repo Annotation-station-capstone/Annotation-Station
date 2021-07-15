@@ -142,17 +142,17 @@
 
 
 
-<h1>Edit this collection</h1>
-<form th:action="@{/collections/edit}" th:method="GET" >
-    <input type="hidden" name="id" th:value="${param.collection_id}">
-    <input type="submit" name="edit" placeholder="edit">
-</form>
+<!--<h1>Edit this collection</h1>-->
+<!--<form th:action="@{/collections/edit}" th:method="GET" >-->
+<!--    <input type="hidden" name="id" th:value="${param.collection_id}">-->
+<!--    <input type="submit" name="edit" placeholder="edit">-->
+<!--</form>-->
 
-<h1>Delete this collection</h1>
-<form th:action="@{/collections/delete}" th:method="POST" >
-    <input type="hidden" name="id" th:value="${param.collection_id}">
-        <input type="submit" name="delete" placeholder="delete">
-</form>
+<!--<h1>Delete this collection</h1>-->
+<!--<form th:action="@{/collections/delete}" th:method="POST" >-->
+<!--    <input type="hidden" name="id" th:value="${param.collection_id}">-->
+<!--        <input type="submit" name="delete" placeholder="delete">-->
+<!--</form>-->
 
 
 
@@ -176,13 +176,13 @@
         <input name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">
     </label>
 
-
+    <input type="submit" sec:authorize="isAuthenticated()">
 
 
 
 </form>
 <!--<div th:replace="partials/comment :: commentForm"></div>-->
-<!--<input type="submit" sec:authorize="isAuthenticated()">-->
+
 <!--<div th:if="${currentUserId == param.collection_Id}">-->
 <!--    <h3>Delete this collection</h3>-->
 <!--    <form th:action="@{/collections/delete}" th:method="POST" >-->
