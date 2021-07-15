@@ -29,21 +29,21 @@
 <div id="buttonContainerProfile"></div>
 
 <div class="row editDeleteForm p-4 m-4 shadow-4 rounded-3 jumbotron">
-	<div class="col-1"></div>
-	<div class="col-5">
+
+
 <h1 class="editDeleteFormText" style="display: none">Edit this collection</h1>
 <form th:action="@{/collections/edit}" th:method="GET" id="linkToEdit" style="display: none">
 	<input type="hidden" id="colIdEdit" name="id" value="">
 	<input type="submit" id='submitEdit' name="edit" placeholder="edit">
 </form>
-	</div>
-		<div class="col-5">
+
+
 <h1 class="editDeleteFormText" style="display: none">Delete this collection</h1>
 <form th:action="@{/collections/delete}" th:method="POST" id="linkToDelete" style="display: none">
 	<input type="hidden" id="colIdDelete" name="id" value="">
 	<input type="submit" id='submitDelete' name="delete" placeholder="delete">
 </form>
-		</div>
+
 
 </div>
 

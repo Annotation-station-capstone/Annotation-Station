@@ -70,19 +70,18 @@ $(document).ready(function () {
                         $(`#${'delete'+[i]}`).on('click', function(){
                         console.log('hello');
                         $('#collectionIdField').val(this.value);
-                        $('#colIdEdit').val(this.value);
                         $('#colIdDelete').val(this.value);
-                            $('#linkToDelete').submit();
 
 
-                            // if ((`#${'delete'+[i]}`).val !== ""){
-                            //     var confirmation = confirm("Are you sure you want to delete?");
-                            //     if (confirmation === true) {
-                            //         $('#linkToDelete').submit();
-                            //     } else {
-                            //         console.log("did not delete");
-                            //     }
-                            // }
+
+                            if ((`#${'delete'+[i]}`).val !== ""){
+                                var confirmation = confirm("Are you sure you want to delete?");
+                                if (confirmation === true) {
+                                    $('#linkToDelete').submit();
+                                } else {
+                                    console.log("did not delete");
+                                }
+                            }
 
                         // $('#userIdField').val(this.data-id);
                     });
