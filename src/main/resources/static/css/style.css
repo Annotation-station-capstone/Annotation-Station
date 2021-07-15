@@ -6,15 +6,37 @@
 }
 
 body {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: "Montserrat", serif;
+    background:
+            linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
+            linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+            linear-gradient(315deg, black 25%, transparent 25%),
+            linear-gradient(45deg, black 25%, transparent 25%);
+    background-size: 2em 2em;
+    background-color: #232323;
 }
+
+/*body{*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    background-color: steelblue;*/
+/*    background-size: 53px 53px;*/
+/*    background-image: radial-gradient(*/
+/*            transparent 28px,*/
+/*            lightgray 28px,*/
+/*            lightgray 32px,*/
+/*            transparent 32px*/
+/*    );*/
+/*}*/
+
+/*body {*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    font-family: "Montserrat", serif;*/
+/*}*/
 
 .title{
     width: 100%;
-    margin: 2em auto 0 auto;
     display: flex;
     justify-content: center;
     font-weight: bold;
@@ -24,7 +46,7 @@ body {
 
 .explanation{
     width: 70%;
-    margin: 2em auto 0 auto;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     font-weight: bold;
@@ -59,6 +81,7 @@ body {
 }
 
 .formLabel{
+    color: lightgray;
     display: flex;
     align-self: center;
     width: 100%;
@@ -171,6 +194,7 @@ form{
 
 div#Yt{
     display: flex;
+    color: lightgray;
     text-align: center;
     align-self: center;
     margin: auto;
@@ -367,12 +391,15 @@ p#get4:active {
 }
 
 .card {
-    /*position: relative;*/
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
-    background: #787878;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 17px #000;
+    background: linear-gradient(90deg,
+    darkgray, gray);
 }
+
 
 /*TODO animated logo*/
 
