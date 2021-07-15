@@ -524,9 +524,9 @@ p#get4:active {
 {
     margin-left:0%;
     height:35px;
-    width:377px;
+    /*width:377px;*/
     border-radius:3px;
-    border:1px solid grey;
+    /*border:1px solid grey;*/
     padding:10px;
     font-size:18px;
 }
@@ -560,7 +560,15 @@ p#get4:active {
     --balloon-text-color: #fff;
     --balloon-font-size: 20px;
     --balloon-move: 10px; }
-
+.modal-body{
+    padding-left: 6em;
+}
+.modal-footer{
+    padding-right: 2.5em;
+}
+/*.modal-header{*/
+/*    text-align: center;*/
+/*}*/
 
 
 
