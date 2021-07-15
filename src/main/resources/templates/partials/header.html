@@ -14,8 +14,8 @@
 					aria-expanded="false">
 				<div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
 			</button>
-			<div class="dropdown-menu text-center mx-auto" style="width: 320px">
-				<form class="px-4 py-3" th:action="@{/}" th:method="post">
+			<div class="dropdown-menu text-center mx-auto " style="width: 320px">
+				<form class="px-4 py-3 mt-3 mx-auto" th:action="@{/}" th:method="post">
 					<!-- Username input -->
 					<div class="form-outline mb-4  text-center">
 						<input id="username" class="form-control" name="username" type="text"/>
@@ -26,9 +26,21 @@
 							<input type="password" id="password" name="password" class="form-control"/>
 							<label class="form-label" for="password">Password</label>
 						</div>
+<!--						form notch for username-->
+						<div class=" form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 62px;"></div>
+						<div class="form-notch-trailing"></div>
+						</div>
+					</div>
+<!--					form notch for password-->
+					<div class=" form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 60px;"></div>
+						<div class="form-notch-trailing"></div>
 					</div>
 					<!-- Submit button -->
-					<button type="submit" value="signIn" class="btn btn-primary btn-block text-center ml-3">Sign in
+					<button type="submit" value="signIn" class="btn btn-primary btn-block text-center mr-2">Sign in
 					</button>
 					<div class="alert-danger mx-auto" th:if="${param.error}">
 						<script>
