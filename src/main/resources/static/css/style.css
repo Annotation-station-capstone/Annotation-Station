@@ -8,11 +8,10 @@
 
 
 body {
-<<<<<<< HEAD
+
 
     width: 100%;
-=======
->>>>>>> d1520875f030b73d788cf4b4333b9ac21e7a4e9f
+
     display: flex;
     flex-direction: column;
     min-height: 100vh;
