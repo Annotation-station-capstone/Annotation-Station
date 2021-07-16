@@ -39,56 +39,54 @@ public class CreateService {
 
     public void addSectionAndNote(IncomingCollection incomingCollection) {
         List<Collection> existingCollections = collectionsRepository.findAllByTitleAndByUser(incomingCollection.getCollection().getTitle(), incomingCollection.getUser().getId());
-        List<Section> existingSections = sectionRepository.findAllByTitleAndByCollection(incomingCollection.getSection().getTitle(), incomingCollection.getCollection().getId());
+
         if (CollectionUtils.isEmpty(existingCollections)) {
             addCollection(incomingCollection.getCollection(), incomingCollection.getSection(), incomingCollection.getNote());
         } else {
-            System.out.println("Collection already existed");
+
+            System.out.println("Collection already exists");
+
             Collection existingCollection = collectionsRepository.findByTitle(incomingCollection.getCollection().getTitle());
             List<Section> sections = existingCollection.getSections();
-            Section newSection= new Section(incomingCollection.getSection().getTitle(), existingCollection);
+
+            Section newSection = new Section(incomingCollection.getSection().getTitle(), existingCollection);
+
             boolean addSection = true;
+            int i = 0;
             for (var section : sections ) {
                 if (section.getTitle().equals(incomingCollection.getSection().getTitle())) {
                     newSection = section;
                     addSection = false;
                     break;
                 }
+                i++;
             }
+
+            Video video = incomingCollection.getVideo();
+            video.setSection(newSection);
+
+            Note note = incomingCollection.getNote();
+            note.setSections(newSection);
+            note.setVideo(incomingCollection.getVideo());
+
+            List<Note> sectionNotes = newSection.getNotes();
+            sectionNotes.add(note);
+            newSection.setNotes(sectionNotes);
+
+            List<Video> sectionVideos = newSection.getVideos();
+            sectionVideos.add(video);
+            newSection.setVideos(sectionVideos);
 
             if (addSection) {
                 sections.add(newSection);
+            } else {
+                sections.set(i, newSection);
             }
-            Note note = incomingCollection.getNote();
-            note.setSections(newSection);
 
-            for (var section : sections ) {
-                if (existingCollection.equals(section.getCollection())) {
-                    if (!CollectionUtils.isEmpty(section.getNotes())) {
-                        if (section.getId() == newSection.getId()) {
-//                            Video video = incomingCollection.getVideo();
-//                            video.setSection(section);
-//                            note.setVideo(video);
-                            note.setSections(section);
-                            section.getNotes().add(note);
-//                            section.getVideos().add(video);
-                        }
-                    } else {
-                        List<Note> newNotes = new ArrayList();
-                        newNotes.add(note);
-                        section.setNotes(newNotes);
-                    }
-                }
-                if (!CollectionUtils.isEmpty(section.getVideos())) {
-                    if (!section.getVideos().contains(incomingCollection.getVideo())) {
-                        incomingCollection.getVideo().setSection(section);
-                        section.getVideos().add(incomingCollection.getVideo());
-                    }
-                }
-            };
             existingCollection.setSections(sections);
             collectionsRepository.save(existingCollection);
         }
+    }
 
 //        public void addSectionAndNote(IncomingCollection incomingCollection)  {
 //            List<Collection> existingCollections = collectionsRepository.findAllByTitleAndByUser(incomingCollection.getCollection().getTitle(), incomingCollection.getUser().getId());
@@ -127,7 +125,7 @@ public class CreateService {
 //                collectionsRepository.save(existingCollection);
 //            }
 
-    }
+
 
     public void addJustNote(Note note) {
 
