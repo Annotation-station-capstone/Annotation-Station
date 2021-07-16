@@ -20,7 +20,8 @@ $(document).ready(function() {
                     let url = defaultThumbnails.url;
                     let title = snippet.title;
                     let vidId = video.id.videoId;
-                    $('#results').append("<p id='get" + [i] +"' value='" + vidId + "'><img id='img'" + [i]+ " src ='" + url +  "'> " + title + " </p>");
+                    $('#results').append("<div id='YTcard"+ [i] +"' class='YTcard col'><p id='get" + [i] +"' value='" + vidId + "' class='YTtitle'><img class='tubeThumbs YTImage' id='img'" + [i]+ " src ='" + url +  "'> " + title + " </p></div>");
+                    // $('#results').append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'><div class='card-body shadow-4 rounded-5 Ctop-card'><img class='img-fluid shadow-4 rounded-5 CImage' alt='img' id='img'" + [i]+ " src ='" + url +  "'><h6 class='card-text YTtitle' > " + title + " </h6><div class='mask'style='background-color: rgba(251, 251, 251, 0.15);'></div></div></div></div>");
                     console.log($("#get0").attr('value'));
                     console.log($("#get1").attr('value'));
                     console.log($("#get2").attr('value'));

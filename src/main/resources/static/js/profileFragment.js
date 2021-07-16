@@ -32,7 +32,7 @@ $(document).ready(function () {
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
-
+                    $('#bannerUser').append(collection_user);
 
 
 
@@ -47,10 +47,10 @@ $(document).ready(function () {
                     }
 
                     console.log(collection_id);
-                    $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
-                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button></div>");
-                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button></div>")
-                    ;
+                    $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' +  "</div> " + "<div ><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button>" +"</div>");
+                    // $('.collectionCards').append("<div ><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button></div>");
+                    // $('.collectionCards').append("<div ><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button></div>")
+                    // ;
 
                     console.log([i]);
                     $(`#${'edit'+[i]}`).on('click', function(){
@@ -70,19 +70,18 @@ $(document).ready(function () {
                         $(`#${'delete'+[i]}`).on('click', function(){
                         console.log('hello');
                         $('#collectionIdField').val(this.value);
-                        $('#colIdEdit').val(this.value);
                         $('#colIdDelete').val(this.value);
-                            $('#linkToDelete').submit();
 
 
-                            // if ((`#${'delete'+[i]}`).val !== ""){
-                            //     var confirmation = confirm("Are you sure you want to delete?");
-                            //     if (confirmation === true) {
-                            //         $('#linkToDelete').submit();
-                            //     } else {
-                            //         console.log("did not delete");
-                            //     }
-                            // }
+
+                            if ((`#${'delete'+[i]}`).val !== ""){
+                                var confirmation = confirm("Are you sure you want to delete?");
+                                if (confirmation === true) {
+                                    $('#linkToDelete').submit();
+                                } else {
+                                    console.log("did not delete");
+                                }
+                            }
 
                         // $('#userIdField').val(this.data-id);
                     });

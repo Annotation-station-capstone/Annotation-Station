@@ -97,8 +97,14 @@
 <!--</div>-->
 
 
-<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
-    <h3 class="personalcollectionbanner">Collection: <span id="collectionTitle"></span></h3>
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: darkgrey;">
+    <h2 class="personalcollectionbanner"><span id="bannerUser"></span>, here is your collection: <span id="collectionTitle"></span></h2>
+    <hr>
+    <div class="row">
+    <img src="" id="collectionImage" class="col-2 offset-3">
+    <h3 id="collectionDescription" class="col-2 offset-1"> <br> Title: <span id="collectionTitle2"></span> </h3>
+
+</div>
 </div>
 <div class="row">
     <div class="col-1"></div>
@@ -116,19 +122,19 @@
             <ul id="collection-data"></ul>
         </div>
     </div>
-    <div class="col-3">
-        <p>SET COLLECTION TO PUBLIC
-            <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-            </label></p>
-<!--        <form method="POST" action="#">-->
-<!--            <input type="hidden" id="newId" name="newId" th:value="${newId}">-->
-<!--            <label for="#"></label>-->
-<!--            <input id="#" placeholder="ADD URL FOR A COLLECTION IMAGE" type="text">-->
-<!--            <input type="submit">-->
-<!--        </form>-->
-    </div>
+<!--    <div class="col-3">-->
+<!--        <p>SET COLLECTION TO PUBLIC-->
+<!--            <label class="switch">-->
+<!--                <input type="checkbox" checked>-->
+<!--                <span class="slider round"></span>-->
+<!--            </label></p>-->
+<!--&lt;!&ndash;        <form method="POST" action="#">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="hidden" id="newId" name="newId" th:value="${newId}">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label for="#"></label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input id="#" placeholder="ADD URL FOR A COLLECTION IMAGE" type="text">&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="submit">&ndash;&gt;-->
+<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--    </div>-->
     <div class="col-1"></div>
 </div>
 
@@ -241,6 +247,9 @@
 </script>
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/collection_fragment.js" rel="script"></script>
+<script src="/js/profilefragment.js" rel="script"></script>
+<script src="/js/carouselFragment.js" rel="script"></script>
+
 </body>
 
 </html>

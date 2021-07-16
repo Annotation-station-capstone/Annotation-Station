@@ -12,6 +12,9 @@ import java.util.List;
 
 @Repository
 public interface SectionRepository extends JpaRepository<Section, Long> {
+
+    @Query(value = "select * from sections s where s.title= :title AND s.collection_id=:collection",nativeQuery = true)
+    List<Section> findAllByTitleAndByCollection(String title, long collection);
     List<Section> findSectionsByCollectionId (long id);
     Section findAllById (long id);
     Section findFirstById (long id);
