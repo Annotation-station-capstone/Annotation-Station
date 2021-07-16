@@ -44,7 +44,7 @@ $(document).ready(function () {
         e.preventDefault()
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
-        player.loadVideoById(youtubeId)
+        player.loadVideoById(youtubeId, 0)
         // $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}`)
         $("#ytId").attr("value", `${youtubeId}`);
         $("#userURLSubmit").removeAttr('data-balloon-visible')
@@ -298,8 +298,11 @@ $(document).ready(function () {
         console.log(entries.timeStamp, 'test again');
         let videoId=entries.url;
         let timeStamp=entries.timeStamp;
-        let youTubeVideoUrl= `https://www.youtube.com/embed/${videoId}?enablejsapi=1&start=${timeStamp}`
-        $('#videoPlayer').attr('src', youTubeVideoUrl)
+        if(videoId === undefined || timeStamp === undefined) {}
+        else{
+                let youTubeVideoUrl = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&start=${timeStamp}`
+                $('#videoPlayer').attr('src', youTubeVideoUrl)
+            }
     })
 
     // //TODO Collections drop down menu create and show
