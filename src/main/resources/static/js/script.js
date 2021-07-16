@@ -44,7 +44,8 @@ $(document).ready(function () {
         e.preventDefault()
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
-        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}`)
+        player.loadVideoById(youtubeId, 0)
+        // $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}`)
         $("#ytId").attr("value", `${youtubeId}`);
         $("#userURLSubmit").removeAttr('data-balloon-visible')
         $("#collection-tip").attr('data-balloon-visible', true)
@@ -79,7 +80,7 @@ $(document).ready(function () {
         // var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
         // var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
         // var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
-        var time = Math.ceil(seconds); /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
+       var time = Math.ceil(seconds); /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
         return time;
     }
 
@@ -192,6 +193,7 @@ $(document).ready(function () {
 
     $("#userURLSubmit").on('click', function () {
         $("#userInputtedUrl").text('')
+
     })
 
 
