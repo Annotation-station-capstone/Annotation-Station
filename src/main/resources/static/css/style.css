@@ -602,6 +602,11 @@ p#get4:active {
     flex-direction: row;
     justify-content: space-evenly;
 }
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
 
 button[aria-label][data-balloon-pos] {
