@@ -108,6 +108,40 @@ $(document).ready(function() {
         console.log(id4);
     })
 
+    // $(document).on("click", "#toggle", function(){
+    //
+    //     if ($('#is_private').val === true){
+    //         console.log("it's true")
+    //         $('#is_private').val(false);
+    //     } else {
+    //         console.log("it's false")
+    //         $('#is_private').val(true);
+    //     }
+    // })
+
+    // $(document).on("click", "#toggle", function(){
+    //
+    //     if(document.getElementById('toggle').checked) {
+    //         console.log('checked');
+    //         $('#is_private').val(true);
+    //     } else if (document.getElementById('toggle').checked){
+    //         console.log('unchecked');
+    //         $('#is_private').val(false);
+    //     }
+    // })
+
+    $('input[type="checkbox"]').click(function(){
+        if($(this).prop("checked") == true){
+            console.log("Checkbox is checked.");
+            $('#is_private').val(false);
+        }
+        else if($(this).prop("checked") == false){
+            console.log("Checkbox is unchecked.");
+            $('#is_private').val(true);
+        }
+    });
+
+
     // $( window ).load(function() {
     //     $('#hiddenUrl').val($('#Url').val())
     // });
