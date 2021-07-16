@@ -84,22 +84,9 @@ $(document).ready(function () {
                             let singleNote = noteData[l].note;
                             let singleNoteId = noteData[l].id;
                             let timeStamp = noteData[l].time_stamp;
-<<<<<<< HEAD
-                            // /create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&start=${timeStamp}"
-                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>
-=======
 
-                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}">Note: ${counter++}   ${singleNote} </a></strong></div>
->>>>>>> d1520875f030b73d788cf4b4333b9ac21e7a4e9f
-<!--<div class="btn-group col-4">-->
-<!--  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--    Small button-->
-<!--  </button>-->
-<!--  <ul class="dropdown-menu">-->
-<!--   <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>-->
-<!--    <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>-->
-<!--  </ul>-->
-<!--</div></div>--> `;
+                            // /create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&start=${timeStamp}"
+                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>`
 
                             body += note_tag;
                         }
