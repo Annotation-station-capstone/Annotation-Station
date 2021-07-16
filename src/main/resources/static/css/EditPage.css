@@ -105,3 +105,23 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
+form{
+    color: #a9a9a9;
+    background-color: #232323;
+}
+
+div#Yt{
+    color: #a9a9a9;
+    background-color: #232323;
+}
+
+input#editButton{
+    border: solid whitesmoke 1px;
+    background-color: midnightblue;
+    color: whitesmoke;
+}
+input#submitYt{
+    border: solid whitesmoke 1px;
+    background-color: midnightblue;
+    color: whitesmoke;
+}
