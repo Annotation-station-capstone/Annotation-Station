@@ -9,8 +9,9 @@
 	<!-- MDB -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet"/>
 	<link href="/../../css/collectionPageStyle.css" rel="stylesheet">
-	<link href="/../../css/profilePageStyle.css" rel="stylesheet">
 	<link href="/../../css/style.css" rel="stylesheet">
+	<link href="/../../css/profilePageStyle.css" rel="stylesheet">
+
 
 	<meta charset="UTF-8">
 	<title>Profile Page</title>
@@ -22,41 +23,37 @@
 
 <div id="userTitle"></div>
 
-
 <div id="cardContainerProfile" class='bg-image hover-overlay ripple resultsContainer'
-	 data-mdb-ripple-color='light'></div>
-
-
-<div>
-	<div id="buttonContainerProfile"></div>
-
-	<form disabled style="display: none">
-		<div class="mb-3">
-			<label for="collectionIdField" class="form-label">Collection ID</label>
-			<input type="text" class="form-control" id="collectionIdField" aria-describedby="collectionId">
-		</div>
-	</form>
-
-
-	<div class="row editDeleteForm p-4 m-4 shadow-4 rounded-3 jumbotron">
-		<div class="col-1"></div>
-		<div class="col-5">
-			<h1 class="editDeleteFormText">Edit this collection</h1>
-			<form th:action="@{/collections/edit}" th:method="GET">
-				<input type="hidden" id="colIdEdit" name="id" value="">
-				<input type="submit" name="edit" placeholder="edit">
-			</form>
-		</div>
-		<div class="col-5">
-			<h1 class="editDeleteFormText">Delete this collection</h1>
-			<form th:action="@{/collections/delete}" th:method="POST">
-				<input type="hidden" id="colIdDelete" name="id" value="">
-				<input type="submit" name="delete" placeholder="delete">
-			</form>
-		</div>
-		<div class="col-1"></div>
-	</div>
+	 data-mdb-ripple-color='light'>
 </div>
+<div id="buttonContainerProfile"></div>
+
+<div class="row editDeleteForm p-4 m-4 shadow-4 rounded-3 jumbotron">
+
+
+<h1 class="editDeleteFormText" style="display: none">Edit this collection</h1>
+<form th:action="@{/collections/edit}" th:method="GET" id="linkToEdit" style="display: none">
+	<input type="hidden" id="colIdEdit" name="id" value="">
+	<input type="submit" id='submitEdit' name="edit" placeholder="edit">
+</form>
+
+
+<h1 class="editDeleteFormText" style="display: none">Delete this collection</h1>
+<form th:action="@{/collections/delete}" th:method="POST" id="linkToDelete" style="display: none">
+	<input type="hidden" id="colIdDelete" name="id" value="">
+	<input type="submit" id='submitDelete' name="delete" placeholder="delete">
+</form>
+
+
+</div>
+
+
+<form disabled style="display: none">
+	<div class="mb-3">
+		<label for="collectionIdField" class="form-label">Collection ID</label>
+		<input type="text" class="form-control" id="collectionIdField" aria-describedby="collectionId" >
+	</div>
+</form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -72,4 +69,5 @@
 <script src="/../../js/profileFragment.js" rel="script" type="application/javascript"></script>
 <footer th:include="partials/footer :: footer"></footer>
 </body>
+
 </html>

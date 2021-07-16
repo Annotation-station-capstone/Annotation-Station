@@ -54,61 +54,114 @@ $(document).ready(function() {
         let id0 = $("#get0").attr('value');
         Url.setAttribute("value", id0)
         console.log(id0);
+        alert("Collection Image Updated");
     })
     $(document).on("click", "img0", function(){
         let id0 = $("#get0").attr('value');
         Url.setAttribute("value", id0)
         console.log(id0);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "p#get1", function(){
         let id1 = $("#get1").attr('value');
         Url.setAttribute("value", id1)
         console.log(id1);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "img1", function(){
         let id1 = $("#get1").attr('value');
         Url.setAttribute("value", id1)
         console.log(id1);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "p#get2", function(){
         let id2 = $("#get2").attr('value');
         Url.setAttribute("value",id2 )
         console.log(id2);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "img2", function(){
         let id2 = $("#get2").attr('value');
         Url.setAttribute("value", id2 )
         console.log(id2);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "p#get3", function(){
         let id3 = $("#get3").attr('value');
         Url.setAttribute("value",id3 )
         console.log(id3);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "img3", function(){
         let id3 = $("#get3").attr('value');
         Url.setAttribute("value",id3 )
         console.log(id3);
+        alert("Collection Image Updated");
     })
 
     $(document).on("click", "p#get4", function(){
         let id4 = $("#get4").attr('value');
         Url.setAttribute("value", id4)
         console.log(id4);
+        alert("Collection Image Updated");
     })
     $(document).on("click", "img4", function(){
         let id4 = $("#get4").attr('value');
         Url.setAttribute("value", id4)
         console.log(id4);
+        alert("Collection Image Updated");
     })
 
+    // $(document).on("click", "#toggle", function(){
+    //
+    //     if ($('#is_private').val === true){
+    //         console.log("it's true")
+    //         $('#is_private').val(false);
+    //     } else {
+    //         console.log("it's false")
+    //         $('#is_private').val(true);
+    //     }
+    // })
 
+    // $(document).on("click", "#toggle", function(){
+    //
+    //     if(document.getElementById('toggle').checked) {
+    //         console.log('checked');
+    //         $('#is_private').val(true);
+    //     } else if (document.getElementById('toggle').checked){
+    //         console.log('unchecked');
+    //         $('#is_private').val(false);
+    //     }
+    // })
+
+    $('input[type="checkbox"]').click(function(){
+        if($(this).prop("checked") == true){
+            console.log("Checkbox is checked.");
+            alert("This collection's visibility has been set to Private")
+            $('#is_private').val(true);
+        }
+        else if($(this).prop("checked") == false){
+            console.log("Checkbox is unchecked.");
+            $('#is_private').val(false);
+            alert("This collection's visibility has been set to Public")
+        }
+    });
+
+
+    // $( window ).load(function() {
+    //     $('#hiddenUrl').val($('#Url').val())
+    // });
+    // let pastedUrl = $('#hiddenUrl').val();
+    // let UrlVal = $('#Url').val()
+    // if (UrlVal !== pastedUrl){
+    //     alert("Image updated");
+    // }
 
 
 });

@@ -45,6 +45,7 @@ $(document).ready(function () {
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerCarousel');
 
+                    let collectionImage = `<img src="${collection_image}">`;
                     let image = `<div class="card-img-top card-img-top-250"><img src="${collection_image}" class='img-fluid' alt="Carousel 1"><a class="" id='${collection_id}' href='/collections/single/${collection_id}'>
                                  <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a></div>`;
 

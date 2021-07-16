@@ -79,7 +79,7 @@ public class CollectionsController {
         //save changes made to collection
         //collection.setUser(usersDao.getById(id));//update collection at the id of ?
         collectionsDao.save(collection);
-        return "redirect:/";
+        return "profileFragment";
     }
     //get information about collections from form to add
     @GetMapping(value= "/collection/add")

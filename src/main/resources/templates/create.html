@@ -12,15 +12,19 @@
 
 </head>
 <body>
+
 <nav th:replace="partials/header :: navbar"></nav>
-<header class="title">TURN YOUR TYPED NOTES INTO <BR> TIMESTAMPED BOOKMARKS FOR VIDEOS</header>
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+<header class="title">TURN YOUR TYPED NOTES INTO <BR> TIMESTAMPED BOOKMARKS FOR VIDEOS</header><hr>
 <p class="explanation">Enter a URL of a video that you wish to take notes about, type in the text field below and press
     enter.
     Each entry will become part of a list of links that will send you to the moment in the video it was created.
     Want to enter more information on subsequent re-watches? Any entry made after the first viewing will be logged
     in the original list and ordered to fit chronologically with the videos time. When you are finished save the
     information for later use or send it to a friend. Enjoy!</p>
+</div>
 
+<<<<<<< HEAD
 <!--<div class="row" >-->
 <!--<h1>Youtube search</h1>-->
 <!--<input type="text" id="search" placeholder="type here to search Youtube">-->
@@ -28,6 +32,27 @@
 <!--</div>-->
 <div id="Yt" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">
     <label class="formLabel" for="userInputtedUrl">SEARCH YOUTUBE FOR A VIDEO</label>
+=======
+<div class="row" id="Yt">
+<h1>Youtube search</h1>
+    <label for="search"></label><input type="text" id="search" placeholder="type here to search Youtube">
+<input type="submit" id="submitYt">
+</div>
+
+<div id="yResults" style="justify-content: center">
+    <div>
+        <div id="thumbnails"></div>
+        <div id="results" style="color: lightgray"> </div>
+        <br>
+    </div>
+    <div id="thumbnail"></div>
+</div>
+
+
+<form class="form" id="inputURL" name="inputURL">
+    <label class="formLabel" for="userInputtedUrl">ENTER YOUR URL HERE</label>
+    <div class="col-12">
+>>>>>>> d1520875f030b73d788cf4b4333b9ac21e7a4e9f
     <div class="input-group mb-3">
         <button type="submit" class="btn-select" id="submitYt">
             Search

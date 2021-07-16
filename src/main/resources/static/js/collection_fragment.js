@@ -34,10 +34,15 @@ $(document).ready(function () {
                 let collection_data = $('#section-data');
                 let deleteButton = $('#delete');
                 let sections = data.sections;
+                $('#collectionTitle').append(collection_title);
+                $('#collectionTitle2').append(collection_title);
+                $('#collectionImage').attr('src', collection_image);
+                $('#collectionDescription').append('<br><br><br> Description: ' + collection_description)
+
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
 
-                    <div class="accordion-item w-100 row" xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center">
+                    <div class="accordion-item w-100 row" xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center"> 
                     
 <!--  <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">-->
 <!--    Dropdown button-->
@@ -57,7 +62,7 @@ $(document).ready(function () {
                     let section_id = sections[i].id;
                     let section_video = sections[i].videos;
 
-                    let body = `<h1 class="accordion-header  col-4" id="heading${i}"><a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">${section_title}</a></h1><div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample"><div class="accordion-body">`;
+                    let body = `<h1 class="accordion-header col-12" id="heading${i}"><a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">Section ${i+1}: ${section_title}</a></h1><div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample"><div class="accordion-body">`;
 
 
                     $('.top_accord').attr('id', 'section' + i);
@@ -79,8 +84,13 @@ $(document).ready(function () {
                             let singleNote = noteData[l].note;
                             let singleNoteId = noteData[l].id;
                             let timeStamp = noteData[l].time_stamp;
+<<<<<<< HEAD
                             // /create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&start=${timeStamp}"
                             let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>
+=======
+
+                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=https://www.youtube.com/embed/${videoUrl}?start=${timeStamp}">Note: ${counter++}   ${singleNote} </a></strong></div>
+>>>>>>> d1520875f030b73d788cf4b4333b9ac21e7a4e9f
 <!--<div class="btn-group col-4">-->
 <!--  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
 <!--    Small button-->
