@@ -47,10 +47,10 @@ $(document).ready(function () {
                     }
 
                     console.log(collection_id);
-                    $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' + "</div></div>");
-                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button></div>");
-                    $(buttonContainer).append("<div class='flex-grow-1'><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button></div>")
-                    ;
+                    $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections: ' + sectionsHtml + '</p>' +  "</div> " + "<div ><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button></div>" + "<div ><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button></div>" +"</div>");
+                    // $('.collectionCards').append("<div ><button class='btn btn-select'  id='edit" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Edit</button></div>");
+                    // $('.collectionCards').append("<div ><button class='btn btn-select'  id='delete" + [i] + "' data-user='" + collection_user_id + "' value='" + collection_id + "'>  <br>Delete</button></div>")
+                    // ;
 
                     console.log([i]);
                     $(`#${'edit'+[i]}`).on('click', function(){
