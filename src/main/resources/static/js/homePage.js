@@ -36,6 +36,9 @@ $(document).ready(function () {
                         sectionsHtml += `${sections[j].title},`
                     }
                     $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections:  ' + sectionsHtml + '</p>' + "</div></div>");
+
+                    // $('.parallax-window').parallax({imageSrc: '/../media/geoBackground.png'});
+
                 }
             }
 

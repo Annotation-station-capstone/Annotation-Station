@@ -1,7 +1,5 @@
 package com.codeup.annotationstation.Models;
 
-import org.springframework.stereotype.Component;
-
 
 public class IncomingCollection {
 
@@ -9,7 +7,13 @@ public class IncomingCollection {
     private Section section;
     private Note note;
     private Video video;
+    private User user;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) { this.user = user; }
 
     public Collection getCollection() {
         return collection;
@@ -19,9 +23,7 @@ public class IncomingCollection {
         this.collection = collection;
     }
 
-    public Section getSection() {
-        return section;
-    }
+    public Section getSection() { return section; }
 
     public void setSection(Section section) {
         this.section = section;

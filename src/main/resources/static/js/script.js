@@ -44,7 +44,8 @@ $(document).ready(function () {
         e.preventDefault()
         let searchVid = $('#userInputtedUrl').val();
         youtubeId = getYoutubeVideoID(searchVid)
-        $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}`)
+        player.loadVideoById(youtubeId)
+        // $("#videoPlayer").attr("src", `https://www.youtube.com/embed/${youtubeId}`)
         $("#ytId").attr("value", `${youtubeId}`);
         $("#userURLSubmit").removeAttr('data-balloon-visible')
         $("#collection-tip").attr('data-balloon-visible', true)
@@ -79,7 +80,7 @@ $(document).ready(function () {
         // var mins = (seconds >= 60) ? Math.round(seconds / 60) : 0;
         // var secs = (seconds % 60 != 0) ? Math.round(seconds % 60) : 0;
         // var secs = (minus1 == true) ? (secs - 1) : secs; //Youtube always displays 1 sec less than its duration time!!! Then we have to set minus1 flag to true for converting player.getDuration()
-        var time = Math.ceil(seconds); /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
+       var time = Math.ceil(seconds); /*mins + "m" + ((secs < 10) ? "0" + secs : secs) + "s";*/
         return time;
     }
 
@@ -162,21 +163,7 @@ $(document).ready(function () {
             }
     }
 
-    //
-    // function getProjects() {
-    //     var selectionList; // keep this local to the function - implicit globals are risky
-    //
-    //     $.getJSON("php/getProjects.php", function (data) {
-    //         selectionList = "<form><select>";
-    //         for (var i = 0; i < data.length; i++) {
-    //             selectionList += "<option name='prjTitle'>" + data[i].ProjectTitle + "</option>";
-    //         }
-    //         selectionList += "</select></form>";
-    //     }).complete(function() {
-    //         $('#project-selection-menu').append(selectionList).removeClass('hidden');
-    //         firstLoad = false;
-    //     });
-    // }
+
 
 
     //TODO drop down selections are entered into associated input fields and those fields are colored differently
@@ -201,6 +188,12 @@ $(document).ready(function () {
         $('#collection-tip').attr('data-balloon-visible', true);
         $('#collection').removeAttr('disabled');
         $('#collection_drop').removeAttr('disabled');
+    })
+
+
+    $("#userURLSubmit").on('click', function () {
+        $("#userInputtedUrl").text('')
+
     })
 
 
@@ -295,13 +288,18 @@ $(document).ready(function () {
 
         }
     })
+        // ?enablejsapi=1&start=
 
     //get params from url search and transfers it to iframe
     $(document).ready(function () {
         const urlSearchParam = new URLSearchParams(window.location.search);
         let entries =Object.fromEntries(urlSearchParam.entries());
         console.log(entries.url, 'test');
-        $('#videoPlayer').attr('src', entries.url)
+        console.log(entries.timeStamp, 'test again');
+        let videoId=entries.url;
+        let timeStamp=entries.timeStamp;
+        let youTubeVideoUrl= `https://www.youtube.com/embed/${videoId}?enablejsapi=1&start=${timeStamp}`
+        $('#videoPlayer').attr('src', youTubeVideoUrl)
     })
 
     // //TODO Collections drop down menu create and show
@@ -311,7 +309,7 @@ $(document).ready(function () {
         console.log(currentUser);
         $.ajax({
             type: 'GET',
-            url: `/collections/userid/${currentUser}`,
+            url: `/collections/userid/${currentUserId}`,
             dataType: "json",
             data: {},
             success: function (data) {
@@ -331,6 +329,8 @@ $(document).ready(function () {
     //     $('#section_drop').removeAttr('disabled')
     // })
 
+    console.log($("#counter").html());
+
     //TODO post method to send newly created collections/sections/and notes to the db
 
     $("#createFormSubmit").click(function (e) {
@@ -343,7 +343,7 @@ $(document).ready(function () {
             data: JSON.stringify(
                 {
                     "collection": {
-                        "user": {"id": `${currentUser}`},
+                        "user": {"id": `${currentUserId}`},
                         "title": $("#collection").val(),
                         "is_private": "true",
                         "description": "Enter your Collection Description here",
@@ -352,9 +352,9 @@ $(document).ready(function () {
                     "section": {
                         "title": $("#section").val()
                     },
-                    // "video": {
-                    //     "video_url": $("#ytId").val()
-                    // },
+                    "video": {
+                        "video_url": $("#ytId").val()
+                    },
                     "note":
                         {
                             "note": $("#note").val(),
@@ -365,7 +365,12 @@ $(document).ready(function () {
                                 tag: $("#tags_drop").children('option:selected').attr('value')
                             }
 
-                        }
+                        },
+                    "user":
+                        {
+                            "id": `${currentUserId}`
+                }
+
                 }), success: function () {
                 $("#note").val('');
                 $("#select-tags >option:eq(1)").attr('selected', true)
