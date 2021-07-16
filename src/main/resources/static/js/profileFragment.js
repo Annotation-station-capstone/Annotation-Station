@@ -32,7 +32,7 @@ $(document).ready(function () {
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
-
+                    $('#bannerUser').append(collection_user);
 
 
 
