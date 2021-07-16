@@ -566,10 +566,14 @@ p#get4:active {
 .modal-footer{
     padding-right: 2.5em;
 }
-/*.modal-header{*/
-/*    text-align: center;*/
+/*#linkedin-href{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
 /*}*/
-
+.footer-links{
+    display: flex;
+    flex-direction: row;
+}
 
 
 button[aria-label][data-balloon-pos] {
