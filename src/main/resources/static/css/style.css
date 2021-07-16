@@ -7,12 +7,12 @@
 
 body {
     background:
-            linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
-            linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
-            linear-gradient(315deg, black 25%, transparent 25%),
-            linear-gradient(45deg, black 25%, transparent 25%);
+            linear-gradient(135deg,darkgray 25%, transparent 25%) -50px 0,
+            linear-gradient(225deg,darkgray 25%, transparent 25%) -50px 0,
+            linear-gradient(315deg,darkgray 25%, transparent 25%),
+            linear-gradient(45deg, darkgray 25%, transparent 25%);
     background-size: 2em 2em;
-    background-color: #232323;
+    background-color: gray;
 }
 
 /*body{*/
@@ -405,16 +405,17 @@ p#get4:active {
 
 /* Animation */
 .annotation {
-    position: relative;
-    /*border-right: solid 3px rgba(0,255,0,.75);*/
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 40px;
-    top:10px;
+    justify-content: center;
+    /*position: relative;*/
+    /*!*border-right: solid 3px rgba(0,255,0,.75);*!*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*font-family: 'Source Code Pro', monospace;*/
+    /*font-size: 40px;*/
+    /*top:10px;*/
     color: rgba(255,255,255,.70);
-    animation: animated-text 3s steps(29) 1s 1 normal both,
-    animated-cursor-right 600ms steps(29) infinite;
+    /*animation: animated-text 3s steps(29) 1s 1 normal both,*/
+    /*animated-cursor-right 600ms steps(29) infinite;*/
 }
 
 /* text animation */
