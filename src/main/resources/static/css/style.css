@@ -600,6 +600,7 @@ p#get4:active {
 .footer-links{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 
