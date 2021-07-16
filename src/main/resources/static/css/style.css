@@ -405,16 +405,16 @@ p#get4:active {
 
 /* Animation */
 .annotation {
-    position: relative;
-    /*border-right: solid 3px rgba(0,255,0,.75);*/
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 40px;
-    top:10px;
+    /*position: relative;*/
+    /*!*border-right: solid 3px rgba(0,255,0,.75);*!*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    /*font-family: 'Source Code Pro', monospace;*/
+    /*font-size: 40px;*/
+    /*top:10px;*/
     color: rgba(255,255,255,.70);
-    animation: animated-text 3s steps(29) 1s 1 normal both,
-    animated-cursor-right 600ms steps(29) infinite;
+    /*animation: animated-text 3s steps(29) 1s 1 normal both,*/
+    /*animated-cursor-right 600ms steps(29) infinite;*/
 }
 
 /* text animation */
