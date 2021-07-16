@@ -47,9 +47,9 @@ public class CreateService {
             addCollection(incomingCollection.getCollection(), incomingCollection.getSection(), incomingCollection.getNote());
         } else if (CollectionUtils.isEmpty(existingSections)) {
             System.out.println("Collection already existed");
-            Collection existingCollection = collectionsRepository.findByTitle(incomingCollection.getCollection().getTitle());
+            Collection existingCollection = collectionsRepository.getById(incomingCollection.getCollection().getId());
             List<Section> sections = existingCollection.getSections();
-            Section newSection = new Section(incomingCollection.getCollection().getTitle(), existingCollection);
+            Section newSection = sectionRepository.getById(incomingCollection.getSection().getId());
             sections.add(newSection);
             Note note = incomingCollection.getNote();
             note.setSections(newSection);

@@ -21,143 +21,184 @@
     in the original list and ordered to fit chronologically with the videos time. When you are finished save the
     information for later use or send it to a friend. Enjoy!</p>
 
-<div class="row" id="Yt">
-<h1>Youtube search</h1>
-<input type="text" id="search" placeholder="type here to search Youtube">
-<input type="submit" id="submitYt">
-</div>
-<div id="yResults">
-    <div>
-        <div id="thumbnails"></div>
-        <div id="results" value=""> </div>
-        <br>
-    </div>
-    <div id="thumbnail"></div>
-</div>
-
-
-<form class="form" id="inputURL" name="inputURL">
-    <label class="formLabel" for="userInputtedUrl">ENTER YOUR URL HERE</label>
-    <div class="col-12">
+<!--<div class="row" >-->
+<!--<h1>Youtube search</h1>-->
+<!--<input type="text" id="search" placeholder="type here to search Youtube">-->
+<!--<input type="submit" id="submitYt">-->
+<!--</div>-->
+<div id="Yt" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">
+    <label class="formLabel" for="userInputtedUrl">SEARCH YOUTUBE FOR A VIDEO</label>
     <div class="input-group mb-3">
-        <button class="btn-select" id="userURLSubmit" data-balloon-visible aria-label="Step 1: Enter a YouTube URL, Click Submit" data-balloon-pos="down-left">
-            Submit
+        <button type="submit" class="btn-select" id="submitYt">
+            Search
         </button>
-        <input id="userInputtedUrl" class="form-control notFilled" name="userInputtedUrl" type="text" placeholder="URL">
+        <input id="search" class="form-control textField" name="search" type="text"
+               placeholder="type here to search Youtube">
     </div>
+
+    <label class="formLabel" for="userInputtedUrl">OR DIRECTLY ENTER YOUR URL HERE</label>
+        <div class="input-group mb-3">
+            <button class="btn-select" id="userURLSubmit" data-balloon-visible
+                    aria-label="Step 1: Enter a YouTube URL, Click Submit" data-balloon-pos="down-left">
+                Submit
+            </button>
+            <input id="userInputtedUrl" class="form-control notFilled" name="userInputtedUrl" type="text"
+                   placeholder="URL">
     </div>
-</form>
+    <div id="yResults">
+        <div class="col">
+            <div id="thumbnails"></div>
+            <div id="results" value="" class="yResults"></div>
+            <br>
+        </div>
+        <div id="thumbnail"></div>
+    </div>
+</div>
+
+
 <div class="video-container">
-<iframe id="videoPlayer" src="" title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
+    <iframe id="videoPlayer" src="" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" allowfullscreen></iframe>
 </div>
 <form class="form" id="notesForm" method="post">
-    <div class="progress-background"><div id="progress-bar" class="progress-bar"></div></div>
+    <div class="progress-background">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
     <div class="row g-2">
         <div class="col-md">
-            <div class="input-group mb-3 help-tip" id="collection-tip" aria-label="Step 2: Select an existing collection or name a new one" data-balloon-pos="down-left" disabled>
-                <select id="collection_drop" data-id="" class="btn-select" placeholder="Collections group your notes, so they are easy to find" aria-label="users-collections">
+            <div class="input-group mb-3 help-tip" id="collection-tip"
+                 aria-label="Step 2: Select an existing collection or name a new one" data-balloon-pos="down-left"
+                 disabled>
+                <select id="collection_drop" data-id="" class="btn-select"
+                        placeholder="Collections group your notes, so they are easy to find"
+                        aria-label="users-collections">
                     <option selected="selected" value="">Select One</option>
                     <option disabled>───────</option>
                 </select>
                 <input type="text" class="form-control" id="collection"
-                       placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button" disabled>
+                       placeholder="Enter a new Collection Title here" aria-label="Text input with dropdown button"
+                       disabled>
             </div>
         </div>
         <div class="col-md">
-            <div class="input-group mb-3 " id="section-tip" aria-label="Step 3: Select an existing section or name a new one" data-balloon-pos="down-left" disabled>
-                <select id="section_drop" class="btn-select" placeholder="Sections are more specific parts of a collection"  aria-label="section_drop" disabled>
+            <div class="input-group mb-3 " id="section-tip"
+                 aria-label="Step 3: Select an existing section or name a new one" data-balloon-pos="down-left"
+                 disabled>
+                <select id="section_drop" class="btn-select"
+                        placeholder="Sections are more specific parts of a collection" aria-label="section_drop"
+                        disabled>
                     <option selected="selected" value="">Select One</option>
                     <option disabled>───────</option>
 
                 </select>
                 <input type="text" class="form-control" id="section"
-                       placeholder="Enter a new Section Title here" aria-label="Text input with dropdown button" disabled>
+                       placeholder="Enter a new Section Title here" aria-label="Text input with dropdown button"
+                       disabled>
 
             </div>
         </div>
     </div>
-<!--    <label class="formLabel" for="note">TYPE A LINE OF NOTES AND PRESS ENTER</label>-->
+    <!--    <label class="formLabel" for="note">TYPE A LINE OF NOTES AND PRESS ENTER</label>-->
     <!--    <div class="captions-background">-->
     <!--        <div id="captions" class="captions"></div>-->
     <!--    </div>-->
 
 
-        <div class="row g-2">
-            <div class="col-5">
-                <div class="input-group mb-3 help-tip" id="tag-tip" aria-label="Optional: Select a tag"
-                     data-balloon-pos="down-left" placeholder="Tags are helpful labels for notes">
-                        <select name="drop" class="btn-select" id="tags_drop" aria-label="tags_drop">
-                            <option selected="selected" value="">Select Tag</option>
-                            <option disabled>───────</option>
-                            <option data-id="1" value="Important">Important</option>
-                            <option data-id="2" value="Fundemental">Fundemental</option>
-                            <option data-id="3" value="Definition">Definition</option>
-                            <option data-id="4" value="Dont_do_this">Dont_do_this</option>
-                            <option data-id="5" value="Step_by_Step">Step_by_Step</option>
-                            <option data-id="6" value="Watch_Again">Watch_Again</option>
-                        </select>
-                    <input class="form-control" id="tag" name="tag" type="text" aria-label="Text input with dropdown button" placeholder="Tags" disabled>
-                </div>
-            </div>
-            <div class="col-7">
-                <div class="input-group mb-3 help-tip" id="note-tip"  aria-label="Step 4: enter a note and submit" data-balloon-pos="down-left">
-                    <input class="form-control" id="note" name="notes" type="text" aria-label="notes" disabled placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK">
-                    <button class="btn-select" id="createFormSubmit" type="submit" disabled>
-                        CreateFormSubmit
-                    </button>
-                </div>
-            </div>
-<!--            <div class="col-2">-->
-<!--                <div class="row justify-content-center align-items-center">-->
-<!--                    <div class="col-1"></div>-->
-<!--                    <div class="form-check form-switch col-2 ">-->
-<!--                        <label class="form-check-label" for="autoPause"></label>-->
-<!--                        <input class="form-check-input" type="checkbox" id="autoPause">-->
-<!--                    </div>-->
-<!--                    <h6 class="col-9">Auto Pause: Playback will stop when you type</h6>-->
-<!--                </div>-->
-<!--            </div>-->
-        </div>
-
-        <div class="row g-2">
-
-        </div>
-        <div class="row g-2" >
-            <div class="col-md">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden"
-                           id="ytId"
-                           aria-label="Text input with dropdown button">
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="user_id" name="user_id"
-                           placeholder="User_Id: This field will be hidden"
-                           aria-label="Text input with dropdown button">
-                </div>
-            </div>
-            <div class="col-md counter-background">
-                <div id="counter" class="counter"></div>
-            </div>
-            <div class="col-md">
-                <input type="text" class="form-control" id="tag_value" name="tag_value"
-                       placeholder="tag_value: This field will be hidden"
-                       aria-label="Text input">
-            </div>
-            <div class="col-md">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden"
-                           id="collectionId"
-                           aria-label="Text input with dropdown button">
-                </div>
+    <div class="row g-2">
+        <div class="col-5">
+            <div class="input-group mb-3 help-tip" id="tag-tip" aria-label="Optional: Select a tag"
+                 data-balloon-pos="down-left" placeholder="Tags are helpful labels for notes">
+                <select name="drop" class="btn-select" id="tags_drop" aria-label="tags_drop">
+                    <option selected="selected" value="">Select Tag</option>
+                    <option disabled>───────</option>
+                    <option data-id="1" value="Important">Important</option>
+                    <option data-id="2" value="Fundemental">Fundemental</option>
+                    <option data-id="3" value="Definition">Definition</option>
+                    <option data-id="4" value="Dont_do_this">Dont_do_this</option>
+                    <option data-id="5" value="Step_by_Step">Step_by_Step</option>
+                    <option data-id="6" value="Watch_Again">Watch_Again</option>
+                </select>
+                <input class="form-control" id="tag" name="tag" type="text" aria-label="Text input with dropdown button"
+                       placeholder="Tags" disabled>
             </div>
         </div>
+        <div class="col-7">
+            <div class="input-group mb-3 help-tip" id="note-tip" aria-label="Step 4: enter a note and submit"
+                 data-balloon-pos="down-left">
+                <input class="form-control" id="note" name="notes" type="text" aria-label="notes" disabled
+                       placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK">
+                <button class="btn-select" id="createFormSubmit" type="submit" disabled>
+                    CreateFormSubmit
+                </button>
+            </div>
+        </div>
+        <!--            <div class="col-2">-->
+        <!--                <div class="row justify-content-center align-items-center">-->
+        <!--                    <div class="col-1"></div>-->
+        <!--                    <div class="form-check form-switch col-2 ">-->
+        <!--                        <label class="form-check-label" for="autoPause"></label>-->
+        <!--                        <input class="form-check-input" type="checkbox" id="autoPause">-->
+        <!--                    </div>-->
+        <!--                    <h6 class="col-9">Auto Pause: Playback will stop when you type</h6>-->
+        <!--                </div>-->
+        <!--            </div>-->
+    </div>
 
+    <div class="row g-2">
+
+    </div>
+    <div class="row g-2">
+        <div class="col-md">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden"
+                       id="ytId"
+                       aria-label="Text input with dropdown button">
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="user_id" name="user_id"
+                       placeholder="User_Id: This field will be hidden"
+                       aria-label="Text input with dropdown button">
+            </div>
+        </div>
+        <div class="col-md counter-background">
+            <div id="counter" class="counter"></div>
+        </div>
+        <div class="col-md">
+            <input type="text" class="form-control" id="tag_value" name="tag_value"
+                   placeholder="tag_value: This field will be hidden"
+                   aria-label="Text input">
+        </div>
+        <div class="col-md">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control needed" placeholder="YouTubeId: This field will be hidden"
+                       id="collectionId"
+                       aria-label="Text input with dropdown button">
+            </div>
+        </div>
+    </div>
 
 
 </form>
+
+<!--<div id="Yt" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">-->
+<!--    <div class="input-group mb-3">-->
+<!--        <button type="submit" class="btn-select" id="submitYt" >-->
+<!--            Search-->
+<!--        </button>-->
+<!--        <input id="search" class="form-control textField" name="search" type="text" placeholder="type here to search Youtube">-->
+<!--    </div>-->
+<!--    <div id="yResults">-->
+<!--        <div class="col">-->
+<!--            <div id="thumbnails"></div>-->
+<!--            <div id="results" value="" class="yResults"> </div>-->
+<!--            <br>-->
+<!--        </div>-->
+<!--        <div id="thumbnail"></div>-->
+<!--    </div>-->
+<!--</div>-->
+
 <script th:inline="javascript">
     let currentUserId = /*[[${currentUserId}]]*/ 0;
 </script>
