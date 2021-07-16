@@ -36,6 +36,8 @@ $(document).ready(function () {
                 let sections = data.sections;
                 $('#collectionTitle').append(collection_title);
                 $('#collectionTitle2').append(collection_title);
+                $('#collectionImage').attr('src', collection_image);
+                $('#collectionDescription').append('<br><br><br> Description: ' + collection_description)
 
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
