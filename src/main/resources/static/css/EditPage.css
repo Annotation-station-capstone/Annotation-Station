@@ -1,127 +1,127 @@
-p{
-    margin-top: 1rem;
-    margin-bottom: 0px;
-}
-.center{
-    display: flex;
-    justify-content: center;
-}
-div#Yt{
-    margin-top: 20px;
-    margin-bottom: 200px;
-}
+/*p{*/
+/*    margin-top: 1rem;*/
+/*    margin-bottom: 0px;*/
+/*}*/
+/*.center{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+/*div#Yt{*/
+/*    margin-top: 20px;*/
+/*    margin-bottom: 200px;*/
+/*}*/
 
-p#get0:hover{
-    background-color: #A0A0A0;
-}
+/*p#get0:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get1:hover{
-    background-color: #A0A0A0;
-}
+/*p#get1:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get2:hover{
-    background-color: #A0A0A0;
-}
+/*p#get2:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get3:hover{
-    background-color: #A0A0A0;
-}
+/*p#get3:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get4:hover{
-    background-color: #A0A0A0;
-}
+/*p#get4:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get0:active{
-    background-color: pink;
-}
+/*p#get0:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get1:active{
-    background-color: pink;
-}
+/*p#get1:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get2:active{
-    background-color: pink;
-}
+/*p#get2:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get3:active{
-    background-color: pink;
-}
+/*p#get3:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get4:active {
-    background-color: pink;
-}
+/*p#get4:active {*/
+/*    background-color: pink;*/
+/*}*/
 
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
+/*!* The switch - the box around the slider *!*/
+/*.switch {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    width: 60px;*/
+/*    height: 34px;*/
+/*}*/
 
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+/*!* Hide default HTML checkbox *!*/
+/*.switch input {*/
+/*    opacity: 0;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*}*/
 
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
+/*!* The slider *!*/
+/*.slider {*/
+/*    position: absolute;*/
+/*    cursor: pointer;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: #ccc;*/
+/*    -webkit-transition: .4s;*/
+/*    transition: .4s;*/
+/*}*/
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
+/*.slider:before {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    height: 26px;*/
+/*    width: 26px;*/
+/*    left: 4px;*/
+/*    bottom: 4px;*/
+/*    background-color: white;*/
+/*    -webkit-transition: .4s;*/
+/*    transition: .4s;*/
+/*}*/
 
-input:checked + .slider {
-    background-color: #2196F3;
-}
+/*input:checked + .slider {*/
+/*    background-color: #2196F3;*/
+/*}*/
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
+/*input:focus + .slider {*/
+/*    box-shadow: 0 0 1px #2196F3;*/
+/*}*/
 
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
+/*input:checked + .slider:before {*/
+/*    -webkit-transform: translateX(26px);*/
+/*    -ms-transform: translateX(26px);*/
+/*    transform: translateX(26px);*/
+/*}*/
 
-form{
-    color: #a9a9a9;
-    background-color: #232323;
-}
+/*form{*/
+/*    color: #a9a9a9;*/
+/*    background-color: #232323;*/
+/*}*/
 
-div#Yt2{
-    color: #a9a9a9;
-    background-color: #232323;
-}
+/*div#Yt2{*/
+/*    color: #a9a9a9;*/
+/*    background-color: #232323;*/
+/*}*/
 
-input#editButton{
-    border: solid whitesmoke 1px;
-    background-color: midnightblue;
-    color: whitesmoke;
-}
-input#submitYt{
-    border: solid whitesmoke 1px;
-    background-color: midnightblue;
-    color: whitesmoke;
-}
+/*input#editButton{*/
+/*    border: solid whitesmoke 1px;*/
+/*    background-color: midnightblue;*/
+/*    color: whitesmoke;*/
+/*}*/
+/*input#submitYt{*/
+/*    border: solid whitesmoke 1px;*/
+/*    background-color: midnightblue;*/
+/*    color: whitesmoke;*/
+/*}*/
