@@ -17,14 +17,12 @@ body {
     min-height: 100vh;
     margin: 0;
     flex: 1;
-    background:
-            linear-gradient(135deg,darkgray 25%, transparent 25%) -50px 0,
-            linear-gradient(225deg,darkgray 25%, transparent 25%) -50px 0,
-            linear-gradient(315deg,darkgray 25%, transparent 25%),
-            linear-gradient(45deg, darkgray 25%, transparent 25%);
-    background-size: 2em 2em;
-    background-color: #232323;
-
+    /*background-image: linear-gradient(90deg, rgba(57, 59, 62,.9), rgba(65,81,142,.9), rgba(94, 121, 144, 0.9))*/
+    /*background-image: radial-gradient(rgba(57, 59, 62, 1), rgba(65,81,142,.9), rgba(94, 121, 144, 0.4))*/
+    /*background-image: radial-gradient(rgba(0, 82, 187, 0.9), rgba(101, 131, 241, 0.9), rgba(123, 123, 123, 0.4))*/
+    /*background-image: radial-gradient(rgba(150, 82, 87, 0.9), rgba(201, 131, 141, 0.9), rgba(123, 123, 123, 0.4))*/
+    /*background-image: radial-gradient(rgba(39, 149, 5, 0.9), rgba(101, 131, 241, 0.9), rgb(57, 59, 62))*/
+    background-color: white;
 }
 
 /*body{*/
@@ -568,8 +566,7 @@ input#submitYt{
     margin-top: 10px;
     border-radius: 7px;
     box-shadow: 2px 2px 17px #000;
-    background: linear-gradient(90deg,
-    darkgray, gray);
+    background: #393b3e
 }
 
 
