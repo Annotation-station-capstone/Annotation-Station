@@ -32,8 +32,8 @@
 <div class="center">
     <div class="center">
 <form class='editForm' th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
-    <h3>Edit this collection</h3>
-    <p>Title</p>
+    <h3 class="editForm">Edit this collection</h3>
+    <p class="editForm">Title</p>
     <input th:field="*{title}" type="text">
 
 
@@ -57,10 +57,10 @@
 </div>
 <div class="center">
     <div id="Yt2">
-        <h3>Youtube images search</h3>
+        <h3 class="editForm">Youtube images search</h3>
         <input type="text" id="search" placeholder="type here to search Youtube">
             <input type="submit" id="submitYt" value="Search Images">
-        <div id="yResults">
+        <div class='editForm' id="yResults">
             <div>
                 <div id="thumbnails"></div>
                 <div id="results" value=""> </div>
