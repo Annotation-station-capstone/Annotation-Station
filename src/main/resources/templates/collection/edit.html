@@ -23,7 +23,7 @@
 
 <div class="center">
     <div class="center">
-<form th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
+<form class='editForm' th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
     <h3>Edit this collection</h3>
     <p>Title</p>
     <input th:field="*{title}" type="text">
