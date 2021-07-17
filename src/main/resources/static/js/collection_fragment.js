@@ -84,18 +84,6 @@ $(document).ready(function () {
                             let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>`
 
 
-
-
-                            //<div class="btn-group col-4">
-                        //  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        //   Small button
-                        //  </button>
-                        //  <ul class="dropdown-menu">
-                        // <li><a class="dropdown-item active" data-id="" href="#">Delete Section</a></li>
-                        //   <li><a class="dropdown-item" data-id="" href="#">Edit Section</a></li>
-                        //  </ul>
-                        // </div></div>
-
                             body += note_tag;
                         }
                     }
