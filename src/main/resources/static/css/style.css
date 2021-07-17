@@ -776,18 +776,23 @@ margin-top: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    list-style: none;
 }
 .social-icons{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 1em;
+    list-style: none;
 }
 .copyright-text{
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
 }
-
+.creators{
+    margin-bottom: 1em;
+}
 button[aria-label][data-balloon-pos] {
     overflow: visible; }
 
