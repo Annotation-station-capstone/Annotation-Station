@@ -3,9 +3,9 @@
 
 <!--Nav Starts Here-->
 <div class="container"><div class="row">
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark row-cols-auto" th:fragment="navbar" style="justify-content: space-around">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark" th:fragment="navbar">
 	<link th:href="@{/css/createButton.css}" rel="stylesheet">
-	<div class="dropdown">
+	<div class="col-4 text-center dropdown">
 		<!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
 
 
@@ -69,7 +69,7 @@
 	<div sec:authorize="isAuthenticated()">
 		<a href="/create" class="createButton" alt="CREATE NEW COLLECTION"></a>
 	</div>
-	<div href="/"></div>
+<!--	<div href="/"></div>-->
 
 
 
@@ -110,7 +110,7 @@
 <!--		</a>-->
 
 
-	<div class="col-5 wrapper">
+	<div class="wrapper col-4 text-center">
 		<!--        <svg id="logo"-->
 		<!--             xmlns="http://www.w3.org/2000/svg"-->
 		<!--             viewBox="0 0 1366 768">-->

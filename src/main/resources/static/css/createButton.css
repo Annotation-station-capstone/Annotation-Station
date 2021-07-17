@@ -24,8 +24,8 @@
 .createButton {
     color: gray;
     text-decoration:none;
-    width:calc(16vw + 6px);
-    height:calc(3vw + 6px);
+    /*width:calc(16vw + 6px);*/
+    /*height:calc(3vw + 6px);*/
     background-image: linear-gradient(75deg, whitesmoke 0%, lightgray 49%, darkgray 80%, gray 100%);
     border-radius:5px;
     display:flex;
@@ -37,7 +37,7 @@
 .createButton:after {
     content:attr(alt);
     width:16vw;
-    height:3vw;
+    height:1.75vw;
     background-color:white;
     display:flex;
     text-decoration: none;
@@ -45,9 +45,9 @@
     justify-content:center;
 }
 .createButton:hover {
-    color: grey;
+    color: black;
     text-decoration:none;
-    animation:slidebg 2s linear infinite;
+    /*animation:slidebg 2s linear infinite;*/
 }
 
 @keyframes slidebg {
