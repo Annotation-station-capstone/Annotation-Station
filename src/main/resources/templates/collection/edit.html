@@ -20,7 +20,15 @@
 </head>
 <body>
 <nav th:replace="partials/header :: navbar"></nav>
-
+<div class=container>
+    <div class="row">
+        <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+            <h1>Edit Your Collection </h1>
+            <p class="Cbanners small">On this page, you can make updates to the pre-existing Collections you created! Change the Title, Description, Privacy Settings, or upload any image URL. If you don't have an image in mind, feel free to use our Youtube image search feature to grab any Youtube video thumbnail.  </p>
+            <hr>
+        </div>
+    </div>
+</div>
 <div class="center">
     <div class="center">
 <form class='editForm' th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
@@ -64,7 +72,7 @@
 <input type="text" style="display: none" id="hiddenUrl" value="">
 </div>
 </div>
-
+<div class="invisibleSpacer"></div>
 <footer th:include="partials/footer :: footer"></footer>
 
 <script src="/../js/youtubeImages.js" rel="script"></script>
