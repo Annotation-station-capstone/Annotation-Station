@@ -349,7 +349,7 @@ $(document).ready(function () {
                         "user": {"id": `${currentUserId}`},
                         "title": $("#collection").val(),
                         "is_private": "true",
-                        "description": "Enter your Collection Description here",
+                        "description": "If this is your Collection head to your profile page to customize this description and add an image",
                         "image": "https://lakelandescaperoom.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"
                     },
                     "section": {
