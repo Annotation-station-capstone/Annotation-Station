@@ -383,6 +383,7 @@ div#Yt2{
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    border: solid 0.05em #4f4f4f;
 }
 
 .slider:before {
