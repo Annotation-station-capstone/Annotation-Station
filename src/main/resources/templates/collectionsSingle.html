@@ -89,7 +89,21 @@
                 class="font-weight-bold" th:text="${comments.getComment()}"></small></span></div>
     </div>
 </div>
+
+
+
+
+<!--<div   th:each="comments : ${comments}">-->
+
+
+<!--    <strong><p th:text="${comments.user.username}"></p></strong>-->
+<!--    <p th:text="${comments.getComment()}"></p>-->
+<!--</div>-->
+
+
+
 <form th:action="@{/comment/add}" th:method="POST">
+
 
     <input class="mt-4" id="commentInput" type="hidden" name="collectionId" th:value="${param.collection_id}">
 
