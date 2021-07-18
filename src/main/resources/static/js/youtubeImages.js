@@ -153,6 +153,9 @@ $(document).ready(function() {
         }
     });
 
+    let imageUrl = $('#Url').val();
+    $('#DisplayImage').attr('src',imageUrl );
+
 
     // $( window ).load(function() {
     //     $('#hiddenUrl').val($('#Url').val())
