@@ -14,17 +14,22 @@
 <body>
 
 <nav th:replace="partials/header :: navbar"></nav>
-<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
-    <header class="title">TURN YOUR TYPED NOTES INTO <BR> TIMESTAMPED BOOKMARKS FOR VIDEOS</header>
-    <hr>
-    <p class="explanation">Enter a URL of a video that you wish to take notes about, type in the text field below and
-        press
-        enter.
-        Each entry will become part of a list of links that will send you to the moment in the video it was created.
-        Want to enter more information on subsequent re-watches? Any entry made after the first viewing will be logged
-        in the original list and ordered to fit chronologically with the videos time. When you are finished save the
-        information for later use or send it to a friend. Enjoy!</p>
+
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center row" style="background-color: lightgrey;">
+    <h1>CREATE, ORGANIZE, SHARE</h1>
 </div>
+
+<!--<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">-->
+<!--    <header class="title">TURN YOUR TYPED NOTES INTO <BR> TIMESTAMPED BOOKMARKS FOR VIDEOS</header>-->
+<!--    <hr>-->
+<!--    <p class="explanation">Enter a URL of a video that you wish to take notes about, type in the text field below and-->
+<!--        press-->
+<!--        enter.-->
+<!--        Each entry will become part of a list of links that will send you to the moment in the video it was created.-->
+<!--        Want to enter more information on subsequent re-watches? Any entry made after the first viewing will be logged-->
+<!--        in the original list and ordered to fit chronologically with the videos time. When you are finished save the-->
+<!--        information for later use or send it to a friend. Enjoy!</p>-->
+<!--</div>-->
 
 
 <!--<div class="row" >-->
@@ -35,20 +40,19 @@
 
 
 <div id="Yt" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">
-    <label class="formLabel" for="submitYt">SEARCH YOUTUBE FOR A VIDEO</label>
-    <div class="input-group mb-3">
+    <h3 style="color: black; text-align: start" >  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Search YouTube and select a video</h3>
+    <div class="input-group mb-3 YTInput">
 
-        <button type="submit" class="btn-select" id="submitYt">
-            Search
+        <button type="submit" class="btn-select btn-secondary" id="submitYt">
+            Step 1: Search
         </button>
 
         <input id="search" class="form-control textField" name="search" type="text"
                placeholder="type here to search Youtube">
     </div>
-
-    <label class="formLabel" for="userInputtedUrl">OR DIRECTLY ENTER YOUR URL HERE</label>
+    <h3 style="color: black; text-align: start" >  &nbsp &nbsp &nbsp &nbsp &nbsp or &nbsp &nbsp &nbsp &nbsp &nbsp Paste a YouTube URL Here </h3>
     <div class="input-group mb-3">
-        <button class="btn-select" id="userURLSubmit" data-balloon-visible aria-label="Step 1: Enter a YouTube URL, Click Submit" data-balloon-pos="down-left">Submit</button>
+        <button class="btn-select btn-secondary" id="userURLSubmit" data-balloon-visible aria-label="Step 1: Enter a YouTube URL, Click Submit" data-balloon-pos="down-left">Step 1: Submit</button>
         <input id="userInputtedUrl" class="form-control notFilled" name="userInputtedUrl" type="text" placeholder="URL">
     </div>
 
@@ -75,12 +79,12 @@
     <div class="row g-2">
         <div class="col-md">
             <div class="input-group mb-3 help-tip" id="collection-tip"
-                 aria-label="Step 2: Select an existing collection or name a new one" data-balloon-pos="down-left"
+                 aria-label="Select an existing collection or name a new one" data-balloon-pos="down-left"
                  disabled>
                 <select id="collection_drop" data-id="" class="btn-select"
                         placeholder="Collections group your notes, so they are easy to find"
                         aria-label="users-collections">
-                    <option selected="selected" value="">Select One</option>
+                    <option selected="selected" value="">Step Two</option>
                     <option disabled>───────</option>
                 </select>
                 <input type="text" class="form-control" id="collection"
@@ -90,12 +94,12 @@
         </div>
         <div class="col-md">
             <div class="input-group mb-3 " id="section-tip"
-                 aria-label="Step 3: Select an existing section or name a new one" data-balloon-pos="down-left"
+                 aria-label="Select an existing section or name a new one" data-balloon-pos="down-left"
                  disabled>
                 <select id="section_drop" class="btn-select"
                         placeholder="Sections are more specific parts of a collection" aria-label="section_drop"
                         disabled>
-                    <option selected="selected" value="">Select One</option>
+                    <option selected="selected" value="">Step Three</option>
                     <option disabled>───────</option>
 
                 </select>
@@ -113,33 +117,22 @@
 
 
     <div class="row g-2">
-        <div class="col-5">
-            <div class="input-group mb-3 help-tip" id="tag-tip" aria-label="Optional: Select a tag"
-                 data-balloon-pos="down-left" placeholder="Tags are helpful labels for notes">
-                <select name="drop" class="btn-select" id="tags_drop" aria-label="tags_drop">
-                    <option selected="selected" value="">Select Tag</option>
-                    <option disabled>───────</option>
-                    <option data-id="1" value="Important">Important</option>
-                    <option data-id="2" value="Fundemental">Fundemental</option>
-                    <option data-id="3" value="Definition">Definition</option>
-                    <option data-id="4" value="Dont_do_this">Dont_do_this</option>
-                    <option data-id="5" value="Step_by_Step">Step_by_Step</option>
-                    <option data-id="6" value="Watch_Again">Watch_Again</option>
-                </select>
-                <input class="form-control" id="tag" name="tag" type="text"
-                       aria-label="Text input with dropdown button"
-                       placeholder="Tags" disabled>
-            </div>
-        </div>
-        <div class="col-7">
-            <div class="input-group mb-3 help-tip" id="note-tip" aria-label="Step 4: enter a note and submit"
+        <div class="col-10">
+            <div class="input-group mb-3 help-tip" id="note-tip" aria-label="Enter a note and submit"
                  data-balloon-pos="down-left">
                 <input class="form-control" id="note" name="notes" type="text" aria-label="notes" disabled
                        placeholder="YOUR NOTES GO HERE, PRESS ENTER TO CREATE A BOOKMARK">
-                <button class="btn-select" id="createFormSubmit" type="submit" disabled>
-                    CreateFormSubmit
+                <button class="btn-secondary btn-select" id="createFormSubmit" type="submit" disabled>
+                    Save Note
                 </button>
+<!--                btn-select-->
+                <button class="btn-secondary btn-select-rt" id="profilePage" type="button" aria-label="profilePage"> &nbsp &nbsp Done &nbsp &nbsp </button>
             </div>
+        </div>
+        <div class="col-2">
+<!--            <div class="input-group mb-3" aria-label="send to profile">-->
+<!--                <button class="btn-secondary btn-select btn-select-rt" id="disableBalloons" type="button">&nbsp Disable Help Balloons &nbsp</button>-->
+<!--            </div>-->
         </div>
         <!--            <div class="col-2">-->
         <!--                <div class="row justify-content-center align-items-center">-->
@@ -190,6 +183,20 @@
 
 
 </form>
+
+<!--<select name="drop" class="btn-select" id="tags_drop" aria-label="tags_drop">
+                    <option selected="selected" value="">Select Tag</option>
+                    <option disabled>───────</option>
+                    <option data-id="1" value="Important">Important</option>
+                    <option data-id="2" value="Fundemental">Fundemental</option>
+                    <option data-id="3" value="Definition">Definition</option>
+                    <option data-id="4" value="Dont_do_this">Dont_do_this</option>
+                    <option data-id="5" value="Step_by_Step">Step_by_Step</option>
+                    <option data-id="6" value="Watch_Again">Watch_Again</option>
+                </select>
+                <input class="form-control" id="tag" name="tag" type="text"
+                       aria-label="Text input with dropdown button"
+                       placeholder="Tags" disabled>-->
 
 <!--<div id="Yt" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">-->
 <!--    <div class="input-group mb-3">-->
