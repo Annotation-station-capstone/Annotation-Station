@@ -497,13 +497,13 @@ p.homeVideoBanners{
     padding: 2vw;
 }
 
-.video-container {
-     position: unset !important;
-     width: unset !important;
+.homePlayer .video-container {
+    position: unset !important;
+    width: unset !important;
 }
 
 .homePlayer{
-    padding: 1vw;
+    /*padding: 1vw;*/
 }
 
 /*TODO Edit and delete form styling*/
