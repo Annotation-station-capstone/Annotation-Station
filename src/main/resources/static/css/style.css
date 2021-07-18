@@ -111,9 +111,27 @@ body {
 
 .accordion-header{
     background-color:#cbcbcc ;
+width: 100%;
 }
 .accordion-button{
     background-color:#cbcbcc ;
+    width: 100%;
+}
+.personalcollectionbanner{
+    background-color:#cbcbcc ;
+}
+#commentInput{
+    width:18em;
+}
+#commentDisabled{
+    width: 18em;
+}
+.comment-card {
+
+    border: none;
+    box-shadow: 5px 6px 6px 2px #cbcbcc;
+    border-radius: 4px;
+    margin-right:2em;
 }
 .formLabel{
     color: lightgray;
@@ -850,8 +868,11 @@ margin-top: auto;
     margin-bottom: 1em;
 }
 #collectionImage{
-    width: 15em;
-    height: 15em;
+    width: 10em;
+    height: 10em;
+}
+#collectionDescription{
+    margin-top: -3.5em;
 }
 button[aria-label][data-balloon-pos] {
     overflow: visible; }
