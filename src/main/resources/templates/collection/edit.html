@@ -51,7 +51,10 @@
 
 
     <p>Description</p>
-    <input th:field="*{description}" type="text">
+<!--    <input th:field="*{description}" type="text">-->
+            <textarea th:field="*{description}" rows = "2" cols = "35" name = "description" style="width:200px;">
+            Enter details here...
+         </textarea>
     <p>Image Url</p>
     <input th:field="*{image}" type="text" id="Url">
     <input th:field="*{user}" type="text" style="display: none">
