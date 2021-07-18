@@ -97,6 +97,9 @@ body {
 .accordion-button{
     background-color:#cbcbcc ;
 }
+.personalcollectionbanner{
+    background-color:#cbcbcc ;
+}
 .formLabel{
     color: lightgray;
     display: flex;
