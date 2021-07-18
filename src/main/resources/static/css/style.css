@@ -354,7 +354,7 @@ div#Yt2{
     margin-top: 20px;
     margin-bottom: 200px;
     color: #393b3e;
-    background-color: #a3a4a5;
+    background-color: #d3d3d3;
 }
 
 /* The switch - the box around the slider */
@@ -413,7 +413,7 @@ input:checked + .slider:before {
 
 .editForm{
     color: #4f4f4f;
-    background-color: #a3a4a5;
+    background-color: #d3d3d3;
 }
 
 input#editButton{
