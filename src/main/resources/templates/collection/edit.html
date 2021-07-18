@@ -29,9 +29,12 @@
         </div>
     </div>
 </div>
+<div class="container center mb-4">
+<img src="" id="DisplayImage" class="img-fluid CImage">
+</div>
 <div class="center">
     <div class="center">
-<form class='editForm' th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
+        <form class='editForm' th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
     <h3 class="editForm">Edit this collection</h3>
     <p class="editForm">Title</p>
     <input th:field="*{title}" type="text">
