@@ -63,7 +63,9 @@ body {
     font-size: large;
     overflow-wrap: break-word;
 }
-
+.navbar{
+    background-color: #cbcbcc;
+}
 .form{
     width: 70%;
     margin: 1em auto 3em auto;
@@ -89,7 +91,12 @@ body {
     font-size: 1rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
+.accordion-header{
+    background-color:#cbcbcc ;
+}
+.accordion-button{
+    background-color:#cbcbcc ;
+}
 .formLabel{
     color: lightgray;
     display: flex;
@@ -183,7 +190,7 @@ form{
 .bar{
     height: 80px;
     width: 100%;
-    background-color: #15151d;
+    background-color: #000000;
 }
 
 .counter-background{
@@ -820,6 +827,10 @@ margin-top: auto;
 }
 .creators{
     margin-bottom: 1em;
+}
+#collectionImage{
+    width: 15em;
+    height: 15em;
 }
 button[aria-label][data-balloon-pos] {
     overflow: visible; }

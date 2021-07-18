@@ -27,128 +27,45 @@
                         aria-label="Close"
                 ></button>
             </div>
-
-
-
-            <!--            <div class="modal-body">-->
-            <!--                <form th:action="@{/sign-up}" method="post" th:object="${user}">-->
-            <!--                    <div class="form-group">-->
-            <!--                        <label for="firstName">First Name</label>-->
-            <!--                        <input required name="first_name" th:type="text" class="form-control" id="firstName"-->
-            <!--                               placeholder="Enter First Name"-->
-            <!--                               th:field="*{firstName}"/><span th:if="${#fields.hasErrors('firstName')}"-->
-            <!--                                                              th:errors="*{firstName}"-->
-            <!--                                                              class="text-danger">Enter First Name</span>-->
-            <!--                    </div>-->
-            <!--                    <div class="form-group">-->
-            <!--                        <label for="lastName">Last Name</label>-->
-            <!--                        <input required type="text" class="form-control" id="lastName" placeholder="Enter Last Name"-->
-            <!--                               th:field="*{lastName}"/>-->
-            <!--                    </div>-->
-            <!--                    <div class="form-group">-->
-            <!--                        <label for="userName">Username</label>-->
-            <!--                        <input required type="text" class="form-control" id="userName" placeholder="Enter Username"-->
-            <!--                               th:field="*{username}"/>-->
-            <!--                    </div>-->
-
-            <!--                    <div class="form-group">-->
-            <!--                        <label for="reg_user_email">Email address</label>-->
-            <!--                        <input required type="email" class="form-control" id="reg_user_email"-->
-            <!--                               aria-describedby="emailHelp"-->
-            <!--                               placeholder="Enter Email" th:field="*{email}"/>-->
-            <!--                        &lt;!&ndash;                        <p th:text="${errorMessage1}" class="alert-danger"></p>&ndash;&gt;-->
-            <!--                    </div>-->
-            <!--                    <div class="form-group">-->
-            <!--                        <label for="reg_password">Password</label>-->
-            <!--                        <input required type="password" class="form-control" id="reg_password" placeholder="Password"-->
-            <!--                               th:field="*{password}"/>-->
-            <!--                        <small>Strength meter</small>-->
-            <!--                        <div id="meter_wrapper">-->
-            <!--                            <div id="meter"></div>-->
-            <!--                        </div>-->
-            <!--                        <span id="pass_type"></span>-->
-            <!--                    </div>-->
-            <!--                    <div class="form-group">-->
-            <!--                        <label for="confirm_password">Confirm Password</label>-->
-            <!--                        <input required type="password" class="form-control" id="confirm_password"-->
-            <!--                               placeholder="Confirm Password"/>-->
-            <!--                    </div>-->
-            <!--                    <div class="form-check">-->
-            <!--                        <input type="checkbox" class="form-check-input" id="newsLetterCheck"/>-->
-            <!--                        <label class="form-check-label" for="newsLetterCheck">Check if you would like to join our-->
-            <!--                            newsletter!</label>-->
-            <!--                    </div>-->
-
-            <!--                    <div class="modal-footer">-->
-            <!--                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">-->
-            <!--                            Close-->
-            <!--                        </button>-->
-
-            <!--                        <button type="submit" class="btn btn-primary">Confirm</button>-->
-
-            <!--                    </div>-->
-            <!--                </form>-->
-            <!--            </div>-->
         </div>
     </div>
 </div>
-<!--<div style="background-color: #d2d2d2; height: 150px; width: 100%; margin-top: 50px">-->
-<!--    <h1 class="title-header title"></h1>-->
-<!--</div>-->
 
 
-<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: darkgrey;">
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" >
     <h2 class="personalcollectionbanner"><span id="bannerUser"></span>, here is your collection: <span id="collectionTitle"></span></h2>
-    <hr>
+
     <div class="row">
     <img src="" id="collectionImage" class="col-2 offset-3">
     <h3 id="collectionDescription" class="col-2 offset-1"> <br> Title: <span id="collectionTitle2"></span> </h3>
 
 </div>
 </div>
-<div class="row">
-    <div class="col-1"></div>
-    <div class="col-3">
-        <div style="margin: 10px">
-            <img id="collection_image" alt="" src="">
-        </div>
-    </div>
-
-    <div class="col-4">
-        <div class="row">
-            <h3 class="title-header title"></h3>
-        </div>
-        <div class="row">
-            <ul id="collection-data"></ul>
-        </div>
-    </div>
+<!--<div class="row">-->
+<!--&lt;!&ndash;    <div class="col-1"></div>&ndash;&gt;-->
 <!--    <div class="col-3">-->
-<!--        <p>SET COLLECTION TO PUBLIC-->
-<!--            <label class="switch">-->
-<!--                <input type="checkbox" checked>-->
-<!--                <span class="slider round"></span>-->
-<!--            </label></p>-->
-<!--&lt;!&ndash;        <form method="POST" action="#">&ndash;&gt;-->
-<!--&lt;!&ndash;            <input type="hidden" id="newId" name="newId" th:value="${newId}">&ndash;&gt;-->
-<!--&lt;!&ndash;            <label for="#"></label>&ndash;&gt;-->
-<!--&lt;!&ndash;            <input id="#" placeholder="ADD URL FOR A COLLECTION IMAGE" type="text">&ndash;&gt;-->
-<!--&lt;!&ndash;            <input type="submit">&ndash;&gt;-->
-<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--        <div style="margin: 10px">-->
+<!--            <img id="collection_image" alt="" src="">-->
+<!--        </div>-->
 <!--    </div>-->
-    <div class="col-1"></div>
-</div>
 
-<div style="background-color: #d2d2d2; padding-top: 50px">
+<!--    <div class="col-4">-->
+<!--        <div class="row">-->
+<!--            <h3 class="title-header title"></h3>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <ul id="collection-data"></ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="col-1"></div>&ndash;&gt;-->
+<!--</div>-->
+
+<div>
     <div class="container" id="accordionExample" style=" width: 80%">
-        <div id="section-data" style="height: 1000px; width: 1000px"></div>
+        <div id="section-data" ></div>
         <div id="delete"></div>
     </div>
 </div>
-
-<!--    <form action="/collections/delete" method="post">-->
-<!--        <input type="hidden" name="section_id" value="13" >-->
-<!--        <input class="btn btn-danger btn-sm" type="submit">-->
-<!--    </form>-->
 
 
 
