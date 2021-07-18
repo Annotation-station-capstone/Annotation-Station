@@ -89,18 +89,9 @@
                 class="font-weight-bold" th:text="${comments.getComment()}"></small></span></div>
     </div>
 </div>
-
-
-<!--<div   th:each="comments : ${comments}">-->
-
-<!--    <strong><p th:text="${comments.user.username}"></p></strong>-->
-<!--    <p th:text="${comments.getComment()}"></p>-->
-<!--</div>-->
-
 <form th:action="@{/comment/add}" th:method="POST">
 
     <input class="mt-4" id="commentInput" type="hidden" name="collectionId" th:value="${param.collection_id}">
-
 
     <label>
         <input class="mt-4" id="commentDisabled" disabled placeholder="Must be logged in to make a comment"
@@ -108,15 +99,16 @@
     </label>
 
     <label>
-    <textarea rows="2" cols="50" name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">
+    <textarea class="commentTextarea mt-4" rows="2" cols="50" name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">
 </textarea>
     </label>
+    <br>
     <!--    <button type="button" th:href="@{/}" sec:authorize="!isAuthenticated()" >Login</button>-->
     <!--    <label>-->
     <!--        <input name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">-->
     <!--    </label>-->
 
-    <input type="submit" sec:authorize="isAuthenticated()">
+    <input class="mb-3" type="submit" sec:authorize="isAuthenticated()">
 
 
 </form>
