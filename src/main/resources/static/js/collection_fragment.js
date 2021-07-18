@@ -57,7 +57,7 @@ $(document).ready(function () {
                     let section_id = sections[i].id;
                     let section_video = sections[i].videos;
 
-                    let body = `<h1 class="accordion-header col-12" id="heading${i}">
+                    let body = `<h1 class="accordion-header " id="heading${i}">
 <button class="accordion-button" style="background-color: #cbcbcc" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">Section ${i + 1}: ${section_title}</button>
 </h1>
 <div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample">
