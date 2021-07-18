@@ -9,7 +9,7 @@ $(document).ready(function () {
     let videoId = '';
     let timeStamp = '';
     let singleNoteId = '';
-    let counter= 1;
+    let counter = 1;
 
     $.ajax({
         type: 'GET',
@@ -57,7 +57,11 @@ $(document).ready(function () {
                     let section_id = sections[i].id;
                     let section_video = sections[i].videos;
 
-                    let body = `<h1 class="accordion-header col-12" id="heading${i}"><a class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">Section ${i+1}: ${section_title}</a></h1><div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample"><div class="accordion-body">`;
+                    let body = `<h1 class="accordion-header col-12" id="heading${i}">
+<button class="accordion-button" style="background-color: #cbcbcc" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">Section ${i + 1}: ${section_title}</button>
+</h1>
+<div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample">
+<div class="accordion-body">`;
 
 
                     $('.top_accord').attr('id', 'section' + i);
@@ -117,7 +121,6 @@ $(document).ready(function () {
 //
 //
 //
-
 
 
 //</form action="/products/delete" method="post">
