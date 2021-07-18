@@ -63,7 +63,9 @@ body {
     font-size: large;
     overflow-wrap: break-word;
 }
-
+.navbar{
+    background-color: #cbcbcc;
+}
 .form{
     width: 70%;
     margin: 1em auto 3em auto;
@@ -90,6 +92,55 @@ body {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.btn-select-rt{
+    line-height: 1.5;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    background: #6c757d;
+    color: white;
+    font-weight: bold;
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border: #323131 1px solid;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+a,u{
+    color:inherit;
+    text-decoration: none !important;
+}
+.accordion-header{
+    background-color:#cbcbcc ;
+width: 100%;
+}
+.accordion-button{
+    background-color:#cbcbcc ;
+    width: 100%;
+}
+.personalcollectionbanner{
+    background-color:#cbcbcc ;
+}
+#commentInput{
+    width:18em;
+}
+#commentDisabled{
+    width: 18em;
+}
+.comment-card {
+
+    border: none;
+    box-shadow: 5px 6px 6px 2px #cbcbcc;
+    border-radius: 4px;
+    margin-right:2em;
+}
+.commentTextarea{
+    box-shadow: 5px 6px 6px 2px #cbcbcc;
+    border-radius: 4px;
+    margin-right:2em;
+}
 .formLabel{
     color: lightgray;
     display: flex;
@@ -183,7 +234,7 @@ form{
 .bar{
     height: 80px;
     width: 100%;
-    background-color: #15151d;
+    background-color: #000000;
 }
 
 .counter-background{
@@ -202,7 +253,9 @@ form{
     /*opacity: .8;*/
 }
 
-
+.YTInput{
+    margin-bottom: 0 !important;
+}
 
 .YTcard {
     display: flex;
@@ -326,8 +379,8 @@ p{
 div#Yt2{
     margin-top: 20px;
     margin-bottom: 200px;
-    color: #a9a9a9;
-    background-color: #232323;
+    color: #393b3e;
+    background-color: #d3d3d3;
 }
 
 /* The switch - the box around the slider */
@@ -356,6 +409,7 @@ div#Yt2{
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    border: solid 0.05em #4f4f4f;
 }
 
 .slider:before {
@@ -384,9 +438,9 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-form.editForm{
-    color: #a9a9a9;
-    background-color: #232323;
+.editForm{
+    color: #4f4f4f;
+    background-color: #d3d3d3;
 }
 
 input#editButton{
@@ -471,7 +525,35 @@ input#submitYt{
     font-size: 2vw;
 }
 
-/*TODO Edit and delelt form styling*/
+.screenBanner{
+    width: 60%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+p.homeVideoBanners{
+    padding: 1vw;
+}
+
+.homeVideoBanners{
+    line-height: .90;
+    font-size: 2vw;
+}
+
+.screenRow{
+    padding: 2vw;
+}
+
+.homePlayer .video-container {
+    position: unset !important;
+    width: unset !important;
+}
+
+.homePlayer{
+    /*padding: 1vw;*/
+}
+
+/*TODO Edit and delete form styling*/
 .editDeleteForm{
     text-align: center;
     margin-top: 25px;
@@ -793,6 +875,13 @@ margin-top: auto;
 }
 .creators{
     margin-bottom: 1em;
+}
+#collectionImage{
+    width: 10em;
+    height: 10em;
+}
+#collectionDescription{
+    margin-top: -3.5em;
 }
 button[aria-label][data-balloon-pos] {
     overflow: visible; }

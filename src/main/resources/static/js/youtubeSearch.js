@@ -16,7 +16,7 @@ $(document).ready(function() {
                     let video = items[i];
                     let snippet = video.snippet;
                     let thumbnails = snippet.thumbnails;
-                    let defaultThumbnails = thumbnails.default;
+                    let defaultThumbnails = thumbnails.high;
                     let url = defaultThumbnails.url;
                     let title = snippet.title;
                     let vidId = video.id.videoId;

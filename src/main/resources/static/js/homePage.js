@@ -1,5 +1,65 @@
 $(document).ready(function () {
     let currentUser = $('#currentUser').text()
+
+    console.log('im connected')
+    console.info(`loadVideo called`);
+
+
+    (function loadYoutubeIFrameApiScript() {
+
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        tag.onload = setupPlayer;
+    })();
+    var player = null;
+
+    function setupPlayer() {
+        console.log("playerSetup")
+        window.YT.ready(function () {
+            player = new YT.Player('videoPlayer', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        });
+    }
+
+    // function onPlayerReady(event) {
+    //     event.target.playVideo();
+    //     time_total = convert_to_mins_and_secs(player.getDuration(), 1);
+    //     // authenticate().then(loadClient);
+    //     // loadClient.ready(execute());
+    //     generateProgressBar();
+    //     buildCurrentTimeDisplay();
+    // }
+
+    // 5. The API calls this function when the player's state changes (works)
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+            console.log("END!");
+            clearTimeout(timeout_setter);
+        } else {
+            console.log(event.data);
+        }
+    }
+
+    const options = {
+        onUploadDone:
+            function (res) {
+                $("#user_id").val(res.filesUploaded[0].url);
+                res.filesUploaded
+            }
+    }
+
+
+
+
+
     console.log(currentUser);
     $.ajax({
         type: 'GET',
@@ -35,7 +95,7 @@ $(document).ready(function () {
                         console.log(sections[j].title);
                         sectionsHtml += `${sections[j].title}, `
                     }
-                    $(cardContainer).append("<div class='col-lg-3 col-md-3 mb-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections:  ' + sectionsHtml + '</p>' + "</div></div>");
+                    $(cardContainer).append("<div class='col-3 collectionCards card d-flex align-items-stretch shadow-4 rounded-5'><div class='card shadow-4 rounded-5'>" + image + cardBody + '<p class=\'card-text CSections\'> Sections:  ' + sectionsHtml + '</p>' + "</div></div>");
 
                     // $('.parallax-window').parallax({imageSrc: '/../media/geoBackground.png'});
 

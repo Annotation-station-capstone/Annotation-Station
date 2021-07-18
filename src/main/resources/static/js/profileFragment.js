@@ -9,10 +9,11 @@ $(document).ready(function () {
         data: {},
         success:
             function (data) {
-                let collection_user1 = (data[0].user.username).toUpperCase();
+                let collection_user1 = (data[0].user.username);
                 let userTitle = $('#userTitle')
 
                 $(userTitle).append("<div class='p-4 m-4 shadow-4 rounded-3 jumbotron text-center' style='background-color: lightgrey;'><h2 class='Cbanners'>WELCOME "+  collection_user1 +",  HERE ARE YOUR PERSONAL COLLECTIONS </h2></div>")
+                $('#bannerUser').append(collection_user1);
 
                 for (let i = 0; i < data.length; i++) {
                     // console.log(data[i]);
@@ -32,7 +33,7 @@ $(document).ready(function () {
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
-                    $('#bannerUser').append(collection_user);
+
 
 
 
