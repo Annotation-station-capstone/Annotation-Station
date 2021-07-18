@@ -67,9 +67,10 @@
 
 
 	<div sec:authorize="isAuthenticated()">
-		<a href="/create" class="createButton" alt="CREATE NEW COLLECTION"></a>
+		<a href="/" class="createButton">HOME</a>
+		<a href="/create" class="createButton">CREATE</a>
 	</div>
-	<div href="/"></div>
+
 
 
 
@@ -177,11 +178,10 @@
 				User ID: <span id="currentUser" th:text="${#authentication.principal.id}"/>
 			</div>
 			<div class="text-light" sec:authorize="isAuthenticated()">
-				Welcome, <a href="/collections/profile"><span th:text="${#authentication.principal.username}"/></a>
+				<a href="/collections/profile" class="createButton"><span th:text="${#authentication.principal.username}"/></a>
 			</div>
-			<br>
 			<form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
-				<button class="btn-link btn btn-light" style="margin-top: 8px">Logout</button>
+				<a class="createButton">Logout</a>
 				<div th:if="${param.logout}">
 					You have been logged out.
 				</div>

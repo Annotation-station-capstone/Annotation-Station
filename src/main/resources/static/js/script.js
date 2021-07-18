@@ -277,17 +277,15 @@ $(document).ready(function () {
         }
     })
 
-    $("#tags_drop").on('change', function () {
-        if ($(this).val() === "") {
-
-        } else {
-            $("#tag").addClass("textField");
-            $('#tag-tip').removeAttr('data-balloon-visible').removeAttr('data-balloon-pos');
-            $('#tag').attr('value', this.value);
-            $('#collectionId').attr('value', this.value);
-
-        }
+    $("#profilePage").on('click', function () {
+        window.location.href = "/collections/profile";
     })
+
+    $("#disableBalloons").on('click', function () {
+        $("#section-tip, #note-tip, #section-tip, #collection-tip, #userURLSubmit").removeAttr('data-balloon-visible');
+    })
+
+
         // ?enablejsapi=1&start=
 
     //get params from url search and transfers it to iframe
