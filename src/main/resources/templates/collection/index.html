@@ -100,22 +100,41 @@
     </div>
 </div>
 <!--modal ends-->
-<div class=container>
-    <div class="row">
-        <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
-            <h1>Welcome to Annotation Station! </h1>
-            <p class="Cbanners small">Have you ever watched a long YouTube video and forgotten where you saw or heard
-                some important/useful information? Well, at Annotation Station you'll never lose them again. Here, you'll be
-                able to create timestamped notes of your favorite YouTube videos, share them with the community or even
-                save them to your own personal collection. </p>
-            <hr>
-            <h3 class="Cbanners">ENJOY THESE THOUGHTFULLY ASSEMBLED COLLECTIONS</h3>
 
-        </div>
-    </div>
+
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center row" style="background-color: lightgrey;">
+    <h1>CREATE, ORGANIZE, SHARE</h1>
 </div>
 
+
+<div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center row screenBanner" style="background-color: lightgrey;">
+    <div class="row screenRow">
+        <div class="col-6"><p class="homeVideoBanners small">
+            Create time stamped notes on YouTube videos which can be organized into collections and shared among our community.</p>
+            <hr> <h4> Click the video for more info</h4>
+
+        </div>
+        <div class="col-6 homePlayer">
+            <div class="video-container text-center">
+                <iframe id="videoPlayer" width="auto" height="100%" src="https://www.youtube.com/embed/LpHhhZylwko?enablejsapi=1"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h3 class="Cbanners">ENJOY THESE THOUGHTFULLY ASSEMBLED COLLECTIONS</h3>
+
+</div>
+
+
 <div id="cardContainerHome" class='bg-image hover-overlay ripple resultsContainer' data-mdb-ripple-color='light'></div>
+
+<!--Have you ever watched a long YouTube video and forgotten where you saw or heard
+                some important/useful information? Well, at Annotation Station you'll never lose them again. Here, you'll be
+                able to create timestamped notes of your favorite YouTube videos, share them with the community or even
+                save them to your own personal collection. -->
 
 <footer th:include="partials/footer :: footer"></footer>
 <script src="/js/homePage.js" rel="script"></script>
