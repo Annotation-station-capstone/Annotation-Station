@@ -82,7 +82,7 @@
 <!--        <input type="submit" name="delete" placeholder="delete">-->
 <!--</form>-->
 
-
+<div class="invisibleSpacer"></div>
 
 <div th:each="comments : ${comments}">
 
@@ -90,7 +90,7 @@
     <p th:text="${comments.getComment()}"></p>
 </div>
 
-<form th:action="@{/comment/add}" th:method="POST" >
+<form th:action="@{/comment/add}" th:method="POST" class="mt-5" >
 
     <input type="hidden" name="collectionId" th:value="${param.collection_id}">
 
