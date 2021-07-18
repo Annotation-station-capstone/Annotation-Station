@@ -91,6 +91,24 @@ body {
     font-size: 1rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+.btn-select-rt{
+    line-height: 1.5;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    background: #6c757d;
+    color: white;
+    font-weight: bold;
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border: #323131 1px solid;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 .accordion-header{
     background-color:#cbcbcc ;
 }
@@ -209,7 +227,9 @@ form{
     /*opacity: .8;*/
 }
 
-
+.YTInput{
+    margin-bottom: 0 !important;
+}
 
 .YTcard {
     display: flex;
