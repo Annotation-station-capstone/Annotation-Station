@@ -978,10 +978,10 @@ p.homeVideoBanners{
     --balloon-font-size: 20px;
     --balloon-move: 10px; }
 .modal-body{
-    padding-left: 6em;
+    /*padding-left: 6em;*/
 }
 .modal-footer{
-    padding-right: 2.5em;
+    /*text-align: center;*/
 }
 
 footer{
