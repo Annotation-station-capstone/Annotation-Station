@@ -3,7 +3,7 @@
 
 <!--Nav Starts Here-->
 <div class="container"><div class="row">
-	<nav class="navbar navbar-icon-top navbar-expand-lg row-cols-auto" th:fragment="navbar" style="justify-content: space-around">
+	<nav class="navbar navbar-icon-top navbar-expand-lg row-cols-auto" th:fragment="navbar" style="justify-content: center">
 		<link th:href="@{/css/createButton.css}" rel="stylesheet">
 		<div class="dropdown">
 			<!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
@@ -65,12 +65,12 @@
 		</div>
 
 
-
+<!--		<div class="btn-toolbar" >-->
 		<div sec:authorize="isAuthenticated()">
 			<a href="/" class="createButton">HOME</a>
-			<a href="/create" class="createButton">CREATE</a>
+			<a href="/create" class="createButton" style="border-left: 1px solid #4f4f4f">CREATE</a>
 		</div>
-
+<!--		</div>-->
 
 
 
@@ -142,7 +142,7 @@
 
 
 			<a href="/">
-				<h1 class="annotation">Annotation Station</h1>
+				<h1 class="annotation" style="text-align: center">Annotation Station</h1>
 			</a>
 
 			<!--		<a href="/">-->
@@ -165,8 +165,8 @@
 		<!--        </button>-->
 		<!--    </a>-->
 
-		<div class="col-3">
-			<div class="input-group pl-5">
+		<div>
+			<div>
 				<!--            <div class="form-outline">-->
 				<!--                <input id="search-input" type="search" class="form-control search-frame"/>-->
 				<!--                <label class="form-label" for="search-input">Search</label>-->
@@ -177,7 +177,7 @@
 				<div sec:authorize="isAuthenticated()" style="display: none">
 					User ID: <span id="currentUser" th:text="${#authentication.principal.id}"/>
 				</div>
-				<div class="text-light" sec:authorize="isAuthenticated()">
+				<div class="text-dark" sec:authorize="isAuthenticated()">
 					<a href="/collections/profile" class="createButton"><span th:text="${#authentication.principal.username}"/></a>
 				</div>
 				<form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
