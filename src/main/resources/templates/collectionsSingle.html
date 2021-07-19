@@ -87,7 +87,7 @@
 <div class="comment-card p-3 " th:each="comments : ${comments}">
     <div class="d-flex justify-content-between align-items-center">
         <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bold text-dark"
-                                                                          th:text="${comments.user.username}"></small> <small
+                                                                          th:text="${comments.user.username}"></small><strong class="text-center">:</strong> <small
                 class="font-weight-bold" th:text="${comments.getComment()}"></small></span></div>
     </div>
 </div>
