@@ -707,8 +707,9 @@ p.homeVideoBanners{
 }
 
 .wrapper{
-    display: flex;
+    /*display: flex;*/
 }
+
 .wrapper .static-txt{
     color: #fff;
     font-size: 40px;
