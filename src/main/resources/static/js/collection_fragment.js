@@ -26,6 +26,7 @@ $(document).ready(function () {
                 console.log(data.image);
                 console.log(data.is_private);
                 console.log(data.id);
+                console.log(data.user.username)
                 let collection_title = data.title;
                 let collection_description = data.description;
                 let collection_image = data.image;
@@ -34,18 +35,19 @@ $(document).ready(function () {
                 let collection_data = $('#section-data');
                 let deleteButton = $('#delete');
                 let sections = data.sections;
+                let collectionOwner = data.user.username;
                 $('#collectionTitle').append(collection_title);
                 $('#collectionTitle2').append(collection_title);
                 $('#collectionImage').attr('src', collection_image);
                 $('#collectionDescription').append('<br><br><br> Description: ' + collection_description)
-
+                $('#collectionOwner').append(collectionOwner);
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
 
-                    <div class="accordion-item w-100 row" xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center"></div>
+                    <div class="accordion-item text-dark " xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center"></div>
 
                     `;
-                    let delete_form = '    <form class="dropdown-menu dropdown-menu-dark" action="/collections/delete" method="post" aria-labelledby="dropdownMenuButton2">\n' +
+                    let delete_form = '    <form class="dropdown-menu dropdown-menu-dark text-dark" action="/collections/delete" method="post" aria-labelledby="dropdownMenuButton2">\n' +
                         '\n' +
                         '     <input type="hidden" name="section_id" value="${section_id}">\n' +
                         '     <input class="dropdown-item btn btn-danger btn-sm" data-id="" type="submit" value="Delete">Delete Section</input>\n' +
@@ -57,11 +59,11 @@ $(document).ready(function () {
                     let section_id = sections[i].id;
                     let section_video = sections[i].videos;
 
-                    let body = `<h1 class="accordion-header col-12" id="heading${i}">
-<button class="accordion-button" style="background-color: #cbcbcc" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne">Section ${i + 1}: ${section_title}</button>
+                    let body = `<h1 class="accordion-header text-dark" id="heading${i}">
+<button class="accordion-button text-dark"  type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne" >Section ${i + 1}: ${section_title}</button>
 </h1>
-<div id="collapse${i}" class="accordion-collapse collapse w-100" aria-labelledby="heading${i}"data-bs-parent="#accordionExample">
-<div class="accordion-body">`;
+<div id="collapse${i}" class="accordion-collapse collapse text-dark" aria-labelledby="heading${i}"data-bs-parent="#accordionExample">
+<div class="accordion-body text-dark">`;
 
 
                     $('.top_accord').attr('id', 'section' + i);
@@ -85,7 +87,7 @@ $(document).ready(function () {
                             let timeStamp = noteData[l].time_stamp;
 
                             // /create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&start=${timeStamp}"
-                            let note_tag = `<div class="row"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>`
+                            let note_tag = `<div class="row text-dark"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>`
 
 
                             body += note_tag;

@@ -7,11 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet"/>
-<!--    <link href="/../../css/collectionPageStyle.css" rel="stylesheet">-->
+    <!--    <link href="/../../css/collectionPageStyle.css" rel="stylesheet">-->
     <link href="/../../css/style.css" rel="stylesheet">
     <link href="/../../css/profilePageStyle.css" rel="stylesheet">
     <link href="/../../css/editPage.css" rel="stylesheet">
-
 
 
     <meta charset="UTF-8">
@@ -23,55 +22,94 @@
 <div class=container>
     <div class="row">
         <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
-            <h1>Edit Your Collection </h1>
-            <p class="Cbanners small">On this page, you can make updates to the pre-existing Collections you created! Change the Title, Description, Privacy Settings, or upload any image URL. If you don't have an image in mind, feel free to use our Youtube image search feature to grab any Youtube video thumbnail.  </p>
-            <hr>
+            <h1>EDIT YOUR COLLECTION</h1>
+
         </div>
     </div>
 </div>
-<div class="center">
-    <div class="center">
-<form class='editForm' th:action="@{/collections/edit/{id}(id=${collection.id})}" th:method="POST" th:object="${collection}">
-    <h3 class="editForm">Edit this collection</h3>
-    <p class="editForm">Title</p>
-    <input th:field="*{title}" type="text">
 
-
-    <p>Set to Private?</p>
-    <input th:field="*{is_private}" style='display: none' type="text" value="">
-
-    <label class="switch" id="toggle">
-        <input type="checkbox">
-        <span class="slider"></span>
-    </label>
-
-
-
-    <p>Description</p>
-    <input th:field="*{description}" type="text">
-    <p>Image Url</p>
-    <input th:field="*{image}" type="text" id="Url">
-    <input th:field="*{user}" type="text" style="display: none">
-    <input type="submit" value="Submit Edit" id="editButton">
-</form>
-</div>
-<div class="center">
-    <div id="Yt2">
-        <h3 class="editForm">Youtube images search</h3>
-        <input type="text" id="search" placeholder="type here to search Youtube">
-            <input type="submit" id="submitYt" value="Search Images">
-        <div class='editForm' id="yResults">
-            <div>
-                <div id="thumbnails"></div>
-                <div id="results" value=""> </div>
-                <br>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-5">
+        <img src="" id="DisplayImage" class="img-fluid shadow-4 rounded-5 EImage">
+    </div>
+    <div class="col-5">
+        <form class='editForm shadow-4 rounded-5' th:action="@{/collections/edit/{id}(id=${collection.id})}"
+              th:method="POST" th:object="${collection}">
+            <div class="row mb-2">
+                <label for="collectionTitle" class="col-3 col-form-label">Title</label>
             </div>
-            <div id="thumbnail"></div>
-        </div>
+            <div class="row mb-2">
+                <input th:field="*{title}" type="text" id="collectionTitle" class="rounded-2" placeholder="Collection's Name">
+            </div>
+
+            <div class="row mb-2">
+                <label for="collectionDescr" class="col-3 col-form-label">Description</label>
+            </div>
+            <div class="row mb-2">
+            <textarea id="collectionDescr" th:field="*{description}" rows="2" cols="35" name="description"
+                      class="rounded-2" placeholder="Enter Details Here">
+         </textarea>
+            </div>
+
+            <div class="row mb-2">
+                <label for="Url" class="col-3 col-form-label">Image Url</label>
+            </div>
+            <div class="row mb-2">
+                <input th:field="*{image}" type="text" id="Url" class="collectionImageUrl rounded-2" placeholder="Image URL">
+                <input th:field="*{user}" type="text" style="display: none">
+            </div>
+
+            <div class="row mb-3 editSubmitRow">
+                <div class="col-8 ">
+                    <div class="row">
+                        <div class="col-2">
+                            <input th:field="*{is_private}" style='display: none' type="checkbox" value=""
+                                   class=" rounded-2">
+                            <label class="switch " id="toggle">
+                                <input type="checkbox">
+                                <span class="slider "></span>
+                            </label>
+                        </div>
+                        <div class="col-6">
+                            <span>Toggle Public Visibility</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <input type="submit" value="Submit Edit" id="editButton" class="btn btn-primary">
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </form>
     </div>
-<input type="text" style="display: none" id="hiddenUrl" value="">
 </div>
+
+
+<div id="Yt2" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">
+    <h3 style="color: black; text-align: start"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Search YouTube and select an image
+        for your collection</h3>
+    <div class="input-group mb-3 YTInput">
+
+        <button type="submit" class="btn-select btn-secondary" id="submitYt">
+            Search
+        </button>
+
+        <input id="search" class="form-control textField" name="search" type="text"
+               placeholder="type here to search Youtube">
+    </div>
+    <div id="yResults">
+        <div class="col">
+            <div id="thumbnails"></div>
+            <div id="results" value="" class="yResults"></div>
+            <br>
+        </div>
+        <div id="thumbnail"></div>
+    </div>
+    <input type="text" style="display: none" id="hiddenUrl" value="">
 </div>
+
+
 <div class="invisibleSpacer"></div>
 <footer th:include="partials/footer :: footer"></footer>
 
