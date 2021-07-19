@@ -107,7 +107,7 @@ public class CollectionsController {
     @PostMapping("/collections/delete")
     public String delete(@RequestParam long id){
         collectionsDao.deleteById(id);
-        return "collection/index";
+        return "profileFragment";
     }
 
     //get form to create new collection

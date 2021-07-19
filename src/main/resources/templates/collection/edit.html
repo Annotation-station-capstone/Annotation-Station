@@ -21,7 +21,9 @@
 <nav th:replace="partials/header :: navbar"></nav>
 <div class=container>
     <div class="row">
-        <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style="background-color: lightgrey;">
+        <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style='background-color: white;
+                    font-family: American Typewriter, serif;
+                    color: black'>
             <h1>EDIT YOUR COLLECTION</h1>
 
         </div>
@@ -40,7 +42,7 @@
                 <label for="collectionTitle" class="col-3 col-form-label">Title</label>
             </div>
             <div class="row mb-2">
-                <input th:field="*{title}" type="text" id="collectionTitle" class="rounded-2" placeholder="Collection's Name">
+                <input th:field="*{title}" type="text" id="collectionTitle" class="rounded" placeholder="Collection's Name">
             </div>
 
             <div class="row mb-2">
@@ -63,6 +65,7 @@
             <div class="row mb-3 editSubmitRow">
                 <div class="col-8 ">
                     <div class="row">
+
                         <input th:field="*{is_private}" style='display: none' type="checkbox" id="is_private" value="" class=" rounded-2">
                         <div class="col-4">
                             <div class="btn-group" role="group" aria-label="private public radio">
@@ -71,6 +74,7 @@
                                 <input type="radio" class="btn-check" name="pubradio" id="public" autocomplete="off">
                                 <label class="btn-select-rt btn-primary" for="public">Public</label>
                             </div>
+
                         </div>
                     </div>
                 </div>
