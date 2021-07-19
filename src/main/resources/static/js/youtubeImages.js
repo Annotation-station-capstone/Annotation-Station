@@ -16,12 +16,14 @@ $(document).ready(function() {
                     let video = items[i];
                     let snippet = video.snippet;
                     let thumbnails = snippet.thumbnails;
-                    let defaultThumbnails = thumbnails.default;
+                    let defaultThumbnails = thumbnails.high;
                     let url = defaultThumbnails.url;
                     let title = snippet.title;
                     let vidId = video.id.videoId;
+
                     $('#results').append("<div id='get"+ [i] +"' value='" + url + "' class='YTcard col'><p id='get" + [i] +"'  class='YTPic'><img class='tubeThumbs YTImage' alt='pic' id='img'" + [i]+ " src ='" + url +  "'></p></div>");
                     // $('#results').append("<p id='get" + [i] +"' value='" + url + "'><img id='img'" + [i]+ " src ='" + url +  "'> " + title + " </p>");
+
                     console.log(defaultThumbnails.url)
                 }
             },
@@ -54,68 +56,68 @@ $(document).ready(function() {
         let id0 = $("#get0").attr('value');
         Url.setAttribute("value", id0)
         console.log(id0);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
     $(document).on("click", "img0", function(){
         let id0 = $("#get0").attr('value');
         Url.setAttribute("value", id0)
         console.log(id0);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "p#get1", function(){
         let id1 = $("#get1").attr('value');
         Url.setAttribute("value", id1)
         console.log(id1);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "img1", function(){
         let id1 = $("#get1").attr('value');
         Url.setAttribute("value", id1)
         console.log(id1);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "p#get2", function(){
         let id2 = $("#get2").attr('value');
         Url.setAttribute("value",id2 )
         console.log(id2);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "img2", function(){
         let id2 = $("#get2").attr('value');
         Url.setAttribute("value", id2 )
         console.log(id2);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "p#get3", function(){
         let id3 = $("#get3").attr('value');
         Url.setAttribute("value",id3 )
         console.log(id3);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "img3", function(){
         let id3 = $("#get3").attr('value');
         Url.setAttribute("value",id3 )
         console.log(id3);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     $(document).on("click", "p#get4", function(){
         let id4 = $("#get4").attr('value');
         Url.setAttribute("value", id4)
         console.log(id4);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
     $(document).on("click", "img4", function(){
         let id4 = $("#get4").attr('value');
         Url.setAttribute("value", id4)
         console.log(id4);
-        alert("Collection Image Updated");
+        alert("Collection Image Updated, Please click Submit Edit to continue");
     })
 
     // $(document).on("click", "#toggle", function(){
@@ -143,13 +145,13 @@ $(document).ready(function() {
     $('input[type="checkbox"]').click(function(){
         if($(this).prop("checked") == true){
             console.log("Checkbox is checked.");
-            alert("This collection's visibility has been set to Private")
+            alert("This collection's visibility has been set to Private, Please click Submit Edit to continue")
             $('#is_private').val(true);
         }
         else if($(this).prop("checked") == false){
             console.log("Checkbox is unchecked.");
             $('#is_private').val(false);
-            alert("This collection's visibility has been set to Public")
+            alert("This collection's visibility has been set to Public, Please click Submit Edit to continue")
         }
     });
 
