@@ -142,18 +142,22 @@ $(document).ready(function() {
     //     }
     // })
 
-    $('input[type="checkbox"]').click(function(){
-        if($(this).prop("checked") == true){
-            console.log("Checkbox is checked.");
-            alert("This collection's visibility has been set to Private, Please click Submit Edit to continue")
-            $('#is_private').val(true);
-        }
-        else if($(this).prop("checked") == false){
-            console.log("Checkbox is unchecked.");
-            $('#is_private').val(false);
-            alert("This collection's visibility has been set to Public, Please click Submit Edit to continue")
-        }
-    });
+        $('#private').click(function() {
+            if ($(this).prop("checked") === true) {
+                console.log("Private is checked.");
+                alert("This collection's visibility has been set to Private, Please click Submit Edit to continue")
+                $('#is_private').val(true);
+            }
+        })
+
+        $('#public').click(function() {
+            if ($(this).prop("checked") === true) {
+                console.log("Public is checked.");
+                $('#is_private').val(false);
+                alert("This collection's visibility has been set to Public, Please click Submit Edit to continue")
+            }
+        })
+
 
     let imageUrl = $('#Url').val();
     $('#DisplayImage').attr('src',imageUrl );
