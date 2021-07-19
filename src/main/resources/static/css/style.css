@@ -340,7 +340,7 @@ div#Yt{
 }
 
 .YTcontainer{
-    background-color: lightgrey;
+    background-color: #ffffff;
     /*z-index: -10;*/
 }
 
@@ -519,18 +519,19 @@ input#submitYt{
 
 #collectionDescr{
     width: 100%;
+    border: 1px solid lightgrey;
 }
 
-#collectionDescr{
-    width: 100%;
-}
+
 
 #collectionTitle{
+    border: 1px solid lightgrey;
     width: 100%;
 }
 
 .collectionImageUrl{
     width: 100%;
+    border: 1px solid lightgrey;
 }
 
 .counter{
@@ -664,14 +665,16 @@ p.homeVideoBanners{
     object-fit: cover;
     width: 40vw;
     height: 40vw;
+    border-radius: 10px;
 }
 
 .editForm{
-    color: #4f4f4f;
-    background-color: #d3d3d3;
+    color: #fcfcfc;
+    background-color: #f8f8f8;
     width: 100%;
     height: 100%;
     padding: 6vw 2vw;
+    border-radius: 10px;
 }
 
 .CImage{

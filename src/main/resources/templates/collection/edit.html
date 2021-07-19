@@ -39,14 +39,14 @@
         <form class='editForm shadow-4 rounded-5' th:action="@{/collections/edit/{id}(id=${collection.id})}"
               th:method="POST" th:object="${collection}">
             <div class="row mb-2">
-                <label for="collectionTitle" class="col-3 col-form-label">Title</label>
+                <label for="collectionTitle" class="editLabel col-3 col-form-label text-dark">Title</label>
             </div>
             <div class="row mb-2">
                 <input th:field="*{title}" type="text" id="collectionTitle" class="rounded" placeholder="Collection's Name">
             </div>
 
             <div class="row mb-2">
-                <label for="collectionDescr" class="col-3 col-form-label">Description</label>
+                <label for="collectionDescr" class="col-3 col-form-label text-dark">Description</label>
             </div>
             <div class="row mb-2">
             <textarea id="collectionDescr" th:field="*{description}" rows="2" cols="35" name="description"
@@ -55,7 +55,7 @@
             </div>
 
             <div class="row mb-2">
-                <label for="Url" class="col-3 col-form-label">Image Url</label>
+                <label for="Url" class="col-3 col-form-label text-dark">Image Url</label>
             </div>
             <div class="row mb-2">
                 <input th:field="*{image}" type="text" id="Url" class="collectionImageUrl rounded-2" placeholder="Image URL">
@@ -68,7 +68,7 @@
 
                         <input th:field="*{is_private}" style='display: none' type="checkbox" id="is_private" value="" class=" rounded-2">
                         <div class="col-4">
-                            <div class="btn-group" role="group" aria-label="private public radio">
+                            <div class="btn-group btn-light" role="group" aria-label="private public radio">
                                 <input type="radio" class="btn-check" name="prtradio" id="private" autocomplete="off">
                                 <label class="btn-select btn-primary" for="private">Private</label>
                                 <input type="radio" class="btn-check" name="pubradio" id="public" autocomplete="off">
