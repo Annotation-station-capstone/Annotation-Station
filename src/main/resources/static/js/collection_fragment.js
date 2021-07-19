@@ -60,7 +60,7 @@ $(document).ready(function () {
                     let section_video = sections[i].videos;
 
                     let body = `<h1 class="accordion-header text-dark" id="heading${i}">
-<button class="accordion-button text-dark" style="background-color: #cbcbcc" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne" >Section ${i + 1}: ${section_title}</button>
+<button class="accordion-button text-dark"  type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapseOne" >Section ${i + 1}: ${section_title}</button>
 </h1>
 <div id="collapse${i}" class="accordion-collapse collapse text-dark" aria-labelledby="heading${i}"data-bs-parent="#accordionExample">
 <div class="accordion-body text-dark">`;
