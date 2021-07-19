@@ -734,7 +734,7 @@ p.homeVideoBanners{
     word-wrap: break-word;
     font-size: 2vw;
     font-weight: bolder;
-    height: 4vw;
+    height: 5vw;
     line-height: 100%;
     padding-top: 1vw;
     text-overflow: ellipsis;
@@ -745,9 +745,9 @@ p.homeVideoBanners{
     border-top: #444444 solid 2px;
     text-align: Center;
     font-size: 1.5vw;
-    height: 7vw;
+    height: 8vw;
     line-height: 95%;
-    padding-top: 2vw;
+    padding-top: .5vw;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -762,7 +762,7 @@ p.homeVideoBanners{
     text-align: left;
     font-size: 1vw;
     color: white;
-    height: 1vw;
+    height: .5vw;
     line-height: 125%;
     padding: 1vw 1vw 2vw 1vw;
     text-overflow: ellipsis;
@@ -776,6 +776,7 @@ p.homeVideoBanners{
 
 .Ctop-card{
     background: rgba(239, 239, 239, 0.59);
+    padding-bottom: 0 !important;
 }
 
 .card {
