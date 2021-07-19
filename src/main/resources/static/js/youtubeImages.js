@@ -20,10 +20,10 @@ $(document).ready(function() {
                     let url = defaultThumbnails.url;
                     let title = snippet.title;
                     let vidId = video.id.videoId;
-                    $('#results').append("<p id='get" + [i] +"' value='" + url + "'><img id='img'" + [i]+ " src ='" + url +  "'> " + title + " </p>");
+                    $('#results').append("<div id='get"+ [i] +"' value='" + url + "' class='YTcard col'><p id='get" + [i] +"'  class='YTPic'><img class='tubeThumbs YTImage' alt='pic' id='img'" + [i]+ " src ='" + url +  "'></p></div>");
+                    // $('#results').append("<p id='get" + [i] +"' value='" + url + "'><img id='img'" + [i]+ " src ='" + url +  "'> " + title + " </p>");
                     console.log(defaultThumbnails.url)
                 }
-
             },
             type: "GET"
         });

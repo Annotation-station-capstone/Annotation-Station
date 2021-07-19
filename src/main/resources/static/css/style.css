@@ -188,7 +188,7 @@ width: 100%;
     height: 100%;
 }
 
-form{
+form.create{
     width: 80% !important;
 }
 
@@ -309,6 +309,10 @@ div#Yt{
     font-size: x-large;
 }
 
+.YTPic{
+    padding: 0 !important;
+}
+
 .yResults{
     display: flex;
     flex-wrap: wrap;
@@ -328,60 +332,60 @@ div#Yt{
     /*z-index: -10;*/
 }
 
-p#get0:hover{
-    background-color: #A0A0A0;
-}
+/*p#get0:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get1:hover{
-    background-color: #A0A0A0;
-}
+/*p#get1:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get2:hover{
-    background-color: #A0A0A0;
-}
+/*p#get2:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get3:hover{
-    background-color: #A0A0A0;
-}
+/*p#get3:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get4:hover{
-    background-color: #A0A0A0;
-}
+/*p#get4:hover{*/
+/*    background-color: #A0A0A0;*/
+/*}*/
 
-p#get0:active{
-    background-color: pink;
-}
+/*p#get0:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get1:active{
-    background-color: pink;
-}
+/*p#get1:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get2:active{
-    background-color: pink;
-}
+/*p#get2:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get3:active{
-    background-color: pink;
-}
+/*p#get3:active{*/
+/*    background-color: pink;*/
+/*}*/
 
-p#get4:active {
-    background-color: pink;
-}
-p{
-    margin-top: 1rem;
-    margin-bottom: 0px;
-}
-.center{
-    display: flex;
-    justify-content: center;
-}
+/*p#get4:active {*/
+/*    background-color: pink;*/
+/*}*/
+/*p{*/
+/*    margin-top: 1rem;*/
+/*    margin-bottom: 0px;*/
+/*}*/
+/*.center{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
 
-div#Yt2{
-    margin-top: 20px;
-    margin-bottom: 200px;
-    color: #393b3e;
-    background-color: #d3d3d3;
-}
+/*div#Yt2{*/
+/*    margin-top: 20px;*/
+/*    margin-bottom: 200px;*/
+/*    color: #393b3e;*/
+/*    background-color: #d3d3d3;*/
+/*}*/
 
 /* The switch - the box around the slider */
 .switch {
@@ -438,27 +442,25 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-.editForm{
-    color: #4f4f4f;
-    background-color: #d3d3d3;
-}
+/*.editForm{*/
+/*    color: #4f4f4f;*/
+/*    background-color: #d3d3d3;*/
+/*}*/
 
-input#editButton{
-    border: solid whitesmoke 1px;
-    background-color: #1266f1;
-    color: whitesmoke;
-}
-input#submitYt{
-    border: solid whitesmoke 1px;
-    background-color: #1266f1;
-    color: whitesmoke;
-}
+/*input#editButton{*/
+/*    border: solid whitesmoke 1px;*/
+/*    background-color: #1266f1;*/
+/*    color: whitesmoke;*/
+/*}*/
+/*input#submitYt{*/
+/*    border: solid whitesmoke 1px;*/
+/*    background-color: #1266f1;*/
+/*    color: whitesmoke;*/
+/*}*/
 
-.invisibleSpacer{
-    height: 250px;
-}
-
-
+/*.invisibleSpacer{*/
+/*    height: 250px;*/
+/*}*/
 
 /*#section:empty{*/
 /*    filter: sepia(1);*/
@@ -467,6 +469,23 @@ input#submitYt{
 /*#collection:empty{*/
 /*    filter: sepia(1);*/
 /*}*/
+
+
+#collectionDescr{
+    width: 100%;
+}
+
+#collectionDescr{
+    width: 100%;
+}
+
+#collectionTitle{
+    width: 100%;
+}
+
+.collectionImageUrl{
+    width: 100%;
+}
 
 .counter{
     font-weight: bold;
@@ -598,6 +617,20 @@ p.homeVideoBanners{
     height: 300px;
     /*border-radius: 5px;*/
 
+}
+
+.EImage{
+    object-fit: cover;
+    width: 40vw;
+    height: 40vw;
+}
+
+.editForm{
+    color: #4f4f4f;
+    background-color: #d3d3d3;
+    width: 100%;
+    height: 100%;
+    padding: 6vw 2vw;
 }
 
 .CTitle{
@@ -882,6 +915,11 @@ margin-top: auto;
 #collectionDescription{
     margin-top: -3.5em;
 }
+
+.editSubmitRow{
+    margin-top: 6vw;
+}
+
 button[aria-label][data-balloon-pos] {
     overflow: visible; }
 
