@@ -185,7 +185,7 @@
 
 				</div>
 				<form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
-					<a class="createButton">Logout</a>
+					<button class="createButton">Logout</button>
 					<div th:if="${param.logout}">
 						You have been logged out.
 					</div>
