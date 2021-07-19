@@ -16,7 +16,7 @@
 						aria-expanded="false">
 					<div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
 				</button>
-				<div class="dropdown-menu text-center mx-auto " style="width: 320px">
+				<div class="dropdown-menu text-center mx-auto " style="width: 320px" id="loginDropdown">
 					<form class="px-4 py-3 mt-3 mx-auto" th:action="@{/}" th:method="post">
 						<!-- Username input -->
 
@@ -57,6 +57,7 @@
 					<button
 							type="button"
 							class="btn btn-primary text-center"
+							id="register-btn"
 							data-mdb-toggle="modal"
 							data-mdb-target="#registerModal"
 					>
