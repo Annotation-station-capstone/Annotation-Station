@@ -4,7 +4,7 @@
 <!--Nav Starts Here-->
 <div class="container"><div class="row">
 
-	<nav class="navbar navbar-icon-top navbar-expand-lg row-cols-auto" th:fragment="navbar" style="justify-content: center">
+	<nav class="navbar navbar-icon-top navbar-expand-lg row-cols-auto" th:fragment="navbar" style="justify-content: space-around">
 		<link th:href="@{/css/createButton.css}" rel="stylesheet">
 		<div class="dropdown">
 			<!--        <div sec:authorize="!isAuthenticated()" class="text-light">SignIn/Reg ister</div>-->
@@ -145,7 +145,7 @@
 
 
 			<a href="/">
-				<h1 class="annotation" style="text-align: center">Annotation Station</h1>
+				<h1 class="annotation" style="text-align: center; font-size: 2.5vw">Annotation Station</h1>
 			</a>
 
 			<!--		<a href="/">-->
@@ -180,16 +180,17 @@
 				<div sec:authorize="isAuthenticated()" style="display: none">
 					User ID: <span id="currentUser" th:text="${#authentication.principal.id}"/>
 				</div>
-				<div class="text-dark" sec:authorize="isAuthenticated()">
-					<a href="/collections/profile" class="createButton"><span th:text="${#authentication.principal.username}"/></a>
+				<div class="text-dark btn-group" style="box-shadow: none" sec:authorize="isAuthenticated()">
+					<a href="/collections/profile" style="border-right: 1px solid #4f4f4f" class="createButton"><span th:text="${#authentication.principal.username}"/></a>
 
-				</div>
-				<form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
-					<a class="createButton">Logout</a>
+
+				<form class="text-center" style="align-self: center; padding: 0.46vw 1.6vw; font-size: 1vw" th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
+					<button class="createButton" style="border: none; background-color: transparent; font-family: 'American Typewriter'">Logout</button>
 					<div th:if="${param.logout}">
 						You have been logged out.
 					</div>
 				</form>
+				</div>
 			</div>
 		</div>
 
