@@ -186,6 +186,7 @@
 
 				<form class="text-center" style="align-self: center; padding: 0.46vw 1.6vw; font-size: 1vw" th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
 					<button class="createButton" style="border: none; background-color: transparent; font-family: 'American Typewriter'">Logout</button>
+
 					<div th:if="${param.logout}">
 						You have been logged out.
 					</div>
