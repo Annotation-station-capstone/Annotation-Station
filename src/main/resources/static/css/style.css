@@ -294,6 +294,13 @@ form.create{
 .innerContainer{
     width: 100%;
 }
+.commentTextarea{
+    width: 100%;
+}
+
+.commentsForm{
+    width: 100%;
+}
 
 .commentsContainer{
     width: 80%;
