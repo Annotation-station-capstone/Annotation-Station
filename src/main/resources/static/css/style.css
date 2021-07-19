@@ -374,7 +374,7 @@ div#Yt{
     overflow-scrolling: auto;
     width: 100%;
     align-self: center;
-    margin: 4vh auto 1vh auto;
+    margin: 4vw auto 1vw auto;
     column-gap: 2vw;
     padding-left: 4vw;
     padding-right: 4vw;
@@ -682,7 +682,7 @@ p.homeVideoBanners{
     margin: 25px auto 25px auto;
     perspective: 700px;
     row-gap: 5%;
-    column-gap: 12%;
+    column-gap: 10%;
 }
 
 #buttonContainerProfile {
@@ -699,13 +699,7 @@ p.homeVideoBanners{
 
 }
 
-.CImage{
-    object-fit: cover;
-    width: 20vw;
-    height: 300px;
-    /*border-radius: 5px;*/
 
-}
 
 .EImage{
     object-fit: cover;
@@ -721,14 +715,21 @@ p.homeVideoBanners{
     padding: 6vw 2vw;
 }
 
+.CImage{
+    object-fit: cover;
+    width: 40vw;
+    height: 15vw;
+    /*border-radius: 5px;*/
+}
+
 .CTitle{
     text-align: center;
     word-wrap: break-word;
     font-size: 2vw;
     font-weight: bolder;
-    height: 10vh;
+    height: 5vw;
     line-height: 90%;
-    padding-top: 2vh;
+    padding-top: 1vw;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -737,9 +738,9 @@ p.homeVideoBanners{
     border-top: #444444 solid 2px;
     text-align: Center;
     font-size: 1.5vw;
-    height: 10vh;
-    line-height: 90%;
-    padding-top: 2vh;
+    height: 7vw;
+    line-height: 95%;
+    padding-top: 2vw;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -754,12 +755,16 @@ p.homeVideoBanners{
     text-align: left;
     font-size: 1vw;
     color: white;
-    height: 5vh;
+    height: 2vw;
     line-height: 125%;
-    padding: 1vh 1vw 2vh 1vw;
+    padding: 1vw 1vw 2vw 1vw;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.CButton{
+    font-size: 1vw;
 }
 
 .Ctop-card{
