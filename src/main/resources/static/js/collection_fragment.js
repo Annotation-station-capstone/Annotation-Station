@@ -87,7 +87,7 @@ $(document).ready(function () {
                             let timeStamp = noteData[l].time_stamp;
 
                             // /create?url=https://www.youtube.com/embed/${videoUrl}?enablejsapi=1&start=${timeStamp}"
-                            let note_tag = `<div class="row text-dark"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})${singleNote} </a></strong></div>`
+                            let note_tag = `<div class="row text-dark"><div class="col-4>"<strong><a id="${singleNoteId}" href="/create?url=${videoId}&timeStamp=${timeStamp}">${counter++})     ${singleNote} </a></strong></div>`
 
 
                             body += note_tag;
