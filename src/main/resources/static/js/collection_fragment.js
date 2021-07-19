@@ -26,6 +26,7 @@ $(document).ready(function () {
                 console.log(data.image);
                 console.log(data.is_private);
                 console.log(data.id);
+                console.log(data.user.username)
                 let collection_title = data.title;
                 let collection_description = data.description;
                 let collection_image = data.image;
@@ -34,11 +35,12 @@ $(document).ready(function () {
                 let collection_data = $('#section-data');
                 let deleteButton = $('#delete');
                 let sections = data.sections;
+                let collectionOwner = data.user.username;
                 $('#collectionTitle').append(collection_title);
                 $('#collectionTitle2').append(collection_title);
                 $('#collectionImage').attr('src', collection_image);
                 $('#collectionDescription').append('<br><br><br> Description: ' + collection_description)
-
+                $('#collectionOwner').append(collectionOwner);
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
 
