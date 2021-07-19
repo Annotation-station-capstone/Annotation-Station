@@ -88,15 +88,17 @@
 <!--        <input type="submit" name="delete" placeholder="delete">-->
 <!--</form>-->
 
+<hr>
+<div class="row commentsContainer">
 <h5 class="mt-5">Comments:</h5>
 <div class="comment-card p-3 " th:each="comments : ${comments}">
     <div class="d-flex justify-content-between align-items-center">
         <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bold text-dark"
                                                                           th:text="${comments.user.username}"></small><strong class="text-center">:</strong> <small
                 class="font-weight-bold" th:text="${comments.getComment()}"></small></span></div>
-
     </div>
-    <form th:action="@{/comment/add}" th:method="POST">
+</div>
+    <form th:action="@{/comment/add}" th:method="POST" class="commentsForm">
 
 
         <input class="mt-4" id="commentInput" type="hidden" name="collectionId" th:value="${param.collection_id}">
@@ -106,11 +108,11 @@
                    sec:authorize="!isAuthenticated()">
         </label>
 
-        <label>
-    <textarea class="commentTextarea mt-4" rows="2" cols="50" name="comment" placeholder="Type comment here"
+        <label class="commentFeild"> </label>
+    <textarea class="commentTextarea mt-4 commentFeild" rows="2" cols="50" name="comment" placeholder="Type comment here"
               sec:authorize="isAuthenticated()">
 </textarea>
-        </label>
+
         <br>
         <!--    <button type="button" th:href="@{/}" sec:authorize="!isAuthenticated()" >Login</button>-->
         <!--    <label>-->
@@ -133,6 +135,7 @@
     <div class="row">
         <ul id="comment-data"></ul>
     </div>
+</div>
 </div>
 
 
