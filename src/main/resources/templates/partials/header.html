@@ -15,7 +15,7 @@
 					aria-expanded="false">
 				<div><i class="fas fa-book-reader" style="font-size: xx-large"></i></div>
 			</button>
-			<div class="dropdown-menu text-center mx-auto " style="width: 320px">
+			<div class="dropdown-menu text-center mx-auto " style="width: 320px" id="loginDropdown">
 				<form class="px-4 py-3 mt-3 mx-auto" th:action="@{/}" th:method="post">
 					<!-- Username input -->
 					<div class="form-outline mb-4  text-center">
@@ -54,7 +54,7 @@
 				<div class="dropdown-divider"></div>
 				<button
 						type="button"
-						class="btn btn-primary text-center"
+						class="registerBtn btn btn-primary text-center mb-3 mt-3"
 						data-mdb-toggle="modal"
 						data-mdb-target="#registerModal"
 				>
@@ -181,7 +181,7 @@
 				<a href="/collections/profile" class="createButton"><span th:text="${#authentication.principal.username}"/></a>
 			</div>
 			<form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
-				<a class="createButton">Logout</a>
+				<button class="btn-link btn btn-light" style="border-bottom-color: black">Logout</button>
 				<div th:if="${param.logout}">
 					You have been logged out.
 				</div>

@@ -15,6 +15,8 @@ $(document).ready(function () {
                 $(userTitle).append("<div class='p-4 m-4 shadow-4 rounded-3 jumbotron text-center' style='background-color: lightgrey;'><h2 class='Cbanners'>WELCOME "+  collection_user1 +",  HERE ARE YOUR PERSONAL COLLECTIONS </h2></div>")
                 $('#bannerUser').append(collection_user1);
 
+
+
                 for (let i = 0; i < data.length; i++) {
                     // console.log(data[i]);
                     // console.log(data[i].id);
@@ -33,8 +35,8 @@ $(document).ready(function () {
                     let sections = data[i].sections;
                     let cardContainer = $('#cardContainerProfile');
                     let buttonContainer = $('#buttonContainerProfile');
-
-
+                    console.log(collection_user);
+                    $('#bannerUser1').append(collection_user);
 
 
                     let image = `<img src="${collection_image}" class='img-fluid shadow-4 rounded-5 CImage' alt='img'><a id='${collection_id}' href='/collections/single?collection_id=${collection_id}'><div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div></a>`;
