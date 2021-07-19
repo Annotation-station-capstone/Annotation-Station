@@ -269,6 +269,47 @@ form.create{
     margin-bottom: 0 !important;
 }
 
+
+/*TODO collections page styling*/
+
+#collectionImage{
+   width: 100%;
+    height: auto;
+}
+#collectionDescription{
+
+}
+
+.wholeAccord{
+    width: 100%;
+    background-color: #0000001F;
+}
+
+.accordionContainer{
+    width: 80%;
+    margin: 3vw auto;
+
+}
+
+.innerContainer{
+    width: 100%;
+}
+
+.commentsContainer{
+    width: 80%;
+    margin: 0 auto 2vw auto;
+}
+
+.collInfoBanner{
+    width: 80%;
+    margin: 0 auto;
+}
+.outerbanner{
+    margin-top: 2vw;
+}
+
+/*TODO youtube cards*/
+
 .YTcard {
     display: flex;
     align-content: center;
@@ -956,13 +997,6 @@ margin-top: auto;
 }
 .creators{
     margin-bottom: 1em;
-}
-#collectionImage{
-    width: 10em;
-    height: 10em;
-}
-#collectionDescription{
-    margin-top: -3.5em;
 }
 
 .editSubmitRow{

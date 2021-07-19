@@ -34,15 +34,19 @@
 
 <div class="mt-3 shadow-4 rounded-3">
     <h1 class="personalcollectionbanner text-center "><span
-            id="collectionTitle"></span> collection, created by: <span id="collectionOwner"></span> </h1>
-<!--        <h1 class="personalcollectionbanner text-center "><span id="bannerUser"></span>, here is your collection: <span-->
-<!--            id="collectionTitle"></span></h1>-->
+            id="collectionTitle"></span> collection, created by: <span id="collectionOwner"></span></h1>
+</div>
 
-    <div class="row">
-
-        <img src="" id="collectionImage" class="col-3" alt="collection-image">
-        <h4 id="collectionDescription" class="col-5"></h4>
-
+<div class="row outerbanner">
+    <div class="collInfoBanner row">
+<!--        <div class="col-1"></div>-->
+        <div class="col-5">
+            <img src="" id="collectionImage" class="" alt="collection-image">
+        </div>
+        <div class="col-5">
+            <h4 id="collectionDescription" class=""></h4>
+        </div>
+<!--        <div class="col-1"></div>-->
     </div>
 </div>
 <!--<div class="row">-->
@@ -65,8 +69,8 @@
 <!--</div>-->
 
 <div>
-    <div id="accordionExample" style=" width: 100%">
-        <div id="section-data"></div>
+    <div id="accordionExample" class="accordionContainer">
+        <div id="section-data" class="innerContainer"></div>
         <div id="delete"></div>
     </div>
 </div>
@@ -83,16 +87,53 @@
 <!--    <input type="hidden" name="id" th:value="${param.collection_id}">-->
 <!--        <input type="submit" name="delete" placeholder="delete">-->
 <!--</form>-->
-<h5 class="mt-5">Comments:</h5>
-<div class="comment-card p-3 " th:each="comments : ${comments}">
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bold text-dark"
-                                                                          th:text="${comments.user.username}"></small> <small
-                class="font-weight-bold" th:text="${comments.getComment()}"></small></span></div>
+<div class="commentsContainer">
+    <h5 class="mt-5">Comments:</h5>
+    <div class="comment-card p-3 " th:each="comments : ${comments}">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="user d-flex flex-row align-items-center"><span><small class="font-weight-bold text-dark"
+                                                                              th:text="${comments.user.username}"></small> <small
+                    class="font-weight-bold" th:text="${comments.getComment()}"></small></span></div>
+        </div>
+    </div>
+    <form th:action="@{/comment/add}" th:method="POST">
+
+
+        <input class="mt-4" id="commentInput" type="hidden" name="collectionId" th:value="${param.collection_id}">
+
+        <label>
+            <input class="mt-4" id="commentDisabled" disabled placeholder="Must be logged in to make a comment"
+                   sec:authorize="!isAuthenticated()">
+        </label>
+
+        <label>
+    <textarea class="commentTextarea mt-4" rows="2" cols="50" name="comment" placeholder="Type comment here"
+              sec:authorize="isAuthenticated()">
+</textarea>
+        </label>
+        <br>
+        <!--    <button type="button" th:href="@{/}" sec:authorize="!isAuthenticated()" >Login</button>-->
+        <!--    <label>-->
+        <!--        <input name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">-->
+        <!--    </label>-->
+
+        <input class="mb-3" type="submit" sec:authorize="isAuthenticated()">
+
+
+    </form>
+    <!--<div th:replace="partials/comment :: commentForm"></div>-->
+
+    <!--<div th:if="${currentUserId == param.collection_Id}">-->
+    <!--    <h3>Delete this collection</h3>-->
+    <!--    <form th:action="@{/collections/delete}" th:method="POST" >-->
+    <!--        <input type="hidden" name="id" th:value="${param.collection_id}">-->
+    <!--        <input type="submit" name="delete" placeholder="delete">-->
+    <!--    </form>-->
+
+    <div class="row">
+        <ul id="comment-data"></ul>
     </div>
 </div>
-
-
 
 
 <!--<div   th:each="comments : ${comments}">-->
@@ -103,43 +144,7 @@
 <!--</div>-->
 
 
-
-<form th:action="@{/comment/add}" th:method="POST">
-
-
-    <input class="mt-4" id="commentInput" type="hidden" name="collectionId" th:value="${param.collection_id}">
-
-    <label>
-        <input class="mt-4" id="commentDisabled" disabled placeholder="Must be logged in to make a comment"
-               sec:authorize="!isAuthenticated()">
-    </label>
-
-    <label>
-    <textarea class="commentTextarea mt-4" rows="2" cols="50" name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">
-</textarea>
-    </label>
-    <br>
-    <!--    <button type="button" th:href="@{/}" sec:authorize="!isAuthenticated()" >Login</button>-->
-    <!--    <label>-->
-    <!--        <input name="comment" placeholder="Type comment here" sec:authorize="isAuthenticated()">-->
-    <!--    </label>-->
-
-    <input class="mb-3" type="submit" sec:authorize="isAuthenticated()">
-
-
-</form>
-<!--<div th:replace="partials/comment :: commentForm"></div>-->
-
-<!--<div th:if="${currentUserId == param.collection_Id}">-->
-<!--    <h3>Delete this collection</h3>-->
-<!--    <form th:action="@{/collections/delete}" th:method="POST" >-->
-<!--        <input type="hidden" name="id" th:value="${param.collection_id}">-->
-<!--        <input type="submit" name="delete" placeholder="delete">-->
-<!--    </form>-->
 <hr>
-<div class="row">
-    <ul id="comment-data"></ul>
-</div>
 
 
 <!--<div class="accordion" id="accordionExample">-->

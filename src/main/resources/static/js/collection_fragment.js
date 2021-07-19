@@ -44,7 +44,7 @@ $(document).ready(function () {
                 for (let i = 0; i < sections.length; i++) {
                     let accordian_item = `
 
-                    <div class="accordion-item text-dark " xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center"></div>
+                    <div class="accordion-item text-dark wholeAccord" xmlns="http://www.w3.org/1999/html"><div class="dropdown col-4 text-*-center"></div>
 
                     `;
                     let delete_form = '    <form class="dropdown-menu dropdown-menu-dark text-dark" action="/collections/delete" method="post" aria-labelledby="dropdownMenuButton2">\n' +
