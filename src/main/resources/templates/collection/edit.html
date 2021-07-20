@@ -20,14 +20,14 @@
 <body>
 <nav th:replace="partials/header :: navbar"></nav>
 <div class=container>
-    <div class="row">
-        <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" style='background-color: white;
+
+        <div class="p-4 m-4 shadow-4 rounded-3 jumbotron text-center" id="editHeader" style='background-color: white;
                     font-family: American Typewriter, serif;
                     color: black'>
-            <h1>EDIT YOUR COLLECTION</h1>
+            <h1>Edit Your Collection</h1>
 
         </div>
-    </div>
+
 </div>
 
 <div class="row">
@@ -91,15 +91,15 @@
 
 
 <div id="Yt2" class="row YTcontainer p-4 m-4 shadow-4 rounded-3 jumbotron">
-    <h3 style="color: black; text-align: start"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Search YouTube and select an image
+    <h3 id="editSearch" style=" color: black; " class="text-center" > &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Search YouTube and select an image
         for your collection</h3>
     <div class="input-group mb-3 YTInput">
 
-        <button type="submit" class="btn-select btn-secondary" id="submitYt">
+        <button type="submit" class="btn-select btn-primary" id="submitYt">
             Search
         </button>
 
-        <input id="search" class="form-control textField" name="search" type="text"
+        <input id="search" class="form-control textField text-dark bg-light" name="search" type="text"
                placeholder="type here to search Youtube">
     </div>
     <div id="yResults">
