@@ -104,7 +104,7 @@ public class CollectionsController {
     }
 
     //destroy a collection
-    @PostMapping("/collections/delete")
+    @DeleteMapping ("/collections/delete/{id}")
     public String delete(@RequestParam long id){
         collectionsDao.deleteById(id);
         return "profileFragment";

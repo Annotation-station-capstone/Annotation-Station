@@ -39,7 +39,7 @@
 
 
 <h1 class="editDeleteFormText" style="display: none">Delete this collection</h1>
-<form th:action="@{/collections/delete}" th:method="POST" id="linkToDelete" style="display: none">
+<form th:action="@{/collections/delete/{id}" th:method="DELETE" id="linkToDelete" style="display: none">
 	<input type="hidden" id="colIdDelete" name="id" value="">
 	<input type="submit" id='submitDelete' name="delete" placeholder="delete">
 </form>

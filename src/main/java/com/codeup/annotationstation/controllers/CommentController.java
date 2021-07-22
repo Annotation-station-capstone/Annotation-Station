@@ -48,7 +48,7 @@ public class CommentController {
         return "redirect:/collection";
     }
 
-    @GetMapping("comment/{id}/delete")
+    @DeleteMapping ("comment/{id}/delete")
     public String destroyComment(@PathVariable long id) {
         commentDao.deleteById(id);
         return "redirect:/collection";

@@ -62,6 +62,7 @@ public class CreateService {
                 i++;
             }
 
+
             Video video = incomingCollection.getVideo();
             video.setSection(newSection);
 
@@ -69,11 +70,14 @@ public class CreateService {
             note.setSections(newSection);
             note.setVideo(incomingCollection.getVideo());
 
-            List<Note> sectionNotes = newSection.getNotes();
-            sectionNotes.add(note);
-            newSection.setNotes(sectionNotes);
+            List<Note> newNotes = new ArrayList<>();
+            newNotes.add(note);
+            newSection.setNotes(newNotes);
+//            List<Note> sectionNotes = newSection.getNotes();
+//            sectionNotes.add(note);
+//            newSection.setNotes(newSection.getNotes());
 
-            List<Video> sectionVideos = newSection.getVideos();
+            List<Video> sectionVideos = new ArrayList<>();
             sectionVideos.add(video);
             newSection.setVideos(sectionVideos);
 
