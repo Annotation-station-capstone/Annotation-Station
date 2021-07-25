@@ -300,6 +300,7 @@ $(document).ready(function () {
         else{
                 let youTubeVideoUrl = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&start=${timeStamp}`
                 $('#videoPlayer').attr('src', youTubeVideoUrl)
+                $('#ytId').attr('src', videoId)
             }
     })
 
